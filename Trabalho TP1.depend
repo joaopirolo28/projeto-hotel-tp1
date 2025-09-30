@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1759261724 source:c:\users\jppoe\documents\faculdade\topicos de programação 1\trabalho tp1\main.cpp
+	<iostream>
+	"capacidade.hpp"
+	"data.hpp"
+	"endereco.hpp"
+	"ramal.hpp"
+
+1759170901 c:\users\jppoe\documents\faculdade\topicos de programação 1\trabalho tp1\capacidade.hpp
+
+1759177108 source:c:\users\jppoe\documents\faculdade\topicos de programação 1\trabalho tp1\capacidade.cpp
+	"capacidade.hpp"
+
+1759176503 c:\users\jppoe\documents\faculdade\topicos de programação 1\trabalho tp1\data.hpp
+	<map>
+	<string>
+
+1759176881 source:c:\users\jppoe\documents\faculdade\topicos de programação 1\trabalho tp1\data.cpp
+	"data.hpp"
+
+1759260872 source:c:\users\jppoe\documents\faculdade\topicos de programação 1\trabalho tp1\endereco.cpp
+	"endereco.hpp"
+
+1759257282 c:\users\jppoe\documents\faculdade\topicos de programação 1\trabalho tp1\endereco.hpp
+	<string>
+
+1759261458 c:\users\jppoe\documents\faculdade\topicos de programação 1\trabalho tp1\ramal.hpp
+	<string>
+
