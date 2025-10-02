@@ -14,7 +14,7 @@ class Capacidade{
         int getValor();
 };
 
-inline Capacidade::getValor(){
+inline int Capacidade::getValor(){
     return valor;
 }
 
