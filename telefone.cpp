@@ -2,11 +2,11 @@
 #include<cctype>
 
 void Telefone::validar(const string&valor){
-    if(valor.length()!=TAMANHO){
-        throw invalid_argument("Telefone precisa ter 15 caracteres");
-    }
     if(valor.front()!='+'){
         throw invalid_argument("Telefone deve comecar com '+'.");
+    }
+    if(valor.length()!=TAMANHO){
+        throw invalid_argument("Telefone precisa ter 12 caracteres");
     }
     for(size_t i = 1; i<valor.length(); ++i){
         if(!isdigit(valor[i])){

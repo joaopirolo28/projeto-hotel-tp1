@@ -94,6 +94,7 @@ int main()
     try{
         Telefone telefone("+61996098513");
         cout<<"Telefone cadastrado: "<<telefone.getValor()<<endl;
+        Telefone telefoneInvalido("*61996098513");
     }catch(const invalid_argument&exp){
         cout<<"Erro: "<<exp.what()<<endl;
     }
