@@ -1,9 +1,6 @@
 #include <iostream>
-
-#include "capacidade.hpp"
-#include "data.hpp"
-#include "endereco.hpp"
-#include "ramal.hpp"
+#include<stdexcept>
+#include "dominios.hpp" //juntei em dominios para ficar mais limpo -Tarsila
 
 using namespace std;
 
@@ -65,6 +62,31 @@ int main()
         cout << "Valor invalido" << endl;
     }
 
+    try{
+        Codigo codigo("HotelPqpes");
+        cout<<"Codigo criado com sucesso: "<<codigo.getValor()<< endl;
+        Codigo codigoInvalido("H@tel!");
+    }catch(const invalid_argument &exp){
+        cout<<"Erro ao criar codigo: "<<exp.what()<<endl;
+    }
+
+    try{
+        Email email("m.nome-123@gmail.com");
+        cout<<"Email criado: "<<email.getEmail()<<endl;
+    } catch(const invalid_argument& exp){
+        cout<<"Erro inesperado: "<<exp.what()<<endl;
+    }
+    try{
+        Email email_invalido(".comeca@componto.com");
+    }catch(const invalid_argument &exp){
+        cout<<"Erro inesperado: "<< exp.what()<<endl;
+    }
+    
+    try {
+        Email email_invalido("outro@dominio..com");
+    } catch(const invalid_argument& exp) {
+        cout<<"Erro esperado: "<< exp.what()<<endl;
+    }
     return 0;
 
 }
