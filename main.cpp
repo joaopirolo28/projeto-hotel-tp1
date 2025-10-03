@@ -1,7 +1,7 @@
 #include <iostream>
 #include<stdexcept>
 #include "dominios.hpp" //juntei em dominios para ficar mais limpo -Tarsila
-
+//todo novo dominio ir para dominios.hpp
 using namespace std;
 
 int main()
@@ -71,22 +71,34 @@ int main()
     }
 
     try{
-        Email email("m.nome-123@gmail.com");
+        Email email("nome-123@gmail.com");
         cout<<"Email criado: "<<email.getEmail()<<endl;
     } catch(const invalid_argument& exp){
-        cout<<"Erro inesperado: "<<exp.what()<<endl;
+        cout<<"Erro: "<<exp.what()<<endl;
     }
     try{
         Email email_invalido(".comeca@componto.com");
     }catch(const invalid_argument &exp){
-        cout<<"Erro inesperado: "<< exp.what()<<endl;
+        cout<<"Erro: "<< exp.what()<<endl;
     }
     
-    try {
-        Email email_invalido("outro@dominio..com");
-    } catch(const invalid_argument& exp) {
-        cout<<"Erro esperado: "<< exp.what()<<endl;
+    try{
+        Numero numero(20);
+        cout<<"Numero cadastrado com sucesso: "<< numero.getValor()<<endl;
+        Numero numeroInvalido(1000);
     }
+     catch(const invalid_argument&exp){
+        cout<<"Erro: "<<exp.what()<<endl;
+        }
+    
+    try{
+        Telefone telefone("+61996098513");
+        cout<<"Telefone cadastrado: "<<telefone.getValor()<<endl;
+    }catch(const invalid_argument&exp){
+        cout<<"Erro: "<<exp.what()<<endl;
+    }
+
+    
     return 0;
 
 }
