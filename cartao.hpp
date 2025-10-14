@@ -11,7 +11,7 @@ string valor;
 void validar(const string&valorCartao) const;
 
 public:
-Cartao()=default;
+Cartao(const string&valorCartao);
 void setValor(const string&valorCartao);
 string getValor()const;
 

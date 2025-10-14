@@ -3,7 +3,7 @@
 #include "dominios.hpp" //juntei em dominios para ficar mais limpo -Tarsila
 //todo novo dominio ir para dominios.hpp
 #include<iomanip>
-#include"entidades.hpp"
+
 
 using namespace std;
 
@@ -66,7 +66,7 @@ int main()
     }
 
     try{
-        Codigo codigo("HotelPqpes");
+        Codigo codigo("HotelAB123");
         cout<<"Codigo criado com sucesso: "<<codigo.getValor()<< endl;
         Codigo codigoInvalido("H@tel!");
     }catch(const invalid_argument &exp){
@@ -102,7 +102,21 @@ int main()
         cout<<"Erro: "<<exp.what()<<endl;
     }
 
-    
+    try{
+        Cartao cartao("5423573294061746");
+        cout<<"Cartao cadastrado"<<cartao.getValor()<<endl;
+        Cartao cartao_invalido("1234567891011122");
+    }catch(const invalid_argument&exp){
+        cout<<"Erro: "<<exp.what()<<endl;
+    }
+
+    try{
+        Dinheiro dinheiro(868000.85);
+        cout<<"Dinheiro armazenado"<<dinheiro.getValor()<<endl;
+        Dinheiro dinheiroInvalido(0.0);
+    }catch(const invalid_argument&exp){
+        cout<<"Erro: "<<exp.what()<<endl;
+    }
     return 0;
 
 }
