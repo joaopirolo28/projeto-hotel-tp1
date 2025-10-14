@@ -9,6 +9,8 @@
 #include "email.hpp"
 #include "telefone.hpp"
 #include "numero.hpp"
-
+#include "cartao.hpp"
+#include "dinheiro.hpp"
+#include "nome.hpp"
 
 #endif // DOMINIOS_HPP_INCLUDED

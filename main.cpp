@@ -2,6 +2,7 @@
 #include<stdexcept>
 #include "dominios.hpp" //juntei em dominios para ficar mais limpo -Tarsila
 //todo novo dominio ir para dominios.hpp
+#include<iomanip>
 using namespace std;
 
 int main()

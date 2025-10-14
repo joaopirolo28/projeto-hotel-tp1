@@ -1,0 +1,17 @@
+#include "pessoa.hpp"
+
+void Pessoa::setNome(const Nome&nome){
+    this->nome=nome;
+}
+
+Nome Pessoa :: getNome()const{
+    return nome;
+}
+
+void Pessoa::setEmail(const Email&email){
+    this->email = email;
+}
+
+Email Pessoa::getEmail()const{
+    return email;
+}
