@@ -3,6 +3,8 @@
 #include "dominios.hpp" //juntei em dominios para ficar mais limpo -Tarsila
 //todo novo dominio ir para dominios.hpp
 #include<iomanip>
+#include"entidades.hpp"
+
 using namespace std;
 
 int main()
