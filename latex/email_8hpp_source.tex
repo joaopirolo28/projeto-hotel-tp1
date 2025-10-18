@@ -1,0 +1,32 @@
+\doxysection{email.\+hpp}
+\hypertarget{email_8hpp_source}{}\label{email_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ EMAIL\_HPP\_INCLUDED}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ EMAIL\_HPP\_INCLUDED}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }Email\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{string}\ email;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ validar(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ email);}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ validarParteLocal(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ parteLocal);}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ validarDominio(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ dominio);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ TAMANHO\_MAX\_LOCAL\ =\ 64;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ TAMANHO\_MAX\_DOMINIO\ =\ 255;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ Email(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ email);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ setEmail(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ email);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{string}\ getEmail()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{string}\ Email::getEmail()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>email;}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ EMAIL\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

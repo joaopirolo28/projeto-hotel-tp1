@@ -1,0 +1,28 @@
+\doxysection{telefone.\+hpp}
+\hypertarget{telefone_8hpp_source}{}\label{telefone_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TELEFONE\_HPP\_INCLUDED}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TELEFONE\_HPP\_INCLUDED}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }Telefone\{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{string}\ valor;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ validar(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&valor);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ TAMANHO\ =\ 12;}
+\DoxyCodeLine{00015\ \ \ \ \ Telefone(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&valor);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ setvalor(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&valor);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{string}\ getValor()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{string}\ Telefone::getValor()\textcolor{keyword}{const}\{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{return}\ valor;}
+\DoxyCodeLine{00022\ \}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TELEFONE\_HPP\_INCLUDED}}
+
+\end{DoxyCode}
