@@ -11,7 +11,7 @@ class Dinheiro{
     public:
     void setValor(double valor);
     double getValor() const;
-    Dinheiro(const double &valor);
+    Dinheiro();
 };
 
 #endif //DINHEIRO_HPP
