@@ -91,16 +91,74 @@ $(function(){initNavTree('class_dinheiro.html','','class_dinheiro-members'); });
   <div class="headertitle"><div class="title">Dinheiro Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe para armazenar e validar um valor monetário.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="dinheiro_8hpp_source.html">dinheiro.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3710756212ee545b52e19342c11627a3" id="r_a3710756212ee545b52e19342c11627a3"><td class="memItemLeft" align="right" valign="top"><a id="a3710756212ee545b52e19342c11627a3" name="a3710756212ee545b52e19342c11627a3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setValor</b> (double valor)</td></tr>
-<tr class="memitem:a8fe20cb2244f9fc2b5dc843646f9e717" id="r_a8fe20cb2244f9fc2b5dc843646f9e717"><td class="memItemLeft" align="right" valign="top"><a id="a8fe20cb2244f9fc2b5dc843646f9e717" name="a8fe20cb2244f9fc2b5dc843646f9e717"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getValor</b> () const</td></tr>
-<tr class="memitem:a695035b7209fe9194d7aa48459d475f1" id="r_a695035b7209fe9194d7aa48459d475f1"><td class="memItemLeft" align="right" valign="top"><a id="a695035b7209fe9194d7aa48459d475f1" name="a695035b7209fe9194d7aa48459d475f1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Dinheiro</b> (const double &amp;valor)</td></tr>
+<tr class="memitem:a3710756212ee545b52e19342c11627a3" id="r_a3710756212ee545b52e19342c11627a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3710756212ee545b52e19342c11627a3">setValor</a> (double valor)</td></tr>
+<tr class="memdesc:a3710756212ee545b52e19342c11627a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o valor monetário após validá-lo.  <br /></td></tr>
+<tr class="memitem:a8fe20cb2244f9fc2b5dc843646f9e717" id="r_a8fe20cb2244f9fc2b5dc843646f9e717"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fe20cb2244f9fc2b5dc843646f9e717">getValor</a> () const</td></tr>
+<tr class="memdesc:a8fe20cb2244f9fc2b5dc843646f9e717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o valor monetário.  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe para armazenar e validar um valor monetário. </p>
+<p>Armazena o valor internamente como um número inteiro de centavos para evitar problemas de arredondamento com ponto flutuante. O valor deve estar no intervalo de 0,01 a 1.000.000,00. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a8fe20cb2244f9fc2b5dc843646f9e717" name="a8fe20cb2244f9fc2b5dc843646f9e717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fe20cb2244f9fc2b5dc843646f9e717">&#9670;&#160;</a></span>getValor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Dinheiro::getValor </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o valor monetário. </p>
+<p>Converte o valor interno (em centavos) de volta para double. </p><dl class="section return"><dt>Returns</dt><dd>O valor monetário em formato double. </dd></dl>
+
+</div>
+</div>
+<a id="a3710756212ee545b52e19342c11627a3" name="a3710756212ee545b52e19342c11627a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3710756212ee545b52e19342c11627a3">&#9670;&#160;</a></span>setValor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dinheiro::setValor </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>valor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o valor monetário após validá-lo. </p>
+<p>Converte o valor double para um total de centavos para armazenamento interno. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>O valor monetário a ser definido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>Se o valor não atender aos critérios de validação. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="dinheiro_8hpp_source.html">dinheiro.hpp</a></li>
 <li><b>dinheiro.cpp</b></li>

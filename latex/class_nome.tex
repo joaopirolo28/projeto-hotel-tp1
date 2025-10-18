@@ -1,17 +1,78 @@
 \doxysection{Nome Class Reference}
 \hypertarget{class_nome}{}\label{class_nome}\index{Nome@{Nome}}
+
+
+Classe para armazenar e validar um nome de pessoa.  
+
+
+
+
+{\ttfamily \#include $<$nome.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_nome_aad41176173eec20cbbae1576447a3697}\label{class_nome_aad41176173eec20cbbae1576447a3697} 
-string {\bfseries get\+Nome} ()
-\item 
-\Hypertarget{class_nome_ab1507b81047efb89b50b6be0d33c08e5}\label{class_nome_ab1507b81047efb89b50b6be0d33c08e5} 
-void {\bfseries set\+Nome} (string)
-\end{DoxyCompactItemize}
+string \mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{get\+Nome}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o valor do nome. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nome_a83b9f56ec9f86f4b976846f4c5c65b30}{set\+Nome}} (string nome)
+\begin{DoxyCompactList}\small\item\em Define o valor do nome após validá-\/lo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe para armazenar e validar um nome de pessoa. 
+
+O nome deve seguir as seguintes regras de formatação\+:
+\begin{DoxyItemize}
+\item Ter entre 5 e 20 caracteres.
+\item Conter apenas letras e espaços.
+\item Cada termo (palavra) deve começar com letra maiúscula.
+\item Não pode haver espaços em sequência.
+\item O primeiro e o último caractere não podem ser espaços. 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_nome_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_nome_aad41176173eec20cbbae1576447a3697}\index{Nome@{Nome}!getNome@{getNome}}
+\index{getNome@{getNome}!Nome@{Nome}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily \label{class_nome_aad41176173eec20cbbae1576447a3697} 
+string Nome\+::get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna o valor do nome. 
+
+Implementação inline do método get\+Nome.
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o nome armazenado.
+
+O valor do atributo \textquotesingle{}nome\textquotesingle{} da classe. 
+\end{DoxyReturn}
+\Hypertarget{class_nome_a83b9f56ec9f86f4b976846f4c5c65b30}\index{Nome@{Nome}!setNome@{setNome}}
+\index{setNome@{setNome}!Nome@{Nome}}
+\doxysubsubsection{\texorpdfstring{setNome()}{setNome()}}
+{\footnotesize\ttfamily \label{class_nome_a83b9f56ec9f86f4b976846f4c5c65b30} 
+void Nome\+::set\+Nome (\begin{DoxyParamCaption}\item[{string}]{nome}{}\end{DoxyParamCaption})}
+
+
+
+Define o valor do nome após validá-\/lo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & A string contendo o nome a ser definido. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o nome não atender aos critérios de validação. \\
+\hline
+\end{DoxyExceptions}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-nome.\+hpp\item 
+\mbox{\hyperlink{nome_8hpp}{nome.\+hpp}}\item 
 nome.\+cpp\end{DoxyCompactItemize}

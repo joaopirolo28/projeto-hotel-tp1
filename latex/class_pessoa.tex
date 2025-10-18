@@ -2,6 +2,15 @@
 \hypertarget{class_pessoa}{}\label{class_pessoa}\index{Pessoa@{Pessoa}}
 
 
+Classe base que representa uma \doxylink{class_pessoa}{Pessoa}.  
+
+
+
+
+{\ttfamily \#include $<$pessoa.\+hpp$>$}
+
+
+
 Inheritance diagram for Pessoa\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,30 +32,92 @@ Collaboration diagram for Pessoa\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_pessoa_afddbfe1fabc8e39b53f9b59b24702591}\label{class_pessoa_afddbfe1fabc8e39b53f9b59b24702591} 
-void {\bfseries set\+Nome} (const \mbox{\hyperlink{class_nome}{Nome}} \&nome)
-\item 
-\Hypertarget{class_pessoa_ad0c0448768ca2f5b5dfca86f156cdfe9}\label{class_pessoa_ad0c0448768ca2f5b5dfca86f156cdfe9} 
-\mbox{\hyperlink{class_nome}{Nome}} {\bfseries get\+Nome} () const
-\item 
-\Hypertarget{class_pessoa_a07c9dc9687e897de901a0361cdae0401}\label{class_pessoa_a07c9dc9687e897de901a0361cdae0401} 
-void {\bfseries set\+Email} (const \mbox{\hyperlink{class_email}{Email}} \&email)
-\item 
-\Hypertarget{class_pessoa_a137a2a665a10ffa4880d1f7d726b07c7}\label{class_pessoa_a137a2a665a10ffa4880d1f7d726b07c7} 
-\mbox{\hyperlink{class_email}{Email}} {\bfseries get\+Email} () const
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_pessoa_afddbfe1fabc8e39b53f9b59b24702591}{set\+Nome}} (const \mbox{\hyperlink{class_nome}{Nome}} \&\mbox{\hyperlink{class_pessoa_a522b401a9c8c08aa334f75330ca0d74a}{nome}})
+\begin{DoxyCompactList}\small\item\em Define o nome da pessoa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nome}{Nome}} \mbox{\hyperlink{class_pessoa_ad0c0448768ca2f5b5dfca86f156cdfe9}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome da pessoa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pessoa_a07c9dc9687e897de901a0361cdae0401}{set\+Email}} (const \mbox{\hyperlink{class_email}{Email}} \&\mbox{\hyperlink{class_pessoa_a1560ad3e1f1327131518dce3ce09a2fe}{email}})
+\begin{DoxyCompactList}\small\item\em Define o email da pessoa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_email}{Email}} \mbox{\hyperlink{class_pessoa_a137a2a665a10ffa4880d1f7d726b07c7}{get\+Email}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o email da pessoa. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_pessoa_a522b401a9c8c08aa334f75330ca0d74a}\label{class_pessoa_a522b401a9c8c08aa334f75330ca0d74a} 
 \mbox{\hyperlink{class_nome}{Nome}} {\bfseries nome}
-\item 
+\begin{DoxyCompactList}\small\item\em O nome da pessoa. \end{DoxyCompactList}\item 
 \Hypertarget{class_pessoa_a1560ad3e1f1327131518dce3ce09a2fe}\label{class_pessoa_a1560ad3e1f1327131518dce3ce09a2fe} 
 \mbox{\hyperlink{class_email}{Email}} {\bfseries email}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em O endereço de email da pessoa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe base que representa uma \doxylink{class_pessoa}{Pessoa}. 
+
+Esta classe serve como alicerce para outras entidades como \doxylink{class_gerente}{Gerente} e Hóspede, contendo atributos comuns a ambos, como nome e email. Os atributos são protegidos para permitir o acesso direto por classes derivadas. 
+
+\label{doc-func-members}
+\Hypertarget{class_pessoa_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pessoa_a137a2a665a10ffa4880d1f7d726b07c7}\index{Pessoa@{Pessoa}!getEmail@{getEmail}}
+\index{getEmail@{getEmail}!Pessoa@{Pessoa}}
+\doxysubsubsection{\texorpdfstring{getEmail()}{getEmail()}}
+{\footnotesize\ttfamily \label{class_pessoa_a137a2a665a10ffa4880d1f7d726b07c7} 
+\mbox{\hyperlink{class_email}{Email}} Pessoa\+::get\+Email (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o email da pessoa. 
+
+\begin{DoxyReturn}{Returns}
+Um objeto do tipo \doxylink{class_email}{Email}. 
+\end{DoxyReturn}
+\Hypertarget{class_pessoa_ad0c0448768ca2f5b5dfca86f156cdfe9}\index{Pessoa@{Pessoa}!getNome@{getNome}}
+\index{getNome@{getNome}!Pessoa@{Pessoa}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily \label{class_pessoa_ad0c0448768ca2f5b5dfca86f156cdfe9} 
+\mbox{\hyperlink{class_nome}{Nome}} Pessoa\+::get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o nome da pessoa. 
+
+\begin{DoxyReturn}{Returns}
+Um objeto do tipo \doxylink{class_nome}{Nome}. 
+\end{DoxyReturn}
+\Hypertarget{class_pessoa_a07c9dc9687e897de901a0361cdae0401}\index{Pessoa@{Pessoa}!setEmail@{setEmail}}
+\index{setEmail@{setEmail}!Pessoa@{Pessoa}}
+\doxysubsubsection{\texorpdfstring{setEmail()}{setEmail()}}
+{\footnotesize\ttfamily \label{class_pessoa_a07c9dc9687e897de901a0361cdae0401} 
+void Pessoa\+::set\+Email (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_email}{Email}} \&}]{email}{}\end{DoxyParamCaption})}
+
+
+
+Define o email da pessoa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & Um objeto do tipo \doxylink{class_email}{Email}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_pessoa_afddbfe1fabc8e39b53f9b59b24702591}\index{Pessoa@{Pessoa}!setNome@{setNome}}
+\index{setNome@{setNome}!Pessoa@{Pessoa}}
+\doxysubsubsection{\texorpdfstring{setNome()}{setNome()}}
+{\footnotesize\ttfamily \label{class_pessoa_afddbfe1fabc8e39b53f9b59b24702591} 
+void Pessoa\+::set\+Nome (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_nome}{Nome}} \&}]{nome}{}\end{DoxyParamCaption})}
+
+
+
+Define o nome da pessoa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & Um objeto do tipo \doxylink{class_nome}{Nome}. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-pessoa.\+hpp\item 
+\mbox{\hyperlink{pessoa_8hpp}{pessoa.\+hpp}}\item 
 pessoa.\+cpp\end{DoxyCompactItemize}

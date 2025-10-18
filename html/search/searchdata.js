@@ -1,10 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "cdeghnprst",
-  1: "cdeghnprt",
-  2: "c",
-  3: "cgs",
-  4: "cht"
+  0: "cdeghlnprst",
+  1: "cdeghnprst",
+  2: "cdeghnpt",
+  3: "cegnst",
+  4: "elnt",
+  5: "cht"
 };
 
 var indexSectionNames =
@@ -13,7 +14,8 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "pages"
+  4: "variables",
+  5: "pages"
 };
 
 var indexSectionLabels =
@@ -22,6 +24,7 @@ var indexSectionLabels =
   1: "Classes",
   2: "Files",
   3: "Functions",
-  4: "Pages"
+  4: "Variables",
+  5: "Pages"
 };
 

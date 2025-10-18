@@ -1,26 +1,104 @@
 \doxysection{Codigo Class Reference}
 \hypertarget{class_codigo}{}\label{class_codigo}\index{Codigo@{Codigo}}
+
+
+Classe para armazenar e validar um código de identificação.  
+
+
+
+
+{\ttfamily \#include $<$codigo.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_codigo_a79b8f66217a66502e6228f54ad6780cf}\label{class_codigo_a79b8f66217a66502e6228f54ad6780cf} 
-{\bfseries Codigo} (const string \&valor)
-\item 
-\Hypertarget{class_codigo_a43b2ad4af3f111fffa715c6c5c443073}\label{class_codigo_a43b2ad4af3f111fffa715c6c5c443073} 
-void {\bfseries set\+Valor} (const string \&valor)
-\item 
-\Hypertarget{class_codigo_ae7dad73e010b3760cbd9310336c19aa2}\label{class_codigo_ae7dad73e010b3760cbd9310336c19aa2} 
-string {\bfseries get\+Valor} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_codigo_a79b8f66217a66502e6228f54ad6780cf}{Codigo}} (const string \&valor)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_codigo}{Codigo}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_codigo_a43b2ad4af3f111fffa715c6c5c443073}{set\+Valor}} (const string \&valor)
+\begin{DoxyCompactList}\small\item\em Define o valor do código após validá-\/lo. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_codigo_ae7dad73e010b3760cbd9310336c19aa2}{get\+Valor}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o valor do código. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_codigo_af12a075f94de813c18dccfff3780b282}\label{class_codigo_af12a075f94de813c18dccfff3780b282} 
 static const int {\bfseries TAMANHO\+\_\+\+MAX} = 10
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constante que define o tamanho exato que o código deve ter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe para armazenar e validar um código de identificação. 
+
+O código deve ser composto por exatamente 10 caracteres, que podem ser letras (a-\/z) ou dígitos (0-\/9). 
+
+\label{doc-constructors}
+\Hypertarget{class_codigo_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_codigo_a79b8f66217a66502e6228f54ad6780cf}\index{Codigo@{Codigo}!Codigo@{Codigo}}
+\index{Codigo@{Codigo}!Codigo@{Codigo}}
+\doxysubsubsection{\texorpdfstring{Codigo()}{Codigo()}}
+{\footnotesize\ttfamily \label{class_codigo_a79b8f66217a66502e6228f54ad6780cf} 
+Codigo\+::\+Codigo (\begin{DoxyParamCaption}\item[{const string \&}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_codigo}{Codigo}. 
+
+Inicializa o objeto com um valor de código, que é imediatamente validado. 
+\begin{DoxyParams}{Parameters}
+{\em valor} & O código a ser definido. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o valor não atender aos critérios de validação. \\
+\hline
+\end{DoxyExceptions}
+
+
+\label{doc-func-members}
+\Hypertarget{class_codigo_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_codigo_ae7dad73e010b3760cbd9310336c19aa2}\index{Codigo@{Codigo}!getValor@{getValor}}
+\index{getValor@{getValor}!Codigo@{Codigo}}
+\doxysubsubsection{\texorpdfstring{getValor()}{getValor()}}
+{\footnotesize\ttfamily \label{class_codigo_ae7dad73e010b3760cbd9310336c19aa2} 
+string Codigo\+::get\+Valor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna o valor do código. 
+
+Implementação inline do método get\+Valor.
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o valor atual do código.
+
+O valor do atributo \textquotesingle{}valor\textquotesingle{} da classe. 
+\end{DoxyReturn}
+\Hypertarget{class_codigo_a43b2ad4af3f111fffa715c6c5c443073}\index{Codigo@{Codigo}!setValor@{setValor}}
+\index{setValor@{setValor}!Codigo@{Codigo}}
+\doxysubsubsection{\texorpdfstring{setValor()}{setValor()}}
+{\footnotesize\ttfamily \label{class_codigo_a43b2ad4af3f111fffa715c6c5c443073} 
+void Codigo\+::set\+Valor (\begin{DoxyParamCaption}\item[{const string \&}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Define o valor do código após validá-\/lo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & O código a ser definido. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o valor não atender aos critérios de validação. \\
+\hline
+\end{DoxyExceptions}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-codigo.\+hpp\item 
+\mbox{\hyperlink{codigo_8hpp}{codigo.\+hpp}}\item 
 codigo.\+cpp\end{DoxyCompactItemize}

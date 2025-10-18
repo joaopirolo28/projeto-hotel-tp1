@@ -1,29 +1,107 @@
 \doxysection{Email Class Reference}
 \hypertarget{class_email}{}\label{class_email}\index{Email@{Email}}
+
+
+Classe para armazenar e validar um endereço de email.  
+
+
+
+
+{\ttfamily \#include $<$email.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_email_a4a199734e29834046e8d9fa5d04dfd0d}\label{class_email_a4a199734e29834046e8d9fa5d04dfd0d} 
-{\bfseries Email} (const string \&email)
-\item 
-\Hypertarget{class_email_af212f6983e0b7a58350a047cccfb142f}\label{class_email_af212f6983e0b7a58350a047cccfb142f} 
-void {\bfseries set\+Email} (const string \&email)
-\item 
-\Hypertarget{class_email_a6c314589c2042bf2234a9b5781d50def}\label{class_email_a6c314589c2042bf2234a9b5781d50def} 
-string {\bfseries get\+Email} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_email_a4a199734e29834046e8d9fa5d04dfd0d}{Email}} (const string \&email)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_email}{Email}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_email_af212f6983e0b7a58350a047cccfb142f}{set\+Email}} (const string \&email)
+\begin{DoxyCompactList}\small\item\em Define o valor do email após validá-\/lo. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_email_a6c314589c2042bf2234a9b5781d50def}{get\+Email}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o valor do email. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_email_a1f32f82a10e992ec4e94a4042fd99e8d}\label{class_email_a1f32f82a10e992ec4e94a4042fd99e8d} 
 static constexpr int {\bfseries TAMANHO\+\_\+\+MAX\+\_\+\+LOCAL} = 64
-\item 
+\begin{DoxyCompactList}\small\item\em Constante que define o tamanho máximo da parte local do email. \end{DoxyCompactList}\item 
 \Hypertarget{class_email_ad877d574c1bfd6f6bac82c8bd12ec8ab}\label{class_email_ad877d574c1bfd6f6bac82c8bd12ec8ab} 
 static constexpr int {\bfseries TAMANHO\+\_\+\+MAX\+\_\+\+DOMINIO} = 255
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constante que define o tamanho máximo da parte do domínio do email. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe para armazenar e validar um endereço de email. 
+
+O email é validado em duas partes\+: local e domínio, separadas por \textquotesingle{}@\textquotesingle{}. A parte local pode ter até 64 caracteres e o domínio até 255 caracteres. Regras específicas de caracteres permitidos são aplicadas a cada parte. 
+
+\label{doc-constructors}
+\Hypertarget{class_email_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_email_a4a199734e29834046e8d9fa5d04dfd0d}\index{Email@{Email}!Email@{Email}}
+\index{Email@{Email}!Email@{Email}}
+\doxysubsubsection{\texorpdfstring{Email()}{Email()}}
+{\footnotesize\ttfamily \label{class_email_a4a199734e29834046e8d9fa5d04dfd0d} 
+Email\+::\+Email (\begin{DoxyParamCaption}\item[{const string \&}]{email}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_email}{Email}. 
+
+Inicializa o objeto com um endereço de email, que é imediatamente validado. 
+\begin{DoxyParams}{Parameters}
+{\em email} & O endereço de email a ser definido. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o email não atender aos critérios de validação. \\
+\hline
+\end{DoxyExceptions}
+
+
+\label{doc-func-members}
+\Hypertarget{class_email_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_email_a6c314589c2042bf2234a9b5781d50def}\index{Email@{Email}!getEmail@{getEmail}}
+\index{getEmail@{getEmail}!Email@{Email}}
+\doxysubsubsection{\texorpdfstring{getEmail()}{getEmail()}}
+{\footnotesize\ttfamily \label{class_email_a6c314589c2042bf2234a9b5781d50def} 
+string Email\+::get\+Email (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna o valor do email. 
+
+Implementação inline do método get\+Email.
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o valor atual do email.
+
+O valor do atributo \textquotesingle{}email\textquotesingle{} da classe. 
+\end{DoxyReturn}
+\Hypertarget{class_email_af212f6983e0b7a58350a047cccfb142f}\index{Email@{Email}!setEmail@{setEmail}}
+\index{setEmail@{setEmail}!Email@{Email}}
+\doxysubsubsection{\texorpdfstring{setEmail()}{setEmail()}}
+{\footnotesize\ttfamily \label{class_email_af212f6983e0b7a58350a047cccfb142f} 
+void Email\+::set\+Email (\begin{DoxyParamCaption}\item[{const string \&}]{email}{}\end{DoxyParamCaption})}
+
+
+
+Define o valor do email após validá-\/lo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & O endereço de email a ser definido. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o email não atender aos critérios de validação. \\
+\hline
+\end{DoxyExceptions}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-email.\+hpp\item 
+\mbox{\hyperlink{email_8hpp}{email.\+hpp}}\item 
 email.\+cpp\end{DoxyCompactItemize}

@@ -91,38 +91,52 @@ $(function(){initNavTree('telefone_8hpp_source.html','',''); });
   <div class="headertitle"><div class="title">telefone.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TELEFONE_HPP_INCLUDED</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TELEFONE_HPP_INCLUDED</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using namespace </span>std;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_telefone.html">    9</a></span><span class="keyword">class </span>Telefone{</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">string</span> valor;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> validar(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp;valor);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> TAMANHO = 12;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    Telefone(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp;valor);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> setvalor(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp;valor);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">string</span> getValor() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+<a href="telefone_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef TELEFONE_HPP_INCLUDED</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define TELEFONE_HPP_INCLUDED</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_telefone.html">   21</a></span><span class="keyword">class </span><a class="code hl_function" href="class_telefone.html#a9af297bd4ad31db050859045b5c1c333">Telefone</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">string</span> valor;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> validar(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valor);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_telefone.html#a6a01144d5ebd84685ee77e7acd7903ad">   39</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_telefone.html#a6a01144d5ebd84685ee77e7acd7903ad">TAMANHO</a> = 12;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_function" href="class_telefone.html#a9af297bd4ad31db050859045b5c1c333">Telefone</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valor);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_telefone.html#a4e5be7a5c43bdc87f50ff65dbee0414b">   54</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_telefone.html#a4e5be7a5c43bdc87f50ff65dbee0414b">setvalor</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valor);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="class_telefone.html#a8d9d6134cfb5ec929ab9b42d3be39f85">getValor</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
 </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">inline</span> <span class="keywordtype">string</span> Telefone::getValor()<span class="keyword">const</span>{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">return</span> valor;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif </span><span class="comment">// TELEFONE_HPP_INCLUDED</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_telefone.html#a8d9d6134cfb5ec929ab9b42d3be39f85">   67</a></span><span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code hl_function" href="class_telefone.html#a8d9d6134cfb5ec929ab9b42d3be39f85">Telefone::getValor</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">return</span> valor;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#endif </span><span class="comment">// TELEFONE_HPP_INCLUDED</span></div>
+<div class="ttc" id="aclass_telefone_html_a4e5be7a5c43bdc87f50ff65dbee0414b"><div class="ttname"><a href="class_telefone.html#a4e5be7a5c43bdc87f50ff65dbee0414b">Telefone::setvalor</a></div><div class="ttdeci">void setvalor(const string &amp;valor)</div><div class="ttdoc">Define o valor do número de telefone após validá-lo.</div></div>
+<div class="ttc" id="aclass_telefone_html_a6a01144d5ebd84685ee77e7acd7903ad"><div class="ttname"><a href="class_telefone.html#a6a01144d5ebd84685ee77e7acd7903ad">Telefone::TAMANHO</a></div><div class="ttdeci">static const int TAMANHO</div><div class="ttdoc">Constante que define o número de dígitos que o telefone deve ter.</div><div class="ttdef"><b>Definition</b> telefone.hpp:39</div></div>
+<div class="ttc" id="aclass_telefone_html_a8d9d6134cfb5ec929ab9b42d3be39f85"><div class="ttname"><a href="class_telefone.html#a8d9d6134cfb5ec929ab9b42d3be39f85">Telefone::getValor</a></div><div class="ttdeci">string getValor() const</div><div class="ttdoc">Retorna o valor do número de telefone.</div><div class="ttdef"><b>Definition</b> telefone.hpp:67</div></div>
+<div class="ttc" id="aclass_telefone_html_a9af297bd4ad31db050859045b5c1c333"><div class="ttname"><a href="class_telefone.html#a9af297bd4ad31db050859045b5c1c333">Telefone::Telefone</a></div><div class="ttdeci">Telefone(const string &amp;valor)</div><div class="ttdoc">Construtor da classe Telefone.</div><div class="ttdef"><b>Definition</b> telefone.cpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>telefone.hpp</b></li>
+    <li class="navelem"><a href="telefone_8hpp.html">telefone.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

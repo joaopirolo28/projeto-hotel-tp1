@@ -91,23 +91,128 @@ $(function(){initNavTree('class_numero.html','','class_numero-members'); });
   <div class="headertitle"><div class="title">Numero Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe para armazenar e validar um domínio do tipo Número.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="numero_8hpp_source.html">numero.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac2f2ef7879fc7475c818288a6d44248a" id="r_ac2f2ef7879fc7475c818288a6d44248a"><td class="memItemLeft" align="right" valign="top"><a id="ac2f2ef7879fc7475c818288a6d44248a" name="ac2f2ef7879fc7475c818288a6d44248a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Numero</b> (int valor)</td></tr>
-<tr class="memitem:a836200e8bd04882bc7ea2f5bc5d7beef" id="r_a836200e8bd04882bc7ea2f5bc5d7beef"><td class="memItemLeft" align="right" valign="top"><a id="a836200e8bd04882bc7ea2f5bc5d7beef" name="a836200e8bd04882bc7ea2f5bc5d7beef"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setValor</b> (int valor)</td></tr>
-<tr class="memitem:a64bbe311f1537d8c40294fb201e34bf4" id="r_a64bbe311f1537d8c40294fb201e34bf4"><td class="memItemLeft" align="right" valign="top"><a id="a64bbe311f1537d8c40294fb201e34bf4" name="a64bbe311f1537d8c40294fb201e34bf4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getValor</b> () const</td></tr>
+<tr class="memitem:ac2f2ef7879fc7475c818288a6d44248a" id="r_ac2f2ef7879fc7475c818288a6d44248a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2f2ef7879fc7475c818288a6d44248a">Numero</a> (int valor)</td></tr>
+<tr class="memdesc:ac2f2ef7879fc7475c818288a6d44248a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_numero.html" title="Classe para armazenar e validar um domínio do tipo Número.">Numero</a>.  <br /></td></tr>
+<tr class="memitem:a836200e8bd04882bc7ea2f5bc5d7beef" id="r_a836200e8bd04882bc7ea2f5bc5d7beef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a836200e8bd04882bc7ea2f5bc5d7beef">setValor</a> (int valor)</td></tr>
+<tr class="memdesc:a836200e8bd04882bc7ea2f5bc5d7beef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o valor do número após validá-lo.  <br /></td></tr>
+<tr class="memitem:a64bbe311f1537d8c40294fb201e34bf4" id="r_a64bbe311f1537d8c40294fb201e34bf4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64bbe311f1537d8c40294fb201e34bf4">getValor</a> () const</td></tr>
+<tr class="memdesc:a64bbe311f1537d8c40294fb201e34bf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o valor do número.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:af5530147c9e14663b5132494985a1f15" id="r_af5530147c9e14663b5132494985a1f15"><td class="memItemLeft" align="right" valign="top"><a id="af5530147c9e14663b5132494985a1f15" name="af5530147c9e14663b5132494985a1f15"></a>
 static const int&#160;</td><td class="memItemRight" valign="bottom"><b>LIMITE_INFERIOR</b> = 1</td></tr>
+<tr class="memdesc:af5530147c9e14663b5132494985a1f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constante que define o limite inferior do intervalo de validação. <br /></td></tr>
 <tr class="memitem:ab064139876a927520301ecf76878598a" id="r_ab064139876a927520301ecf76878598a"><td class="memItemLeft" align="right" valign="top"><a id="ab064139876a927520301ecf76878598a" name="ab064139876a927520301ecf76878598a"></a>
 static const int&#160;</td><td class="memItemRight" valign="bottom"><b>LIMITE_SUPERIOR</b> = 999</td></tr>
+<tr class="memdesc:ab064139876a927520301ecf76878598a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constante que define o limite superior do intervalo de validação. <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe para armazenar e validar um domínio do tipo Número. </p>
+<p>Representa um número inteiro que deve estar dentro de um intervalo pré-definido. O valor deve ser entre 1 e 999. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac2f2ef7879fc7475c818288a6d44248a" name="ac2f2ef7879fc7475c818288a6d44248a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2f2ef7879fc7475c818288a6d44248a">&#9670;&#160;</a></span>Numero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Numero::Numero </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>valor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da classe <a class="el" href="class_numero.html" title="Classe para armazenar e validar um domínio do tipo Número.">Numero</a>. </p>
+<p>Inicializa o objeto com um valor, que é imediatamente validado. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>O número a ser definido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>Se o valor não atender aos critérios de validação. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a64bbe311f1537d8c40294fb201e34bf4" name="a64bbe311f1537d8c40294fb201e34bf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64bbe311f1537d8c40294fb201e34bf4">&#9670;&#160;</a></span>getValor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Numero::getValor </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retorna o valor do número. </p>
+<p>Implementação inline do método getValor.</p>
+<dl class="section return"><dt>Returns</dt><dd>Um inteiro contendo o valor atual.</dd>
+<dd>
+O valor do atributo 'valor' da classe. </dd></dl>
+
+</div>
+</div>
+<a id="a836200e8bd04882bc7ea2f5bc5d7beef" name="a836200e8bd04882bc7ea2f5bc5d7beef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a836200e8bd04882bc7ea2f5bc5d7beef">&#9670;&#160;</a></span>setValor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Numero::setValor </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>valor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o valor do número após validá-lo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>O número a ser definido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>Se o valor não atender aos critérios de validação. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="numero_8hpp_source.html">numero.hpp</a></li>
 <li><b>numero.cpp</b></li>

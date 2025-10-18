@@ -2,6 +2,15 @@
 \hypertarget{class_gerente}{}\label{class_gerente}\index{Gerente@{Gerente}}
 
 
+Classe entidade que representa um \doxylink{class_gerente}{Gerente}.  
+
+
+
+
+{\ttfamily \#include $<$gerente.\+hpp$>$}
+
+
+
 Inheritance diagram for Gerente\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,40 +32,102 @@ Collaboration diagram for Gerente\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_gerente_a1efe66758f8881912793c659f6ec5525}\label{class_gerente_a1efe66758f8881912793c659f6ec5525} 
-void {\bfseries set\+Ramal} (const \mbox{\hyperlink{class_ramal}{Ramal}} \&ramal)
-\item 
-\Hypertarget{class_gerente_a5e36df4b2e51e534d9b7815ca2d98c1b}\label{class_gerente_a5e36df4b2e51e534d9b7815ca2d98c1b} 
-\mbox{\hyperlink{class_ramal}{Ramal}} {\bfseries get\+Ramal} () const
-\item 
-\Hypertarget{class_gerente_ab7102d9eb45554909cfaf19c630eef57}\label{class_gerente_ab7102d9eb45554909cfaf19c630eef57} 
-void {\bfseries set\+Senha} (const Senha \&senha)
-\item 
-\Hypertarget{class_gerente_a0beb079518dff07f85924f4ae8517d92}\label{class_gerente_a0beb079518dff07f85924f4ae8517d92} 
-Senha {\bfseries get\+Senha} () const
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_gerente_a1efe66758f8881912793c659f6ec5525}{set\+Ramal}} (const \mbox{\hyperlink{class_ramal}{Ramal}} \&ramal)
+\begin{DoxyCompactList}\small\item\em Define o ramal do gerente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ramal}{Ramal}} \mbox{\hyperlink{class_gerente_a5e36df4b2e51e534d9b7815ca2d98c1b}{get\+Ramal}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o ramal do gerente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gerente_ab7102d9eb45554909cfaf19c630eef57}{set\+Senha}} (const \mbox{\hyperlink{class_senha}{Senha}} \&senha)
+\begin{DoxyCompactList}\small\item\em Define a senha do gerente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_senha}{Senha}} \mbox{\hyperlink{class_gerente_a0beb079518dff07f85924f4ae8517d92}{get\+Senha}} () const
+\begin{DoxyCompactList}\small\item\em Retorna a senha do gerente. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_pessoa}{Pessoa}}}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries set\+Nome} (const \mbox{\hyperlink{class_nome}{Nome}} \&nome)
-\item 
-\mbox{\hyperlink{class_nome}{Nome}} {\bfseries get\+Nome} () const
-\item 
-void {\bfseries set\+Email} (const \mbox{\hyperlink{class_email}{Email}} \&email)
-\item 
-\mbox{\hyperlink{class_email}{Email}} {\bfseries get\+Email} () const
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_pessoa_afddbfe1fabc8e39b53f9b59b24702591}{set\+Nome}} (const \mbox{\hyperlink{class_nome}{Nome}} \&\mbox{\hyperlink{class_pessoa_a522b401a9c8c08aa334f75330ca0d74a}{nome}})
+\begin{DoxyCompactList}\small\item\em Define o nome da pessoa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nome}{Nome}} \mbox{\hyperlink{class_pessoa_ad0c0448768ca2f5b5dfca86f156cdfe9}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome da pessoa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pessoa_a07c9dc9687e897de901a0361cdae0401}{set\+Email}} (const \mbox{\hyperlink{class_email}{Email}} \&\mbox{\hyperlink{class_pessoa_a1560ad3e1f1327131518dce3ce09a2fe}{email}})
+\begin{DoxyCompactList}\small\item\em Define o email da pessoa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_email}{Email}} \mbox{\hyperlink{class_pessoa_a137a2a665a10ffa4880d1f7d726b07c7}{get\+Email}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o email da pessoa. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_pessoa}{Pessoa}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_nome}{Nome}} {\bfseries nome}
-\item 
+\begin{DoxyCompactList}\small\item\em O nome da pessoa. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_email}{Email}} {\bfseries email}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em O endereço de email da pessoa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe entidade que representa um \doxylink{class_gerente}{Gerente}. 
+
+Herda de \doxylink{class_pessoa}{Pessoa} e adiciona atributos específicos de um gerente, como \doxylink{class_ramal}{Ramal} e \doxylink{class_senha}{Senha} para autenticação no sistema. 
+
+\label{doc-func-members}
+\Hypertarget{class_gerente_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_gerente_a5e36df4b2e51e534d9b7815ca2d98c1b}\index{Gerente@{Gerente}!getRamal@{getRamal}}
+\index{getRamal@{getRamal}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{getRamal()}{getRamal()}}
+{\footnotesize\ttfamily \label{class_gerente_a5e36df4b2e51e534d9b7815ca2d98c1b} 
+\mbox{\hyperlink{class_ramal}{Ramal}} Gerente\+::get\+Ramal (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o ramal do gerente. 
+
+\begin{DoxyReturn}{Returns}
+Um objeto do tipo \doxylink{class_ramal}{Ramal}. 
+\end{DoxyReturn}
+\Hypertarget{class_gerente_a0beb079518dff07f85924f4ae8517d92}\index{Gerente@{Gerente}!getSenha@{getSenha}}
+\index{getSenha@{getSenha}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{getSenha()}{getSenha()}}
+{\footnotesize\ttfamily \label{class_gerente_a0beb079518dff07f85924f4ae8517d92} 
+\mbox{\hyperlink{class_senha}{Senha}} Gerente\+::get\+Senha (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna a senha do gerente. 
+
+\begin{DoxyReturn}{Returns}
+Um objeto do tipo \doxylink{class_senha}{Senha}. 
+\end{DoxyReturn}
+\Hypertarget{class_gerente_a1efe66758f8881912793c659f6ec5525}\index{Gerente@{Gerente}!setRamal@{setRamal}}
+\index{setRamal@{setRamal}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{setRamal()}{setRamal()}}
+{\footnotesize\ttfamily \label{class_gerente_a1efe66758f8881912793c659f6ec5525} 
+void Gerente\+::set\+Ramal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ramal}{Ramal}} \&}]{ramal}{}\end{DoxyParamCaption})}
+
+
+
+Define o ramal do gerente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ramal} & Um objeto do tipo \doxylink{class_ramal}{Ramal}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gerente_ab7102d9eb45554909cfaf19c630eef57}\index{Gerente@{Gerente}!setSenha@{setSenha}}
+\index{setSenha@{setSenha}!Gerente@{Gerente}}
+\doxysubsubsection{\texorpdfstring{setSenha()}{setSenha()}}
+{\footnotesize\ttfamily \label{class_gerente_ab7102d9eb45554909cfaf19c630eef57} 
+void Gerente\+::set\+Senha (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_senha}{Senha}} \&}]{senha}{}\end{DoxyParamCaption})}
+
+
+
+Define a senha do gerente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em senha} & Um objeto do tipo \doxylink{class_senha}{Senha}. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-gerente.\+hpp\item 
+\mbox{\hyperlink{gerente_8hpp}{gerente.\+hpp}}\item 
 gerente.\+cpp\end{DoxyCompactItemize}

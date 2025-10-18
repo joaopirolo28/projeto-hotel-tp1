@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getvalor_0',['getValor',['../class_cartao.html#a9e942a66736d7fa643e21083009843da',1,'Cartao']]]
+  ['email_0',['Email',['../class_email.html#a4a199734e29834046e8d9fa5d04dfd0d',1,'Email']]]
 ];

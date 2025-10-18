@@ -91,14 +91,91 @@ $(function(){initNavTree('class_nome.html','','class_nome-members'); });
   <div class="headertitle"><div class="title">Nome Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe para armazenar e validar um nome de pessoa.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="nome_8hpp_source.html">nome.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aad41176173eec20cbbae1576447a3697" id="r_aad41176173eec20cbbae1576447a3697"><td class="memItemLeft" align="right" valign="top"><a id="aad41176173eec20cbbae1576447a3697" name="aad41176173eec20cbbae1576447a3697"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getNome</b> ()</td></tr>
-<tr class="memitem:ab1507b81047efb89b50b6be0d33c08e5" id="r_ab1507b81047efb89b50b6be0d33c08e5"><td class="memItemLeft" align="right" valign="top"><a id="ab1507b81047efb89b50b6be0d33c08e5" name="ab1507b81047efb89b50b6be0d33c08e5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNome</b> (string)</td></tr>
+<tr class="memitem:aad41176173eec20cbbae1576447a3697" id="r_aad41176173eec20cbbae1576447a3697"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad41176173eec20cbbae1576447a3697">getNome</a> ()</td></tr>
+<tr class="memdesc:aad41176173eec20cbbae1576447a3697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o valor do nome.  <br /></td></tr>
+<tr class="memitem:a83b9f56ec9f86f4b976846f4c5c65b30" id="r_a83b9f56ec9f86f4b976846f4c5c65b30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83b9f56ec9f86f4b976846f4c5c65b30">setNome</a> (string nome)</td></tr>
+<tr class="memdesc:a83b9f56ec9f86f4b976846f4c5c65b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o valor do nome após validá-lo.  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe para armazenar e validar um nome de pessoa. </p>
+<p>O nome deve seguir as seguintes regras de formatação:</p><ul>
+<li>Ter entre 5 e 20 caracteres.</li>
+<li>Conter apenas letras e espaços.</li>
+<li>Cada termo (palavra) deve começar com letra maiúscula.</li>
+<li>Não pode haver espaços em sequência.</li>
+<li>O primeiro e o último caractere não podem ser espaços. </li>
+</ul>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aad41176173eec20cbbae1576447a3697" name="aad41176173eec20cbbae1576447a3697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad41176173eec20cbbae1576447a3697">&#9670;&#160;</a></span>getNome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Nome::getNome </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retorna o valor do nome. </p>
+<p>Implementação inline do método getNome.</p>
+<dl class="section return"><dt>Returns</dt><dd>Uma string contendo o nome armazenado.</dd>
+<dd>
+O valor do atributo 'nome' da classe. </dd></dl>
+
+</div>
+</div>
+<a id="a83b9f56ec9f86f4b976846f4c5c65b30" name="a83b9f56ec9f86f4b976846f4c5c65b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83b9f56ec9f86f4b976846f4c5c65b30">&#9670;&#160;</a></span>setNome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Nome::setNome </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>nome</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o valor do nome após validá-lo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nome</td><td>A string contendo o nome a ser definido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>Se o nome não atender aos critérios de validação. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="nome_8hpp_source.html">nome.hpp</a></li>
 <li><b>nome.cpp</b></li>

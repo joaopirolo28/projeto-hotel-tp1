@@ -1,26 +1,104 @@
 \doxysection{Telefone Class Reference}
 \hypertarget{class_telefone}{}\label{class_telefone}\index{Telefone@{Telefone}}
+
+
+Classe para armazenar e validar um número de telefone.  
+
+
+
+
+{\ttfamily \#include $<$telefone.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_telefone_a9af297bd4ad31db050859045b5c1c333}\label{class_telefone_a9af297bd4ad31db050859045b5c1c333} 
-{\bfseries Telefone} (const string \&valor)
-\item 
-\Hypertarget{class_telefone_a4e5be7a5c43bdc87f50ff65dbee0414b}\label{class_telefone_a4e5be7a5c43bdc87f50ff65dbee0414b} 
-void {\bfseries setvalor} (const string \&valor)
-\item 
-\Hypertarget{class_telefone_a8d9d6134cfb5ec929ab9b42d3be39f85}\label{class_telefone_a8d9d6134cfb5ec929ab9b42d3be39f85} 
-string {\bfseries get\+Valor} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_telefone_a9af297bd4ad31db050859045b5c1c333}{Telefone}} (const string \&valor)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_telefone}{Telefone}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_telefone_a4e5be7a5c43bdc87f50ff65dbee0414b}{setvalor}} (const string \&valor)
+\begin{DoxyCompactList}\small\item\em Define o valor do número de telefone após validá-\/lo. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_telefone_a8d9d6134cfb5ec929ab9b42d3be39f85}{get\+Valor}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o valor do número de telefone. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_telefone_a6a01144d5ebd84685ee77e7acd7903ad}\label{class_telefone_a6a01144d5ebd84685ee77e7acd7903ad} 
 static const int {\bfseries TAMANHO} = 12
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constante que define o número de dígitos que o telefone deve ter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe para armazenar e validar um número de telefone. 
+
+O número de telefone deve seguir o formato internacional +DDDDDDDDDDDD, consistindo do caractere \textquotesingle{}+\textquotesingle{} seguido por 12 dígitos. 
+
+\label{doc-constructors}
+\Hypertarget{class_telefone_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_telefone_a9af297bd4ad31db050859045b5c1c333}\index{Telefone@{Telefone}!Telefone@{Telefone}}
+\index{Telefone@{Telefone}!Telefone@{Telefone}}
+\doxysubsubsection{\texorpdfstring{Telefone()}{Telefone()}}
+{\footnotesize\ttfamily \label{class_telefone_a9af297bd4ad31db050859045b5c1c333} 
+Telefone\+::\+Telefone (\begin{DoxyParamCaption}\item[{const string \&}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_telefone}{Telefone}. 
+
+Inicializa o objeto com um número de telefone, que é imediatamente validado. 
+\begin{DoxyParams}{Parameters}
+{\em valor} & O número de telefone a ser definido. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o valor não atender aos critérios de validação. \\
+\hline
+\end{DoxyExceptions}
+
+
+\label{doc-func-members}
+\Hypertarget{class_telefone_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_telefone_a8d9d6134cfb5ec929ab9b42d3be39f85}\index{Telefone@{Telefone}!getValor@{getValor}}
+\index{getValor@{getValor}!Telefone@{Telefone}}
+\doxysubsubsection{\texorpdfstring{getValor()}{getValor()}}
+{\footnotesize\ttfamily \label{class_telefone_a8d9d6134cfb5ec929ab9b42d3be39f85} 
+string Telefone\+::get\+Valor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna o valor do número de telefone. 
+
+Implementação inline do método get\+Valor.
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o valor atual do telefone.
+
+O valor do atributo \textquotesingle{}valor\textquotesingle{} da classe. 
+\end{DoxyReturn}
+\Hypertarget{class_telefone_a4e5be7a5c43bdc87f50ff65dbee0414b}\index{Telefone@{Telefone}!setvalor@{setvalor}}
+\index{setvalor@{setvalor}!Telefone@{Telefone}}
+\doxysubsubsection{\texorpdfstring{setvalor()}{setvalor()}}
+{\footnotesize\ttfamily \label{class_telefone_a4e5be7a5c43bdc87f50ff65dbee0414b} 
+void Telefone\+::setvalor (\begin{DoxyParamCaption}\item[{const string \&}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Define o valor do número de telefone após validá-\/lo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & O número de telefone a ser definido. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o valor não atender aos critérios de validação. \\
+\hline
+\end{DoxyExceptions}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-telefone.\+hpp\item 
+\mbox{\hyperlink{telefone_8hpp}{telefone.\+hpp}}\item 
 telefone.\+cpp\end{DoxyCompactItemize}

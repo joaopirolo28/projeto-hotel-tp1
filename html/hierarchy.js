@@ -14,6 +14,7 @@ var hierarchy =
       [ "Hospede", "class_hospede.html", null ]
     ] ],
     [ "Ramal", "class_ramal.html", null ],
+    [ "Senha", "class_senha.html", null ],
     [ "Telefone", "class_telefone.html", null ],
     [ "TUEntidadeHospede", "class_t_u_entidade_hospede.html", null ],
     [ "TUEntidadeHotel", "class_t_u_entidade_hotel.html", null ],

@@ -91,15 +91,20 @@ $(function(){initNavTree('class_pessoa.html','','class_pessoa-members'); });
   <div class="headertitle"><div class="title">Pessoa Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe base que representa uma <a class="el" href="class_pessoa.html" title="Classe base que representa uma Pessoa.">Pessoa</a>.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="pessoa_8hpp_source.html">pessoa.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Pessoa:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_pessoa__inherit__graph.png" border="0" usemap="#a_pessoa_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
 <map name="a_pessoa_inherit__map" id="a_pessoa_inherit__map">
-<area shape="rect" title=" " alt="" coords="53,5,118,32"/>
-<area shape="rect" href="class_gerente.html" title=" " alt="" coords="5,80,73,107"/>
+<area shape="rect" title="Classe base que representa uma Pessoa." alt="" coords="53,5,118,32"/>
+<area shape="rect" href="class_gerente.html" title="Classe entidade que representa um Gerente." alt="" coords="5,80,73,107"/>
 <area shape="poly" title=" " alt="" coords="72,47,49,81,45,78,67,44"/>
-<area shape="rect" href="class_hospede.html" title=" " alt="" coords="97,80,170,107"/>
+<area shape="rect" href="class_hospede.html" title="Classe entidade que representa um Hóspede." alt="" coords="97,80,170,107"/>
 <area shape="poly" title=" " alt="" coords="105,44,128,78,123,81,100,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -108,32 +113,128 @@ Collaboration diagram for Pessoa:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_pessoa__coll__graph.png" border="0" usemap="#a_pessoa_coll__map" loading="lazy" alt="Collaboration graph"/></div>
 <map name="a_pessoa_coll__map" id="a_pessoa_coll__map">
-<area shape="rect" title=" " alt="" coords="41,104,106,131"/>
-<area shape="rect" href="class_nome.html" title=" " alt="" coords="5,5,62,32"/>
+<area shape="rect" title="Classe base que representa uma Pessoa." alt="" coords="41,104,106,131"/>
+<area shape="rect" href="class_nome.html" title="Classe para armazenar e validar um nome de pessoa." alt="" coords="5,5,62,32"/>
 <area shape="poly" title=" " alt="" coords="38,47,47,79,63,102,59,105,42,81,33,48"/>
-<area shape="rect" href="class_email.html" title=" " alt="" coords="86,5,141,32"/>
+<area shape="rect" href="class_email.html" title="Classe para armazenar e validar um endereço de email." alt="" coords="86,5,141,32"/>
 <area shape="poly" title=" " alt="" coords="105,48,81,105,76,103,100,46"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afddbfe1fabc8e39b53f9b59b24702591" id="r_afddbfe1fabc8e39b53f9b59b24702591"><td class="memItemLeft" align="right" valign="top"><a id="afddbfe1fabc8e39b53f9b59b24702591" name="afddbfe1fabc8e39b53f9b59b24702591"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNome</b> (const <a class="el" href="class_nome.html">Nome</a> &amp;nome)</td></tr>
-<tr class="memitem:ad0c0448768ca2f5b5dfca86f156cdfe9" id="r_ad0c0448768ca2f5b5dfca86f156cdfe9"><td class="memItemLeft" align="right" valign="top"><a id="ad0c0448768ca2f5b5dfca86f156cdfe9" name="ad0c0448768ca2f5b5dfca86f156cdfe9"></a>
-<a class="el" href="class_nome.html">Nome</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getNome</b> () const</td></tr>
-<tr class="memitem:a07c9dc9687e897de901a0361cdae0401" id="r_a07c9dc9687e897de901a0361cdae0401"><td class="memItemLeft" align="right" valign="top"><a id="a07c9dc9687e897de901a0361cdae0401" name="a07c9dc9687e897de901a0361cdae0401"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEmail</b> (const <a class="el" href="class_email.html">Email</a> &amp;email)</td></tr>
-<tr class="memitem:a137a2a665a10ffa4880d1f7d726b07c7" id="r_a137a2a665a10ffa4880d1f7d726b07c7"><td class="memItemLeft" align="right" valign="top"><a id="a137a2a665a10ffa4880d1f7d726b07c7" name="a137a2a665a10ffa4880d1f7d726b07c7"></a>
-<a class="el" href="class_email.html">Email</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getEmail</b> () const</td></tr>
+<tr class="memitem:afddbfe1fabc8e39b53f9b59b24702591" id="r_afddbfe1fabc8e39b53f9b59b24702591"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afddbfe1fabc8e39b53f9b59b24702591">setNome</a> (const <a class="el" href="class_nome.html">Nome</a> &amp;<a class="el" href="#a522b401a9c8c08aa334f75330ca0d74a">nome</a>)</td></tr>
+<tr class="memdesc:afddbfe1fabc8e39b53f9b59b24702591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o nome da pessoa.  <br /></td></tr>
+<tr class="memitem:ad0c0448768ca2f5b5dfca86f156cdfe9" id="r_ad0c0448768ca2f5b5dfca86f156cdfe9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_nome.html">Nome</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0c0448768ca2f5b5dfca86f156cdfe9">getNome</a> () const</td></tr>
+<tr class="memdesc:ad0c0448768ca2f5b5dfca86f156cdfe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o nome da pessoa.  <br /></td></tr>
+<tr class="memitem:a07c9dc9687e897de901a0361cdae0401" id="r_a07c9dc9687e897de901a0361cdae0401"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07c9dc9687e897de901a0361cdae0401">setEmail</a> (const <a class="el" href="class_email.html">Email</a> &amp;<a class="el" href="#a1560ad3e1f1327131518dce3ce09a2fe">email</a>)</td></tr>
+<tr class="memdesc:a07c9dc9687e897de901a0361cdae0401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o email da pessoa.  <br /></td></tr>
+<tr class="memitem:a137a2a665a10ffa4880d1f7d726b07c7" id="r_a137a2a665a10ffa4880d1f7d726b07c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_email.html">Email</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a137a2a665a10ffa4880d1f7d726b07c7">getEmail</a> () const</td></tr>
+<tr class="memdesc:a137a2a665a10ffa4880d1f7d726b07c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o email da pessoa.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a522b401a9c8c08aa334f75330ca0d74a" id="r_a522b401a9c8c08aa334f75330ca0d74a"><td class="memItemLeft" align="right" valign="top"><a id="a522b401a9c8c08aa334f75330ca0d74a" name="a522b401a9c8c08aa334f75330ca0d74a"></a>
 <a class="el" href="class_nome.html">Nome</a>&#160;</td><td class="memItemRight" valign="bottom"><b>nome</b></td></tr>
+<tr class="memdesc:a522b401a9c8c08aa334f75330ca0d74a"><td class="mdescLeft">&#160;</td><td class="mdescRight">O nome da pessoa. <br /></td></tr>
 <tr class="memitem:a1560ad3e1f1327131518dce3ce09a2fe" id="r_a1560ad3e1f1327131518dce3ce09a2fe"><td class="memItemLeft" align="right" valign="top"><a id="a1560ad3e1f1327131518dce3ce09a2fe" name="a1560ad3e1f1327131518dce3ce09a2fe"></a>
 <a class="el" href="class_email.html">Email</a>&#160;</td><td class="memItemRight" valign="bottom"><b>email</b></td></tr>
+<tr class="memdesc:a1560ad3e1f1327131518dce3ce09a2fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">O endereço de email da pessoa. <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe base que representa uma <a class="el" href="class_pessoa.html" title="Classe base que representa uma Pessoa.">Pessoa</a>. </p>
+<p>Esta classe serve como alicerce para outras entidades como <a class="el" href="class_gerente.html" title="Classe entidade que representa um Gerente.">Gerente</a> e Hóspede, contendo atributos comuns a ambos, como nome e email. Os atributos são protegidos para permitir o acesso direto por classes derivadas. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a137a2a665a10ffa4880d1f7d726b07c7" name="a137a2a665a10ffa4880d1f7d726b07c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a137a2a665a10ffa4880d1f7d726b07c7">&#9670;&#160;</a></span>getEmail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_email.html">Email</a> Pessoa::getEmail </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o email da pessoa. </p>
+<dl class="section return"><dt>Returns</dt><dd>Um objeto do tipo <a class="el" href="class_email.html" title="Classe para armazenar e validar um endereço de email.">Email</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ad0c0448768ca2f5b5dfca86f156cdfe9" name="ad0c0448768ca2f5b5dfca86f156cdfe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0c0448768ca2f5b5dfca86f156cdfe9">&#9670;&#160;</a></span>getNome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_nome.html">Nome</a> Pessoa::getNome </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o nome da pessoa. </p>
+<dl class="section return"><dt>Returns</dt><dd>Um objeto do tipo <a class="el" href="class_nome.html" title="Classe para armazenar e validar um nome de pessoa.">Nome</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a07c9dc9687e897de901a0361cdae0401" name="a07c9dc9687e897de901a0361cdae0401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07c9dc9687e897de901a0361cdae0401">&#9670;&#160;</a></span>setEmail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Pessoa::setEmail </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>email</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o email da pessoa. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>Um objeto do tipo <a class="el" href="class_email.html" title="Classe para armazenar e validar um endereço de email.">Email</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afddbfe1fabc8e39b53f9b59b24702591" name="afddbfe1fabc8e39b53f9b59b24702591"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afddbfe1fabc8e39b53f9b59b24702591">&#9670;&#160;</a></span>setNome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Pessoa::setNome </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_nome.html">Nome</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o nome da pessoa. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nome</td><td>Um objeto do tipo <a class="el" href="class_nome.html" title="Classe para armazenar e validar um nome de pessoa.">Nome</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="pessoa_8hpp_source.html">pessoa.hpp</a></li>
 <li><b>pessoa.cpp</b></li>

@@ -1,29 +1,107 @@
 \doxysection{Numero Class Reference}
 \hypertarget{class_numero}{}\label{class_numero}\index{Numero@{Numero}}
+
+
+Classe para armazenar e validar um domínio do tipo Número.  
+
+
+
+
+{\ttfamily \#include $<$numero.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_numero_ac2f2ef7879fc7475c818288a6d44248a}\label{class_numero_ac2f2ef7879fc7475c818288a6d44248a} 
-{\bfseries Numero} (int valor)
-\item 
-\Hypertarget{class_numero_a836200e8bd04882bc7ea2f5bc5d7beef}\label{class_numero_a836200e8bd04882bc7ea2f5bc5d7beef} 
-void {\bfseries set\+Valor} (int valor)
-\item 
-\Hypertarget{class_numero_a64bbe311f1537d8c40294fb201e34bf4}\label{class_numero_a64bbe311f1537d8c40294fb201e34bf4} 
-int {\bfseries get\+Valor} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_numero_ac2f2ef7879fc7475c818288a6d44248a}{Numero}} (int valor)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_numero}{Numero}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_numero_a836200e8bd04882bc7ea2f5bc5d7beef}{set\+Valor}} (int valor)
+\begin{DoxyCompactList}\small\item\em Define o valor do número após validá-\/lo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_numero_a64bbe311f1537d8c40294fb201e34bf4}{get\+Valor}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o valor do número. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_numero_af5530147c9e14663b5132494985a1f15}\label{class_numero_af5530147c9e14663b5132494985a1f15} 
 static const int {\bfseries LIMITE\+\_\+\+INFERIOR} = 1
-\item 
+\begin{DoxyCompactList}\small\item\em Constante que define o limite inferior do intervalo de validação. \end{DoxyCompactList}\item 
 \Hypertarget{class_numero_ab064139876a927520301ecf76878598a}\label{class_numero_ab064139876a927520301ecf76878598a} 
 static const int {\bfseries LIMITE\+\_\+\+SUPERIOR} = 999
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constante que define o limite superior do intervalo de validação. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe para armazenar e validar um domínio do tipo Número. 
+
+Representa um número inteiro que deve estar dentro de um intervalo pré-\/definido. O valor deve ser entre 1 e 999. 
+
+\label{doc-constructors}
+\Hypertarget{class_numero_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_numero_ac2f2ef7879fc7475c818288a6d44248a}\index{Numero@{Numero}!Numero@{Numero}}
+\index{Numero@{Numero}!Numero@{Numero}}
+\doxysubsubsection{\texorpdfstring{Numero()}{Numero()}}
+{\footnotesize\ttfamily \label{class_numero_ac2f2ef7879fc7475c818288a6d44248a} 
+Numero\+::\+Numero (\begin{DoxyParamCaption}\item[{int}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_numero}{Numero}. 
+
+Inicializa o objeto com um valor, que é imediatamente validado. 
+\begin{DoxyParams}{Parameters}
+{\em valor} & O número a ser definido. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o valor não atender aos critérios de validação. \\
+\hline
+\end{DoxyExceptions}
+
+
+\label{doc-func-members}
+\Hypertarget{class_numero_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_numero_a64bbe311f1537d8c40294fb201e34bf4}\index{Numero@{Numero}!getValor@{getValor}}
+\index{getValor@{getValor}!Numero@{Numero}}
+\doxysubsubsection{\texorpdfstring{getValor()}{getValor()}}
+{\footnotesize\ttfamily \label{class_numero_a64bbe311f1537d8c40294fb201e34bf4} 
+int Numero\+::get\+Valor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna o valor do número. 
+
+Implementação inline do método get\+Valor.
+
+\begin{DoxyReturn}{Returns}
+Um inteiro contendo o valor atual.
+
+O valor do atributo \textquotesingle{}valor\textquotesingle{} da classe. 
+\end{DoxyReturn}
+\Hypertarget{class_numero_a836200e8bd04882bc7ea2f5bc5d7beef}\index{Numero@{Numero}!setValor@{setValor}}
+\index{setValor@{setValor}!Numero@{Numero}}
+\doxysubsubsection{\texorpdfstring{setValor()}{setValor()}}
+{\footnotesize\ttfamily \label{class_numero_a836200e8bd04882bc7ea2f5bc5d7beef} 
+void Numero\+::set\+Valor (\begin{DoxyParamCaption}\item[{int}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Define o valor do número após validá-\/lo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & O número a ser definido. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o valor não atender aos critérios de validação. \\
+\hline
+\end{DoxyExceptions}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-numero.\+hpp\item 
+\mbox{\hyperlink{numero_8hpp}{numero.\+hpp}}\item 
 numero.\+cpp\end{DoxyCompactItemize}

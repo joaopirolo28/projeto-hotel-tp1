@@ -1,20 +1,67 @@
 \doxysection{Dinheiro Class Reference}
 \hypertarget{class_dinheiro}{}\label{class_dinheiro}\index{Dinheiro@{Dinheiro}}
+
+
+Classe para armazenar e validar um valor monetário.  
+
+
+
+
+{\ttfamily \#include $<$dinheiro.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_dinheiro_a3710756212ee545b52e19342c11627a3}\label{class_dinheiro_a3710756212ee545b52e19342c11627a3} 
-void {\bfseries set\+Valor} (double valor)
-\item 
-\Hypertarget{class_dinheiro_a8fe20cb2244f9fc2b5dc843646f9e717}\label{class_dinheiro_a8fe20cb2244f9fc2b5dc843646f9e717} 
-double {\bfseries get\+Valor} () const
-\item 
-\Hypertarget{class_dinheiro_a695035b7209fe9194d7aa48459d475f1}\label{class_dinheiro_a695035b7209fe9194d7aa48459d475f1} 
-{\bfseries Dinheiro} (const double \&valor)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_dinheiro_a3710756212ee545b52e19342c11627a3}{set\+Valor}} (double valor)
+\begin{DoxyCompactList}\small\item\em Define o valor monetário após validá-\/lo. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_dinheiro_a8fe20cb2244f9fc2b5dc843646f9e717}{get\+Valor}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o valor monetário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe para armazenar e validar um valor monetário. 
+
+Armazena o valor internamente como um número inteiro de centavos para evitar problemas de arredondamento com ponto flutuante. O valor deve estar no intervalo de 0,01 a 1.\+000.\+000,00. 
+
+\label{doc-func-members}
+\Hypertarget{class_dinheiro_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dinheiro_a8fe20cb2244f9fc2b5dc843646f9e717}\index{Dinheiro@{Dinheiro}!getValor@{getValor}}
+\index{getValor@{getValor}!Dinheiro@{Dinheiro}}
+\doxysubsubsection{\texorpdfstring{getValor()}{getValor()}}
+{\footnotesize\ttfamily \label{class_dinheiro_a8fe20cb2244f9fc2b5dc843646f9e717} 
+double Dinheiro\+::get\+Valor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o valor monetário. 
+
+Converte o valor interno (em centavos) de volta para double. \begin{DoxyReturn}{Returns}
+O valor monetário em formato double. 
+\end{DoxyReturn}
+\Hypertarget{class_dinheiro_a3710756212ee545b52e19342c11627a3}\index{Dinheiro@{Dinheiro}!setValor@{setValor}}
+\index{setValor@{setValor}!Dinheiro@{Dinheiro}}
+\doxysubsubsection{\texorpdfstring{setValor()}{setValor()}}
+{\footnotesize\ttfamily \label{class_dinheiro_a3710756212ee545b52e19342c11627a3} 
+void Dinheiro\+::set\+Valor (\begin{DoxyParamCaption}\item[{double}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Define o valor monetário após validá-\/lo. 
+
+Converte o valor double para um total de centavos para armazenamento interno. 
+\begin{DoxyParams}{Parameters}
+{\em valor} & O valor monetário a ser definido. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o valor não atender aos critérios de validação. \\
+\hline
+\end{DoxyExceptions}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-dinheiro.\+hpp\item 
+\mbox{\hyperlink{dinheiro_8hpp}{dinheiro.\+hpp}}\item 
 dinheiro.\+cpp\end{DoxyCompactItemize}

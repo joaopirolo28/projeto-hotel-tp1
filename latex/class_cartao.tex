@@ -12,11 +12,9 @@ Classe para armazenar e validar um número de cartão de crédito.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_cartao_a1d49a90d114b62f4ea63a789236a3de1}{Cartao}} (const std\+::string \&valor\+Cartao)
-\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_cartao}{Cartao}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_cartao_ae7700703c364c63c00d11325bad00275}{set\+Valor}} (const std\+::string \&valor\+Cartao)
+void \mbox{\hyperlink{class_cartao_a55b8c3ecb5f69b9aa2cd7f66c13e6580}{set\+Valor}} (const string \&valor\+Cartao)
 \begin{DoxyCompactList}\small\item\em Define o valor do número do cartão de crédito. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{class_cartao_a9e942a66736d7fa643e21083009843da}{get\+Valor}} () const
+string \mbox{\hyperlink{class_cartao_a4456f94faa405be82ed34d2a0e5b0dd6}{get\+Valor}} () const
 \begin{DoxyCompactList}\small\item\em Retorna o valor do número do cartão. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -25,39 +23,14 @@ Classe para armazenar e validar um número de cartão de crédito.
 
 O número do cartão deve conter 16 dígitos e ser validado pelo algoritmo de Luhn. 
 
-\label{doc-constructors}
-\Hypertarget{class_cartao_doc-constructors}
-\doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_cartao_a1d49a90d114b62f4ea63a789236a3de1}\index{Cartao@{Cartao}!Cartao@{Cartao}}
-\index{Cartao@{Cartao}!Cartao@{Cartao}}
-\doxysubsubsection{\texorpdfstring{Cartao()}{Cartao()}}
-{\footnotesize\ttfamily \label{class_cartao_a1d49a90d114b62f4ea63a789236a3de1} 
-Cartao\+::\+Cartao (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{valor\+Cartao}{}\end{DoxyParamCaption})}
-
-
-
-Construtor da classe \doxylink{class_cartao}{Cartao}. 
-
-Inicializa o objeto com um valor de cartão de crédito, que é imediatamente validado. 
-\begin{DoxyParams}{Parameters}
-{\em valor\+Cartao} & O número do cartão a ser definido. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argument} & Se o valor não atender aos critérios de validação. \\
-\hline
-\end{DoxyExceptions}
-
-
 \label{doc-func-members}
 \Hypertarget{class_cartao_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_cartao_a9e942a66736d7fa643e21083009843da}\index{Cartao@{Cartao}!getValor@{getValor}}
+\Hypertarget{class_cartao_a4456f94faa405be82ed34d2a0e5b0dd6}\index{Cartao@{Cartao}!getValor@{getValor}}
 \index{getValor@{getValor}!Cartao@{Cartao}}
 \doxysubsubsection{\texorpdfstring{getValor()}{getValor()}}
-{\footnotesize\ttfamily \label{class_cartao_a9e942a66736d7fa643e21083009843da} 
-std\+::string Cartao\+::get\+Valor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{class_cartao_a4456f94faa405be82ed34d2a0e5b0dd6} 
+string Cartao\+::get\+Valor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -70,11 +43,11 @@ Uma string contendo o valor atual do cartão.
 
 O valor do atributo \textquotesingle{}valor\textquotesingle{} da classe. 
 \end{DoxyReturn}
-\Hypertarget{class_cartao_ae7700703c364c63c00d11325bad00275}\index{Cartao@{Cartao}!setValor@{setValor}}
+\Hypertarget{class_cartao_a55b8c3ecb5f69b9aa2cd7f66c13e6580}\index{Cartao@{Cartao}!setValor@{setValor}}
 \index{setValor@{setValor}!Cartao@{Cartao}}
 \doxysubsubsection{\texorpdfstring{setValor()}{setValor()}}
-{\footnotesize\ttfamily \label{class_cartao_ae7700703c364c63c00d11325bad00275} 
-void Cartao\+::set\+Valor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{valor\+Cartao}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_cartao_a55b8c3ecb5f69b9aa2cd7f66c13e6580} 
+void Cartao\+::set\+Valor (\begin{DoxyParamCaption}\item[{const string \&}]{valor\+Cartao}{}\end{DoxyParamCaption})}
 
 
 
@@ -87,7 +60,7 @@ Define o valor do número do cartão de crédito.
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argument} & Se o valor não atender aos critérios de validação. \\
+{\em invalid\+\_\+argument} & Se o valor não atender aos critérios de validação. \\
 \hline
 \end{DoxyExceptions}
 

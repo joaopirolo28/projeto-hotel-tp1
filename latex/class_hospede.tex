@@ -2,6 +2,15 @@
 \hypertarget{class_hospede}{}\label{class_hospede}\index{Hospede@{Hospede}}
 
 
+Classe entidade que representa um Hóspede.  
+
+
+
+
+{\ttfamily \#include $<$hospede.\+hpp$>$}
+
+
+
 Inheritance diagram for Hospede\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,40 +32,102 @@ Collaboration diagram for Hospede\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_hospede_a850a70b10f043139fd416817be615dd4}\label{class_hospede_a850a70b10f043139fd416817be615dd4} 
-void {\bfseries set\+Endereco} (const \mbox{\hyperlink{class_endereco}{Endereco}} \&endereco)
-\item 
-\Hypertarget{class_hospede_a2220085147fac5f1bf00a1d3afedf3a4}\label{class_hospede_a2220085147fac5f1bf00a1d3afedf3a4} 
-\mbox{\hyperlink{class_endereco}{Endereco}} {\bfseries get\+Endereco} () const
-\item 
-\Hypertarget{class_hospede_a7b05de5ed3d2152e125019dd8f4de68c}\label{class_hospede_a7b05de5ed3d2152e125019dd8f4de68c} 
-void {\bfseries set\+Cartao} (const \mbox{\hyperlink{class_cartao}{Cartao}} \&cartao)
-\item 
-\Hypertarget{class_hospede_ab438db2528da9fed95539e1baf7371b5}\label{class_hospede_ab438db2528da9fed95539e1baf7371b5} 
-\mbox{\hyperlink{class_cartao}{Cartao}} {\bfseries get\+Cartao} () const
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_hospede_a850a70b10f043139fd416817be615dd4}{set\+Endereco}} (const \mbox{\hyperlink{class_endereco}{Endereco}} \&endereco)
+\begin{DoxyCompactList}\small\item\em Define o endereço do hóspede. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_endereco}{Endereco}} \mbox{\hyperlink{class_hospede_a2220085147fac5f1bf00a1d3afedf3a4}{get\+Endereco}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o endereço do hóspede. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hospede_a7b05de5ed3d2152e125019dd8f4de68c}{set\+Cartao}} (const \mbox{\hyperlink{class_cartao}{Cartao}} \&cartao)
+\begin{DoxyCompactList}\small\item\em Define o cartão de crédito do hóspede. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cartao}{Cartao}} \mbox{\hyperlink{class_hospede_ab438db2528da9fed95539e1baf7371b5}{get\+Cartao}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o cartão de crédito do hóspede. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_pessoa}{Pessoa}}}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries set\+Nome} (const \mbox{\hyperlink{class_nome}{Nome}} \&nome)
-\item 
-\mbox{\hyperlink{class_nome}{Nome}} {\bfseries get\+Nome} () const
-\item 
-void {\bfseries set\+Email} (const \mbox{\hyperlink{class_email}{Email}} \&email)
-\item 
-\mbox{\hyperlink{class_email}{Email}} {\bfseries get\+Email} () const
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_pessoa_afddbfe1fabc8e39b53f9b59b24702591}{set\+Nome}} (const \mbox{\hyperlink{class_nome}{Nome}} \&\mbox{\hyperlink{class_pessoa_a522b401a9c8c08aa334f75330ca0d74a}{nome}})
+\begin{DoxyCompactList}\small\item\em Define o nome da pessoa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nome}{Nome}} \mbox{\hyperlink{class_pessoa_ad0c0448768ca2f5b5dfca86f156cdfe9}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome da pessoa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pessoa_a07c9dc9687e897de901a0361cdae0401}{set\+Email}} (const \mbox{\hyperlink{class_email}{Email}} \&\mbox{\hyperlink{class_pessoa_a1560ad3e1f1327131518dce3ce09a2fe}{email}})
+\begin{DoxyCompactList}\small\item\em Define o email da pessoa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_email}{Email}} \mbox{\hyperlink{class_pessoa_a137a2a665a10ffa4880d1f7d726b07c7}{get\+Email}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o email da pessoa. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_pessoa}{Pessoa}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_nome}{Nome}} {\bfseries nome}
-\item 
+\begin{DoxyCompactList}\small\item\em O nome da pessoa. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_email}{Email}} {\bfseries email}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em O endereço de email da pessoa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe entidade que representa um Hóspede. 
+
+Herda de \doxylink{class_pessoa}{Pessoa} e adiciona atributos específicos de um hóspede, como Endereço e Cartão de crédito para fins de reserva e faturamento. 
+
+\label{doc-func-members}
+\Hypertarget{class_hospede_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_hospede_ab438db2528da9fed95539e1baf7371b5}\index{Hospede@{Hospede}!getCartao@{getCartao}}
+\index{getCartao@{getCartao}!Hospede@{Hospede}}
+\doxysubsubsection{\texorpdfstring{getCartao()}{getCartao()}}
+{\footnotesize\ttfamily \label{class_hospede_ab438db2528da9fed95539e1baf7371b5} 
+\mbox{\hyperlink{class_cartao}{Cartao}} Hospede\+::get\+Cartao (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o cartão de crédito do hóspede. 
+
+\begin{DoxyReturn}{Returns}
+Um objeto do tipo \doxylink{class_cartao}{Cartao}. 
+\end{DoxyReturn}
+\Hypertarget{class_hospede_a2220085147fac5f1bf00a1d3afedf3a4}\index{Hospede@{Hospede}!getEndereco@{getEndereco}}
+\index{getEndereco@{getEndereco}!Hospede@{Hospede}}
+\doxysubsubsection{\texorpdfstring{getEndereco()}{getEndereco()}}
+{\footnotesize\ttfamily \label{class_hospede_a2220085147fac5f1bf00a1d3afedf3a4} 
+\mbox{\hyperlink{class_endereco}{Endereco}} Hospede\+::get\+Endereco (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o endereço do hóspede. 
+
+\begin{DoxyReturn}{Returns}
+Um objeto do tipo \doxylink{class_endereco}{Endereco}. 
+\end{DoxyReturn}
+\Hypertarget{class_hospede_a7b05de5ed3d2152e125019dd8f4de68c}\index{Hospede@{Hospede}!setCartao@{setCartao}}
+\index{setCartao@{setCartao}!Hospede@{Hospede}}
+\doxysubsubsection{\texorpdfstring{setCartao()}{setCartao()}}
+{\footnotesize\ttfamily \label{class_hospede_a7b05de5ed3d2152e125019dd8f4de68c} 
+void Hospede\+::set\+Cartao (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cartao}{Cartao}} \&}]{cartao}{}\end{DoxyParamCaption})}
+
+
+
+Define o cartão de crédito do hóspede. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cartao} & Um objeto do tipo \doxylink{class_cartao}{Cartao}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_hospede_a850a70b10f043139fd416817be615dd4}\index{Hospede@{Hospede}!setEndereco@{setEndereco}}
+\index{setEndereco@{setEndereco}!Hospede@{Hospede}}
+\doxysubsubsection{\texorpdfstring{setEndereco()}{setEndereco()}}
+{\footnotesize\ttfamily \label{class_hospede_a850a70b10f043139fd416817be615dd4} 
+void Hospede\+::set\+Endereco (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_endereco}{Endereco}} \&}]{endereco}{}\end{DoxyParamCaption})}
+
+
+
+Define o endereço do hóspede. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em endereco} & Um objeto do tipo \doxylink{class_endereco}{Endereco}. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-hospede.\+hpp\item 
+\mbox{\hyperlink{hospede_8hpp}{hospede.\+hpp}}\item 
 hospede.\+cpp\end{DoxyCompactItemize}

@@ -1,32 +1,42 @@
 \doxysection{email.\+hpp}
-\hypertarget{email_8hpp_source}{}\label{email_8hpp_source}
+\hypertarget{email_8hpp_source}{}\label{email_8hpp_source}\mbox{\hyperlink{email_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ EMAIL\_HPP\_INCLUDED}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ EMAIL\_HPP\_INCLUDED}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
-\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
-\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }Email\ \{}
-\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{string}\ email;}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ validar(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ email);}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ validarParteLocal(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ parteLocal);}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ validarDominio(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ dominio);}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ EMAIL\_HPP\_INCLUDED}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ EMAIL\_HPP\_INCLUDED}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ TAMANHO\_MAX\_LOCAL\ =\ 64;}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ TAMANHO\_MAX\_DOMINIO\ =\ 255;}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ Email(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ email);}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ setEmail(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ email);}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{string}\ getEmail()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00021\ \};}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{string}\ Email::getEmail()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>email;}
-\DoxyCodeLine{00025\ \}}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ EMAIL\_HPP\_INCLUDED}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_email_a4a199734e29834046e8d9fa5d04dfd0d}{Email}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{string}\ email;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ validar(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ email);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ validarParteLocal(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ parteLocal);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ validarDominio(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ dominio);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_email_a1f32f82a10e992ec4e94a4042fd99e8d}{TAMANHO\_MAX\_LOCAL}}\ =\ 64;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_email_ad877d574c1bfd6f6bac82c8bd12ec8ab}{TAMANHO\_MAX\_DOMINIO}}\ =\ 255;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_email_a4a199734e29834046e8d9fa5d04dfd0d}{Email}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ email);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_email_af212f6983e0b7a58350a047cccfb142f}{setEmail}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ email);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_email_a6c314589c2042bf2234a9b5781d50def}{getEmail}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_email_a6c314589c2042bf2234a9b5781d50def}{Email::getEmail}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>email;}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ EMAIL\_HPP\_INCLUDED}}
 
 \end{DoxyCode}

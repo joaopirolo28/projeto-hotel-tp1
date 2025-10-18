@@ -1,26 +1,36 @@
 \doxysection{numero.\+hpp}
-\hypertarget{numero_8hpp_source}{}\label{numero_8hpp_source}
+\hypertarget{numero_8hpp_source}{}\label{numero_8hpp_source}\mbox{\hyperlink{numero_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ NUMERO\_HPP\_INCLUDED}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ NUMERO\_HPP\_INCLUDED}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include<stdexcept>}}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }Numero\{}
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{int}\ valor;}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{void}\ validar(\textcolor{keywordtype}{int}\ valor);}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00011\ \ \ \ \ Numero(\textcolor{keywordtype}{int}\ valor);}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ setValor(\textcolor{keywordtype}{int}\ valor);}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ getValor()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ LIMITE\_INFERIOR\ =\ 1;}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ LIMITE\_SUPERIOR\ =\ 999;}
-\DoxyCodeLine{00016\ \};}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ Numero::getValor()\textcolor{keyword}{\ const}\{}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{return}\ valor;}
-\DoxyCodeLine{00020\ \}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ NUMERO\_HPP\_INCLUDED}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ NUMERO\_HPP\_INCLUDED}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ NUMERO\_HPP\_INCLUDED}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_numero_ac2f2ef7879fc7475c818288a6d44248a}{Numero}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ valor;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ validar(\textcolor{keywordtype}{int}\ valor);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_numero_af5530147c9e14663b5132494985a1f15}{LIMITE\_INFERIOR}}\ =\ 1;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_numero_ab064139876a927520301ecf76878598a}{LIMITE\_SUPERIOR}}\ =\ 999;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_numero_ac2f2ef7879fc7475c818288a6d44248a}{Numero}}(\textcolor{keywordtype}{int}\ valor);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_numero_a836200e8bd04882bc7ea2f5bc5d7beef}{setValor}}(\textcolor{keywordtype}{int}\ valor);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_numero_a64bbe311f1537d8c40294fb201e34bf4}{getValor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_numero_a64bbe311f1537d8c40294fb201e34bf4}{Numero::getValor}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ valor;}
+\DoxyCodeLine{00072\ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ NUMERO\_HPP\_INCLUDED}}
 
 \end{DoxyCode}
