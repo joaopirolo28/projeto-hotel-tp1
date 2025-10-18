@@ -4,10 +4,6 @@
 
 const double LIMITE_MAXIMO = 1000000.00;
 
-Dinheiro::Dinheiro(){
-    this->valorCentavos = 0;
-}
-
 void Dinheiro::validar(double valor)const{
     if(valor<=0.0){
         throw invalid_argument("Valor nao pode ser negativo nem nulo.");

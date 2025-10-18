@@ -9,7 +9,7 @@ void Cartao::validar(const string&valorCartao)const{
     if(valorCartao.length() != 16){
         throw invalid_argument("Numero do cartao deve ter 16 digitos.");
     }
-    int soma=0;
+    int soma = 0;
     bool dobra = false;
     for(int i = valorCartao.length()-1; i>=0; i--){
         if(!isdigit(valorCartao[i])){
