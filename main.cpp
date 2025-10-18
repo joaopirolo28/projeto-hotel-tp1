@@ -9,60 +9,72 @@ using namespace std;
 
 int main()
 {
-    Data a;
+    Data data;
 
-    if(a.setData(4, "FEV", 2019)){
-        cout << "Data = " << a.getDia() << '/' << a.getMes() << '/' << a.getAno() << endl;
-    }else{
-        cout << "Data invalido" << endl;
+    try{
+        data.setData(12, "DEZ", 2017);
+        cout << "Data: " << data.getDia() << "/" << data.getMes() << "/" << data.getAno() << endl;
+    }
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
+    }
+    try{
+        data.setData(30, "FEV", 2025);
+        cout << "Data: " << data.getDia() << "/" << data.getMes() << "/" << data.getAno() << endl;
+    }
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
     }
 
-    if(a.setData(29, "FEV", 2025)){
-        cout << "Data = " << a.getDia() << '/' << a.getMes() << '/' << a.getAno() << endl;
-    }else{
-        cout << "Data invalido" << endl;
+    Capacidade capacidade;
+
+    try{
+        capacidade.setValor(4);
+        cout << "Capacidade: " << capacidade.getValor() << endl;
     }
-
-    Capacidade b;
-
-    if(b.setValor(3)){
-        cout << "Valor = " << b.getValor() << endl;
-    }else{
-        cout << "Valor invalido" << endl;
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
     }
-
-    if(b.setValor(30)){
-        cout << "Valor = " << b.getValor() << endl;
-    }else{
-        cout << "Valor invalido" << endl;
+    try{
+        capacidade.setValor(5);
+        cout << capacidade.getValor() << endl;
+    }
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
     }
 
     Endereco casinha;
 
-    if(casinha.setEndereco("Pequepe, lote 21, apt.666")){
-        cout << "Endereco = " << casinha.getEndereco() << endl;
-    }else{
-        cout << "Endereco invalido" << endl;
+    try{
+        casinha.setEndereco("Pequepe, lote 21, apt. 666");
+        cout << "Endereco: " << casinha.getEndereco() << endl;
     }
-
-    if(casinha.setEndereco("Pequepe,. lote 21, apt.666")){
-        cout << "Endereco = " << casinha.getEndereco() << endl;
-    }else{
-        cout << "Endereco invalido" << endl;
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
+    }
+    try{
+        casinha.setEndereco("Pequepe, lote 21, apt. 666 ");
+        cout << "Endereco: " << casinha.getEndereco() << endl;
+    }
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
     }
 
     Ramal ramal;
-
-    if(ramal.setValor(43)){
-        cout << "Ramal = " << ramal.getValor() << endl;
-    }else{
-        cout << "Ramal invalido" << endl;
+    
+    try{
+        ramal.setValor(43);
+        cout << "Ramal: " << ramal.getValor() << endl;
     }
-
-    if(ramal.setValor(55)){
-        cout << "Valor = " << ramal.getValor() << endl;
-    }else{
-        cout << "Valor invalido" << endl;
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
+    }
+    try{
+        ramal.setValor(55);
+        cout << ramal.getValor() << endl;
+    }
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
     }
 
     try{
@@ -117,6 +129,41 @@ int main()
     }catch(const invalid_argument&exp){
         cout<<"Erro: "<<exp.what()<<endl;
     }
+
+    Nome nome;
+
+    try{
+        nome.setNome("Abigail Silva");
+        cout << nome.getNome() << endl;
+    }
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
+    }
+    try{
+        nome.setNome("Abigail  Silva");
+        cout << nome.getNome() << endl;
+    }
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
+    }
+    
+    Senha senha;
+
+    try{
+        senha.setSenha("S3s%$");
+        cout << senha.getSenha() << endl;
+    }
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
+    }
+    try{
+        senha.setSenha("SSSSS");
+        cout << senha.getSenha() << endl;
+    }
+    catch(invalid_argument &exp){
+        cout << "Erro: " << exp.what() << endl;
+    }
+    
     return 0;
 
 }

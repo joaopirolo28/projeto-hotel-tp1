@@ -12,6 +12,7 @@
 #include "cartao.hpp"
 #include "dinheiro.hpp"
 #include "nome.hpp"
+#include "senha.hpp"
 
 
 #endif // DOMINIOS_HPP_INCLUDED
