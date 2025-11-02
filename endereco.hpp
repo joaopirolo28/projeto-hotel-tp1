@@ -1,19 +1,20 @@
 #ifndef ENDERECO_HPP_INCLUDED
 #define ENDERECO_HPP_INCLUDED
 #include <string>
+#include <stdexcept>
 
 using namespace std;
 
 class Endereco{
     private:
         string endereco_Completo;
-        bool validar(string);
+        void validar(string);
     public:
-        bool setEndereco(string);
-        string getEndereco();
+        void setEndereco(string);
+        string getEndereco() const;
 };
 
-inline string Endereco::getEndereco(){
+inline string Endereco::getEndereco() const{
     return endereco_Completo;
 }
 

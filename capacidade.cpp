@@ -1,15 +1,12 @@
 #include "capacidade.hpp"
 
-bool Capacidade::validar(int valor){
+void Capacidade::validar(int valor){
     if(valor > MAXIMO || valor < MINIMO){
-        return false;
+        throw invalid_argument("Capacidade invalida.");
     }
-    return true;
 }
 
-bool Capacidade::setValor(int valor){
-    if(!validar(valor)){
-        return false;
-    }
+void Capacidade::setValor(int valor){
+    validar(valor);
     this->valor = valor;
 }

@@ -2,6 +2,7 @@
 #define DATA_HPP_INCLUDED
 #include <map>
 #include <string>
+#include <stdexcept>
 
 using namespace std;
 
@@ -12,23 +13,23 @@ class Data{
         string mes;
         int ano;
         bool bissexto(int);
-        bool validar(int, string, int);
+        void validar(int, string, int);
 
     public:
-        bool setData(int, string, int);
+        void setData(int, string, int);
 
-        int getDia();
-        string getMes();
-        int getAno();
+        int getDia() const;
+        string getMes() const;
+        int getAno() const;
 };
 
-inline int Data::getDia(){
+inline int Data::getDia() const{
     return dia;
 }
-inline string Data::getMes(){
+inline string Data::getMes() const{
     return mes;
 }
-inline int Data::getAno(){
+inline int Data::getAno() const{
     return ano;
 }
 

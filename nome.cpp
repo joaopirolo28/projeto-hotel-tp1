@@ -25,10 +25,10 @@ void Nome::validar(string nome){
         }
         if(c == ' '){
             if(i == nome.size()-1){
-                throw invalid_argument("Caracter no final não pode ser espaço");
+                throw invalid_argument("Caracter no final nao pode ser espaco");
             }
             if(nome[i+1] == ' '){
-                throw invalid_argument("Não pode ter 2 espaços seguidos");
+                throw invalid_argument("Nao pode ter 2 espacos seguidos");
             }
         }
     }

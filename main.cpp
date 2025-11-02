@@ -2,6 +2,7 @@
 #include<stdexcept>
 #include "dominios.hpp" //juntei em dominios para ficar mais limpo -Tarsila
 //todo novo dominio ir para dominios.hpp
+#include "entidades.hpp"
 #include<iomanip>
 
 
@@ -61,7 +62,7 @@ int main()
     }
 
     Ramal ramal;
-    
+
     try{
         ramal.setValor(43);
         cout << "Ramal: " << ramal.getValor() << endl;
@@ -86,7 +87,7 @@ int main()
     }
 
     try{
-        Email email("nome-123@gmail.com");
+        Email email("nome123@gmail.com");
         cout<<"Email criado: "<<email.getEmail()<<endl;
     } catch(const invalid_argument& exp){
         cout<<"Erro: "<<exp.what()<<endl;
@@ -96,7 +97,7 @@ int main()
     }catch(const invalid_argument &exp){
         cout<<"Erro: "<< exp.what()<<endl;
     }
-    
+
     try{
         Numero numero(20);
         cout<<"Numero cadastrado com sucesso: "<< numero.getValor()<<endl;
@@ -105,7 +106,7 @@ int main()
      catch(const invalid_argument&exp){
         cout<<"Erro: "<<exp.what()<<endl;
         }
-    
+
     try{
         Telefone telefone("+61996098513");
         cout<<"Telefone cadastrado: "<<telefone.getValor()<<endl;
@@ -114,18 +115,23 @@ int main()
         cout<<"Erro: "<<exp.what()<<endl;
     }
 
+    Cartao cartao;
+
     try{
-        Cartao cartao("5423573294061746");
+        cartao.setValor("5423573294061746");
         cout<<"Cartao cadastrado"<<cartao.getValor()<<endl;
-        Cartao cartao_invalido("1234567891011122");
+        //Cartao cartao_invalido("1234567891011122");
     }catch(const invalid_argument&exp){
         cout<<"Erro: "<<exp.what()<<endl;
     }
 
+    Dinheiro dinheiro;
+
     try{
-        Dinheiro dinheiro(868000.85);
-        cout<<"Dinheiro armazenado"<<dinheiro.getValor()<<endl;
-        Dinheiro dinheiroInvalido(0.0);
+        //Dinheiro dinheiro(868000.85);
+        dinheiro.setValor(8680.85);
+        cout<<"Dinheiro armazenado: "<<dinheiro.getValor()<<endl;
+        //Dinheiro dinheiroInvalido(0.0);
     }catch(const invalid_argument&exp){
         cout<<"Erro: "<<exp.what()<<endl;
     }
@@ -146,7 +152,7 @@ int main()
     catch(invalid_argument &exp){
         cout << "Erro: " << exp.what() << endl;
     }
-    
+
     Senha senha;
 
     try{
@@ -163,7 +169,11 @@ int main()
     catch(invalid_argument &exp){
         cout << "Erro: " << exp.what() << endl;
     }
-    
+
+
+
+
+
     return 0;
 
 }

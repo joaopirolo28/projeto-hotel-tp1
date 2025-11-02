@@ -26,13 +26,13 @@ void Senha::validar(string senha){
                 qntm++;
             }
         }
-        
+
         if(isdigit(c) && isdigit(senha[i+1]) && (i+1) < senha.size()){
-            throw invalid_argument("Não pode ter digito seguido");
+            throw invalid_argument("Nao pode ter digito seguido");
         }
 
         if(isalpha(c) && isalpha(senha[i+1]) && (i+1) < senha.size()){
-            throw invalid_argument("Não pode ter letra seguido");
+            throw invalid_argument("Nao pode ter letra seguido");
         }
 
     }

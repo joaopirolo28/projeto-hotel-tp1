@@ -1,6 +1,8 @@
 #ifndef CAPACIDADE_HPP_INCLUDED
 #define CAPACIDADE_HPP_INCLUDED
 
+#include <stdexcept>
+
 using namespace std;
 
 class Capacidade{
@@ -8,13 +10,13 @@ class Capacidade{
         static const int MINIMO = 1;
         static const int MAXIMO = 4;
         int valor;
-        bool validar(int);
+        void validar(int);
     public:
-        bool setValor(int);
-        int getValor();
+        void setValor(int);
+        int getValor() const;
 };
 
-inline int Capacidade::getValor(){
+inline int Capacidade::getValor() const{
     return valor;
 }
 

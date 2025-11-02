@@ -1,17 +1,13 @@
 #include "ramal.hpp"
 
-bool Ramal::setValor(int valor){
-    if(!validar(valor)){
-        return false;
-    }
+void Ramal::setValor(int valor){
+    validar(valor);
     this->valor = valor;
-    return true;
 }
 
 
-bool Ramal::validar(int valor){
+void Ramal::validar(int valor){
     if(valor < 0 || valor > LIMITE){
-        return false;
+        throw invalid_argument("Valor invalido.");
     }
-    return true;
 }

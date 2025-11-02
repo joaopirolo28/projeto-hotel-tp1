@@ -2,21 +2,19 @@
 
 using namespace std;
 
-bool Data::setData(int dia, string mes, int ano){
-    if(!validar(dia, mes, ano)){
-        return false;
-    }
+void Data::setData(int dia, string mes, int ano){
+    validar(dia, mes, ano);
+
     this->dia = dia;
     this->mes = mes;
     this->ano = ano;
-    return true;
 }
 
-bool Data::validar(int dia, string mes, int ano){
+void Data::validar(int dia, string mes, int ano){
     int LIMITE;
 
     if(ano > 2999 || ano < 2000){
-        return false;
+        throw invalid_argument("Ano invalido.");
     }
 
     if(MES_DIA[mes]){
@@ -28,14 +26,12 @@ bool Data::validar(int dia, string mes, int ano){
             }
         }
     }else{
-        return false;
+        throw invalid_argument("Mes invalido.");
     }
 
     if(dia < 0 || dia > LIMITE){
-        return false;
+        throw invalid_argument("Dia invalido");
     }
-
-    return true;
 }
 
 bool Data::bissexto(int ano){
