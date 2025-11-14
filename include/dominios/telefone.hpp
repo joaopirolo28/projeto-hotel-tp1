@@ -46,12 +46,14 @@ public:
      */
     Telefone(const string& valor);
 
+    Telefone() { }
+
     /**
      * @brief Define o valor do número de telefone após validá-lo.
      * @param valor O número de telefone a ser definido.
      * @throw invalid_argument Se o valor não atender aos critérios de validação.
      */
-    void setvalor(const string& valor);
+    void setValor(const string& valor);
 
     /**
      * @brief Retorna o valor do número de telefone.

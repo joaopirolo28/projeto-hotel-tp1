@@ -243,6 +243,117 @@ int main()
         cout << "ERRO INESPERADO no Hospede (Sucesso): " << exp.what() << endl;
     }
 
+    // --- Teste da Entidade Hotel ---
+
+    cout << "\n--- TESTE DA ENTIDADE HOTEL ---\n";
+
+    // CENÁRIO DE SUCESSO
+    try {
+        Hotel h;
+        Nome nomeHotel;
+        Endereco enderecoHotel;
+        Telefone telefoneHotel;
+        Codigo codigoHotel;
+
+        // Define Domínios válidos
+        nomeHotel.setNome("Grand Palace Hotel");
+        enderecoHotel.setEndereco("Avenida Principal, 100");
+        telefoneHotel.setValor("+5561987654321");
+        codigoHotel.setValor("HOTEL123AB"); // 10 caracteres alfanuméricos
+
+        // Atribui Domínios à Entidade
+        h.setNome(nomeHotel);
+        h.setEndereco(enderecoHotel);
+        h.setTelefone(telefoneHotel);
+        h.setCodigo(codigoHotel);
+
+        cout << "Hotel criado com sucesso:\n";
+        cout << " - Nome: " << h.getNome().getNome() << endl;
+        cout << " - Codigo: " << h.getCodigo().getValor() << endl;
+
+    } catch (const invalid_argument& exp) {
+        cout << "ERRO INESPERADO no Hotel (Sucesso): " << exp.what() << endl;
+    }
+
+    // CENÁRIO DE FALHA (Propagação de exceção - Telefone inválido)
+    try {
+        Hotel h_falha;
+        Telefone tel_invalido;
+
+        // Tenta atribuir um Telefone Inválido (começa com caractere não-dígito)
+        tel_invalido.setValor("*5561987654321");
+
+        // Se passar, a Entidade aceitou um Domínio inválido (erro no teste)
+        h_falha.setTelefone(tel_invalido);
+        cout << "ERRO: Hotel aceitou Telefone inválido!\n";
+
+    } catch (const invalid_argument& exp) {
+        cout << "Hotel: Exceção de Telefone capturada com sucesso: " << exp.what() << endl;
+    }
+
+    // --- Teste da Entidade Quarto ---
+
+    cout << "\n--- TESTE DA ENTIDADE QUARTO ---\n";
+
+    // CENÁRIO DE SUCESSO
+    try {
+        Quarto q;
+        Numero numeroQuarto;
+        Capacidade capacidadeQuarto;
+        Dinheiro diariaQuarto;
+        Ramal ramalQuarto;
+
+        // Define Domínios válidos
+        numeroQuarto.setValor(501); // 1 a 999
+        capacidadeQuarto.setValor(2); // 1 a 4
+        diariaQuarto.setValor(350.50); // >= 0.01
+        ramalQuarto.setValor(10); // 0 a 50
+
+        // Atribui Domínios à Entidade
+        q.setNumero(numeroQuarto);
+        q.setCapacidade(capacidadeQuarto);
+        q.setDiaria(diariaQuarto);
+        q.setRamal(ramalQuarto);
+
+        cout << "Quarto criado com sucesso:\n";
+        cout << " - Numero: " << q.getNumero().getValor() << endl;
+        cout << " - Diaria: " << fixed << setprecision(2) << q.getDiaria().getValor() << endl;
+
+    } catch (const invalid_argument& exp) {
+        cout << "ERRO INESPERADO no Quarto (Sucesso): " << exp.what() << endl;
+    }
+
+    // --- Teste da Entidade Reserva ---
+
+    cout << "\n--- TESTE DA ENTIDADE RESERVA ---\n";
+
+    // CENÁRIO DE SUCESSO
+    try {
+        Reserva r;
+        Data chegada;
+        Data partida;
+        Dinheiro valorReserva;
+        Codigo codigoReserva;
+
+        // Define Domínios válidos
+        chegada.setData(10, "DEZ", 2025);
+        partida.setData(15, "DEZ", 2025);
+        valorReserva.setValor(1500.00);
+        codigoReserva.setValor("RESV777XAB"); // 10 alfanuméricos
+
+        // Atribui Domínios à Entidade
+        r.setChegada(chegada);
+        r.setPartida(partida);
+        r.setValor(valorReserva);
+        r.setCodigo(codigoReserva);
+
+        cout << "Reserva criada com sucesso:\n";
+        cout << " - Chegada: " << r.getChegada().getDia() << "/" << r.getChegada().getMes() << endl;
+        cout << " - Valor: " << fixed << setprecision(2) << r.getValor().getValor() << endl;
+
+    } catch (const invalid_argument& exp) {
+        cout << "ERRO INESPERADO na Reserva (Sucesso): " << exp.what() << endl;
+    }
     // --- Fim dos Testes de Entidades ---
 
 

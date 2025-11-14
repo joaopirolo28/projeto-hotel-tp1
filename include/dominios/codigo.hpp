@@ -40,6 +40,8 @@ public:
      */
     Codigo(const string& valor);
 
+    Codigo() {}
+
     /**
      * @brief Define o valor do código após validá-lo.
      * @param valor O código a ser definido.

@@ -15,6 +15,11 @@ void Telefone::validar(const string&valor){
     }
 }
 
+void Telefone::setValor(const string&valor){
+    validar(valor);
+    this->valor = valor;
+}
+
 Telefone::Telefone(const string&valor){
     validar(valor);
     this->valor= valor;

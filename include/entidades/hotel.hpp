@@ -40,6 +40,8 @@ class Hotel{
 
     public:
 
+        Hotel(){ }
+
         /**
          * @brief Define o nome do hotel.
          * @param nome Um objeto do tipo Nome.
@@ -50,6 +52,7 @@ class Hotel{
          * @return Um objeto do tipo Nome.
          */
         Nome getNome();
+
 
         /**
          * @brief Define o endereço do hotel.
@@ -62,10 +65,63 @@ class Hotel{
          */
         Endereco getEndereco();
 
-        // ... (Outros métodos set/get devem ser documentados de forma similar)
+
+        /**
+         * @brief Define o telefone do hotel.
+         * @param telefone Um objeto do tipo Telefone.
+         */
+        void setTelefone(Telefone telefone);
+        /**
+         * @brief Retorna o telefone do hotel.
+         * @return Um objeto do tipo Telefone.
+         */
+        Telefone getTelefone();
+
+
+        /**
+         * @brief Define o nome do hotel.
+         * @param nome Um objeto do tipo Nome.
+         */
+        void setCodigo(Codigo codigo);
+        /**
+         * @brief Retorna o codigo do hotel.
+         * @return Um objeto do tipo Codigo.
+         */
+        Codigo getCodigo();
+
 
 };
 
-// ... (Métodos inline mantidos)
+inline void Hotel::setNome(Nome nome){
+    this->nome = nome;
+}
+
+inline Nome Hotel::getNome(){
+    return nome;
+}
+
+inline void Hotel::setEndereco(Endereco endereco){
+    this->endereco = endereco;
+}
+
+inline Endereco Hotel::getEndereco(){
+    return endereco;
+}
+
+inline void Hotel::setTelefone(Telefone telefone){
+    this->telefone = telefone;
+}
+
+inline Telefone Hotel::getTelefone(){
+    return telefone;
+}
+
+inline void Hotel::setCodigo(Codigo codigo){
+    this->codigo = codigo;
+}
+
+inline Codigo Hotel::getCodigo(){
+    return codigo;
+}
 
 #endif // HOTEL_HPP_INCLUDED

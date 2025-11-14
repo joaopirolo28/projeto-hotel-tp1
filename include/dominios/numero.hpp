@@ -49,6 +49,8 @@ public:
      */
     Numero(int valor);
 
+    Numero() {}
+
     /**
      * @brief Define o valor do número após validá-lo.
      * @param valor O número a ser definido.

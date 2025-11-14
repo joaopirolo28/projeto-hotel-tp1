@@ -40,6 +40,8 @@ class Quarto{
         Ramal ramal;
 
     public:
+
+        Quarto() {}
         /**
          * @brief Define o número do quarto.
          * @param numero Um objeto do tipo Numero.
