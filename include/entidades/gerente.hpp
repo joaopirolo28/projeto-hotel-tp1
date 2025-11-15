@@ -34,7 +34,7 @@ public:
      * @brief Define o ramal do gerente.
      * @param ramal Um objeto do tipo Ramal.
      */
-    void setRamal(const Ramal& ramal);
+    void setRamal(Ramal);
 
     /**
      * @brief Retorna o ramal do gerente.
@@ -46,7 +46,7 @@ public:
      * @brief Define a senha do gerente.
      * @param senha Um objeto do tipo Senha.
      */
-    void setSenha(const Senha& senha);
+    void setSenha(Senha);
 
     /**
      * @brief Retorna a senha do gerente.
@@ -55,4 +55,19 @@ public:
     Senha getSenha() const;
 };
 
+inline void Gerente::setRamal(Ramal ramal) {
+    this->ramal = ramal;
+}
+
+inline Ramal Gerente::getRamal() const {
+    return ramal;
+}
+
+inline void Gerente::setSenha(Senha senha) {
+    this->senha = senha;
+}
+
+inline Senha Gerente::getSenha() const {
+    return senha;
+}
 #endif // GERENTE_HPP

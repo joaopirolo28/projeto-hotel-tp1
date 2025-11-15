@@ -34,7 +34,7 @@ public:
      * @brief Define o nome da pessoa.
      * @param nome Um objeto do tipo Nome.
      */
-    void setNome(const Nome& nome);
+    void setNome(Nome nome);
 
     /**
      * @brief Retorna o nome da pessoa.
@@ -46,7 +46,7 @@ public:
      * @brief Define o email da pessoa.
      * @param email Um objeto do tipo Email.
      */
-    void setEmail(const Email& email);
+    void setEmail(Email email);
 
     /**
      * @brief Retorna o email da pessoa.
@@ -54,5 +54,21 @@ public:
      */
     Email getEmail() const;
 };
+
+inline void Pessoa::setNome(Nome nome){
+    this->nome=nome;
+}
+
+inline Nome Pessoa :: getNome()const{
+    return nome;
+}
+
+inline void Pessoa::setEmail(Email email){
+    this->email = email;
+}
+
+inline Email Pessoa::getEmail()const{
+    return email;
+}
 
 #endif // PESSOA_HPP

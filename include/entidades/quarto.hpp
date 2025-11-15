@@ -1,123 +1,127 @@
 /**
  * @file quarto.hpp
- * @brief Definição da classe da entidade Quarto.
- * @author [Seu Nome Aqui - Exemplo: João Pedro]
+ * @brief DefiniÃ§Ã£o da classe da entidade Quarto.
+ * @author JoÃ£o Pedro
  * @date 14/11/2025
  */
 
 #ifndef QUARTO_HPP_INCLUDED
 #define QUARTO_HPP_INCLUDED
 
-// Assumindo que os includes para Domínios estão em quarto.hpp (Adicione-os conforme necessário)
-// Exemplo:
-// #include "dominios/numero.hpp"
-// #include "dominios/capacidade.hpp"
-// #include "dominios/dinheiro.hpp"
-// #include "dominios/ramal.hpp"
+// Includes necessÃ¡rios para os domÃ­nios
+#include "dominios/numero.hpp"
+#include "dominios/capacidade.hpp"
+#include "dominios/dinheiro.hpp"
+#include "dominios/ramal.hpp"
 
 /**
  * @brief Classe entidade que representa um Quarto no sistema hoteleiro.
- * @details Contém informações sobre o número, capacidade de hóspedes, valor da diária
- * e o ramal telefônico associado ao quarto.
+ * @details ContÃ©m informaÃ§Ãµes sobre o nÃºmero, capacidade de hÃ³spedes, valor da diÃ¡ria
+ * e o ramal telefÃ´nico associado ao quarto.
  */
-class Quarto{
-    private:
-        /**
-         * @brief O número de identificação do quarto (Domínio Numero).
-         */
-        Numero numero;
-        /**
-         * @brief A capacidade máxima de hóspedes do quarto (Domínio Capacidade).
-         */
-        Capacidade capacidade;
-        /**
-         * @brief O valor da diária do quarto (Domínio Dinheiro).
-         */
-        Dinheiro diaria;
-        /**
-         * @brief O ramal telefônico do quarto (Domínio Ramal).
-         */
-        Ramal ramal;
+class Quarto {
+private:
+    /**
+     * @brief O nÃºmero de identificaÃ§Ã£o do quarto (DomÃ­nio Numero).
+     */
+    Numero numero;
+    /**
+     * @brief A capacidade mÃ¡xima de hÃ³spedes do quarto (DomÃ­nio Capacidade).
+     */
+    Capacidade capacidade;
+    /**
+     * @brief O valor da diÃ¡ria do quarto (DomÃ­nio Dinheiro).
+     */
+    Dinheiro diaria;
+    /**
+     * @brief O ramal telefÃ´nico do quarto (DomÃ­nio Ramal).
+     */
+    Ramal ramal;
 
-    public:
+public:
+    /**
+     * @brief Construtor padrÃ£o.
+     * @details Construtor padrÃ£o que Ã© chamado automaticamente.
+     */
+    Quarto() {}
 
-        Quarto() {}
-        /**
-         * @brief Define o número do quarto.
-         * @param numero Um objeto do tipo Numero.
-         */
-        void setNumero(Numero numero);
-        /**
-         * @brief Retorna o número do quarto.
-         * @return Um objeto do tipo Numero.
-         */
-        Numero getNumero();
+    /**
+     * @brief Define o nÃºmero do quarto.
+     * @param numero Um objeto do tipo Numero.
+     */
+    void setNumero(Numero numero);
+    /**
+     * @brief Retorna o nÃºmero do quarto.
+     * @return Um objeto do tipo Numero.
+     */
+    Numero getNumero() const;
 
-        /**
-         * @brief Define a capacidade de hóspedes do quarto.
-         * @param capacidade Um objeto do tipo Capacidade.
-         */
-        void setCapacidade(Capacidade capacidade);
-        /**
-         * @brief Retorna a capacidade de hóspedes do quarto.
-         * @return Um objeto do tipo Capacidade.
-         */
-        Capacidade getCapacidade();
+    /**
+     * @brief Define a capacidade de hÃ³spedes do quarto.
+     * @param capacidade Um objeto do tipo Capacidade.
+     */
+    void setCapacidade(Capacidade capacidade);
+    /**
+     * @brief Retorna a capacidade de hÃ³spedes do quarto.
+     * @return Um objeto do tipo Capacidade.
+     */
+    Capacidade getCapacidade() const;
 
-        /**
-         * @brief Define o valor da diária do quarto.
-         * @param diaria Um objeto do tipo Dinheiro.
-         */
-        void setDiaria(Dinheiro diaria);
-        /**
-         * @brief Retorna o valor da diária do quarto.
-         * @return Um objeto do tipo Dinheiro.
-         */
-        Dinheiro getDiaria();
+    /**
+     * @brief Define o valor da diÃ¡ria do quarto.
+     * @param diaria Um objeto do tipo Dinheiro.
+     */
+    void setDiaria(Dinheiro diaria);
+    /**
+     * @brief Retorna o valor da diÃ¡ria do quarto.
+     * @return Um objeto do tipo Dinheiro.
+     */
+    Dinheiro getDiaria() const;
 
-        /**
-         * @brief Define o ramal telefônico do quarto.
-         * @param ramal Um objeto do tipo Ramal.
-         */
-        void setRamal(Ramal ramal);
-        /**
-         * @brief Retorna o ramal telefônico do quarto.
-         * @return Um objeto do tipo Ramal.
-         */
-        Ramal getRamal();
+    /**
+     * @brief Define o ramal telefonico do quarto.
+     * @param ramal Um objeto do tipo Ramal.
+     */
+    void setRamal(Ramal ramal);
+    /**
+     * @brief Retorna o ramal telefonico do quarto.
+     * @return Um objeto do tipo Ramal.
+     */
+    Ramal getRamal() const;
 
 };
 
-    inline void Quarto::setNumero(Numero numero){
-        this->numero = numero;
-    }
 
-    inline Numero Quarto::getNumero(){
-        return numero;
-    }
+inline void Quarto::setNumero(Numero numero) {
+    this->numero = numero;
+}
 
-    inline void Quarto::setCapacidade(Capacidade capacidade){
-        this->capacidade = capacidade;
-    }
+inline Numero Quarto::getNumero() const {
+    return numero;
+}
 
-    inline Capacidade Quarto::getCapacidade(){
-        return capacidade;
-    }
+inline void Quarto::setCapacidade(Capacidade capacidade) {
+    this->capacidade = capacidade;
+}
 
-    inline void Quarto::setDiaria(Dinheiro diaria){
-        this->diaria = diaria;
-    }
+inline Capacidade Quarto::getCapacidade() const {
+    return capacidade;
+}
 
-    inline Dinheiro Quarto::getDiaria(){
-        return diaria;
-    }
+inline void Quarto::setDiaria(Dinheiro diaria) {
+    this->diaria = diaria;
+}
 
-    inline void Quarto::setRamal(Ramal ramal){
-        this->ramal = ramal;
-    }
+inline Dinheiro Quarto::getDiaria() const {
+    return diaria;
+}
 
-    inline Ramal Quarto::getRamal(){
-        return ramal;
-    }
+inline void Quarto::setRamal(Ramal ramal) {
+    this->ramal = ramal;
+}
+
+inline Ramal Quarto::getRamal() const {
+    return ramal;
+}
 
 #endif // QUARTO_HPP_INCLUDED

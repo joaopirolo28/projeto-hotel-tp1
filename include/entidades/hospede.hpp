@@ -34,7 +34,7 @@ public:
      * @brief Define o endereço do hóspede.
      * @param endereco Um objeto do tipo Endereco.
      */
-    void setEndereco(const Endereco& endereco);
+    void setEndereco(Endereco endereco);
 
     /**
      * @brief Retorna o endereço do hóspede.
@@ -46,7 +46,7 @@ public:
      * @brief Define o cartão de crédito do hóspede.
      * @param cartao Um objeto do tipo Cartao.
      */
-    void setCartao(const Cartao& cartao);
+    void setCartao(Cartao cartao);
 
     /**
      * @brief Retorna o cartão de crédito do hóspede.
@@ -54,5 +54,22 @@ public:
      */
     Cartao getCartao() const;
 };
+
+inline void Hospede::setEndereco(Endereco endereco) {
+    this->endereco = endereco;
+}
+
+inline Endereco Hospede::getEndereco() const {
+    return endereco;
+}
+
+inline void Hospede::setCartao(Cartao cartao) {
+    this->cartao = cartao;
+}
+
+inline Cartao Hospede::getCartao() const {
+    return cartao;
+}
+
 
 #endif // HOSPEDE_HPP
