@@ -3,41 +3,67 @@
 #include "dominios.hpp"
 #include "entidades.hpp"
 
-class TUEntidadeHotel{
+const static int SUCESSO = 0;
+const static int FALHA = -1;
+
+/**
+ * @brief Classe de Teste de Unidade para a entidade Hotel.
+ */
+class TUEntidadeHotel {
 private:
-    const static int VALOR_VALIDO = 1;
-    void testarCenario();
     Hotel *hotel;
+    int estado;
     void setUp();
     void tearDown();
-    int estado;
+    void testarCenarioSucesso(); 
+
 public:
-    const static int SUCESSO = 0;
-    const static int FALHA = -1;
     int run();
 };
 
-class TUEntidadeQuarto{
+/**
+ * @brief Classe de Teste de Unidade para a entidade Quarto.
+ */
+class TUEntidadeQuarto {
 private:
-    void testaCenarioSucesso();
-public:
-    bool run();
+    Quarto *quarto;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
 
+public:
+    int run();
 };
 
-class TUEntidadeReserva{
+/**
+ * @brief Classe de Teste de Unidade para a entidade Reserva.
+ */
+class TUEntidadeReserva {
 private:
-    void testaCenarioSucesso();
+    Reserva *reserva;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+
 public:
-    bool run();
+    int run();
 };
 
-class TUEntidadeHospede{
+/**
+ * @brief Classe de Teste de Unidade para a entidade Hospede.
+ */
+class TUEntidadeHospede {
 private:
-    void testaCenarioSucesso();
-public:
-    bool run();
-};
+    Hospede *hospede;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
 
+public:
+    int run();
+};
 
 #endif //TESTES_HPP
