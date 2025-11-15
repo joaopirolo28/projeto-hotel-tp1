@@ -45,3 +45,9 @@ void Senha::setSenha(string senha){
     validar(senha);
     this->senha = senha;
 }
+
+Senha::Senha(){}
+
+Senha::Senha(string senha){
+    this->setSenha(senha);
+}

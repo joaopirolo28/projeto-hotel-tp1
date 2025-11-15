@@ -38,3 +38,9 @@ void Nome::setNome(string nome){
     validar(nome);
     this->nome = nome;
 }
+
+Nome::Nome(){}
+
+Nome::Nome(string nome){
+    this->setNome(nome);
+}

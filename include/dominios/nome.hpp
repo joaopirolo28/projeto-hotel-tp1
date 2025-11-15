@@ -35,9 +35,22 @@ private:
      * @param nome A string contendo o nome a ser validado.
      * @throw invalid_argument se o nome for inválido.
      */
-    void validar(string nome);
+    void validar(string);
 
 public:
+    /**
+     * @brief Construtor padrão da classe Nome.
+     * @details Inicializa o objeto com um valor padrão (string vazia).
+     * Necessário para a criação de entidades que contêm este domínio.
+     */
+    Nome();
+    /**
+     * @brief Construtor com valor da classe Nome.
+     * @details Inicializa o objeto com um nome, que é imediatamente validado.
+     * @param nome A string contendo o nome a ser definido.
+     * @throw invalid_argument Se o nome não atender aos critérios de validação.
+     */
+    Nome(string);
     /**
      * @brief Retorna o valor do nome.
      * @return Uma string contendo o nome armazenado.
@@ -49,7 +62,7 @@ public:
      * @param nome A string contendo o nome a ser definido.
      * @throw invalid_argument Se o nome não atender aos critérios de validação.
      */
-    void setNome(string nome);
+    void setNome(string);
 };
 
 /**

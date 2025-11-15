@@ -1,7 +1,7 @@
 /**
  * @file capacidade.hpp
- * @brief DefiniÁ„o da classe de domÌnio Capacidade.
- * @author Jo„o Pedro
+ * @brief Definicao da classe de dominio Capacidade.
+ * @author Joao Pedro
  * @date 14 de novembro de 2025
  */
 
@@ -18,11 +18,11 @@ using namespace std;
 class Capacidade{
     private:
         /**
-         * @brief Valor mÌnimo permitido para a capacidade (1).
+         * @brief Valor minimo permitido para a capacidade (1).
          */
         static const int MINIMO = 1;
         /**
-         * @brief Valor m·ximo permitido para a capacidade (4).
+         * @brief Valor maximo permitido para a capacidade (4).
          */
         static const int MAXIMO = 4;
         /**
@@ -37,9 +37,22 @@ class Capacidade{
         void validar(int);
     public:
         /**
-         * @brief Define o valor da capacidade apÛs validaÁ„o.
+        * @brief Construtor padr√£o da classe Capacidade.
+        * @details Inicializa o objeto com um valor padr√£o (geralmente 0 ou indefinido).
+        * Necess√°rio para a cria√ß√£o de entidades que cont√™m este dom√≠nio.
+        */
+        Capacidade ();
+        /**
+        * @brief Construtor com valor da classe Capacidade.
+        * @details Inicializa o objeto com um valor, que √© imediatamente validado.
+        * @param valor O valor da capacidade (1, 2, 3 ou 4).
+        * @throw invalid_argument Se o valor n√£o atender aos crit√©rios de valida√ß√£o.
+        */
+        Capacidade (int);
+        /**
+         * @brief Define o valor da capacidade apos validacao.
          * @param valor O valor inteiro (1-4) a ser definido.
-         * @throw invalid_argument Se o valor n„o for 1, 2, 3 ou 4.
+         * @throw invalid_argument Se o valor nao for 1, 2, 3 ou 4.
          */
         void setValor(int);
         /**

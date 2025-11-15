@@ -5,7 +5,13 @@
 
 using namespace std;
 
-void Cartao::validar(const string&valorCartao)const{
+Cartao::Cartao(){};
+
+Cartao::Cartao(string valorCartao){
+    this->setValor(valorCartao);
+}
+
+void Cartao::validar(string valorCartao){
     if(valorCartao.length() != 16){
         throw invalid_argument("Numero do cartao deve ter 16 digitos.");
     }
@@ -30,7 +36,7 @@ void Cartao::validar(const string&valorCartao)const{
     }
 }
 
-void Cartao :: setValor(const string&valorCartao){
+void Cartao :: setValor(string valorCartao){
     validar(valorCartao);
     this->valor = valorCartao;
 }

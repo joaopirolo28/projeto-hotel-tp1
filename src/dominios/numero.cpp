@@ -9,11 +9,12 @@ void Numero::validar(int valor){
 }
 
 Numero::Numero(int valor){
-    validar(valor);
-    this->valor = valor;
+    this->setValor(valor);
 }
 
 void Numero::setValor(int valor){
     validar(valor);
     this->valor=valor;
 }
+
+Numero::Numero(){}

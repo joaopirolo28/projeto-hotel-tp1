@@ -30,16 +30,30 @@ private:
      * @param valor O valor monetário em formato double a ser validado.
      * @throw invalid_argument se o valor estiver fora do intervalo permitido.
      */
-    void validar(double valor) const;
+    void validar(double);
 
 public:
+    /**
+     * @brief Construtor padrão da classe Dinheiro.
+     * @details Inicializa o objeto com um valor padrão (0 centavos).
+     * Necessário para a criação de entidades que contêm este domínio.
+     */
+    Dinheiro();
+    /**
+     * @brief Construtor com valor da classe Dinheiro.
+     * @details Inicializa o objeto com um valor double, que é imediatamente
+     * validado e convertido para centavos.
+     * @param valor O valor monetário a ser definido (ex: 250.50).
+     * @throw invalid_argument Se o valor não atender aos critérios de validação.
+     */
+    Dinheiro(double);
     /**
      * @brief Define o valor monetário após validá-lo.
      * @details Converte o valor double para um total de centavos para armazenamento interno.
      * @param valor O valor monetário a ser definido.
      * @throw invalid_argument Se o valor não atender aos critérios de validação.
      */
-    void setValor(double valor);
+    void setValor(double);
 
     /**
      * @brief Retorna o valor monetário.

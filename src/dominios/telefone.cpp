@@ -1,7 +1,7 @@
 #include"dominios/telefone.hpp"
 #include<cctype>
 
-void Telefone::validar(const string&valor){
+void Telefone::validar(string){
     if(valor.front()!='+'){
         throw invalid_argument("Telefone deve comecar com '+'.");
     }
@@ -15,12 +15,13 @@ void Telefone::validar(const string&valor){
     }
 }
 
-void Telefone::setValor(const string&valor){
+void Telefone::setValor(string valor){
     validar(valor);
     this->valor = valor;
 }
 
-Telefone::Telefone(const string&valor){
-    validar(valor);
-    this->valor= valor;
+Telefone::Telefone(string valor){
+    this->setValor(valor);
 }
+
+Telefone::Telefone(){}

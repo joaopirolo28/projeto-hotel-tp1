@@ -32,21 +32,21 @@ private:
      * @param email String contendo o email a ser validado.
      * @throw invalid_argument se o formato geral do email for inválido.
      */
-    void validar(const string& email);
+    void validar(string);
 
     /**
      * @brief Valida a parte local de um endereço de email.
      * @param parteLocal String contendo a parte do email antes do '@'.
      * @throw invalid_argument se a parte local for inválida.
      */
-    void validarParteLocal(const string& parteLocal);
+    void validarParteLocal(string);
 
     /**
      * @brief Valida a parte do domínio de um endereço de email.
      * @param dominio String contendo a parte do email depois do '@'.
      * @throw invalid_argument se o domínio for inválido.
      */
-    void validarDominio(const string& dominio);
+    void validarDominio(string);
 
 public:
     /**
@@ -60,9 +60,11 @@ public:
     static constexpr int TAMANHO_MAX_DOMINIO = 255;
 
     /**
-     * @brief Construtor padrão. Inicializa o objeto Email.
+     * @brief Construtor padrão da classe Email.
+     * @details Inicializa o objeto com um valor padrão (string vazia).
+     * Necessário para a criação de entidades (como Pessoa) que contêm este domínio.
      */
-    Email() {} // NOVO: Construtor Padrão Adicionado
+    Email();
 
     /**
      * @brief Construtor da classe Email.
@@ -70,14 +72,14 @@ public:
      * @param email O endereço de email a ser definido.
      * @throw invalid_argument Se o email não atender aos critérios de validação.
      */
-    Email(const string& email);
+    Email(string);
 
     /**
      * @brief Define o valor do email após validá-lo.
      * @param email O endereço de email a ser definido.
      * @throw invalid_argument Se o email não atender aos critérios de validação.
      */
-    void setEmail(const string& email);
+    void setEmail(string);
 
     /**
      * @brief Retorna o valor do email.

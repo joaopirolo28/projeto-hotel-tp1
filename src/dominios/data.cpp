@@ -2,6 +2,12 @@
 
 using namespace std;
 
+Data::Data(){}
+
+Data::Data(int dia, string mes, int ano){
+    this->setData(dia, mes, ano);
+}
+
 void Data::setData(int dia, string mes, int ano){
     validar(dia, mes, ano);
 

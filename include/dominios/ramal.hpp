@@ -1,7 +1,7 @@
 /**
- * @file ramal.hpp
- * @brief Defini��o da classe de dom�nio Ramal.
- * @author Jo�o Pedro
+ * @file capacidade.hpp
+ * @brief Definicao da classe de dominio Capacidade.
+ * @author Joao Pedro
  * @date 14 de novembro de 2025
  */
 
@@ -19,7 +19,7 @@ using namespace std;
 class Ramal{
     private:
         /**
-         * @brief Limite m�ximo permitido para o ramal (50).
+         * @brief Limite m�ximo permitido para o ramal (50).
          */
         static const int LIMITE = 50;
         /**
@@ -34,7 +34,21 @@ class Ramal{
         void validar(int);
     public:
         /**
-         * @brief Define o valor do ramal ap�s valida��o.
+         * @brief Construtor padrão da classe Ramal.
+         * @details Inicializa o objeto com um valor padrão (0).
+         * Necessário para a criação de entidades (como Gerente) que contêm este domínio.
+         */
+        Ramal();
+
+        /**
+         * @brief Construtor com valor da classe Ramal.
+         * @details Inicializa o objeto com um valor, que é imediatamente validado.
+         * @param valor O número do ramal a ser definido (entre 0 e 50).
+         * @throw invalid_argument Se o valor não atender aos critérios de validação.
+         */
+        Ramal(int);
+        /**
+         * @brief Define o valor do ramal após validação.
          * @param valor O valor inteiro (0-50) a ser definido.
          * @throw invalid_argument Se o valor for menor que 0 ou maior que 50.
          */

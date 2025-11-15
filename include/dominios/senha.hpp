@@ -1,7 +1,7 @@
 /**
- * @file senha.hpp
- * @brief Definição da classe de domínio Senha.
- * @author João Pedro
+ * @file capacidade.hpp
+ * @brief Definicao da classe de dominio Capacidade.
+ * @author Joao Pedro
  * @date 14 de novembro de 2025
  */
 
@@ -14,8 +14,8 @@
 using namespace std;
 /**
  * @brief Classe para armazenar e validar uma senha de acesso.
- * @details A senha deve ter exatamente 5 caracteres e incluir pelo menos uma letra minúscula,
- * uma letra maiúscula, um dígito e um caractere especial (dentre os permitidos: ! " # $ % & ?).
+ * @details A senha deve ter exatamente 5 caracteres e incluir pelo menos uma letra minÃ­scula,
+ * uma letra maiÃºscula, um dÃ­gito e um caractere especial (dentre os permitidos: ! " # $ % & ?).
  */
 class Senha{
     private:
@@ -28,21 +28,36 @@ class Senha{
          */
         map<char, int> especiais = {{'!', 1}, {'\"', 1}, {'#', 1}, {'$', 1}, {'%', 1}, {'&', 1}, {'?', 1}};
         /**
-         * @brief Valida a senha contra as regras de formato e conteúdo.
+         * @brief Valida a senha contra as regras de formato e conteï¿½do.
          * @param senha String contendo a senha a ser validada.
-         * @throw invalid_argument Se a senha for inválida.
+         * @throw invalid_argument Se a senha for invÃ¡lida.
          */
         void validar(string);
     public:
+        /**
+         * @brief Construtor padrÃ£o da classe Senha.
+         * @details Inicializa o objeto com um valor padrÃ£o (string vazia).
+         * NecessÃ¡rio para a criaÃ§Ã£o de entidades (como Gerente) que contÃªm este domÃ­nio.
+         */
+        Senha();
+
+        /**
+         * @brief Construtor com valor da classe Senha.
+         * @details Inicializa o objeto com uma senha, que Ã© imediatamente validada.
+         * @param valor A senha a ser definida.
+         * @throw invalid_argument Se a senha nÃ£o atender aos critÃ©rios de validaÃ§Ã£o.
+         */
+        Senha(string);
+        
         /**
          * @brief Retorna o valor atual da senha.
          * @return Uma string contendo a senha.
          */
         string getSenha();
         /**
-         * @brief Define o valor da senha após validação.
+         * @brief Define o valor da senha apÃ³s validaÃ§Ã£o.
          * @param senha A string contendo a senha a ser definida.
-         * @throw invalid_argument Se a senha não atender aos critérios de validação (tamanho, composição de caracteres).
+         * @throw invalid_argument Se a senha nÃ£o atender aos critÃ©rios de validaÃ§Ã£o (tamanho, composiÃ§Ã£o de caracteres).
          */
         void setSenha(string);
 };

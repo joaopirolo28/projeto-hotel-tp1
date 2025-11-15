@@ -30,7 +30,7 @@ private:
      * @param valor String contendo o telefone a ser validado.
      * @throw invalid_argument se o telefone for inválido.
      */
-    void validar(const string& valor);
+    void validar(string);
 
 public:
     /**
@@ -44,16 +44,21 @@ public:
      * @param valor O número de telefone a ser definido.
      * @throw invalid_argument Se o valor não atender aos critérios de validação.
      */
-    Telefone(const string& valor);
+    Telefone(string);
 
-    Telefone() { }
+    /**
+     * @brief Construtor padrão da classe Telefone.
+     * @details Inicializa o objeto com um valor padrão (string vazia).
+     * Necessário para a criação de entidades (como Hotel) que contêm este domínio.
+     */
+    Telefone();
 
     /**
      * @brief Define o valor do número de telefone após validá-lo.
      * @param valor O número de telefone a ser definido.
      * @throw invalid_argument Se o valor não atender aos critérios de validação.
      */
-    void setValor(const string& valor);
+    void setValor(string);
 
     /**
      * @brief Retorna o valor do número de telefone.

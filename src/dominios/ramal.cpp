@@ -11,3 +11,8 @@ void Ramal::validar(int valor){
         throw invalid_argument("Valor invalido.");
     }
 }
+Ramal::Ramal(){}
+
+Ramal::Ramal(int valor){
+    this->setValor(valor);
+}

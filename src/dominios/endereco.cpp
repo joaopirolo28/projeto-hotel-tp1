@@ -39,3 +39,9 @@ void Endereco::validar(string endereco){
         }
     }
 }
+
+Endereco::Endereco(){}
+
+Endereco::Endereco(string endereco){
+    this->setEndereco(endereco);
+}

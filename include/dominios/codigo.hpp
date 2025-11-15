@@ -29,7 +29,7 @@ private:
      * @param valor String contendo o código a ser validado.
      * @throw invalid_argument se o código for inválido.
      */
-    void validar(const string& valor);
+    void validar(string);
 
 public:
     /**
@@ -38,8 +38,12 @@ public:
      * @param valor O código a ser definido.
      * @throw invalid_argument Se o valor não atender aos critérios de validação.
      */
-    Codigo(const string& valor);
-
+    Codigo(string);
+    /**
+     * @brief Construtor padrão da classe Codigo.
+     * @details Inicializa o objeto com um valor padrão (string vazia).
+     * Necessário para a criação de entidades que contêm este domínio.
+     */
     Codigo() {}
 
     /**
@@ -47,7 +51,7 @@ public:
      * @param valor O código a ser definido.
      * @throw invalid_argument Se o valor não atender aos critérios de validação.
      */
-    void setValor(const string& valor);
+    void setValor(string);
 
     /**
      * @brief Retorna o valor do código.

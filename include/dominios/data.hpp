@@ -1,7 +1,7 @@
 /**
  * @file data.hpp
- * @brief Definição da classe de domínio Data.
- * @author João Pedro
+ * @brief DefiniÃ§Ã£o da classe de domÃ­nio Data.
+ * @author JoÃ£o Pedro
  * @date 14 de novembro de 2025
  */
 
@@ -13,14 +13,14 @@
 
 using namespace std;
 /**
- * @brief Classe para armazenar e validar uma data no formato dia-mês-ano.
- * @details A data deve ser válida, considerando meses com diferentes números de dias e anos bissextos.
+ * @brief Classe para armazenar e validar uma data no formato dia-mÃªs-ano.
+ * @details A data deve ser valida, considerando meses com diferentes nÃºmeros de dias e anos bissextos.
  * O ano deve estar entre 2000 e 2999.
  */
 class Data{
     private:
         /**
-         * @brief Mapa que associa o nome abreviado do mês (string) ao número de dias (int).
+         * @brief Mapa que associa o nome abreviado do mÃªs (string) ao nÃºmero de dias (int).
          */
         map<string, int> MES_DIA = {{"JAN", 31}, {"FEV", 28}, {"MAR", 31}, {"ABR", 30}, {"MAI", 31}, {"JUN", 30}, {"JUL", 31}, {"AGO", 31}, {"SET", 30}, {"OUT", 31}, {"NOV", 30}, {"DEZ", 31}};
         /**
@@ -28,7 +28,7 @@ class Data{
          */
         int dia;
         /**
-         * @brief Armazena o mês (ex: "JAN", "FEV").
+         * @brief Armazena o mÃªs (ex: "JAN", "FEV").
          */
         string mes;
         /**
@@ -36,27 +36,42 @@ class Data{
          */
         int ano;
         /**
-         * @brief Verifica se um determinado ano é bissexto.
+         * @brief Verifica se um determinado ano Ã© bissexto.
          * @param ano O ano a ser verificado.
-         * @return True se for bissexto, False caso contrário.
+         * @return True se for bissexto, False caso contrÃ¡rio.
          */
         bool bissexto(int);
         /**
-         * @brief Valida se a combinação dia, mês e ano forma uma data válida.
+         * @brief Valida se a combinaÃ§Ã£o dia, mÃªs e ano forma uma data vÃ¡lida.
          * @param dia O dia a ser validado.
-         * @param mes O mês a ser validado (string abreviada).
+         * @param mes O mÃªs a ser validado (string abreviada).
          * @param ano O ano a ser validado.
-         * @throw invalid_argument Se a data for inválida (dia, mês ou ano fora dos limites).
+         * @throw invalid_argument Se a data for invÃ¡lida (dia, mÃªs ou ano fora dos limites).
          */
         void validar(int, string, int);
 
     public:
         /**
-         * @brief Define a data completa após validação.
+         * @brief Construtor padrÃ£o da classe Data.
+        * @details Inicializa o objeto com um valor padrÃ£o (string vazia).
+        * NecessÃ¡rio para a criaÃ§Ã£o de entidades (como Reserva) que contÃªm este domÃ­nio.
+        */
+        Data();
+        /**
+        * @brief Construtor com valor da classe Data (por componentes).
+        * @details Inicializa o objeto com dia, mÃªs e ano, que sÃ£o imediatamente validados.
+        * @param dia O dia (inteiro, ex: 15).
+        * @param mes O mÃªs (string, ex: "OUT").
+        * @param ano O ano (inteiro, ex: 2025).
+        * @throw invalid_argument Se a data nÃ£o atender aos critÃ©rios de validaÃ§Ã£o.
+        */
+        Data(int,string,int);
+        /**
+         * @brief Define a data completa apÃ³s validaÃ§Ã£o.
          * @param dia O dia (1-31).
-         * @param mes O mês (ex: "JAN").
+         * @param mes O mÃªs (ex: "JAN").
          * @param ano O ano (2000-2999).
-         * @throw invalid_argument Se o dia, mês ou ano for inválido ou se a data não existir (ex: 30 de FEV).
+         * @throw invalid_argument Se o dia, mÃªs ou ano for invÃ¡lido ou se a data nÃ£o existir (ex: 30 de FEV).
          */
         void setData(int, string, int);
 
@@ -66,8 +81,8 @@ class Data{
          */
         int getDia() const;
         /**
-         * @brief Retorna o mês.
-         * @return O mês em formato de string abreviada.
+         * @brief Retorna o mÃªs.
+         * @return O mÃªs em formato de string abreviada.
          */
         string getMes() const;
         /**

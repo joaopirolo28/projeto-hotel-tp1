@@ -29,7 +29,7 @@ private:
      * @param valor O número inteiro a ser validado.
      * @throw invalid_argument se o número estiver fora do intervalo permitido.
      */
-    void validar(int valor);
+    void validar(int);
 
 public:
     /**
@@ -47,16 +47,21 @@ public:
      * @param valor O número a ser definido.
      * @throw invalid_argument Se o valor não atender aos critérios de validação.
      */
-    Numero(int valor);
+    Numero(int);
 
-    Numero() {}
+    /**
+     * @brief Construtor padrão da classe Numero.
+     * @details Inicializa o objeto com um valor padrão (0).
+     * Necessário para a criação de entidades que contêm este domínio.
+     */
+    Numero();
 
     /**
      * @brief Define o valor do número após validá-lo.
      * @param valor O número a ser definido.
      * @throw invalid_argument Se o valor não atender aos critérios de validação.
      */
-    void setValor(int valor);
+    void setValor(int);
 
     /**
      * @brief Retorna o valor do número.

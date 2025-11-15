@@ -1,7 +1,7 @@
 /**
- * @file endereco.hpp
- * @brief Definição da classe de domínio Endereco.
- * @author João Pedro
+ * @file capacidade.hpp
+ * @brief Definicao da classe de dominio Capacidade.
+ * @author Joao Pedro
  * @date 14 de novembro de 2025
  */
 
@@ -12,32 +12,45 @@
 
 using namespace std;
 /**
- * @brief Classe para armazenar e validar um endereço.
- * @details O endereço deve ser uma string com 5 a 30 caracteres.
- * Não pode começar ou terminar com vírgula, ponto ou espaço.
+ * @brief Classe para armazenar e validar um endereÃ§o.
+ * @details O endereÃ§o deve ser uma string com 5 a 30 caracteres.
+ * NÃ£o pode comeÃ§ar ou terminar com vÃ­rgula, ponto ou espaÃ§o.
  */
 class Endereco{
     private:
         /**
-         * @brief Armazena o endereço completo.
+         * @brief Armazena o endereÃ§o completo.
          */
         string endereco_Completo;
         /**
-         * @brief Valida o formato e o tamanho da string do endereço.
-         * @param endereco String contendo o endereço a ser validado.
-         * @throw invalid_argument Se o endereço for inválido.
+         * @brief Valida o formato e o tamanho da string do endereÃ§o.
+         * @param endereco String contendo o endereÃ§o a ser validado.
+         * @throw invalid_argument Se o endereÃ§o for invÃ¡lido.
          */
         void validar(string);
     public:
         /**
-         * @brief Define o valor do endereço após validação.
-         * @param endereco A string contendo o endereço completo.
-         * @throw invalid_argument Se o endereço não atender aos critérios de validação (tamanho, caracteres iniciais/finais, pontuação).
+        * @brief Construtor padrÃ£o da classe Endereco.
+        * @details Inicializa o objeto com um valor padrÃ£o (string vazia).
+        * NecessÃ¡rio para a criaÃ§Ã£o de entidades (como Hospede) que contÃªm este domÃ­nio.
+        */
+        Endereco();
+        /**
+        * @brief Construtor com valor da classe Endereco.
+        * @details Inicializa o objeto com um endereÃ§o, que Ã© imediatamente validado.
+        * @param valor O endereÃ§o a ser definido.
+        * @throw invalid_argument Se o endereÃ§o nÃ£o atender aos critÃ©rios de validaÃ§Ã£o.
+        */
+         Endereco(string);
+        /**
+         * @brief Define o valor do endereÃ§o apÃ³s validaÃ§Ã£o.
+         * @param endereco A string contendo o endereÃ§o completo.
+         * @throw invalid_argument Se o endereÃ§o nÃ£o atender aos critÃ©rios de validaÃ§Ã£o (tamanho, caracteres iniciais/finais, pontuaÃ§Ã£o).
          */
         void setEndereco(string);
         /**
-         * @brief Retorna o valor atual do endereço.
-         * @return Uma string contendo o endereço completo.
+         * @brief Retorna o valor atual do endereÃ§o.
+         * @return Uma string contendo o endereÃ§o completo.
          */
         string getEndereco() const;
 };

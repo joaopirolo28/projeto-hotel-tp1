@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void Email::validarParteLocal(const string& parteLocal){
+void Email::validarParteLocal(string parteLocal){
     if(parteLocal.empty() || parteLocal.length()>TAMANHO_MAX_LOCAL){
         throw invalid_argument("Parte local invalida (mais de 64 caracteres ou vazia)");
     }
@@ -26,7 +26,7 @@ void Email::validarParteLocal(const string& parteLocal){
     }
 }
 
-void Email::validarDominio(const string & dominio){
+void Email::validarDominio(string dominio){
     if(dominio.empty() || dominio.length()>TAMANHO_MAX_DOMINIO){
         throw invalid_argument("Dominio vazio ou maior que 255 caracteres.");
     }
@@ -47,7 +47,7 @@ void Email::validarDominio(const string & dominio){
     }
 }
 
-void Email::validar(const string& email){
+void Email::validar(string email){
     size_t posArroba = email.find('@');
     if (posArroba == string::npos){
         throw invalid_argument("Email deve conter um caractere '@'.");
@@ -62,12 +62,13 @@ void Email::validar(const string& email){
     validarDominio(dominio);
 }
 
-void Email::setEmail(const string& email) {
+void Email::setEmail(string email) {
     validar(email);
     this->email = email;
 }
 
-Email::Email(const string &email){
-    validar(email);
-    this->email = email;
+Email::Email(string email){
+    this->setEmail(email);
 }
+
+Email::Email(){}

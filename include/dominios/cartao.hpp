@@ -29,16 +29,29 @@ private:
      * @param valorCartao String contendo o número do cartão a ser validado.
      * @throw invalid_argument se o número do cartão for inválido.
      */
-    void validar(const string& valorCartao) const;
+    void validar(string);
 
 public:
-   
+    /**
+     * @brief Construtor padrão da classe Cartao.
+     * @details Inicializa o objeto com um valor padrão. 
+     * Importante para a criação de entidades que contém esse dominio.
+     */
+    Cartao();
+    /**
+     * @brief Construtor com valor da classe Cartao.
+     * @details Inicializa o objeto com um valor de cartão de crédito,
+     * que é imediatamente validado.
+     * @param valorCartao O número do cartão a ser definido.
+     * @throw invalid_argument Se o valor não atender aos critérios de validação.
+     */
+    Cartao(string);
     /**
      * @brief Define o valor do número do cartão de crédito.
      * @param valorCartao O número do cartão a ser definido.
      * @throw invalid_argument Se o valor não atender aos critérios de validação.
      */
-    void setValor(const string& valorCartao);
+    void setValor(string);
 
     /**
      * @brief Retorna o valor do número do cartão.
@@ -56,4 +69,4 @@ inline string Cartao::getValor() const {
     return this->valor;
 }
 
-#endif //CARTAO_HPP
+#endif //CARTAO_HPP_INCLUDED
