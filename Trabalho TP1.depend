@@ -186,128 +186,125 @@
 
 1762106039 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\reserva.hpp
 
-1763150122 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\capacidade.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\capacidade.cpp
 	"dominios/capacidade.hpp"
 
-1763155446 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\capacidade.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\capacidade.hpp
 	<stdexcept>
 
-1763150136 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\cartao.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\cartao.cpp
 	"dominios/cartao.hpp"
 	<stdexcept>
 	<cctype>
 	<numeric>
 
-1763148242 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\cartao.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\cartao.hpp
 	<string>
 	<stdexcept>
 
-1763150141 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\codigo.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\codigo.cpp
 	"dominios/codigo.hpp"
 	<cctype>
 
-1763161174 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\codigo.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\codigo.hpp
 	<string>
 	<stdexcept>
 
-1763150145 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\data.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\data.cpp
 	"dominios/data.hpp"
 
-1763155462 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\data.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\data.hpp
 	<map>
 	<string>
 	<stdexcept>
 
-1763150150 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\dinheiro.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\dinheiro.cpp
 	"dominios/dinheiro.hpp"
 	<cmath>
 	<stdexcept>
 
-1763148242 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\dinheiro.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\dinheiro.hpp
 	<stdexcept>
 
-1763158609 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\email.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\email.cpp
 	"dominios/email.hpp"
 	<cctype>
 	<vector>
 	<sstream>
 
-1763158674 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\email.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\email.hpp
 	<string>
 	<stdexcept>
 
-1763150160 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\endereco.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\endereco.cpp
 	"dominios/endereco.hpp"
 
-1763155487 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\endereco.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\endereco.hpp
 	<string>
 	<stdexcept>
 
-1763150164 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\nome.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\nome.cpp
 	"dominios/nome.hpp"
 
-1763148242 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\nome.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\nome.hpp
 	<string>
 	<stdexcept>
 	<cctype>
 
-1763150167 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\numero.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\numero.cpp
 	"dominios/numero.hpp"
 
-1763161903 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\numero.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\numero.hpp
 	<stdexcept>
 
-1763150171 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\ramal.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\ramal.cpp
 	"dominios/ramal.hpp"
 
-1763155503 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\ramal.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\ramal.hpp
 	<string>
 	<stdexcept>
 
-1763150174 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\senha.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\senha.cpp
 	"dominios/senha.hpp"
 
-1763155513 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\senha.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\senha.hpp
 	<string>
 	<stdexcept>
 	<map>
 
-1763161235 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\telefone.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\telefone.cpp
 	"dominios/telefone.hpp"
 	<cctype>
 
-1763161196 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\telefone.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\telefone.hpp
 	<string>
 	<stdexcept>
 
-1763148242 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\entidades\hotel.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\entidades\hotel.cpp
 
-1763148242 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\entidades\quarto.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\entidades\quarto.cpp
 
-1763150335 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\entidades\pessoa.cpp
-	"entidades/pessoa.hpp"
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\entidades\pessoa.cpp
 
-1763150865 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\pessoa.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\pessoa.hpp
 	"dominios/nome.hpp"
 	"dominios/email.hpp"
 
-1763150201 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\entidades\gerente.cpp
-	"entidades/gerente.hpp"
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\entidades\gerente.cpp
 
-1763150893 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\gerente.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\gerente.hpp
 	"entidades/pessoa.hpp"
 	"dominios/ramal.hpp"
 	"dominios/senha.hpp"
 
-1763150204 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\entidades\hospede.cpp
-	"entidades/hospede.hpp"
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\entidades\hospede.cpp
 
-1763150917 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\hospede.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\hospede.hpp
 	"entidades/pessoa.hpp"
 	"dominios/endereco.hpp"
 	"dominios/cartao.hpp"
 
-1763148242 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\dominios.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\dominios\dominios.hpp
 	"capacidade.hpp"
 	"data.hpp"
 	"endereco.hpp"
@@ -321,7 +318,7 @@
 	"nome.hpp"
 	"senha.hpp"
 
-1763148242 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\entidades.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\entidades.hpp
 	"pessoa.hpp"
 	"gerente.hpp"
 	"hospede.hpp"
@@ -329,22 +326,32 @@
 	"quarto.hpp"
 	"reserva.hpp"
 
-1763159574 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\hotel.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\hotel.hpp
 	"dominios/nome.hpp"
 	"dominios/endereco.hpp"
 	"dominios/telefone.hpp"
 	"dominios/codigo.hpp"
 
-1763159783 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\quarto.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\quarto.hpp
+	"dominios/numero.hpp"
+	"dominios/capacidade.hpp"
+	"dominios/dinheiro.hpp"
+	"dominios/ramal.hpp"
 
-1763159793 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\reserva.hpp
+1763333956 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\entidades\reserva.hpp
+	"dominios/data.hpp"
+	"dominios/dinheiro.hpp"
+	"dominios/codigo.hpp"
 
-1763156792 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\main.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\main.cpp
 	<iostream>
 	<stdexcept>
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 	<iomanip>
 
-1763148242 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\testes\testes.cpp
+1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\testes\testes.cpp
+	"testes.hpp"
+	<iostream>
+	<stdexcept>
 
