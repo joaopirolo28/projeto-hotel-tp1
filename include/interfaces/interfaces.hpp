@@ -8,8 +8,8 @@
 #ifndef INTERFACES_HPP_INCLUDED
 #define INTERFACES_HPP_INCLUDED
 
-#include "dominios.hpp"
-#include "entidades.hpp"
+#include "dominios/dominios.hpp"
+#include "entidades/entidades.hpp"
 #include <vector>
 
 using namespace std;

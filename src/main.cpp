@@ -3,6 +3,7 @@
 #include "dominios/dominios.hpp"
 #include "entidades/entidades.hpp"
 #include <iomanip>
+#include "servico/FabricaServicoImpl.hpp"
 
 using namespace std;
 
@@ -250,7 +251,7 @@ int main()
         cout << "Hotel criado com sucesso:\n";
         cout << " - Nome: " << h.getNome().getNome() << endl;
         cout << " - Codigo: " << h.getCodigo().getValor() << endl;
-        
+
         if(h.getEndereco().getEndereco() != "Avenida Principal, 100") {
              cout << "FALHA NO GET/SET DE ENDERECO DO HOTEL!" << endl;
         }
@@ -325,6 +326,14 @@ int main()
     } catch (const invalid_argument& exp) {
         cout << "ERRO INESPERADO na Reserva (Sucesso): " << exp.what() << endl;
     }
+
+    cout << "\n--- TESTE FABRICA ---\n";
+
+    FabricaServicoImpl fabrica;
+
+    ILNAutenticacao* servicoAutenticacao = fabrica.criarServicoAutenticacao();
+
+    delete servicoAutenticacao;
 
     return 0;
 }

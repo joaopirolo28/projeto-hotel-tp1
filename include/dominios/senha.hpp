@@ -48,7 +48,7 @@ class Senha{
          * @throw invalid_argument Se a senha não atender aos critérios de validação.
          */
         Senha(string);
-        
+
         /**
          * @brief Retorna o valor atual da senha.
          * @return Uma string contendo a senha.

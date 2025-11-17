@@ -1,44 +1,44 @@
-#include "testes.hpp"
+#include "testes/testes.hpp"
 #include <iostream>
 #include <stdexcept>
 
 using namespace std;
 
 void TUEntidadeHotel::setUp() {
-    hotel = new Hotel(); 
-    estado = SUCESSO; 
+    hotel = new Hotel();
+    estado = SUCESSO;
 }
 
 void TUEntidadeHotel::tearDown() {
-    
+
     delete hotel;
 }
 
 void TUEntidadeHotel::testarCenarioSucesso() {
-    
+
     Nome nome;
     Endereco endereco;
     Telefone telefone;
     Codigo codigo;
 
     try {
-       
+
         nome = Nome("Hotel Palace");
         endereco = Endereco("Rua B, 45");
         telefone = Telefone("+5511999998888");
         codigo = Codigo("HOTEL12345");
     } catch (const invalid_argument& e) {
         estado = FALHA;
-        return; 
+        return;
     }
 
-    
+
     hotel->setNome(nome);
     hotel->setEndereco(endereco);
     hotel->setTelefone(telefone);
     hotel->setCodigo(codigo);
 
-    
+
     if (hotel->getNome().getNome() != "Hotel Palace") estado = FALHA;
     if (hotel->getEndereco().getEndereco() != "Rua B, 45") estado = FALHA;
     if (hotel->getTelefone().getValor() != "+5511999998888") estado = FALHA;
@@ -64,7 +64,7 @@ void TUEntidadeQuarto::tearDown() {
 }
 
 void TUEntidadeQuarto::testarCenarioSucesso() {
-   
+
     Numero numero;
     Capacidade capacidade;
     Dinheiro diaria;
@@ -80,13 +80,13 @@ void TUEntidadeQuarto::testarCenarioSucesso() {
         return;
     }
 
-   
+
     quarto->setNumero(numero);
     quarto->setCapacidade(capacidade);
     quarto->setDiaria(diaria);
     quarto->setRamal(ramal);
 
-   
+
     if (quarto->getNumero().getValor() != 101) estado = FALHA;
     if (quarto->getCapacidade().getValor() != 2) estado = FALHA;
     if (quarto->getDiaria().getValor() != 250.50) estado = FALHA;
@@ -111,7 +111,7 @@ void TUEntidadeReserva::tearDown() {
 }
 
 void TUEntidadeReserva::testarCenarioSucesso() {
-    
+
     Codigo codigo;
     Data chegada;
     Data partida;
@@ -119,7 +119,7 @@ void TUEntidadeReserva::testarCenarioSucesso() {
 
     try {
         codigo = Codigo("RESERVA001");
-        chegada = Data(10, "NOV", 2025); 
+        chegada = Data(10, "NOV", 2025);
         partida = Data(15, "NOV", 2025);
         valor = Dinheiro(1250.00);
     } catch (const invalid_argument& e) {
@@ -127,7 +127,7 @@ void TUEntidadeReserva::testarCenarioSucesso() {
         return;
     }
 
-    
+
     reserva->setCodigo(codigo);
     reserva->setChegada(chegada);
     reserva->setPartida(partida);
@@ -165,7 +165,7 @@ void TUEntidadeHospede::tearDown() {
 }
 
 void TUEntidadeHospede::testarCenarioSucesso() {
-    
+
     Nome nome;
     Email email;
     Endereco endereco;
@@ -175,19 +175,19 @@ void TUEntidadeHospede::testarCenarioSucesso() {
         nome = Nome("Joao Silva");
         email = Email("joao.silva@email.com");
         endereco = Endereco("Rua C, 789");
-        cartao = Cartao("4992739871692345"); 
+        cartao = Cartao("4992739871692345");
     } catch (const invalid_argument& e) {
         estado = FALHA;
         return;
     }
 
-    
+
     hospede->setNome(nome);
     hospede->setEmail(email);
     hospede->setEndereco(endereco);
     hospede->setCartao(cartao);
 
-    
+
     if (hospede->getNome().getNome() != "Joao Silva") estado = FALHA;
     if (hospede->getEmail().getEmail() != "joao.silva@email.com") estado = FALHA;
     if (hospede->getEndereco().getEndereco() != "Rua C, 789") estado = FALHA;

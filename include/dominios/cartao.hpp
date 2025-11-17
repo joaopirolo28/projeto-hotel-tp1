@@ -34,7 +34,7 @@ private:
 public:
     /**
      * @brief Construtor padrão da classe Cartao.
-     * @details Inicializa o objeto com um valor padrão. 
+     * @details Inicializa o objeto com um valor padrão.
      * Importante para a criação de entidades que contém esse dominio.
      */
     Cartao();

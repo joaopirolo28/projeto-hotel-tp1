@@ -7,7 +7,6 @@
 
 #include "servico/IPersistenciaGerente.hpp"
 #include <string>
-// Incluir aqui quaisquer headers necessários para lidar com SQLite
 
 /**
  * @brief Implementação concreta da interface IPersistenciaGerente.

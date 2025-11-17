@@ -1,7 +1,7 @@
 #ifndef TESTES_HPP_INCLUDED
 #define TESTES_HPP_INCLUDED
-#include "dominios.hpp"
-#include "entidades.hpp"
+#include "dominios/dominios.hpp"
+#include "entidades/entidades.hpp"
 
 const static int SUCESSO = 0;
 const static int FALHA = -1;
@@ -15,7 +15,7 @@ private:
     int estado;
     void setUp();
     void tearDown();
-    void testarCenarioSucesso(); 
+    void testarCenarioSucesso();
 
 public:
     int run();

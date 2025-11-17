@@ -44,7 +44,7 @@ public:
      * @details Inicializa o objeto com um valor padrão (string vazia).
      * Necessário para a criação de entidades que contêm este domínio.
      */
-    Codigo() {}
+    Codigo();
 
     /**
      * @brief Define o valor do código após validá-lo.
