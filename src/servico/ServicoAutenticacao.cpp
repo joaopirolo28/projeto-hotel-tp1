@@ -14,8 +14,7 @@ bool ServicoAutenticacao::cadastrarGerente(Gerente gerente){
         throw runtime_error("Gerente com este email já cadastrado.");
     } catch (const runtime_error& exp){
 
-        if(string(exp.what()).fi
-           nd("Gerente com este email já cadastrado.") != string::npos){
+        if(string(exp.what()).find("Gerente com este email já cadastrado.") != string::npos){
             throw;
         }
         return persistencia->cadastrar(gerente);

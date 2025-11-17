@@ -343,12 +343,13 @@
 	"dominios/dinheiro.hpp"
 	"dominios/codigo.hpp"
 
-1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\main.cpp
+1763409344 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\main.cpp
 	<iostream>
 	<stdexcept>
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 	<iomanip>
+	"servico/FabricaServicoImpl.hpp"
 
 1763403725 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\testes\testes.cpp
 	"testes/testes.hpp"
@@ -393,7 +394,7 @@
 	"servico/IPersistenciaGerente.hpp"
 	<memory>
 
-1763408405 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicoautenticacao.cpp
+1763409970 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicoautenticacao.cpp
 	"servico/ServicoAutenticacao.hpp"
 	<iostream>
 
