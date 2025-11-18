@@ -1,6 +1,6 @@
 /**
  * @file ServicoAutenticacao.hpp
- * @brief Implementação da interface de Lógica de Negócio para Autenticação.
+ * @brief ImplementaÃ§Ã£o da interface de LÃ³gica de NegÃ³cio para AutenticaÃ§Ã£o.
  */
 #ifndef SERVICOAUTENTICACAO_HPP
 #define SERVICOAUTENTICACAO_HPP
@@ -9,20 +9,22 @@
 #include "servico/IPersistenciaGerente.hpp"
 #include <memory>
 
+using namespace std;
+
 /**
- * @brief Implementação concreta da interface ILNAutenticacao.
- * @details Responsável por aplicar as regras de negócio de autenticação e gestão de Gerentes.
+ * @brief ImplementaÃ§Ã£o concreta da interface ILNAutenticacao.
+ * @details ResponsÃ¡vel por aplicar as regras de negÃ³cio de autenticaÃ§Ã£o e gestÃ£o de Gerentes.
  */
 class ServicoAutenticacao : public ILNAutenticacao {
 private:
-    std::unique_ptr<IPersistenciaGerente> persistencia;
+    unique_ptr<IPersistenciaGerente> persistencia;
 
 public:
     /**
-     * @brief Construtor da classe de serviço.
-     * @param p Ponteiro para a implementação de persistência.
+     * @brief Construtor da classe de serviÃ§o.
+     * @param p Ponteiro inteligente (unique_ptr) para a implementaÃ§Ã£o de persistÃªncia.
      */
-    ServicoAutenticacao(std::unique_ptr<IPersistenciaGerente> p);
+    ServicoAutenticacao(unique_ptr<IPersistenciaGerente> p);
 
     bool autenticar(Email email, Senha senha) override;
     bool cadastrarGerente(Gerente gerente) override;

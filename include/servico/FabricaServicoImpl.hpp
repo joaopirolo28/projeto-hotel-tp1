@@ -1,6 +1,6 @@
 /**
  * @file FabricaServicoImpl.hpp
- * @brief Implementação concreta da interface FabricaServico.
+ * @brief ImplementaÃ§Ã£o concreta da interface FabricaServico.
  */
 #ifndef FABRICASERVICOIMPL_HPP
 #define FABRICASERVICOIMPL_HPP
@@ -11,13 +11,13 @@
 #include <memory>
 
 /**
- * @brief Fábrica concreta que implementa a criação dos serviços.
+ * @brief FÃ¡brica concreta que implementa a criaÃ§Ã£o dos serviÃ§os.
  */
 class FabricaServicoImpl : public FabricaServico {
 public:
     /**
-     * @brief Cria e retorna uma nova instância do Serviço de Autenticação.
-     * @details Esta é a única classe que sabe como criar e injetar a dependência de Persistência.
+     * @brief Cria e retorna uma nova instÃ¢ncia do ServiÃ§o de AutenticaÃ§Ã£o.
+     * @details Esta Ã© a Ãºnica classe que sabe como criar e injetar a dependÃªncia de PersistÃªncia.
      * @return Ponteiro para a interface ILNAutenticacao (Polimorfismo).
      */
     ILNAutenticacao* criarServicoAutenticacao() override;

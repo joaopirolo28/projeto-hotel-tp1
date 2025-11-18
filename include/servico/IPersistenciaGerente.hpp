@@ -1,20 +1,21 @@
 /**
  * @file IPersistenciaGerente.hpp
- * @brief DefiniÁ„o da interface de persistÍncia para a entidade Gerente.
- * @details Define o contrato para operaÁıes de CRUD com o banco de dados.
+ * @brief Defini√ß√£o da interface de persist√™ncia para a entidade Gerente.
+ * @details Define o contrato para opera√ß√µes de CRUD com o banco de dados.
  */
 #ifndef IPERSISTENCIAGERENTE_HPP
 #define IPERSISTENCIAGERENTE_HPP
 
 #include "dominios/email.hpp"
+#include "dominios/senha.hpp" // Adicionado: Necess√°rio para o m√©todo autenticar
 #include "entidades/gerente.hpp"
 #include <stdexcept>
 
 using namespace std;
 
 /**
- * @brief Interface para persistÍncia de dados do Gerente.
- * @details Respons·vel por salvar, consultar e autenticar Gerentes no repositÛrio de dados.
+ * @brief Interface para persist√™ncia de dados do Gerente.
+ * @details Respons√°vel por salvar, consultar e autenticar Gerentes no reposit√≥rio de dados.
  */
 class IPersistenciaGerente {
     public:
@@ -26,37 +27,37 @@ class IPersistenciaGerente {
         /**
          * @brief Armazena um novo Gerente no banco de dados.
          * @param gerente O objeto Gerente a ser persistido.
-         * @return True se o cadastro for bem-sucedido, False caso contr·rio.
+         * @return True se o cadastro for bem-sucedido, False caso contr√°rio.
          */
         virtual bool cadastrar(const Gerente& gerente) = 0;
 
         /**
          * @brief Consulta um Gerente pelo seu email.
-         * @param email O email do Gerente (chave prim·ria).
-         * @return O objeto Gerente se encontrado. LanÁa exceÁ„o se n„o encontrado.
-         * @throw runtime_error Se o Gerente n„o for encontrado.
+         * @param email O email do Gerente (chave prim√°ria).
+         * @return O objeto Gerente se encontrado. Lan√ßa exce√ß√£o se n√£o encontrado.
+         * @throw runtime_error Se o Gerente n√£o for encontrado.
          */
         virtual Gerente consultar(const Email& email) = 0;
 
         /**
          * @brief Verifica se um Gerente existe e a senha corresponde.
-         * @param email O email para autenticaÁ„o.
-         * @param senha A senha para autenticaÁ„o (DomÌnio Senha).
-         * @return True se as credenciais estiverem corretas, False caso contr·rio.
+         * @param email O email para autentica√ß√£o.
+         * @param senha A senha para autentica√ß√£o (Dom√≠nio Senha).
+         * @return True se as credenciais estiverem corretas, False caso contr√°rio.
          */
         virtual bool autenticar(const Email& email, const Senha& senha) = 0;
 
         /**
          * @brief Edita um Gerente existente no banco de dados.
          * @param gerente O objeto Gerente com os dados atualizados.
-         * @return True se a ediÁ„o for bem-sucedida, False caso contr·rio.
+         * @return True se a edi√ß√£o for bem-sucedida, False caso contr√°rio.
          */
         virtual bool editar(const Gerente& gerente) = 0;
 
         /**
          * @brief Exclui um Gerente pelo seu email.
-         * @param email O email do Gerente a ser excluÌdo.
-         * @return True se a exclus„o for bem-sucedida, False caso contr·rio.
+         * @param email O email do Gerente a ser exclu√≠do.
+         * @return True se a exclus√£o for bem-sucedida, False caso contr√°rio.
          */
         virtual bool excluir(const Email& email) = 0;
 };

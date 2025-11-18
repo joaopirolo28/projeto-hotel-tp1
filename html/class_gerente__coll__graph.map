@@ -1,9 +1,0 @@
-<map id="Gerente" name="Gerente">
-<area shape="rect" id="Node000001" title="Classe entidade que representa um Gerente." alt="" coords="40,180,107,207"/>
-<area shape="rect" id="Node000002" href="$class_pessoa.html" title="Classe base que representa uma Pessoa." alt="" coords="41,104,106,131"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,146,76,180,71,180,71,146"/>
-<area shape="rect" id="Node000003" href="$class_nome.html" title="Classe para armazenar e validar um nome de pessoa." alt="" coords="5,5,62,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="38,47,47,79,63,102,59,105,42,81,33,48"/>
-<area shape="rect" id="Node000004" href="$class_email.html" title="Classe para armazenar e validar um endereço de email." alt="" coords="86,5,141,32"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="105,48,81,105,76,103,100,46"/>
-</map>

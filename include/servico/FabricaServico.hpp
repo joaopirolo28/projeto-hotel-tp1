@@ -1,6 +1,6 @@
 /**
  * @file FabricaServico.hpp
- * @brief Interface de Fábrica para criação de Serviços de Lógica de Negócio (ILN).
+ * @brief Interface de FÃ¡brica para criaÃ§Ã£o de ServiÃ§os de LÃ³gica de NegÃ³cio (ILN).
  */
 #ifndef FABRICASERVICO_HPP
 #define FABRICASERVICO_HPP
@@ -8,16 +8,16 @@
 #include "interfaces/interfaces.hpp"
 
 /**
- * @brief Interface para o padrão Fábrica.
- * @details Define os métodos para criar as instâncias concretas
- * dos serviços de Lógica de Negócio (ILN).
+ * @brief Interface para o padrÃ£o FÃ¡brica.
+ * @details Define os mÃ©todos para criar as instÃ¢ncias concretas
+ * dos serviÃ§os de LÃ³gica de NegÃ³cio (ILN).
  */
 class FabricaServico {
 public:
     virtual ~FabricaServico() {}
 
     /**
-     * @brief Cria e retorna uma instância do Serviço de Autenticação.
+     * @brief Cria e retorna uma instÃ¢ncia do ServiÃ§o de AutenticaÃ§Ã£o.
      * @return Ponteiro para a interface ILNAutenticacao.
      */
     virtual ILNAutenticacao* criarServicoAutenticacao() = 0;

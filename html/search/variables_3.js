@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['tamanho_0',['TAMANHO',['../class_telefone.html#a6a01144d5ebd84685ee77e7acd7903ad',1,'Telefone']]],
-  ['tamanho_5fmax_1',['TAMANHO_MAX',['../class_codigo.html#af12a075f94de813c18dccfff3780b282',1,'Codigo']]],
-  ['tamanho_5fmax_5fdominio_2',['TAMANHO_MAX_DOMINIO',['../class_email.html#ad877d574c1bfd6f6bac82c8bd12ec8ab',1,'Email']]],
-  ['tamanho_5fmax_5flocal_3',['TAMANHO_MAX_LOCAL',['../class_email.html#a1f32f82a10e992ec4e94a4042fd99e8d',1,'Email']]]
-];

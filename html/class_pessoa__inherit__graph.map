@@ -1,7 +1,0 @@
-<map id="Pessoa" name="Pessoa">
-<area shape="rect" id="Node000001" title="Classe base que representa uma Pessoa." alt="" coords="53,5,118,32"/>
-<area shape="rect" id="Node000002" href="$class_gerente.html" title="Classe entidade que representa um Gerente." alt="" coords="5,80,73,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,47,49,81,45,78,67,44"/>
-<area shape="rect" id="Node000003" href="$class_hospede.html" title="Classe entidade que representa um Hóspede." alt="" coords="97,80,170,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="105,44,128,78,123,81,100,47"/>
-</map>

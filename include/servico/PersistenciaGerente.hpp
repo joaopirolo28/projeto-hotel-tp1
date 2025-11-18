@@ -1,6 +1,6 @@
 /**
  * @file PersistenciaGerente.hpp
- * @brief Definição da classe concreta de persistência para Gerente.
+ * @brief DefiniÃ§Ã£o da classe concreta de persistÃªncia para Gerente.
  */
 #ifndef PERSISTENCIAGERENTE_HPP
 #define PERSISTENCIAGERENTE_HPP
@@ -9,8 +9,8 @@
 #include <string>
 
 /**
- * @brief Implementação concreta da interface IPersistenciaGerente.
- * @details Responsável por mapear e manipular os dados da entidade Gerente
+ * @brief ImplementaÃ§Ã£o concreta da interface IPersistenciaGerente.
+ * @details ResponsÃ¡vel por mapear e manipular os dados da entidade Gerente
  * no banco de dados SQLite.
  */
 class PersistenciaGerente : public IPersistenciaGerente {
