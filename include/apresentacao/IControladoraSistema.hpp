@@ -1,6 +1,6 @@
 /**
  * @file IControladoraSistema.hpp
- * @brief DefiniÁ„o da interface da Controladora Principal do Sistema.
+ * @brief Defini√ß√£o da interface da Controladora Principal do Sistema.
  */
 #ifndef ICONTROLADORASISTEMA_HPP
 #define ICONTROLADORASISTEMA_HPP
@@ -8,14 +8,15 @@
 #include "interfaces/interfaces.hpp"
 
 /**
- * @brief Interface que define a controladora principal de execuÁ„o do sistema.
- * @details … respons·vel por iniciar a aplicaÁ„o e gerenciar a navegaÁ„o inicial.
+ * @brief Interface que define a controladora principal de execu√ß√£o do sistema.
+ * @details √â respons√°vel por iniciar a aplica√ß√£o e gerenciar a navega√ß√£o inicial.
  */
 class IControladoraSistema {
 public:
     virtual ~IControladoraSistema() {}
+    
     /**
-     * @brief Inicia o ciclo de vida da aplicaÁ„o.
+     * @brief Inicia o ciclo de vida da aplica√ß√£o.
      */
     virtual void executar() = 0;
 };

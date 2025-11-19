@@ -1,22 +1,25 @@
 /**
  * @file IControladoraAutenticacao.hpp
- * @brief Interface da Controladora para Autenticação.
+ * @brief Interface da Controladora para AutenticaÃ§Ã£o.
  */
 #ifndef ICONTROLADORAAUTENTICACAO_HPP
 #define ICONTROLADORAAUTENTICACAO_HPP
 
 #include "interfaces/interfaces.hpp"
+#include <string>
+
+using namespace std;
 
 /**
- * @brief Interface que define a controladora de Autenticação.
- * @details Responsável por gerenciar as interações de login e cadastro de Gerente.
+ * @brief Interface que define a controladora de AutenticaÃ§Ã£o.
+ * @details ResponsÃ¡vel por gerenciar as interaÃ§Ãµes de login e cadastro de Gerente.
  */
 class IControladoraAutenticacao {
 public:
     virtual ~IControladoraAutenticacao() {}
 
     /**
-     * @brief Inicia o fluxo de autenticação (login) ou cadastro de Gerente.
+     * @brief Inicia o fluxo de autenticaÃ§Ã£o (login) ou cadastro de Gerente.
      * @return Retorna o email do Gerente logado ou um email vazio se o login falhar.
      */
     virtual string executar() = 0;
