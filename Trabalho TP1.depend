@@ -359,12 +359,13 @@
 1763402745 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\persistenciagerente.cpp
 	"servico/PersistenciaGerente.hpp"
 
-1763406875 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\persistenciagerente.hpp
+1763570038 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\persistenciagerente.hpp
 	"servico/IPersistenciaGerente.hpp"
 	<string>
 
-1763337103 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\ipersistenciagerente.hpp
+1763570038 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\ipersistenciagerente.hpp
 	"dominios/email.hpp"
+	"dominios/senha.hpp"
 	"entidades/gerente.hpp"
 	<stdexcept>
 
@@ -375,13 +376,13 @@
 1763409038 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\fabricaservicoimpl.cpp
 	"servico/FabricaServicoImpl.hpp"
 
-1763409000 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\fabricaservicoimpl.hpp
+1763570037 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\fabricaservicoimpl.hpp
 	"servico/FabricaServico.hpp"
 	"servico/ServicoAutenticacao.hpp"
 	"servico/PersistenciaGerente.hpp"
 	<memory>
 
-1763409071 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\fabricaservico.hpp
+1763570037 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\fabricaservico.hpp
 	"interfaces/interfaces.hpp"
 
 1763409086 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\interfaces\interfaces.hpp
@@ -389,12 +390,41 @@
 	"entidades/entidades.hpp"
 	<vector>
 
-1763409094 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicoautenticacao.hpp
+1763570038 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicoautenticacao.hpp
 	"interfaces/interfaces.hpp"
 	"servico/IPersistenciaGerente.hpp"
 	<memory>
 
-1763409970 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicoautenticacao.cpp
+1763596055 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicoautenticacao.cpp
 	"servico/ServicoAutenticacao.hpp"
 	<iostream>
+
+1763599254 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\controladorasistema.cpp
+	"apresentacao/ControladoraSistema.hpp"
+	<iostream>
+	<memory>
+
+1763599303 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladorasistema.hpp
+	"apresentacao/IControladoraSistema.hpp"
+	"apresentacao/ControladoraAutenticacao.hpp"
+	"servico/FabricaServico.hpp"
+
+1763596970 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladorasistema.hpp
+	"interfaces/interfaces.hpp"
+	"apresentacao/IControladoraAutenticacao.hpp"
+	"servico/FabricaServico.hpp"
+
+1763570037 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladoraautenticacao.hpp
+	"interfaces/interfaces.hpp"
+	<string>
+
+1763415405 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladoraautenticacao.hpp
+	"apresentacao/IControladoraAutenticacao.hpp"
+	<memory>
+	<iostream>
+
+1763599254 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorasistema.cpp
+	"apresentacao/ControladoraSistema.hpp"
+	<iostream>
+	<memory>
 

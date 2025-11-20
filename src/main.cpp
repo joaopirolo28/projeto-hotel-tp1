@@ -4,6 +4,7 @@
 #include "entidades/entidades.hpp"
 #include <iomanip>
 #include "servico/FabricaServicoImpl.hpp"
+#include "apresentacao/ControladoraSistema.hpp"
 
 using namespace std;
 
@@ -327,13 +328,15 @@ int main()
         cout << "ERRO INESPERADO na Reserva (Sucesso): " << exp.what() << endl;
     }
 
-    cout << "\n--- TESTE FABRICA ---\n";
+    cout << "INICIANDO APLICACAO... \n";
 
     FabricaServicoImpl fabrica;
 
-    ILNAutenticacao* servicoAutenticacao = fabrica.criarServicoAutenticacao();
+    ControladoraSistema sistema(&fabrica);
 
-    delete servicoAutenticacao;
+    sistema.executar();
+
+    cout << "APLICACAO FINALIZADA.\n";
 
     return 0;
 }

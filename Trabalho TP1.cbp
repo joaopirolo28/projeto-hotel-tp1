@@ -867,6 +867,10 @@
 		<Unit filename="html/telefone_8hpp__incl.png" />
 		<Unit filename="html/telefone_8hpp_source.html" />
 		<Unit filename="html/testes_8hpp_source.html" />
+		<Unit filename="include/apresentacao/ControladoraAutenticacao.hpp" />
+		<Unit filename="include/apresentacao/ControladoraSistema.hpp" />
+		<Unit filename="include/apresentacao/IControladoraAutenticacao.hpp" />
+		<Unit filename="include/apresentacao/IControladoraSistema.hpp" />
 		<Unit filename="include/dominios/capacidade.hpp" />
 		<Unit filename="include/dominios/cartao.hpp" />
 		<Unit filename="include/dominios/codigo.hpp" />
@@ -1004,6 +1008,7 @@
 		<Unit filename="latex/telefone_8hpp__incl.pdf" />
 		<Unit filename="latex/telefone_8hpp_source.tex" />
 		<Unit filename="latex/testes_8hpp_source.tex" />
+		<Unit filename="src/apresentacao/ControladoraSistema.cpp" />
 		<Unit filename="src/dominios/capacidade.cpp" />
 		<Unit filename="src/dominios/cartao.cpp" />
 		<Unit filename="src/dominios/codigo.cpp" />

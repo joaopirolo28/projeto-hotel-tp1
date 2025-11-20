@@ -3,8 +3,8 @@
 
 using namespace std;
 
-ServicoAutenticacao::ServicoAutenticacao(std::unique_ptr<IPersistenciaGerente> p) {
-    persistencia = std::move(p);
+ServicoAutenticacao::ServicoAutenticacao(unique_ptr<IPersistenciaGerente> p) {
+    persistencia = move(p);
 }
 
 bool ServicoAutenticacao::cadastrarGerente(Gerente gerente){

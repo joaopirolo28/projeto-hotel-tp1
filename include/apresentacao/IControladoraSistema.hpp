@@ -6,6 +6,8 @@
 #define ICONTROLADORASISTEMA_HPP
 
 #include "interfaces/interfaces.hpp"
+#include "apresentacao/IControladoraAutenticacao.hpp"
+#include "servico/FabricaServico.hpp"
 
 /**
  * @brief Interface que define a controladora principal de execução do sistema.
@@ -14,7 +16,7 @@
 class IControladoraSistema {
 public:
     virtual ~IControladoraSistema() {}
-    
+
     /**
      * @brief Inicia o ciclo de vida da aplicação.
      */
