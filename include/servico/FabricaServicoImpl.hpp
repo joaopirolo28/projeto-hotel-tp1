@@ -20,7 +20,7 @@ public:
      * @details Esta é a única classe que sabe como criar e injetar a dependência de Persistência.
      * @return Ponteiro para a interface ILNAutenticacao (Polimorfismo).
      */
-    ILNAutenticacao* criarServicoAutenticacao() override;
+    IServicoAutenticacao* criarServicoAutenticacao() override;
 };
 
 #endif // FABRICASERVICOIMPL_HPP

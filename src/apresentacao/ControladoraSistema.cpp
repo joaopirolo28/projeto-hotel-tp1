@@ -9,36 +9,36 @@ ControladoraSistema::ControladoraSistema(FabricaServico* f) : fabrica(f), Contro
 }
 
 void ControladoraSistema::carregarControladoras(){
-    // A Fábrica cria a implementação do Serviço Autenticação e a injeta na Controladora.
+    // A Fï¿½brica cria a implementaï¿½ï¿½o do Serviï¿½o Autenticaï¿½ï¿½o e a injeta na Controladora.
 
-    // 1. OBTÉM O SERVIÇO: Usa a Fábrica para obter a interface ILNAutenticacao*
-    ILNAutenticacao* servicoAutenticacao = fabrica->criarServicoAutenticacao();
+    // 1. OBTï¿½M O SERVIï¿½O: Usa a Fï¿½brica para obter a interface ILNAutenticacao*
+    IServicoAutenticacao* servicoAutenticacao = fabrica->criarServicoAutenticacao();
 
-    // 2. CRIA A CONTROLADORA: Cria a Controladora de Autenticação, injetando o serviço.
-    // Usamos 'new' aqui, e a Controladora Geral será responsável por deletar o serviço.
+    // 2. CRIA A CONTROLADORA: Cria a Controladora de Autenticaï¿½ï¿½o, injetando o serviï¿½o.
+    // Usamos 'new' aqui, e a Controladora Geral serï¿½ responsï¿½vel por deletar o serviï¿½o.
 
-    // NOTA: Para simplificar o gerenciamento de memória no C++, o ServicoAutenticacao é alocado com new na Fábrica.
+    // NOTA: Para simplificar o gerenciamento de memï¿½ria no C++, o ServicoAutenticacao ï¿½ alocado com new na Fï¿½brica.
     // A ControladoraAutenticacao precisa ser ajustada para receber ILNAutenticacao*
 
     // Exemplo ajustado (Assumindo que ControladoraAutenticacao.hpp foi alterada para receber o ponteiro raw):
     // controladoraAutenticacao = new ControladoraAutenticacao(servicoAutenticacao);
 
-    // Vamos usar a injeção via smart pointer (unique_ptr) que você já estava usando, mas adaptando o fluxo da Fábrica.
-    // No seu caso: ServicoAutenticacao recebe unique_ptr, mas a Fábrica retorna um ponteiro raw (ILNAutenticacao*).
+    // Vamos usar a injeï¿½ï¿½o via smart pointer (unique_ptr) que vocï¿½ jï¿½ estava usando, mas adaptando o fluxo da Fï¿½brica.
+    // No seu caso: ServicoAutenticacao recebe unique_ptr, mas a Fï¿½brica retorna um ponteiro raw (ILNAutenticacao*).
 
     // Vamos usar um construtor que aceita o ponteiro raw para simplificar o fluxo de delete:
-    // **É NECESSÁRIO AJUSTAR O CONSTRUTOR DE ControladoraAutenticacao.hpp para aceitar ILNAutenticacao* raw pointer**
+    // **ï¿½ NECESSï¿½RIO AJUSTAR O CONSTRUTOR DE ControladoraAutenticacao.hpp para aceitar ILNAutenticacao* raw pointer**
 
-    // Por enquanto, apenas inicializamos a controladora de Autenticação
-    // O fluxo real depende da Controladora Autenticacao ser capaz de receber o serviço corretamente.
+    // Por enquanto, apenas inicializamos a controladora de Autenticaï¿½ï¿½o
+    // O fluxo real depende da Controladora Autenticacao ser capaz de receber o serviï¿½o corretamente.
 
     // Para simplificar o teste, vamos criar o Servico Autenticacao como ponteiro raw para facilitar o delete.
 }
 
 void ControladoraSistema::executar() {
-    // Fluxo principal de execução do sistema
+    // Fluxo principal de execuï¿½ï¿½o do sistema
 
-    cout << "\n--- SISTEMA DE GESTÃO DE HOTÉIS ---\n";
+    cout << "\n--- SISTEMA DE GESTï¿½O DE HOTï¿½IS ---\n";
 
     // 1. Tenta fazer o Login/Cadastro
     // emailGerenteLogado = controladoraAutenticacao->executar();
@@ -51,5 +51,5 @@ void ControladoraSistema::executar() {
 
 void ControladoraSistema::apresentarMenuPrincipal() {
     cout << "\nBem-vindo(a), Gerente " << emailGerenteLogado << "!\n";
-    // Lógica para apresentar o menu principal (CRUDs)
+    // Lï¿½gica para apresentar o menu principal (CRUDs)
 }

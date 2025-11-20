@@ -12,10 +12,10 @@
 using namespace std;
 
 /**
- * @brief Implementação concreta da interface ILNAutenticacao.
+ * @brief Implementação concreta da interface ILN Autenticacao.
  * @details Responsável por aplicar as regras de negócio de autenticação e gestão de Gerentes.
  */
-class ServicoAutenticacao : public ILNAutenticacao {
+class ServicoAutenticacao : public IServicoAutenticacao {
 private:
     unique_ptr<IPersistenciaGerente> persistencia;
 
@@ -27,10 +27,6 @@ public:
     ServicoAutenticacao(unique_ptr<IPersistenciaGerente> p);
 
     bool autenticar(Email email, Senha senha) override;
-    bool cadastrarGerente(Gerente gerente) override;
-    Gerente consultarGerente(Email email) override;
-    bool editarGerente(Gerente gerente) override;
-    bool excluirGerente(Email email) override;
 };
 
 #endif // SERVICOAUTENTICACAO_HPP

@@ -20,7 +20,7 @@ public:
      * @brief Cria e retorna uma instância do Serviço de Autenticação.
      * @return Ponteiro para a interface ILNAutenticacao.
      */
-    virtual ILNAutenticacao* criarServicoAutenticacao() = 0;
+    virtual IServicoAutenticacao* criarServicoAutenticacao() = 0;
 };
 
 #endif // FABRICASERVICO_HPP

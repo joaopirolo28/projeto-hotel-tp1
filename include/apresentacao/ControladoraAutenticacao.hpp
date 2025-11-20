@@ -1,6 +1,6 @@
 /**
  * @file ControladoraAutenticacao.hpp
- * @brief Definição da Controladora concreta para Autenticação.
+ * @brief Definiï¿½ï¿½o da Controladora concreta para Autenticaï¿½ï¿½o.
  */
 #ifndef CONTROLADORAAUTENTICACAO_HPP
 #define CONTROLADORAAUTENTICACAO_HPP
@@ -10,22 +10,22 @@
 #include <iostream>
 
 /**
- * @brief Controladora responsável por receber entrada do usuário para login e cadastro.
+ * @brief Controladora responsï¿½vel por receber entrada do usuï¿½rio para login e cadastro.
  */
 class ControladoraAutenticacao : public IControladoraAutenticacao {
     private:
-        std::unique_ptr<ILNAutenticacao> servicoAutenticacao;
+        std::unique_ptr<IServicoAutenticacao> servicoAutenticacao;
 
     public:
         /**
-         * @brief Construtor que recebe e armazena o serviço de autenticação.
-         * @param servico Ponteiro para a implementação da interface ILNAutenticacao.
+         * @brief Construtor que recebe e armazena o serviï¿½o de autenticaï¿½ï¿½o.
+         * @param servico Ponteiro para a implementaï¿½ï¿½o da interface ILNAutenticacao.
          */
-        ControladoraAutenticacao(std::unique_ptr<ILNAutenticacao> servico);
+        ControladoraAutenticacao(std::unique_ptr<IServicoAutenticacao> servico);
 
         /**
-         * @brief Inicia o fluxo de autenticação.
-         * @details Apresenta as opções (login ou cadastro) ao usuário.
+         * @brief Inicia o fluxo de autenticaï¿½ï¿½o.
+         * @details Apresenta as opï¿½ï¿½es (login ou cadastro) ao usuï¿½rio.
          * @return Retorna o email do Gerente logado ou um email vazio se o login falhar.
          */
         string executar() override;
