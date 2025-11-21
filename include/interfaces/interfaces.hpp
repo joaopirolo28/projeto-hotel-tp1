@@ -14,9 +14,8 @@
 
 using namespace std;
 
-// ====================================================================
+
 // Interfaces de Serviço (ILN - Lógica de Negócio)
-// ====================================================================
 
 /**
  * @brief Interface de Lógica de Negócio para Autenticação.
@@ -251,9 +250,8 @@ public:
     virtual vector<Reserva> listarReservas(Email emailHospede) = 0;
 };
 
-// ====================================================================
-// Interfaces de Apresentação (Fluxo da UI)
-// ====================================================================
+
+// Interfaces de Apresentação
 
 /**
  * @brief Interface para o fluxo de autenticação e login na Camada de Apresentação.

@@ -1,7 +1,7 @@
 /**
  * @file ServicoReservas.hpp
  * @brief Declaracao da classe concreta de servico para gerenciamento de Reservas.
- * @author João Pedro
+ * @author JoÃ£o Pedro
  * @date 20 de novembro de 2025
  */
 
@@ -42,7 +42,7 @@ public:
 
     /**
      * @brief Cadastra uma nova reserva.
-     * @details Deve verificar se há conflito de datas com outras reservas
+     * @details Deve verificar se hÃ¡ conflito de datas com outras reservas
      * para o mesmo quarto antes de persistir.
      * @param reserva O objeto Reserva a ser cadastrado.
      * @return true se o cadastro for bem-sucedido.
@@ -51,10 +51,10 @@ public:
     bool cadastrarReserva(Reserva reserva) override;
 
     /**
-     * @brief Consulta uma Reserva pelo código.
-     * @param codigo O código da reserva (chave primária).
+     * @brief Consulta uma Reserva pelo cÃ³digo.
+     * @param codigo O cÃ³digo da reserva (chave primÃ¡ria).
      * @return O objeto Reserva encontrado.
-     * @throw runtime_error Se a reserva não for encontrada.
+     * @throw runtime_error Se a reserva nÃ£o for encontrada.
      */
     Reserva consultarReserva(Codigo codigo) override;
 
@@ -67,15 +67,15 @@ public:
     bool editarReserva(Reserva reserva) override;
 
     /**
-     * @brief Exclui uma Reserva pelo código.
-     * @param codigo O código da Reserva a ser excluída.
+     * @brief Exclui uma Reserva pelo cÃ³digo.
+     * @param codigo O cÃ³digo da Reserva a ser excluÃ­da.
      * @return true se a exclusao for bem-sucedida.
      */
     bool excluirReserva(Codigo codigo) override;
 
     /**
-     * @brief Retorna a lista de todas as reservas de um hóspede específico.
-     * @param emailHospede O email do hóspede para filtrar as reservas.
+     * @brief Retorna a lista de todas as reservas de um hÃ³spede especÃ­fico.
+     * @param emailHospede O email do hÃ³spede para filtrar as reservas.
      * @return Um vetor de objetos Reserva.
      */
     vector<Reserva> listarReservas(Email emailHospede) override;

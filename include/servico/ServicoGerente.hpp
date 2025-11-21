@@ -8,11 +8,8 @@
 #ifndef SERVICOGERENTE_HPP
 #define SERVICOGERENTE_HPP
 
-// Interfaces que esta classe implementa e usa
 #include "interfaces/interfaces.hpp"
 #include "servico/IPersistenciaGerente.hpp"
-
-// Classes base e utilitarios
 #include "entidades/gerente.hpp"
 #include "dominios/email.hpp"
 #include <memory>

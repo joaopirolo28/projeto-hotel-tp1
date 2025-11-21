@@ -1,10 +1,3 @@
-/**
- * @file ServicoReservas.cpp
- * @brief Implementacao da classe concreta de servico para gerenciamento de Reservas.
- * @author João Pedro
- * @date 20 de novembro de 2025
- */
-
 #include "servico/ServicoReservas.hpp"
 #include <iostream>
 #include <stdexcept>
