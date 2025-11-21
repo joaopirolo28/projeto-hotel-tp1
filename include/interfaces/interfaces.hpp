@@ -25,7 +25,7 @@ using namespace std;
 class IServicoAutenticacao {
 public:
     virtual ~IServicoAutenticacao() {}
-    
+
     /**
      * @brief Autentica um gerente no sistema.
      * @param email O email do gerente para autenticação.
@@ -48,7 +48,7 @@ public:
      * @return true se o cadastro for bem-sucedido.
      */
     virtual bool cadastrarGerente(Gerente gerente) = 0;
-    
+
     /**
      * @brief Consulta um Gerente pelo email.
      * @param email O email do gerente (chave primária).
@@ -56,14 +56,14 @@ public:
      * @throw runtime_error Se o gerente não for encontrado.
      */
     virtual Gerente consultarGerente(Email email) = 0;
-    
+
     /**
      * @brief Edita os dados de um Gerente existente.
      * @param gerente O objeto Gerente com os dados atualizados.
      * @return true se a edição for bem-sucedida.
      */
     virtual bool editarGerente(Gerente gerente) = 0;
-    
+
     /**
      * @brief Exclui um Gerente pelo email.
      * @param email O email do Gerente a ser excluído.
@@ -79,14 +79,14 @@ public:
 class IServicoHospede {
 public:
     virtual ~IServicoHospede() {}
-    
+
     /**
      * @brief Cadastra um novo hóspede.
      * @param hospede O objeto Hospede a ser cadastrado.
      * @return true se o cadastro for bem-sucedido.
      */
     virtual bool cadastrarHospede(Hospede hospede) = 0;
-    
+
     /**
      * @brief Consulta um Hóspede pelo email.
      * @param email O email do hóspede (chave primária).
@@ -94,21 +94,21 @@ public:
      * @throw runtime_error Se o hóspede não for encontrado.
      */
     virtual Hospede consultarHospede(Email email) = 0;
-    
+
     /**
      * @brief Edita os dados de um Hóspede existente.
      * @param hospede O objeto Hospede com os dados atualizados.
      * @return true se a edição for bem-sucedida.
      */
     virtual bool editarHospede(Hospede hospede) = 0;
-    
+
     /**
      * @brief Exclui um Hóspede pelo email.
      * @param email O email do Hóspede a ser excluído.
      * @return true se a exclusão for bem-sucedida.
      */
     virtual bool excluirHospede(Email email) = 0;
-    
+
     /**
      * @brief Retorna a lista de todos os hóspedes.
      * @return Um vetor de objetos Hospede.
@@ -123,14 +123,14 @@ public:
 class IServicoHotel {
 public:
     virtual ~IServicoHotel() {}
-    
+
     /**
      * @brief Cadastra um novo hotel.
      * @param hotel O objeto Hotel a ser cadastrado.
      * @return true se o cadastro for bem-sucedido.
      */
     virtual bool cadastrarHotel(Hotel hotel) = 0;
-    
+
     /**
      * @brief Consulta um Hotel pelo código.
      * @param codigo O código do hotel (chave primária).
@@ -138,21 +138,21 @@ public:
      * @throw runtime_error Se o hotel não for encontrado.
      */
     virtual Hotel consultarHotel(Codigo codigo) = 0;
-    
+
     /**
      * @brief Edita os dados de um Hotel existente.
      * @param hotel O objeto Hotel com os dados atualizados.
      * @return true se a edição for bem-sucedida.
      */
     virtual bool editarHotel(Hotel hotel) = 0;
-    
+
     /**
      * @brief Exclui um Hotel pelo código.
      * @param codigo O código do Hotel a ser excluído.
      * @return true se a exclusão for bem-sucedida.
      */
     virtual bool excluirHotel(Codigo codigo) = 0;
-    
+
     /**
      * @brief Retorna a lista de todos os hotéis.
      * @return Um vetor de objetos Hotel.
@@ -174,29 +174,29 @@ public:
      * @return true se o cadastro for bem-sucedido.
      */
     virtual bool cadastrarQuarto(Codigo codigoHotel, Quarto quarto) = 0;
-    
+
     /**
      * @brief Consulta um Quarto pelo número.
      * @param numero O número do quarto (identificador único dentro do hotel).
      * @return O objeto Quarto encontrado.
      * @throw runtime_error Se o quarto não for encontrado.
      */
-    virtual Quarto consultarQuarto(Numero numero) = 0;
-    
+    virtual Quarto consultarQuarto(Codigo codigoHotel, Numero numero) = 0;
+
     /**
      * @brief Edita os dados de um Quarto existente.
      * @param quarto O objeto Quarto com os dados atualizados.
      * @return true se a edição for bem-sucedida.
      */
     virtual bool editarQuarto(Quarto quarto) = 0;
-    
+
     /**
      * @brief Exclui um Quarto pelo número.
      * @param numero O número do Quarto a ser excluído.
      * @return true se a exclusão for bem-sucedida.
      */
-    virtual bool excluirQuarto(Numero numero) = 0;
-    
+    virtual bool excluirQuarto(Codigo codigoHotel, Numero numero) = 0;
+
     /**
      * @brief Retorna a lista de todos os quartos de um hotel específico.
      * @param codigoHotel O código do hotel para filtrar os quartos.
@@ -212,7 +212,7 @@ public:
 class IServicoReservas {
 public:
     virtual ~IServicoReservas() {}
-    
+
     /**
      * @brief Cadastra uma nova reserva.
      * @param reserva O objeto Reserva a ser cadastrado.
@@ -220,7 +220,7 @@ public:
      * @throw runtime_error Se houver conflito de datas.
      */
     virtual bool cadastrarReserva(Reserva reserva) = 0;
-    
+
     /**
      * @brief Consulta uma Reserva pelo código.
      * @param codigo O código da reserva (chave primária).
@@ -228,21 +228,21 @@ public:
      * @throw runtime_error Se a reserva não for encontrada.
      */
     virtual Reserva consultarReserva(Codigo codigo) = 0;
-    
+
     /**
      * @brief Edita os dados de uma Reserva existente.
      * @param reserva O objeto Reserva com os dados atualizados.
      * @return true se a edição for bem-sucedida.
      */
     virtual bool editarReserva(Reserva reserva) = 0;
-    
+
     /**
      * @brief Exclui uma Reserva pelo código.
      * @param codigo O código da Reserva a ser excluída.
      * @return true se a exclusão for bem-sucedida.
      */
     virtual bool excluirReserva(Codigo codigo) = 0;
-    
+
     /**
      * @brief Retorna a lista de todas as reservas de um hóspede específico.
      * @param emailHospede O email do hóspede para filtrar as reservas.
@@ -261,7 +261,7 @@ public:
 class IApresentacaoAutenticacao {
 public:
     virtual ~IApresentacaoAutenticacao() = default;
-    
+
     /**
      * @brief Inicia o fluxo de interação do usuário para login ou cadastro de gerente.
      */
@@ -275,7 +275,7 @@ public:
 class IApresentacaoGerente {
 public:
     virtual ~IApresentacaoGerente() = default;
-    
+
     /**
      * @brief Exibe o menu de opções para o gerente.
      */
@@ -288,7 +288,7 @@ public:
 class IApresentacaoHotel {
 public:
     virtual ~IApresentacaoHotel() = default;
-    
+
     /**
      * @brief Exibe o menu de gestão e CRUD para hotéis.
      */
@@ -301,7 +301,7 @@ public:
 class IApresentacaoQuarto {
 public:
     virtual ~IApresentacaoQuarto() = default;
-    
+
     /**
      * @brief Exibe o menu de gestão e CRUD para quartos.
      */
@@ -314,7 +314,7 @@ public:
 class IApresentacaoReserva {
 public:
     virtual ~IApresentacaoReserva() = default;
-    
+
     /**
      * @brief Exibe o menu de gestão e CRUD para reservas.
      */
@@ -327,7 +327,7 @@ public:
 class IApresentacaoHospede {
 public:
     virtual ~IApresentacaoHospede() = default;
-    
+
     /**
      * @brief Exibe o menu de gestão e CRUD para hóspedes.
      */

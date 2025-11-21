@@ -9,7 +9,7 @@
 #define SERVICOGERENTE_HPP
 
 // Interfaces que esta classe implementa e usa
-#include "interfaces/IServicoGerente.hpp"
+#include "interfaces/interfaces.hpp"
 #include "servico/IPersistenciaGerente.hpp"
 
 // Classes base e utilitarios

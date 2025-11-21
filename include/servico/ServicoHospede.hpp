@@ -8,7 +8,7 @@
 #ifndef SERVICOHOSPEDE_HPP
 #define SERVICOHOSPEDE_HPP
 
-#include "interfaces/IServicoHospede.hpp"
+#include "interfaces/Interfaces.hpp"
 #include "servico/IPersistenciaHospede.hpp"
 #include "entidades/hospede.hpp"
 #include "dominios/email.hpp"
@@ -62,7 +62,7 @@ public:
      * @return true se a exclusao for bem-sucedida.
      */
     bool excluirHospede(Email email) override;
-    
+
     /**
      * @brief Lista todos os Hospedes cadastrados.
      * @return Vetor contendo todos os Hospedes.

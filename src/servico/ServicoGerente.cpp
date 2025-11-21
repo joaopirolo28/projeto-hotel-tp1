@@ -4,7 +4,7 @@
 #include "dominios/senha.hpp"
 #include <iostream>
 #include <stdexcept>
-#include <utility> 
+#include <utility>
 
 using namespace std;
 
@@ -40,7 +40,7 @@ bool ServicoGerente::editarGerente(Gerente gerente) {
 }
 
 bool ServicoGerente::excluirGerente(Email email) {
-    
+
     try {
         return persistencia->excluir(email);
     } catch (const exception& e) {

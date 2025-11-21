@@ -343,13 +343,14 @@
 	"dominios/dinheiro.hpp"
 	"dominios/codigo.hpp"
 
-1763409344 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\main.cpp
+1763599705 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\main.cpp
 	<iostream>
 	<stdexcept>
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 	<iomanip>
 	"servico/FabricaServicoImpl.hpp"
+	"apresentacao/ControladoraSistema.hpp"
 
 1763403725 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\testes\testes.cpp
 	"testes/testes.hpp"
@@ -376,26 +377,36 @@
 1763409038 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\fabricaservicoimpl.cpp
 	"servico/FabricaServicoImpl.hpp"
 
-1763570037 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\fabricaservicoimpl.hpp
+1763678919 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\fabricaservicoimpl.hpp
 	"servico/FabricaServico.hpp"
 	"servico/ServicoAutenticacao.hpp"
-	"servico/PersistenciaGerente.hpp"
+	"servico/ServicoGerente.hpp"
+	"servico/ServicoHospede.hpp"
+	"servico/ServicoHotel.hpp"
+	"servico/ServicoQuarto.hpp"
+	"servico/ServicoReservas.hpp"
+	"servico/IPersistenciaGerente.hpp"
+	"servico/IPersistenciaHospede.hpp"
+	"servico/IPersistenciaHotel.hpp"
+	"servico/IPersistenciaQuarto.hpp"
+	"servico/IPersistenciaReserva.hpp"
 	<memory>
+	<utility>
 
-1763570037 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\fabricaservico.hpp
+1763678919 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\fabricaservico.hpp
 	"interfaces/interfaces.hpp"
 
-1763409086 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\interfaces\interfaces.hpp
+1763690729 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\interfaces\interfaces.hpp
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 	<vector>
 
-1763570038 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicoautenticacao.hpp
+1763678919 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicoautenticacao.hpp
 	"interfaces/interfaces.hpp"
 	"servico/IPersistenciaGerente.hpp"
 	<memory>
 
-1763596055 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicoautenticacao.cpp
+1763678919 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicoautenticacao.cpp
 	"servico/ServicoAutenticacao.hpp"
 	<iostream>
 
@@ -418,13 +429,152 @@
 	"interfaces/interfaces.hpp"
 	<string>
 
-1763415405 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladoraautenticacao.hpp
+1763685649 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladoraautenticacao.hpp
 	"apresentacao/IControladoraAutenticacao.hpp"
 	<memory>
 	<iostream>
 
-1763599254 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorasistema.cpp
+1763678919 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorasistema.cpp
 	"apresentacao/ControladoraSistema.hpp"
 	<iostream>
 	<memory>
+
+1763679059 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicogerente.hpp
+	"interfaces/interfaces.hpp"
+	"servico/IPersistenciaGerente.hpp"
+	"entidades/gerente.hpp"
+	"dominios/email.hpp"
+	<memory>
+	<vector>
+
+1763679076 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicohospede.hpp
+	"interfaces/Interfaces.hpp"
+	"servico/IPersistenciaHospede.hpp"
+	"entidades/hospede.hpp"
+	"dominios/email.hpp"
+	<memory>
+	<vector>
+
+1763687135 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicoreservas.hpp
+	"interfaces/interfaces.hpp"
+	"servico/IPersistenciaReserva.hpp"
+	"entidades/reserva.hpp"
+	"dominios/email.hpp"
+	"dominios/codigo.hpp"
+	<memory>
+	<vector>
+
+1763678919 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\sqlite_lib\sqlite3.c
+	<vxWorks.h>
+	<pthread.h>
+	"mingw.h"
+	"_mingw.h"
+	<stdarg.h>
+	"sqlite_cfg.h"
+	<stdint.h>
+	<inttypes.h>
+	<intrin.h>
+	<cmnintrin.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<ctype.h>
+	<TargetConditionals.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	"windows.h"
+	<sys/cygwin.h>
+	<sys/stat.h>
+	<unistd.h>
+	<errno.h>
+	<process.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<unistd.h>
+	<sys/time.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/file.h>
+	<sys/param.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	<Windows.h>
+	"tclsqlite.h"
+	"sqlite3rtree.h"
+	<ctype.h>
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+	<sys/uio.h>
+	<math.h>
+
+1763687135 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicogerente.cpp
+	"servico/ServicoGerente.hpp"
+	"entidades/gerente.hpp"
+	"dominios/email.hpp"
+	"dominios/senha.hpp"
+	<iostream>
+	<stdexcept>
+	<utility>
+
+1763697653 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\container\controlehotelimpl.cpp
+	"conteiner/ControleHotelImpl.hpp"
+
+1763697674 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\conteiner\controlehotelimpl.hpp
+	"conteiner/IControleHotel.hpp"
+	<list>
+	<vector>
+
+1763696513 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\conteiner\icontrolehotel.hpp
+	"entidades/entidades.hpp"
+	"dominios/dominios.hpp"
+	<stdexcept>
+	<vector>
+
+1763697694 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\container\controlequartoimpl.cpp
+	"conteiner/ControleQuartoImpl.hpp"
+
+1763697699 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\conteiner\controlequartoimpl.hpp
+	"conteiner/IControleQuarto.hpp"
+	<list>
+
+1763696517 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\conteiner\icontrolequarto.hpp
+	"entidades/entidades.hpp"
+	"dominios/dominios.hpp"
+	<stdexcept>
+	<vector>
+
+1763697710 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\container\controlereservaimpl.cpp
+	"conteiner/ControleReservaImpl.hpp"
+
+1763697719 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\conteiner\controlereservaimpl.hpp
+	"conteiner/IControleReserva.hpp"
+	<list>
+
+1763696520 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\conteiner\icontrolereserva.hpp
+	"entidades/entidades.hpp"
+	"dominios/dominios.hpp"
+	<stdexcept>
+	<vector>
 
