@@ -10,7 +10,7 @@
 
 #include "interfaces/IServicoHospede.hpp"
 #include "servico/IPersistenciaHospede.hpp"
-#include "interfaces/IServicoReservas.hpp" 
+#include "interfaces/interfaces.hpp" 
 #include "entidades/hospede.hpp"
 #include "dominios/email.hpp"
 #include <memory>

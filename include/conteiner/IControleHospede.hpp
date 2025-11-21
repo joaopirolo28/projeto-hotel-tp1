@@ -1,9 +1,9 @@
 /**
  * @file IControleHospede.hpp
- * @brief DefiniÁ„o da interface de controle (ContÍiner) para a entidade Hospede.
+ * @brief Defini√ß√£o da interface de controle (Cont√©iner) para a entidade Hospede.
  */
-#ifndef ICONTRLEHOSPEDE_HPP
-#define ICONTRLEHOSPEDE_HPP
+#ifndef ICONTROLEHOSPEDE_HPP
+#define ICONTROLEHOSPEDE_HPP
 
 #include "entidades/entidades.hpp"
 #include "dominios/dominios.hpp"
@@ -14,16 +14,16 @@ public:
     virtual ~IControleHospede() = default;
 
     /**
-     * @brief Inclui um novo Hospede no contÍiner.
+     * @brief Inclui um novo Hospede no cont√©iner.
      * @param hospede Objeto Hospede a ser salvo.
-     * @return true se a inclus„o for bem-sucedida, false se o Email j· existir.
+     * @return true se a inclus√£o for bem-sucedida, false se o Email j√° existir.
      */
     virtual bool incluir(const Hospede& hospede) = 0;
 
     /**
      * @brief Remove um Hospede pelo Email.
      * @param email O Email do Hospede a ser removido.
-     * @return true se a remoÁ„o for bem-sucedida, false caso contr·rio.
+     * @return true se a remo√ß√£o for bem-sucedida, false caso contr√°rio.
      */
     virtual bool remover(const Email& email) = 0;
 
@@ -31,16 +31,16 @@ public:
      * @brief Pesquisa um Hospede pelo Email.
      * @param email O Email do Hospede a ser pesquisado.
      * @return O objeto Hospede encontrado.
-     * @throw runtime_error se o Hospede n„o for encontrado.
+     * @throw runtime_error se o Hospede n√£o for encontrado.
      */
     virtual Hospede pesquisar(const Email& email) = 0;
 
     /**
      * @brief Atualiza os dados de um Hospede existente.
      * @param hospede O objeto Hospede com os dados a serem atualizados.
-     * @return true se a atualizaÁ„o for bem-sucedida, false se o Hospede n„o existir.
+     * @return true se a atualiza√ß√£o for bem-sucedida, false se o Hospede n√£o existir.
      */
     virtual bool atualizar(const Hospede& hospede) = 0;
 };
 
-#endif // ICONTRLEHOSPEDE_HPP
+#endif // ICONTROLEHOSPEDE_HPP_INCLUDED

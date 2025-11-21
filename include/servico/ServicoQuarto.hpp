@@ -9,7 +9,7 @@
 #define SERVICOQUARTO_HPP
 
 
-#include "interfaces/IServicoQuarto.hpp"
+#include "interfaces/interfaces.hpp"
 #include "servico/IPersistenciaQuarto.hpp"
 #include "servico/IPersistenciaHotel.hpp"   
 #include "servico/IPersistenciaReserva.hpp"  

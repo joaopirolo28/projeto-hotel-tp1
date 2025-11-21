@@ -7,7 +7,6 @@
 
 #include "servico/FabricaServico.hpp"
 
-// Classes concretas de Serviço que a fábrica irá construir
 #include "servico/ServicoAutenticacao.hpp" 
 #include "servico/ServicoGerente.hpp"
 #include "servico/ServicoHospede.hpp"
@@ -15,7 +14,6 @@
 #include "servico/ServicoQuarto.hpp"
 #include "servico/ServicoReservas.hpp"
 
-// Interfaces de Persistência (para que o método de injeção funcione)
 #include "servico/IPersistenciaGerente.hpp" 
 #include "servico/IPersistenciaHospede.hpp" 
 #include "servico/IPersistenciaHotel.hpp" 

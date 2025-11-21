@@ -8,7 +8,7 @@
 #ifndef SERVICOHOTEL_HPP
 #define SERVICOHOTEL_HPP
 
-#include "interfaces/IServicoHotel.hpp"
+#include "interfaces/interfaces.hpp"
 #include "servico/IPersistenciaHotel.hpp"
 #include "servico/IPersistenciaQuarto.hpp" 
 #include "entidades/hotel.hpp"
