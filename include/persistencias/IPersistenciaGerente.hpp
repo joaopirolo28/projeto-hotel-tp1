@@ -7,7 +7,7 @@
 #define IPERSISTENCIAGERENTE_HPP
 
 #include "dominios/email.hpp"
-#include "dominios/senha.hpp" // Adicionado: Necessário para o método autenticar
+#include "dominios/senha.hpp" 
 #include "entidades/gerente.hpp"
 #include <stdexcept>
 

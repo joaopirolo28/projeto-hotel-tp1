@@ -5,7 +5,7 @@
 #ifndef PERSISTENCIAGERENTE_HPP
 #define PERSISTENCIAGERENTE_HPP
 
-#include "servico/IPersistenciaGerente.hpp"
+#include "persistencias/IPersistenciaGerente.hpp"
 #include <string>
 
 /**

@@ -1,4 +1,4 @@
-#include "servico/PersistenciaGerente.hpp"
+#include "persistencias/PersistenciaGerente.hpp"
 // Incluir aqui o header da biblioteca SQLite (ou um wrapper)
 
 using namespace std;
