@@ -7,7 +7,7 @@
 #define IPERSISTENCIAGERENTE_HPP
 
 #include "dominios/email.hpp"
-#include "dominios/senha.hpp" 
+#include "dominios/senha.hpp"
 #include "entidades/gerente.hpp"
 #include <stdexcept>
 
@@ -39,13 +39,19 @@ class IPersistenciaGerente {
          */
         virtual Gerente consultar(const Email& email) = 0;
 
+
+
         /**
          * @brief Verifica se um Gerente existe e a senha corresponde.
          * @param email O email para autenticação.
          * @param senha A senha para autenticação (Domínio Senha).
          * @return True se as credenciais estiverem corretas, False caso contrário.
          */
+         /*
         virtual bool autenticar(const Email& email, const Senha& senha) = 0;
+        */
+
+
 
         /**
          * @brief Edita um Gerente existente no banco de dados.
@@ -60,6 +66,12 @@ class IPersistenciaGerente {
          * @return True se a exclusão for bem-sucedida, False caso contrário.
          */
         virtual bool excluir(const Email& email) = 0;
+
+        /**
+         * @brief Retorna uma lista de todos os Gerentes no repositório.
+         * @return Um vetor (vector) de objetos Gerente.
+         */
+        virtual std::vector<Gerente> listarTodos() = 0;
 };
 
 #endif // IPERSISTENCIAGERENTE_HPP

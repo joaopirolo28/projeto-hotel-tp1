@@ -1,41 +1,118 @@
 #include "persistencias/PersistenciaGerente.hpp"
-// Incluir aqui o header da biblioteca SQLite (ou um wrapper)
+#include "entidades/entidades.hpp"
+#include "dominios/dominios.hpp"
+#include <stdexcept>
+#include <iostream>
+#include <sqlite3.h>
 
 using namespace std;
 
+struct GerenteData {
+    Gerente result;
+    bool found = false;
+};
+
+static int retrieve_gerente_data(void *data, int argc, char **argv, char **azColName) {
+    GerenteData *pData = (GerenteData*)data;
+
+    try {
+        pData->result.setEmail(Email(argv[0] ? argv[0] : ""));
+        pData->result.setNome(Nome(argv[1] ? argv[1] : ""));
+        pData->result.setRamal(Ramal(argv[2] ? argv[2] : ""));
+        pData->result.setSenha(Senha(argv[3] ? argv[3] : ""));
+        pData->found = true;
+    } catch (const invalid_argument&) {
+        return 1;
+    }
+    return 0;
+}
+
 PersistenciaGerente::PersistenciaGerente() {
-    // Inicializa��o da conex�o com o banco de dados (se necess�rio)
-    // Ex: Garantir que a tabela 'Gerentes' exista no SQLite.
+    int rc = sqlite3_open("hotel_database.db", &this->db_connection);
+    if (rc != SQLITE_OK) {
+        throw runtime_error("Falha ao abrir banco SQLite para Gerente.");
+    }
+    const char *sql =
+        "CREATE TABLE IF NOT EXISTS GERENTES("
+        "EMAIL TEXT PRIMARY KEY NOT NULL,"
+        "NOME TEXT NOT NULL,"
+        "RAMAL TEXT NOT NULL,"
+        "SENHA TEXT NOT NULL);";
+    sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
+}
+
+PersistenciaGerente::~PersistenciaGerente() {
+    if (this->db_connection != nullptr) {
+        sqlite3_close(this->db_connection);
+        this->db_connection = nullptr;
+    }
 }
 
 bool PersistenciaGerente::cadastrar(const Gerente& gerente) {
-    // L�gica para converter o objeto Gerente em um comando SQL INSERT
-    // Ex: INSERT INTO Gerentes (email, nome, ...) VALUES (gerente.getEmail(), ...);
+    char *sql = sqlite3_mprintf(
+        "INSERT INTO GERENTES (EMAIL, NOME, RAMAL, SENHA) "
+        "VALUES ('%q', '%q', '%q', '%q');",
+        gerente.getEmail().getValor().c_str(),
+        gerente.getNome().getValor().c_str(),
+        gerente.getRamal().getValor().c_str(),
+        gerente.getSenha().getValor().c_str()
+    );
+    int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
+    sqlite3_free(sql);
 
-    // Por enquanto, apenas um placeholder:
-    return true;
+    // Retorna false se houver violação de chave primária ou outro erro
+    if (rc == SQLITE_CONSTRAINT) return false;
+    return rc == SQLITE_OK;
 }
 
 Gerente PersistenciaGerente::consultar(const Email& email) {
-    // L�gica para buscar no SQLite pelo email e criar um objeto Gerente
-    // Ex: SELECT * FROM Gerentes WHERE email = '...';
+    GerenteData data;
+    char *sql = sqlite3_mprintf(
+        "SELECT EMAIL, NOME, RAMAL, SENHA FROM GERENTES WHERE EMAIL = '%q';",
+        email.getValor().c_str()
+    );
+    int rc = sqlite3_exec(this->db_connection, sql, retrieve_gerente_data, &data, nullptr);
+    sqlite3_free(sql);
 
-    // Por enquanto, apenas um placeholder:
-    // Lan�ar exce��o se n�o encontrar:
-    throw runtime_error("Gerente n�o encontrado.");
+    if (rc != SQLITE_OK || !data.found)
+        throw runtime_error("Gerente nao encontrado.");
+    return data.result;
 }
-
+/*
 bool PersistenciaGerente::autenticar(const Email& email, const Senha& senha) {
-    // L�gica para buscar a senha no SQLite e comparar com a senha fornecida
+    // Logica para buscar a senha no SQLite e comparar com a senha fornecida
     return true;
 }
+*/
 
 bool PersistenciaGerente::editar(const Gerente& gerente) {
-    // L�gica para atualizar a linha do Gerente no SQLite (comando UPDATE)
-    return true;
+    char *sql = sqlite3_mprintf(
+        "UPDATE GERENTES SET NOME='%q', RAMAL='%q', SENHA='%q' WHERE EMAIL='%q';",
+        gerente.getNome().getValor().c_str(),
+        gerente.getRamal().getValor().c_str(),
+        gerente.getSenha().getValor().c_str(),
+        gerente.getEmail().getValor().c_str()
+    );
+    int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
+    sqlite3_free(sql);
+
+    // Verifica se houve linhas afetadas (registro editado)
+    return rc == SQLITE_OK && sqlite3_changes(this->db_connection) > 0;
 }
 
 bool PersistenciaGerente::excluir(const Email& email) {
-    // L�gica para excluir a linha do Gerente no SQLite (comando DELETE)
-    return true;
+   char *sql = sqlite3_mprintf(
+        "DELETE FROM GERENTES WHERE EMAIL='%q';",
+        email.getValor().c_str()
+    );
+    int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
+    sqlite3_free(sql);
+
+    // Verifica se houve linhas afetadas (registro excluído)
+    return rc == SQLITE_OK && sqlite3_changes(this->db_connection) > 0;
+}
+
+std::vector<Gerente> PersistenciaGerente::listarTodos() {
+    // Implementação pendente: Requer callback para lista.
+    throw runtime_error("Listar todos os Gerentes nao implementado.");
 }
