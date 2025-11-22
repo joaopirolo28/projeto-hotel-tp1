@@ -65,7 +65,7 @@ public:
      * @brief Cria e retorna uma instância do Serviço de Reservas.
      * @return Ponteiro para a interface IServiçoReservas.
      */
-    IServicoReservas* criarServicoReservas() override;
+    IServicoReserva* criarServicoReservas() override;
 };
 
 #endif // FABRICASERVICOIMPL_HPP

@@ -42,7 +42,7 @@ IServicoHospede* FabricaServicoImpl::criarServicoHospede() {
     unique_ptr<IPersistenciaHospede> persistenciaHospede = make_unique<PersistenciaHospede>();
 
     //IPersistenciaReserva* pReservaRaw = new PersistenciaReserva();
-    IServicoReservas* servicoReservasRaw = criarServicoReservas();
+    IServicoReserva* servicoReservasRaw = criarServicoReservas();
 
     return new ServicoHospede(std::move(persistenciaHospede), servicoReservasRaw);
     //return new ServicoHospede(std::move(persistenciaHospede), static_cast<IServicoReservas*>(pReservaRaw));
@@ -53,7 +53,7 @@ IServicoHotel* FabricaServicoImpl::criarServicoHotel() {
 
     IServicoQuarto* servicoQuarto = criarServicoQuarto();
 
-    IServicoReservas* servicoReserva = criarServicoReservas();
+    IServicoReserva* servicoReserva = criarServicoReservas();
 
     return new ServicoHotel(std::move(persistenciaHotel), servicoQuarto, servicoReserva);
 }
@@ -67,7 +67,7 @@ IServicoQuarto* FabricaServicoImpl::criarServicoQuarto() {
     return new ServicoQuarto(std::move(persistenciaQuarto), pHotelRaw, pReservaRaw);
 }
 
-IServicoReservas* FabricaServicoImpl::criarServicoReservas() {
+IServicoReserva* FabricaServicoImpl::criarServicoReservas() {
     unique_ptr<IPersistenciaReserva> persistencia = make_unique<PersistenciaReserva>();
-    return new ServicoReservas(std::move(persistencia));
+    return new ServicoReserva(std::move(persistencia));
 }

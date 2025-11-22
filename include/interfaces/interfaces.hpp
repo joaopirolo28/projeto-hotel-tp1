@@ -218,7 +218,7 @@ public:
      * @return true se o cadastro for bem-sucedido.
      * @throw runtime_error Se houver conflito de datas.
      */
-    virtual bool cadastrarReserva(Reserva reserva) = 0;
+    virtual bool cadastrarReserva(const Reserva& reserva, const Email& emailHospede, const Codigo& codigoHotel, const Numero& numeroQuarto) = 0;
 
     /**
      * @brief Consulta uma Reserva pelo código.

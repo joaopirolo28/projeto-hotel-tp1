@@ -27,15 +27,14 @@ ControladoraGerente::ControladoraGerente(
 {
 
 }
-/*
-ControladoraGerente::~ControladoraGerente() {
 
+ControladoraGerente::~ControladoraGerente() {
     if (controladoraHotel) { delete controladoraHotel; }
     if (controladoraQuarto) { delete controladoraQuarto; }
     if (controladoraHospede) { delete controladoraHospede; }
     if (controladoraReserva) { delete controladoraReserva; }
 }
-*/
+
 // Menu Principal do Gerente
 void ControladoraGerente::executar() {
     int opcao;
@@ -59,14 +58,15 @@ void ControladoraGerente::executar() {
 
         switch (opcao) {
             case 1:
-                controladoraHotel->executar();
-                break;
+                controladoraHotel->executar(); break;
             case 2:
-                controladoraQuarto->executar();
-                break;
+                controladoraQuarto->executar(); break;
+            case 3:
+                controladoraHospede->executar(); break;
+            case 4:
+                controladoraReserva->executar(); break;
             case 0:
-                cout << "Retornando ao Menu Principal (Logout)..." << endl;
-                break;
+                cout << "Retornando ao Menu Principal (Logout)..." << endl; break;
             default:
                 cout << "Opcao invalida. Tente novamente." << endl;
         }

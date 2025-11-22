@@ -17,7 +17,7 @@ ControladoraReserva::ControladoraReserva(
     IServicoReserva* sReserva,
     IServicoHotel* sHotel,
     IServicoHospede* sHospede)
-    : servicoReservas(sReserva),
+    : servicoReserva(sReserva),
       servicoHotel(sHotel),
       servicoHospede(sHospede)
 {
@@ -100,10 +100,10 @@ void ControladoraReserva::realizarReserva() {
         // b) Verificar conflito de datas para aquele quarto.
         // c) Persistir o registro, vinculando Email e Quarto/Hotel.
 
-        if (servicoReservas->cadastrarReserva(novaReserva, emailHospede, codigoHotel, numeroQuarto)) {
-            cout << "\n✅ Reserva cadastrada com sucesso! Código: " << novaReserva.getCodigo().getValor() << endl;
+        if (servicoReserva->cadastrarReserva(novaReserva, emailHospede, codigoHotel, numeroQuarto)) {
+            cout << "\n Reserva cadastrada com sucesso! Código: " << novaReserva.getCodigo().getValor() << endl;
         } else {
-            cout << "\n❌ Falha ao cadastrar Reserva. Quarto pode estar ocupado nas datas, ou conflito de PK." << endl;
+            cout << "\n Falha ao cadastrar Reserva. Quarto pode estar ocupado nas datas, ou conflito de PK." << endl;
         }
 
     } catch (const invalid_argument& e) {
@@ -121,7 +121,7 @@ void ControladoraReserva::consultarReserva() {
 
     try {
         Codigo codigo(codigoStr);
-        Reserva reserva = servicoReservas->consultarReserva(codigo);
+        Reserva reserva = servicoReserva->consultarReserva(codigo);
 
         cout << "\n✅ RESERVA ENCONTRADA:" << endl;
         cout << "   Codigo: " << reserva.getCodigo().getValor() << endl;
@@ -144,7 +144,7 @@ void ControladoraReserva::editarReserva() {
         Reserva reservaAtualizada = coletarDadosReserva(); // Coleta dados (incluindo o Código de Reserva)
 
         // Chamada ao Serviço: O IServicoReservas deve verificar se a edição causa conflitos de data.
-        if (servicoReservas->editarReserva(reservaAtualizada)) {
+        if (servicoReserva->editarReserva(reservaAtualizada)) {
             cout << "\n✅ Reserva com Código '" << reservaAtualizada.getCodigo().getValor() << "' editada com sucesso!" << endl;
         } else {
             cout << "\n❌ Falha ao editar Reserva. Novo período pode estar indisponível." << endl;
@@ -165,7 +165,7 @@ void ControladoraReserva::excluirReserva() {
     try {
         Codigo codigo(codigoStr);
 
-        if (servicoReservas->excluirReserva(codigo)) {
+        if (servicoReserva->excluirReserva(codigo)) {
             cout << "\n✅ Reserva com Código '" << codigo.getValor() << "' excluída com sucesso." << endl;
         } else {
             cout << "\n❌ Falha ao excluir Reserva. O código pode ser inválido." << endl;
@@ -185,7 +185,7 @@ void ControladoraReserva::listarReservas() {
 
     try {
         Email emailHospede(emailHospedeStr);
-        vector<Reserva> reservas = servicoReservas->listarReservas(emailHospede);
+        vector<Reserva> reservas = servicoReserva->listarReservas(emailHospede);
 
         if (reservas.empty()) {
             cout << "Nenhuma reserva encontrada para este hóspede." << endl;

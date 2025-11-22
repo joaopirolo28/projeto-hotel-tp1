@@ -25,6 +25,13 @@ ControladoraSistema::ControladoraSistema(FabricaServico* f)
     carregarControladoras();
 }
 
+ControladoraSistema::~ControladoraSistema() {
+
+    if (controladoraAutenticacao) { delete controladoraAutenticacao; }
+    if (controladoraGerente) { delete controladoraGerente; }
+
+}
+
 void ControladoraSistema::carregarControladoras(){
 
     IServicoAutenticacao* servicoRawAuth = fabrica->criarServicoAutenticacao();
@@ -41,22 +48,27 @@ void ControladoraSistema::carregarControladoras(){
     IServicoHotel* sHotelRaw = fabrica->criarServicoHotel();
     IServicoQuarto* sQuartoRaw = fabrica->criarServicoQuarto();
     IServicoHospede* sHospedeRaw = fabrica->criarServicoHospede();
+    IServicoReserva* sReservaRaw = fabrica->criarServicoReservas();
 
     unique_ptr<IServicoHotel> sHotelUnique(sHotelRaw);
     unique_ptr<IServicoQuarto> sQuartoUnique(sQuartoRaw);
     unique_ptr<IServicoHospede> sHospedeUnique(sHospedeRaw);
+    unique_ptr<IServicoReserva> sReservaUnique(sReservaRaw);
 
     ControladoraHotel* cHotelRaw = new ControladoraHotel(sHotelRaw);
     ControladoraQuarto* cQuartoRaw = new ControladoraQuarto(sQuartoRaw);
     ControladoraHospede* cHospedeRaw = new ControladoraHospede(sHospedeRaw);
+    ControladoraReserva* cReservaRaw = new ControladoraReserva(sReservaRaw, sHotelRaw, sHospedeRaw);
 
     controladoraGerente = new ControladoraGerente(
         move(sHotelUnique),
         move(sQuartoUnique),
         move(sHospedeUnique),
+        move(sReservaUnique),
         cHotelRaw,
         cQuartoRaw,
-        cHospedeRaw
+        cHospedeRaw,
+        cReservaRaw
     );
 
 }

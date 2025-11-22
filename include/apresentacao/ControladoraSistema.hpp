@@ -34,6 +34,8 @@
          */
         ControladoraSistema(FabricaServico* f);
 
+        virtual ~ControladoraSistema();
+
         /**
          * @brief Inicializa a aplicação e gerencia o fluxo de login/menu.
          */

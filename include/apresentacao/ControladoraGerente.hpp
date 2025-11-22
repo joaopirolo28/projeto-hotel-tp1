@@ -99,7 +99,7 @@ public:
         IControladoraReserva* cReserva
     );
 
-
+    virtual ~ControladoraGerente();
 
     /**
      * @brief Exibe o menu principal de opções para o Gerente.

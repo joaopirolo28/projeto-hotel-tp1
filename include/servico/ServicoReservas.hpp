@@ -47,7 +47,7 @@ public:
      * @return true se o cadastro for bem-sucedido.
      * @throw runtime_error Se houver conflito de datas.
      */
-    bool cadastrarReserva(Reserva reserva) override;
+    bool cadastrarReserva(const Reserva& reserva, const Email& emailHospede, const Codigo& codigoHotel, const Numero& numeroQuarto) override;
 
     /**
      * @brief Consulta uma Reserva pelo código.

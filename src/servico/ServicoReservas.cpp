@@ -19,25 +19,27 @@ bool verificaConflito(const Reserva& novaReserva, const Reserva& reservaExistent
     return sobreposicao;
 }
 
-ServicoReservas::ServicoReservas(unique_ptr<IPersistenciaReserva> p)
+ServicoReserva::ServicoReserva(unique_ptr<IPersistenciaReserva> p)
     : persistencia(std::move(p)) {}
 
-bool ServicoReservas::cadastrarReserva(Reserva reserva) {
+bool ServicoReserva::cadastrarReserva(const Reserva& reserva, const Email& emailHospede, const Codigo& codigoHotel, const Numero& numeroQuarto) {
+    Reserva novaReserva = reserva;
 
     vector<Reserva> reservasExistentes = persistencia->listarReservasPorQuarto(
-        reserva.getCodigoHotel(),
-        reserva.getNumeroQuarto()
+        codigoHotel,
+        numeroQuarto
     );
 
     for (const auto& existente : reservasExistentes) {
-        if (verificaConflito(reserva, existente)) {
+        if (verificaConflito(novaReserva, existente)) {
             throw runtime_error("Erro de Negocio: Conflito de datas com uma reserva existente para este quarto.");
         }
     }
-    return persistencia->cadastrar(reserva);
+
+    return persistencia->cadastrar(novaReserva);
 }
 
-Reserva ServicoReservas::consultarReserva(Codigo codigo) {
+Reserva ServicoReserva::consultarReserva(Codigo codigo) {
 
     try {
         return persistencia->consultar(codigo);
@@ -47,7 +49,7 @@ Reserva ServicoReservas::consultarReserva(Codigo codigo) {
 }
 
 
-bool ServicoReservas::editarReserva(Reserva reserva) {
+bool ServicoReserva::editarReserva(Reserva reserva) {
 
     vector<Reserva> reservasExistentes = persistencia->listarReservasPorQuarto(
         reserva.getCodigoHotel(), // Primeiro argumento
@@ -65,10 +67,10 @@ bool ServicoReservas::editarReserva(Reserva reserva) {
     return persistencia->editar(reserva);
 }
 
-bool ServicoReservas::excluirReserva(Codigo codigo) {
+bool ServicoReserva::excluirReserva(Codigo codigo) {
     return persistencia->excluir(codigo);
 }
 
-vector<Reserva> ServicoReservas::listarReservas(Email emailHospede) {
+vector<Reserva> ServicoReserva::listarReservas(Email emailHospede) {
     return persistencia->listarPorHospede(emailHospede);
 }
