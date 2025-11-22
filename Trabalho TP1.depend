@@ -436,9 +436,10 @@
 	<iostream>
 	<memory>
 
-1763599303 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladorasistema.hpp
+1763830486 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladorasistema.hpp
 	"apresentacao/IControladoraSistema.hpp"
 	"apresentacao/ControladoraAutenticacao.hpp"
+	"apresentacao/IControladoraAutenticacao.hpp"
 	"servico/FabricaServico.hpp"
 
 1763596970 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladorasistema.hpp
@@ -450,15 +451,20 @@
 	"interfaces/interfaces.hpp"
 	<string>
 
-1763740145 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladoraautenticacao.hpp
+1763835052 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladoraautenticacao.hpp
 	"apresentacao/IControladoraAutenticacao.hpp"
 	<memory>
 	<iostream>
 
-1763782464 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorasistema.cpp
+1763834977 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorasistema.cpp
 	"apresentacao/ControladoraSistema.hpp"
+	"apresentacao/ControladoraAutenticacao.hpp"
+	"interfaces/interfaces.hpp"
+	"dominios/dominios.hpp"
+	"servico/FabricaServico.hpp"
 	<iostream>
 	<memory>
+	<stdexcept>
 
 1763772307 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicogerente.hpp
 	"interfaces/interfaces.hpp"
@@ -634,13 +640,14 @@
 	<iostream>
 	<vector>
 
-1763781637 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicohotel.cpp
+1763784928 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicohotel.cpp
 	"servico/ServicoHotel.hpp"
 	"entidades/hotel.hpp"
 	"dominios/codigo.hpp"
 	"dominios/nome.hpp"
 	"persistencias/IPersistenciaHotel.hpp"
 	"persistencias/IPersistenciaQuarto.hpp"
+	"persistencias/IPersistenciaReserva.hpp"
 	"interfaces/interfaces.hpp"
 	<iostream>
 	<stdexcept>
@@ -771,4 +778,11 @@
 	<iostream>
 	<stdexcept>
 	<algorithm>
+
+1763835278 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladoraautenticacao.cpp
+	"apresentacao/ControladoraAutenticacao.hpp"
+	"dominios/dominios.hpp"
+	<iostream>
+	<stdexcept>
+	<limits>
 

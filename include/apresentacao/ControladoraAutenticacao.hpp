@@ -15,6 +15,7 @@
 class ControladoraAutenticacao : public IControladoraAutenticacao {
     private:
         std::unique_ptr<IServicoAutenticacao> servicoAutenticacao;
+        std::unique_ptr<IServicoGerente> servicoGerente;
 
     public:
         /**
@@ -29,6 +30,14 @@ class ControladoraAutenticacao : public IControladoraAutenticacao {
          * @return Retorna o email do Gerente logado ou um email vazio se o login falhar.
          */
         string executar() override;
+        /**
+         * @brief Construtor que recebe e armazena o servico de autenticacao e servico de gerente.
+         * @param servico Ponteiro para a implementacao da interface ILNAutenticacao e ILNServico.
+         */
+        ControladoraAutenticacao(
+        std::unique_ptr<IServicoAutenticacao> servicoAuth,
+        std::unique_ptr<IServicoGerente> servicoGerente
+    );
 
     private:
         string solicitarLogin();

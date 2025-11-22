@@ -7,6 +7,7 @@
 
 #include "apresentacao/IControladoraSistema.hpp"
 #include "apresentacao/ControladoraAutenticacao.hpp"
+#include "apresentacao/IControladoraAutenticacao.hpp"
 #include "servico/FabricaServico.hpp"
 
 /**
@@ -18,7 +19,7 @@
     private:
         FabricaServico* fabrica;
 
-        IControladoraAutenticacao* ControladoraAutenticacao;
+        IControladoraAutenticacao* controladoraAutenticacao;
 
         string emailGerenteLogado = "";
 

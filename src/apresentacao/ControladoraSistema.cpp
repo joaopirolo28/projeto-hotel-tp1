@@ -1,18 +1,30 @@
 #include "apresentacao/ControladoraSistema.hpp"
+#include "apresentacao/ControladoraAutenticacao.hpp"
+#include "interfaces/interfaces.hpp"
+#include "dominios/dominios.hpp"
+#include "servico/FabricaServico.hpp"
+
 #include <iostream>
 #include <memory>
+#include <stdexcept>
 
 using namespace std;
 
-ControladoraSistema::ControladoraSistema(FabricaServico* f) : fabrica(f), ControladoraAutenticacao(nullptr){
+ControladoraSistema::ControladoraSistema(FabricaServico* f) : fabrica(f), controladoraAutenticacao(nullptr){
     carregarControladoras();
 }
 
 void ControladoraSistema::carregarControladoras(){
-    // A Fabrica cria a implementacao do Serviao Autenticacao e a injeta na Controladora.
 
-    // 1. OBTeM O SERVIcO: Usa a Fabrica para obter a interface ILNAutenticacao*
-    IServicoAutenticacao* servicoAutenticacao = fabrica->criarServicoAutenticacao();
+    IServicoAutenticacao* servicoRawAuth = fabrica->criarServicoAutenticacao();
+    IServicoGerente* servicoRawGerente = fabrica->criarServicoGerente();
+
+    std::unique_ptr<IServicoAutenticacao> temp_unique_auth(servicoRawAuth);
+    std::unique_ptr<IServicoGerente> temp_unique_gerente(servicoRawGerente);
+
+
+    //controladoraAutenticacao = new ControladoraAutenticacao(std::move(temp_unique));
+    controladoraAutenticacao = new ControladoraAutenticacao(move(temp_unique_auth), move(temp_unique_gerente));
 
     // 2. CRIA A CONTROLADORA: Cria a Controladora de Autenticacao, injetando o servico.
     // Usamos 'new' aqui, e a Controladora Geral sera responsavel por deletar o servico.
@@ -36,20 +48,20 @@ void ControladoraSistema::carregarControladoras(){
 }
 
 void ControladoraSistema::executar() {
-    // Fluxo principal de execucao do sistema
 
     cout << "\n--- SISTEMA DE GESTAO DE HOTEIS ---\n";
 
-    // 1. Tenta fazer o Login/Cadastro
-    // emailGerenteLogado = controladoraAutenticacao->executar();
+    emailGerenteLogado = controladoraAutenticacao->executar();
 
-    // 2. Se o Login foi bem-sucedido, apresenta o Menu Principal
-    // if (!emailGerenteLogado.empty()) {
-    //    apresentarMenuPrincipal();
-    // }
+    if (!emailGerenteLogado.empty()) {
+        apresentarMenuPrincipal();
+    }else{
+        std::cout << "Nenhum gerente logado. Encerrando o sistema." << std::endl;
+    }
 }
 
 void ControladoraSistema::apresentarMenuPrincipal() {
     cout << "\nBem-vindo(a), Gerente " << emailGerenteLogado << "!\n";
     // Logica para apresentar o menu principal (CRUDs)
+    cout << "Logado com sucesso. Logica do Meno Principal Gerente Pendente." << endl;
 }
