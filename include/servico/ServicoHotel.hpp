@@ -45,7 +45,7 @@ private:
     /**
      * @brief Servico de Reserva (dependencia), usado para checar reservas ativas.
      */
-    IServicoReservas* servicoReservas;
+    IServicoReserva* servicoReserva;
 
 public:
     /**
@@ -55,7 +55,7 @@ public:
      */
     ServicoHotel(std::unique_ptr<IPersistenciaHotel> pHotel,
                  IServicoQuarto* sQuarto,
-                 IServicoReservas* sReserva);
+                 IServicoReserva* sReserva);
 
     /**
      * @brief Cadastra um novo Hotel no sistema.

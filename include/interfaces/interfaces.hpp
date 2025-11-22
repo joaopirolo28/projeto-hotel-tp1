@@ -208,9 +208,9 @@ public:
  * @brief Interface de Lógica de Negócio para Reservas.
  * @details Define o contrato de CRUD e listagem para a entidade Reserva.
  */
-class IServicoReservas {
+class IServicoReserva {
 public:
-    virtual ~IServicoReservas() {}
+    virtual ~IServicoReserva() {}
 
     /**
      * @brief Cadastra uma nova reserva.

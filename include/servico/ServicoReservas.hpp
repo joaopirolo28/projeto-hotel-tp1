@@ -24,7 +24,7 @@ using namespace std;
  * aplicando regras de negocio (como conflito de datas) e delegando o acesso
  * aos dados para a camada de persistencia.
  */
-class ServicoReservas : public IServicoReservas {
+class ServicoReserva : public IServicoReserva {
 private:
     /**
      * @brief Ponteiro inteligente para a interface de persistencia.
@@ -37,7 +37,7 @@ public:
      * @brief Construtor da classe de servico.
      * @param p Ponteiro inteligente (unique_ptr) para a implementacao de persistencia.
      */
-    ServicoReservas(unique_ptr<IPersistenciaReserva> p);
+    ServicoReserva(unique_ptr<IPersistenciaReserva> p);
 
     /**
      * @brief Cadastra uma nova reserva.

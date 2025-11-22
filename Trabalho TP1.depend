@@ -272,7 +272,7 @@
 	<stdexcept>
 	<map>
 
-1763333956 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\telefone.cpp
+1763842146 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\dominios\telefone.cpp
 	"dominios/telefone.hpp"
 	<cctype>
 
@@ -412,10 +412,10 @@
 	<memory>
 	<utility>
 
-1763678919 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\fabricaservico.hpp
+1763846459 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\fabricaservico.hpp
 	"interfaces/interfaces.hpp"
 
-1763780518 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\interfaces\interfaces.hpp
+1763846415 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\interfaces\interfaces.hpp
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 	<vector>
@@ -436,11 +436,10 @@
 	<iostream>
 	<memory>
 
-1763839525 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladorasistema.hpp
+1763843564 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladorasistema.hpp
 	"apresentacao/IControladoraSistema.hpp"
-	"apresentacao/ControladoraAutenticacao.hpp"
 	"apresentacao/IControladoraAutenticacao.hpp"
-	"apresentacao/ControladoraGerente.hpp"
+	"apresentacao/IControladoraGerente.hpp"
 	"servico/FabricaServico.hpp"
 
 1763596970 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladorasistema.hpp
@@ -478,7 +477,7 @@
 	<memory>
 	<vector>
 
-1763780933 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicohospede.hpp
+1763846550 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicohospede.hpp
 	"interfaces/interfaces.hpp"
 	"persistencias/IPersistenciaHospede.hpp"
 	"interfaces/interfaces.hpp"
@@ -487,7 +486,7 @@
 	<memory>
 	<vector>
 
-1763772451 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicoreservas.hpp
+1763846626 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicoreservas.hpp
 	"interfaces/interfaces.hpp"
 	"persistencias/IPersistenciaReserva.hpp"
 	"entidades/reserva.hpp"
@@ -644,7 +643,7 @@
 	<iostream>
 	<vector>
 
-1763784928 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicohotel.cpp
+1763846763 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicohotel.cpp
 	"servico/ServicoHotel.hpp"
 	"entidades/hotel.hpp"
 	"dominios/codigo.hpp"
@@ -658,7 +657,7 @@
 	<utility>
 	<vector>
 
-1763784883 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicohotel.hpp
+1763846592 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\servico\servicohotel.hpp
 	"interfaces/interfaces.hpp"
 	"persistencias/IPersistenciaHotel.hpp"
 	"persistencias/IPersistenciaQuarto.hpp"
@@ -752,7 +751,7 @@
 	<memory>
 	<vector>
 
-1763773006 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicohospede.cpp
+1763846709 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\servico\servicohospede.cpp
 	"servico/ServicoHospede.hpp"
 	"entidades/hospede.hpp"
 	"dominios/email.hpp"
@@ -790,17 +789,19 @@
 	<stdexcept>
 	<limits>
 
-1763839083 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladoragerente.cpp
+1763846529 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladoragerente.cpp
 	"apresentacao/ControladoraGerente.hpp"
 	"apresentacao/IControladoraHotel.hpp"
 	"interfaces/interfaces.hpp"
 	<iostream>
 	<limits>
 
-1763839252 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladoragerente.hpp
+1763846423 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladoragerente.hpp
 	"apresentacao/IControladoraGerente.hpp"
 	"apresentacao/IControladoraHotel.hpp"
 	"apresentacao/IControladoraQuarto.hpp"
+	"apresentacao/IControladoraHospede.hpp"
+	"apresentacao/IControladoraReserva.hpp"
 	"interfaces/interfaces.hpp"
 	<memory>
 	<iostream>
@@ -811,7 +812,7 @@
 1763836169 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladorahotel.hpp
 	<string>
 
-1763841725 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorahotel.cpp
+1763842719 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorahotel.cpp
 	"apresentacao/ControladoraHotel.hpp"
 	"interfaces/interfaces.hpp"
 	"entidades/entidades.hpp"
@@ -847,5 +848,30 @@
 	<iostream>
 
 1763836897 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladoraquarto.hpp
+	<string>
+
+1763844250 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorahospede.cpp
+	"apresentacao/ControladoraHospede.hpp"
+	"interfaces/interfaces.hpp"
+	"entidades/entidades.hpp"
+	"dominios/dominios.hpp"
+	<iostream>
+	<limits>
+	<stdexcept>
+	<string>
+	<vector>
+
+1763844254 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladorahospede.hpp
+	"apresentacao/IControladoraHospede.hpp"
+	"interfaces/interfaces.hpp"
+	"entidades/entidades.hpp"
+	<memory>
+	<iostream>
+	<vector>
+
+1763842903 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladorahospede.hpp
+	<string>
+
+1763844709 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladorareserva.hpp
 	<string>
 

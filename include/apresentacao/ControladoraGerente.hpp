@@ -10,6 +10,9 @@
 #include "apresentacao/IControladoraGerente.hpp"
 #include "apresentacao/IControladoraHotel.hpp"
 #include "apresentacao/IControladoraQuarto.hpp"
+#include "apresentacao/IControladoraHospede.hpp"
+#include "apresentacao/IControladoraReserva.hpp"
+
 #include "interfaces/interfaces.hpp"
 
 #include <memory>
@@ -35,11 +38,22 @@ private:
      * @details A posse do unique_ptr garante o ciclo de vida do serviço.
      */
     std::unique_ptr<IServicoQuarto> servicoQuarto;
+    /**
+     * @brief Ponteiro inteligente para o Serviço de Gerenciamento de Hospedes.
+     * @details A posse do unique_ptr garante o ciclo de vida do serviço.
+     */
+    std::unique_ptr<IServicoHospede> servicoHospede;
+    /**
+     * @brief Ponteiro inteligente para o Serviço de Gerenciamento de Reserva.
+     * @details A posse do unique_ptr garante o ciclo de vida do serviço.
+     */
+    std::unique_ptr<IServicoReserva> servicoReserva;
 
     /**
      * @brief Ponteiro para a Controladora responsável pelo CRUD de Hotéis.
      * @details Usado para delegar a exibição do menu de Hotéis.
      */
+
     IControladoraHotel* controladoraHotel;
 
     /**
@@ -48,23 +62,41 @@ private:
      */
     IControladoraQuarto* controladoraQuarto;
 
+    /**
+     * @brief Ponteiro para a Controladora responsável pelo CRUD de Hospedes.
+     * @details Usado para delegar a exibição do menu de Hospedes.
+     */
+    IControladoraHospede* controladoraHospede;
+
+    /**
+     * @brief Ponteiro para a Controladora responsável pelo CRUD de Reserva.
+     * @details Usado para delegar a exibição do menu de Reserva.
+     */
+    IControladoraReserva* controladoraReserva;
+
 public:
     /**
      * @brief Construtor da ControladoraGerente.
-     * * @details Implementa o padrão de Injeção de Dependência (DI). Esta controladora
-     * recebe a posse (via unique_ptr) dos Serviços de negócio que ela não delega
-     * (e.g., Gerente, se aplicável, mas aqui são Hotéis e Quartos), e recebe a
-     * referência (raw pointer) das Controladoras que ela deve delegar a execução (Hotéis e Quartos).
-     * * @param sHotel Ponteiro inteligente (std::unique_ptr) para o Serviço de Hotéis. A posse deste objeto é transferida.
-     * @param sQuarto Ponteiro inteligente (std::unique_ptr) para o Serviço de Quartos. A posse deste objeto é transferida.
-     * @param cHotel Ponteiro (raw pointer) para a Controladora de Hotéis. Usado para delegação do fluxo de execução.
-     * @param cQuarto Ponteiro (raw pointer) para a Controladora de Quartos. Usado para delegação do fluxo de execução.
+     * @details Implementa o padrão de Injeção de Dependência, recebendo a posse
+     * dos serviços (unique_ptr) e a referência das controladoras de CRUD.
+     * @param sHotel Ponteiro inteligente (unique_ptr) para o Serviço de Hotéis. A posse é transferida.
+     * @param sQuarto Ponteiro inteligente (unique_ptr) para o Serviço de Quartos. A posse é transferida.
+     * @param sHospede Ponteiro inteligente (unique_ptr) para o Serviço de Hóspedes. A posse é transferida.
+     * @param sReserva Ponteiro inteligente (unique_ptr) para o Serviço de Reservas. A posse é transferida.
+     * @param cHotel Ponteiro raw para a Controladora de Hotéis (apenas referência).
+     * @param cQuarto Ponteiro raw para a Controladora de Quartos (apenas referência).
+     * @param cHospede Ponteiro raw para a Controladora de Hóspedes (apenas referência).
+     * @param cReserva Ponteiro raw para a Controladora de Reservas (apenas referência).
      */
     ControladoraGerente(
-        unique_ptr<IServicoHotel> sHotel,
-        unique_ptr<IServicoQuarto> sQuarto,
+        std::unique_ptr<IServicoHotel> sHotel,
+        std::unique_ptr<IServicoQuarto> sQuarto,
+        std::unique_ptr<IServicoHospede> sHospede,
+        std::unique_ptr<IServicoReserva> sReserva,
         IControladoraHotel* cHotel,
-        IControladoraQuarto* cQuarto
+        IControladoraQuarto* cQuarto,
+        IControladoraHospede* cHospede,
+        IControladoraReserva* cReserva
     );
 
 

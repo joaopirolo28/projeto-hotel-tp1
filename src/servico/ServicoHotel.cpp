@@ -16,10 +16,10 @@ using namespace std;
 
 ServicoHotel::ServicoHotel(unique_ptr<IPersistenciaHotel> pHotel,
                            IServicoQuarto* sQuarto,
-                           IServicoReservas* sReserva)
+                           IServicoReserva* sReserva)
     : persistenciaHotel(std::move(pHotel)),
       servicoQuarto(sQuarto),
-      servicoReservas(sReserva)
+      servicoReserva(sReserva)
 {
 }
 

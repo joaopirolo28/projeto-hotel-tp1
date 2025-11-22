@@ -10,8 +10,8 @@
 
 using namespace std;
 
-ServicoHospede::ServicoHospede(unique_ptr<IPersistenciaHospede> p, IServicoReservas* s)
-    : persistencia(std::move(p)), servicoReservas(s) {}
+ServicoHospede::ServicoHospede(unique_ptr<IPersistenciaHospede> p, IServicoReserva* s)
+    : persistencia(std::move(p)), servicoReserva(s) {}
 
 
 bool ServicoHospede::cadastrarHospede(Hospede hospede) {
@@ -45,7 +45,7 @@ bool ServicoHospede::excluirHospede(Email email) {
 
 
     try {
-        vector<Reserva> reservasAtivas = servicoReservas->listarReservas(email);
+        vector<Reserva> reservasAtivas = servicoReserva->listarReservas(email);
 
         if (!reservasAtivas.empty()) {
             cout << "LOG SERVICO: Falha. Hospede nao pode ser excluido, tem reservas ativas." << endl;

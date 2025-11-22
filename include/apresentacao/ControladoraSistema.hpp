@@ -6,9 +6,8 @@
 #define CONTROLADORASISTEMA_HPP_INCLUDED
 
 #include "apresentacao/IControladoraSistema.hpp"
-#include "apresentacao/ControladoraAutenticacao.hpp"
 #include "apresentacao/IControladoraAutenticacao.hpp"
-#include "apresentacao/ControladoraGerente.hpp"
+#include "apresentacao/IControladoraGerente.hpp"
 #include "servico/FabricaServico.hpp"
 
 /**
@@ -21,7 +20,6 @@
         FabricaServico* fabrica;
 
         IControladoraAutenticacao* controladoraAutenticacao;
-
         IControladoraGerente* controladoraGerente;
 
         string emailGerenteLogado = "";

@@ -3,6 +3,8 @@
 #include "apresentacao/ControladoraHotel.hpp"
 #include "apresentacao/ControladoraQuarto.hpp"
 #include "apresentacao/ControladoraGerente.hpp"
+#include "apresentacao/ControladoraHospede.hpp"
+#include "apresentacao/ControladoraReserva.hpp"
 
 #include "interfaces/interfaces.hpp"
 #include "dominios/dominios.hpp"
@@ -28,6 +30,7 @@ void ControladoraSistema::carregarControladoras(){
     IServicoAutenticacao* servicoRawAuth = fabrica->criarServicoAutenticacao();
     IServicoGerente* servicoRawGerente = fabrica->criarServicoGerente();
 
+
     unique_ptr<IServicoAutenticacao> temp_unique_auth(servicoRawAuth);
     unique_ptr<IServicoGerente> temp_unique_gerente(servicoRawGerente);
 
@@ -37,18 +40,23 @@ void ControladoraSistema::carregarControladoras(){
 
     IServicoHotel* sHotelRaw = fabrica->criarServicoHotel();
     IServicoQuarto* sQuartoRaw = fabrica->criarServicoQuarto();
+    IServicoHospede* sHospedeRaw = fabrica->criarServicoHospede();
 
     unique_ptr<IServicoHotel> sHotelUnique(sHotelRaw);
     unique_ptr<IServicoQuarto> sQuartoUnique(sQuartoRaw);
+    unique_ptr<IServicoHospede> sHospedeUnique(sHospedeRaw);
 
     ControladoraHotel* cHotelRaw = new ControladoraHotel(sHotelRaw);
     ControladoraQuarto* cQuartoRaw = new ControladoraQuarto(sQuartoRaw);
+    ControladoraHospede* cHospedeRaw = new ControladoraHospede(sHospedeRaw);
 
     controladoraGerente = new ControladoraGerente(
         move(sHotelUnique),
         move(sQuartoUnique),
+        move(sHospedeUnique),
         cHotelRaw,
-        cQuartoRaw
+        cQuartoRaw,
+        cHospedeRaw
     );
 
 }

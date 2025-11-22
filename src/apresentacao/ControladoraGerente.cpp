@@ -8,16 +8,34 @@
 using namespace std;
 
 ControladoraGerente::ControladoraGerente(
-    std::unique_ptr<IServicoHotel> sHotel,
-    std::unique_ptr<IServicoQuarto> sQuarto,
+    unique_ptr<IServicoHotel> sHotel,
+    unique_ptr<IServicoQuarto> sQuarto,
+    unique_ptr<IServicoHospede> sHospede,
+    unique_ptr<IServicoReserva> sReserva,
     IControladoraHotel* cHotel,
-    IControladoraQuarto* cQuarto)
-    : servicoHotel(std::move(sHotel)),
-      servicoQuarto(std::move(sQuarto)),
+    IControladoraQuarto* cQuarto,
+    IControladoraHospede* cHospede,
+    IControladoraReserva* cReserva)
+    : servicoHotel(move(sHotel)),
+      servicoQuarto(move(sQuarto)),
+      servicoHospede(move(sHospede)),
+      servicoReserva(move(sReserva)),
       controladoraHotel(cHotel),
-      controladoraQuarto(cQuarto)
-{ }
+      controladoraQuarto(cQuarto),
+      controladoraHospede(cHospede),
+      controladoraReserva(cReserva)
+{
 
+}
+/*
+ControladoraGerente::~ControladoraGerente() {
+
+    if (controladoraHotel) { delete controladoraHotel; }
+    if (controladoraQuarto) { delete controladoraQuarto; }
+    if (controladoraHospede) { delete controladoraHospede; }
+    if (controladoraReserva) { delete controladoraReserva; }
+}
+*/
 // Menu Principal do Gerente
 void ControladoraGerente::executar() {
     int opcao;

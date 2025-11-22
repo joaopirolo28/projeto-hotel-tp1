@@ -30,14 +30,14 @@ private:
      */
     unique_ptr<IPersistenciaHospede> persistencia;
 
-    IServicoReservas* servicoReservas;
+    IServicoReserva* servicoReserva;
 
 public:
     /**
      * @brief Construtor da classe de servico.
      * @param p Ponteiro inteligente (unique_ptr) para a implementacao de persistencia.
      */
-    ServicoHospede(std::unique_ptr<IPersistenciaHospede> p, IServicoReservas* s);
+    ServicoHospede(std::unique_ptr<IPersistenciaHospede> p, IServicoReserva* s);
 
     /**
      * @brief Cadastra um novo Hospede.

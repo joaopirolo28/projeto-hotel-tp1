@@ -22,13 +22,13 @@ public:
      * @return Ponteiro para a interface IServicoAutenticacao.
      */
     virtual IServicoAutenticacao* criarServicoAutenticacao() = 0;
-    
+
     /**
      * @brief Cria e retorna uma instância do Serviço de Gerenciamento de Gerentes (CRUD).
      * @return Ponteiro para a interface IServiçoGerente.
      */
     virtual IServicoGerente* criarServicoGerente() = 0;
-    
+
     /**
      * @brief Cria e retorna uma instância do Serviço de Gerenciamento de Hóspedes.
      * @return Ponteiro para a interface IServiçoHospede.
@@ -51,7 +51,7 @@ public:
      * @brief Cria e retorna uma instância do Serviço de Reservas.
      * @return Ponteiro para a interface IServiçoReservas.
      */
-    virtual IServicoReservas* criarServicoReservas() = 0;
+    virtual IServicoReserva* criarServicoReservas() = 0;
 };
 
 #endif // FABRICASERVICO_HPP
