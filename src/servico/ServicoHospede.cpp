@@ -1,16 +1,16 @@
 #include "servico/ServicoHospede.hpp"
 #include "entidades/hospede.hpp"
 #include "dominios/email.hpp"
-#include "dominios/nome.hpp" 
-#include "interfaces/IServicoReservas.hpp" 
+#include "dominios/nome.hpp"
+#include "interfaces/interfaces.hpp"
 #include <iostream>
 #include <stdexcept>
-#include <utility> 
+#include <utility>
 #include <vector>
 
 using namespace std;
 
-ServicoHospede::ServicoHospede(unique_ptr<IPersistenciaHospede> p, IServicoReservas* s) 
+ServicoHospede::ServicoHospede(unique_ptr<IPersistenciaHospede> p, IServicoReservas* s)
     : persistencia(std::move(p)), servicoReservas(s) {}
 
 
@@ -42,11 +42,11 @@ bool ServicoHospede::editarHospede(Hospede hospede) {
 }
 
 bool ServicoHospede::excluirHospede(Email email) {
-    
-    
+
+
     try {
-        vector<Reserva> reservasAtivas = servicoReservas->listarReservas(email); 
-        
+        vector<Reserva> reservasAtivas = servicoReservas->listarReservas(email);
+
         if (!reservasAtivas.empty()) {
             cout << "LOG SERVICO: Falha. Hospede nao pode ser excluido, tem reservas ativas." << endl;
             return false;
@@ -54,7 +54,7 @@ bool ServicoHospede::excluirHospede(Email email) {
     } catch (const runtime_error& e) {
         cout << "LOG SERVICO: Erro ao checar reservas do hospede. Prosseguindo." << endl;
     }
-    
+
 
     try {
         return persistencia->excluir(email);

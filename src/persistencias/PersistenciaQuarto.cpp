@@ -21,10 +21,10 @@ static int retrieve_quarto_data(void *data, int argc, char **argv, char **azColN
     QuartoData *pData = (QuartoData*)data;
 
     try {
-        pData->result.setNumero(Numero(argv[0] ? argv[0] : ""));
-        pData->result.setCapacidade(Capacidade(stoi(argv[1]))); // Assume Capacidade aceita int
-        pData->result.setDiaria(Dinheiro(stod(argv[2])));      // Assume Dinheiro aceita double/string
-        pData->result.setRamal(Ramal(argv[3] ? argv[3] : ""));
+        pData->result.setNumero(Numero(std::stoi(argv[0] ? argv[0] : "0")));
+        pData->result.setCapacidade(Capacidade(stoi(argv[1])));
+        pData->result.setDiaria(Dinheiro(stod(argv[2])));
+        pData->result.setRamal(Ramal(std::stoi(argv[3] ? argv[3] : "0")));
         pData->found = true;
     } catch (const invalid_argument&) {
         return 1;
@@ -37,10 +37,10 @@ static int listar_quartos_callback(void *data, int argc, char **argv, char **azC
     Quarto q;
 
     try {
-        q.setNumero(Numero(argv[0] ? argv[0] : ""));
+        q.setNumero(Numero(std::stoi(argv[0] ? argv[0] : "0")));
         q.setCapacidade(Capacidade(stoi(argv[1])));
         q.setDiaria(Dinheiro(stod(argv[2])));
-        q.setRamal(Ramal(argv[3] ? argv[3] : ""));
+        q.setRamal(Ramal(std::stoi(argv[3] ? argv[3] : "0")));
     } catch (const invalid_argument&) {
         return 1;
     }
@@ -77,10 +77,10 @@ bool PersistenciaQuarto::cadastrar(const Codigo& codigoHotel, const Quarto& quar
         "INSERT INTO QUARTOS (CODIGO_HOTEL, NUMERO, CAPACIDADE, DIARIA, RAMAL) "
         "VALUES ('%q', '%q', %d, '%q', '%q');",
         codigoHotel.getValor().c_str(),
-        quarto.getNumero().getValor().c_str(),
+        std::to_string(quarto.getNumero().getValor()).c_str(),
         quarto.getCapacidade().getValor(),
-        quarto.getDiaria().getValorString().c_str(),
-        quarto.getRamal().getValor().c_str()
+        std::to_string(quarto.getDiaria().getValor()).c_str(),
+        std::to_string(quarto.getRamal().getValor()).c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
@@ -93,7 +93,7 @@ Quarto PersistenciaQuarto::consultar(const Codigo& codigoHotel, const Numero& nu
     char *sql = sqlite3_mprintf(
         "SELECT NUMERO, CAPACIDADE, DIARIA, RAMAL FROM QUARTOS WHERE CODIGO_HOTEL = '%q' AND NUMERO = '%q';",
         codigoHotel.getValor().c_str(),
-        numeroQuarto.getValor().c_str()
+        std::to_string(numeroQuarto.getValor()).c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, retrieve_quarto_data, &data, nullptr);
     sqlite3_free(sql);
@@ -107,10 +107,10 @@ bool PersistenciaQuarto::editar(const Codigo& codigoHotel, const Quarto& quarto)
     char *sql = sqlite3_mprintf(
         "UPDATE QUARTOS SET CAPACIDADE=%d, DIARIA='%q', RAMAL='%q' WHERE CODIGO_HOTEL='%q' AND NUMERO='%q';",
         quarto.getCapacidade().getValor(),
-        quarto.getDiaria().getValorString().c_str(),
-        quarto.getRamal().getValor().c_str(),
+        std::to_string(quarto.getDiaria().getValor()).c_str(),
+        std::to_string(quarto.getRamal().getValor()).c_str(),
         codigoHotel.getValor().c_str(),
-        quarto.getNumero().getValor().c_str()
+        std::to_string(quarto.getNumero().getValor()).c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
@@ -121,7 +121,7 @@ bool PersistenciaQuarto::excluir(const Codigo& codigoHotel, const Numero& numero
     char *sql = sqlite3_mprintf(
         "DELETE FROM QUARTOS WHERE CODIGO_HOTEL='%q' AND NUMERO='%q';",
         codigoHotel.getValor().c_str(),
-        numeroQuarto.getValor().c_str()
+        std::to_string(numeroQuarto.getValor()).c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);

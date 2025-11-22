@@ -14,6 +14,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
+					<Add directory="sqlite_lib" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -871,16 +872,6 @@
 		<Unit filename="include/apresentacao/ControladoraSistema.hpp" />
 		<Unit filename="include/apresentacao/IControladoraAutenticacao.hpp" />
 		<Unit filename="include/apresentacao/IControladoraSistema.hpp" />
-		<Unit filename="include/conteiner/ControleGerenteImpl.hpp" />
-		<Unit filename="include/conteiner/ControleHospedeImpl.hpp" />
-		<Unit filename="include/conteiner/ControleHotelImpl.hpp" />
-		<Unit filename="include/conteiner/ControleQuartoImpl.hpp" />
-		<Unit filename="include/conteiner/ControleReservaImpl.hpp" />
-		<Unit filename="include/conteiner/IControleGerente.hpp" />
-		<Unit filename="include/conteiner/IControleHospede.hpp" />
-		<Unit filename="include/conteiner/IControleHotel.hpp" />
-		<Unit filename="include/conteiner/IControleQuarto.hpp" />
-		<Unit filename="include/conteiner/IControleReserva.hpp" />
 		<Unit filename="include/dominios/capacidade.hpp" />
 		<Unit filename="include/dominios/cartao.hpp" />
 		<Unit filename="include/dominios/codigo.hpp" />
@@ -1031,52 +1022,12 @@
 		<Unit filename="latex/telefone_8hpp__incl.pdf" />
 		<Unit filename="latex/telefone_8hpp_source.tex" />
 		<Unit filename="latex/testes_8hpp_source.tex" />
-		<Unit filename="obj/Debug/main.o" />
-		<Unit filename="obj/Debug/sqlite_lib/sqlite3.o" />
-		<Unit filename="obj/Debug/src/ControladoraSistema.o" />
-		<Unit filename="obj/Debug/src/apresentacao/ControladoraSistema.o" />
-		<Unit filename="obj/Debug/src/container/ControleHotelImpl.o" />
-		<Unit filename="obj/Debug/src/container/ControleQuartoImpl.o" />
-		<Unit filename="obj/Debug/src/container/ControleReservaImpl.o" />
-		<Unit filename="obj/Debug/src/dominios/capacidade.o" />
-		<Unit filename="obj/Debug/src/dominios/cartao.o" />
-		<Unit filename="obj/Debug/src/dominios/codigo.o" />
-		<Unit filename="obj/Debug/src/dominios/data.o" />
-		<Unit filename="obj/Debug/src/dominios/dinheiro.o" />
-		<Unit filename="obj/Debug/src/dominios/email.o" />
-		<Unit filename="obj/Debug/src/dominios/endereco.o" />
-		<Unit filename="obj/Debug/src/dominios/nome.o" />
-		<Unit filename="obj/Debug/src/dominios/numero.o" />
-		<Unit filename="obj/Debug/src/dominios/ramal.o" />
-		<Unit filename="obj/Debug/src/dominios/senha.o" />
-		<Unit filename="obj/Debug/src/dominios/telefone.o" />
-		<Unit filename="obj/Debug/src/entidades/gerente.o" />
-		<Unit filename="obj/Debug/src/entidades/hospede.o" />
-		<Unit filename="obj/Debug/src/entidades/hotel.o" />
-		<Unit filename="obj/Debug/src/entidades/pessoa.o" />
-		<Unit filename="obj/Debug/src/entidades/quarto.o" />
-		<Unit filename="obj/Debug/src/main.o" />
-		<Unit filename="obj/Debug/src/servico/FabricaServicoImpl.o" />
-		<Unit filename="obj/Debug/src/servico/PersistenciaGerente.o" />
-		<Unit filename="obj/Debug/src/servico/ServicoAutenticacao.o" />
-		<Unit filename="obj/Debug/src/servico/ServicoGerente.o" />
-		<Unit filename="obj/Debug/src/servico/ServicoReservas.o" />
-		<Unit filename="obj/Debug/src/testes/testes.o" />
-		<Unit filename="obj/Debug/testes.o" />
-		<Unit filename="sqlite_lib/shell.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="sqlite_lib/sqlite3.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="sqlite_lib/sqlite3.h" />
 		<Unit filename="sqlite_lib/sqlite3ext.h" />
 		<Unit filename="src/apresentacao/ControladoraSistema.cpp" />
-		<Unit filename="src/container/ControleGerenteImpl.cpp" />
-		<Unit filename="src/container/ControleHospedeImpl.cpp" />
-		<Unit filename="src/container/ControleHotelImpl.cpp" />
-		<Unit filename="src/container/ControleQuartoImpl.cpp" />
-		<Unit filename="src/container/ControleReservaImpl.cpp" />
 		<Unit filename="src/dominios/capacidade.cpp" />
 		<Unit filename="src/dominios/cartao.cpp" />
 		<Unit filename="src/dominios/codigo.cpp" />

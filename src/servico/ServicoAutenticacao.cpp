@@ -1,6 +1,6 @@
 #include "servico/ServicoAutenticacao.hpp"
 #include <iostream>
-#include <stexcept>
+#include <stdexcept>
 #include <utility>
 
 using namespace std;
@@ -13,7 +13,7 @@ bool ServicoAutenticacao::autenticar(Email email, Senha senha) {
     try {
         Gerente gerente = persistencia->consultar(email);
 
-        if (gerente.getSenha().getValor() == senha.getValor()) {
+        if (gerente.getSenha().getSenha() == senha.getSenha()) {
             return true;
         } else {
             return false;

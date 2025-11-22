@@ -9,7 +9,7 @@
 #define SERVICOGERENTE_HPP
 
 #include "interfaces/interfaces.hpp"
-#include "servico/IPersistenciaGerente.hpp"
+#include "persistencias/IPersistenciaGerente.hpp"
 #include "entidades/gerente.hpp"
 #include "dominios/email.hpp"
 #include <memory>

@@ -75,8 +75,8 @@ bool PersistenciaHotel::cadastrar(const Hotel& hotel) {
         "INSERT INTO HOTEIS (CODIGO, NOME, ENDERECO, TELEFONE) "
         "VALUES ('%q', '%q', '%q', '%q');",
         hotel.getCodigo().getValor().c_str(),
-        hotel.getNome().getValor().c_str(),
-        hotel.getEndereco().getValor().c_str(),
+        hotel.getNome().getNome().c_str(),
+        hotel.getEndereco().getEndereco().c_str(),
         hotel.getTelefone().getValor().c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
@@ -102,8 +102,8 @@ Hotel PersistenciaHotel::consultar(const Codigo& codigo) {
 bool PersistenciaHotel::editar(const Hotel& hotel) {
     char *sql = sqlite3_mprintf(
         "UPDATE HOTEIS SET NOME='%q', ENDERECO='%q', TELEFONE='%q' WHERE CODIGO='%q';",
-        hotel.getNome().getValor().c_str(),
-        hotel.getEndereco().getValor().c_str(),
+        hotel.getNome().getNome().c_str(),
+        hotel.getEndereco().getEndereco().c_str(),
         hotel.getTelefone().getValor().c_str(),
         hotel.getCodigo().getValor().c_str()
     );

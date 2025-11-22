@@ -8,10 +8,7 @@
 #ifndef RESERVA_HPP_INCLUDED
 #define RESERVA_HPP_INCLUDED
 
-// Includes necessários para os domínios
-#include "dominios/data.hpp"
-#include "dominios/dinheiro.hpp"
-#include "dominios/codigo.hpp"
+#include "dominios/dominios.hpp"
 
 /**
  * @brief Classe entidade que representa uma Reserva de hospedagem.
@@ -36,6 +33,19 @@ private:
      * @brief O código único de identificação da reserva (Domínio Codigo).
      */
     Codigo codigo;
+
+    /**
+     * @brief O email do hóspede associado à reserva (Domínio Email).
+     */
+    Email emailHospede;
+    /**
+     * @brief O código do hotel onde a reserva foi feita (Domínio Codigo).
+     */
+    Codigo codigoHotel;
+    /**
+     * @brief O número do quarto reservado (Domínio Numero).
+     */
+    Numero numeroQuarto;
 
 public:
     /**
@@ -75,7 +85,7 @@ public:
      * @brief Retorna o valor total da reserva.
      * @return Um objeto do tipo Dinheiro.
      */
-    Dinheiro getValor() const; 
+    Dinheiro getValor() const;
 
     /**
      * @brief Define o código de identificação da reserva.
@@ -86,7 +96,40 @@ public:
      * @brief Retorna o código de identificação da reserva.
      * @return Um objeto do tipo Codigo.
      */
-    Codigo getCodigo() const; 
+    Codigo getCodigo() const;
+
+    /**
+     * @brief Define o email do hóspede.
+     * @param emailHospede Um objeto do tipo Email.
+     */
+    void setEmailHospede(Email emailHospede);
+    /**
+     * @brief Retorna o email do hóspede.
+     * @return Um objeto do tipo Email.
+     */
+    Email getEmailHospede() const;
+
+    /**
+     * @brief Define o código do hotel.
+     * @param codigoHotel Um objeto do tipo Codigo.
+     */
+    void setCodigoHotel(Codigo codigoHotel);
+    /**
+     * @brief Retorna o código do hotel.
+     * @return Um objeto do tipo Codigo.
+     */
+    Codigo getCodigoHotel() const;
+
+    /**
+     * @brief Define o número do quarto.
+     * @param numeroQuarto Um objeto do tipo Numero.
+     */
+    void setNumeroQuarto(Numero numeroQuarto);
+    /**
+     * @brief Retorna o número do quarto.
+     * @return Um objeto do tipo Numero.
+     */
+    Numero getNumeroQuarto() const;
 };
 
 
@@ -121,6 +164,30 @@ inline void Reserva::setCodigo(Codigo codigo) {
 
 inline Codigo Reserva::getCodigo() const {
     return codigo;
+}
+
+inline void Reserva::setEmailHospede(Email emailHospede) {
+    this->emailHospede = emailHospede;
+}
+
+inline Email Reserva::getEmailHospede() const {
+    return emailHospede;
+}
+
+inline void Reserva::setCodigoHotel(Codigo codigoHotel) {
+    this->codigoHotel = codigoHotel;
+}
+
+inline Codigo Reserva::getCodigoHotel() const {
+    return codigoHotel;
+}
+
+inline void Reserva::setNumeroQuarto(Numero numeroQuarto) {
+    this->numeroQuarto = numeroQuarto;
+}
+
+inline Numero Reserva::getNumeroQuarto() const {
+    return numeroQuarto;
 }
 
 #endif // RESERVA_HPP_INCLUDED

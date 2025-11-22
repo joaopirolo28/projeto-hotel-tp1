@@ -8,11 +8,11 @@ using namespace std;
 
 bool verificaConflito(const Reserva& novaReserva, const Reserva& reservaExistente) {
 
-    Data novaChegada = novaReserva.getDataChegada();
-    Data novaPartida = novaReserva.getDataPartida();
+    Data novaChegada = novaReserva.getChegada();
+    Data novaPartida = novaReserva.getPartida();
 
-    Data existenteChegada = reservaExistente.getDataChegada();
-    Data existentePartida = reservaExistente.getDataPartida();
+    Data existenteChegada = reservaExistente.getChegada();
+    Data existentePartida = reservaExistente.getPartida();
 
     bool sobreposicao = (novaChegada <= existentePartida) && (novaPartida >= existenteChegada);
 
@@ -24,14 +24,17 @@ ServicoReservas::ServicoReservas(unique_ptr<IPersistenciaReserva> p)
 
 bool ServicoReservas::cadastrarReserva(Reserva reserva) {
 
-    vector<Reserva> reservasExistentes = persistencia->listarReservasPorQuarto(reserva.getCodigoQuarto());
+    vector<Reserva> reservasExistentes = persistencia->listarReservasPorQuarto(
+        reserva.getCodigoHotel(),
+        reserva.getNumeroQuarto()
+    );
 
     for (const auto& existente : reservasExistentes) {
         if (verificaConflito(reserva, existente)) {
             throw runtime_error("Erro de Negocio: Conflito de datas com uma reserva existente para este quarto.");
         }
     }
-    return persistencia->incluir(reserva);
+    return persistencia->cadastrar(reserva);
 }
 
 Reserva ServicoReservas::consultarReserva(Codigo codigo) {
@@ -46,7 +49,10 @@ Reserva ServicoReservas::consultarReserva(Codigo codigo) {
 
 bool ServicoReservas::editarReserva(Reserva reserva) {
 
-    vector<Reserva> reservasExistentes = persistencia->listarReservasPorQuarto(reserva.getCodigoQuarto());
+    vector<Reserva> reservasExistentes = persistencia->listarReservasPorQuarto(
+        reserva.getCodigoHotel(), // Primeiro argumento
+        reserva.getNumeroQuarto() // Segundo argumento
+    );
 
     for (const auto& existente : reservasExistentes) {
         if (existente.getCodigo().getValor() == reserva.getCodigo().getValor()) {
@@ -56,7 +62,7 @@ bool ServicoReservas::editarReserva(Reserva reserva) {
             throw runtime_error("Erro de Negocio: A edicao causaria conflito de datas com uma reserva existente.");
         }
     }
-    return persistencia->atualizar(reserva);
+    return persistencia->editar(reserva);
 }
 
 bool ServicoReservas::excluirReserva(Codigo codigo) {

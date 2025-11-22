@@ -1,9 +1,12 @@
 #include "persistencias/PersistenciaGerente.hpp"
 #include "entidades/entidades.hpp"
 #include "dominios/dominios.hpp"
+
 #include <stdexcept>
 #include <iostream>
 #include <sqlite3.h>
+#include <cstdlib>
+#include <string>
 
 using namespace std;
 
@@ -18,7 +21,7 @@ static int retrieve_gerente_data(void *data, int argc, char **argv, char **azCol
     try {
         pData->result.setEmail(Email(argv[0] ? argv[0] : ""));
         pData->result.setNome(Nome(argv[1] ? argv[1] : ""));
-        pData->result.setRamal(Ramal(argv[2] ? argv[2] : ""));
+        pData->result.setRamal(Ramal(std::stoi(argv[2] ? argv[2] : "0")));
         pData->result.setSenha(Senha(argv[3] ? argv[3] : ""));
         pData->found = true;
     } catch (const invalid_argument&) {
@@ -52,10 +55,10 @@ bool PersistenciaGerente::cadastrar(const Gerente& gerente) {
     char *sql = sqlite3_mprintf(
         "INSERT INTO GERENTES (EMAIL, NOME, RAMAL, SENHA) "
         "VALUES ('%q', '%q', '%q', '%q');",
-        gerente.getEmail().getValor().c_str(),
-        gerente.getNome().getValor().c_str(),
-        gerente.getRamal().getValor().c_str(),
-        gerente.getSenha().getValor().c_str()
+        gerente.getEmail().getEmail().c_str(),
+        gerente.getNome().getNome().c_str(),
+        std::to_string(gerente.getRamal().getValor()).c_str(),
+        gerente.getSenha().getSenha().c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
@@ -69,7 +72,7 @@ Gerente PersistenciaGerente::consultar(const Email& email) {
     GerenteData data;
     char *sql = sqlite3_mprintf(
         "SELECT EMAIL, NOME, RAMAL, SENHA FROM GERENTES WHERE EMAIL = '%q';",
-        email.getValor().c_str()
+        email.getEmail().c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, retrieve_gerente_data, &data, nullptr);
     sqlite3_free(sql);
@@ -88,10 +91,10 @@ bool PersistenciaGerente::autenticar(const Email& email, const Senha& senha) {
 bool PersistenciaGerente::editar(const Gerente& gerente) {
     char *sql = sqlite3_mprintf(
         "UPDATE GERENTES SET NOME='%q', RAMAL='%q', SENHA='%q' WHERE EMAIL='%q';",
-        gerente.getNome().getValor().c_str(),
-        gerente.getRamal().getValor().c_str(),
-        gerente.getSenha().getValor().c_str(),
-        gerente.getEmail().getValor().c_str()
+        gerente.getNome().getNome().c_str(),
+        std::to_string(gerente.getRamal().getValor()).c_str(),
+        gerente.getSenha().getSenha().c_str(),
+        gerente.getEmail().getEmail().c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
@@ -103,7 +106,7 @@ bool PersistenciaGerente::editar(const Gerente& gerente) {
 bool PersistenciaGerente::excluir(const Email& email) {
    char *sql = sqlite3_mprintf(
         "DELETE FROM GERENTES WHERE EMAIL='%q';",
-        email.getValor().c_str()
+        email.getEmail().c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);

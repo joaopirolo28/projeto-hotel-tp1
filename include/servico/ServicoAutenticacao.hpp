@@ -6,7 +6,7 @@
 #define SERVICOAUTENTICACAO_HPP
 
 #include "interfaces/interfaces.hpp"
-#include "servico/IPersistenciaGerente.hpp"
+#include "persistencias/IPersistenciaGerente.hpp"
 #include <memory>
 
 using namespace std;

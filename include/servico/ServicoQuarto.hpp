@@ -10,9 +10,9 @@
 
 
 #include "interfaces/interfaces.hpp"
-#include "servico/IPersistenciaQuarto.hpp"
-#include "servico/IPersistenciaHotel.hpp"   
-#include "servico/IPersistenciaReserva.hpp"  
+#include "persistencias/IPersistenciaQuarto.hpp"
+#include "persistencias/IPersistenciaHotel.hpp"
+#include "persistencias/IPersistenciaReserva.hpp"
 #include "entidades/quarto.hpp"
 #include "dominios/codigo.hpp"
 #include "dominios/numero.hpp"
@@ -36,8 +36,8 @@ private:
     /**
      * @brief Persistencia de Hotel (dependencia), usada para checar se o hotel existe.
      */
-    IPersistenciaHotel* persistenciaHotel; 
-    
+    IPersistenciaHotel* persistenciaHotel;
+
     /**
      * @brief Persistencia de Reserva (dependencia), usada para checar se ha reservas ativas antes de excluir.
      */
@@ -50,8 +50,8 @@ public:
      * @param pHotel Ponteiro para a persistencia de Hotel (para checar FK).
      * @param pReserva Ponteiro para a persistencia de Reserva (para checar consistencia).
      */
-    ServicoQuarto(unique_ptr<IPersistenciaQuarto> pQuarto, 
-                  IPersistenciaHotel* pHotel, 
+    ServicoQuarto(unique_ptr<IPersistenciaQuarto> pQuarto,
+                  IPersistenciaHotel* pHotel,
                   IPersistenciaReserva* pReserva);
 
    /**
@@ -67,21 +67,21 @@ public:
      * @param numero O Numero do quarto.
      * @return O objeto Quarto encontrado.
      */
-    Quarto consultarQuarto(Numero numero) override;
+    Quarto consultarQuarto(Codigo codigoHotel, Numero numero) override;
 
     /**
      * @brief Edita os dados de um Quarto existente.
      * @param quarto O objeto Quarto com os dados a serem atualizados.
      * @return true se a edicao for bem-sucedida, false caso contrario.
      */
-    bool editarQuarto(Quarto quarto) override;
+    bool editarQuarto(Codigo codigoHotel, Quarto quarto) override;
 
     /**
      * @brief Exclui um Quarto pelo seu Numero.
      * @param numero O Numero do Quarto a ser excluido.
      * @return true se a exclusao for bem-sucedida, false caso contrario.
      */
-    bool excluirQuarto(Numero numero) override;
+    bool excluirQuarto(Codigo codigoHotel, Numero numero) override;
 
     /**
      * @brief Retorna uma lista de todos os Quartos de um Hotel especifico.

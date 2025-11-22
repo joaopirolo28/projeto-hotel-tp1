@@ -29,6 +29,8 @@ public:
      */
     PersistenciaGerente();
 
+    ~PersistenciaGerente();
+
     bool cadastrar(const Gerente& gerente) override;
     Gerente consultar(const Email& email) override;
     //bool autenticar(const Email& email, const Senha& senha) override;

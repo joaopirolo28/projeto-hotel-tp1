@@ -187,7 +187,7 @@ public:
      * @param quarto O objeto Quarto com os dados atualizados.
      * @return true se a edição for bem-sucedida.
      */
-    virtual bool editarQuarto(Quarto quarto) = 0;
+    virtual bool editarQuarto(Codigo codigoHotel, Quarto quarto) = 0;
 
     /**
      * @brief Exclui um Quarto pelo número.

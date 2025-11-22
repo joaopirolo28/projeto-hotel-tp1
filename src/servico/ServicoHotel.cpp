@@ -1,9 +1,11 @@
 #include "servico/ServicoHotel.hpp"
 #include "entidades/hotel.hpp"
 #include "dominios/codigo.hpp"
-#include "dominios/nome.hpp" 
-#include "servico/IPersistenciaHotel.hpp" 
-#include "servico/IPersistenciaQuarto.hpp" 
+#include "dominios/nome.hpp"
+#include "persistencias/IPersistenciaHotel.hpp"
+#include "persistencias/IPersistenciaQuarto.hpp"
+#include "persistencias/IPersistenciaReserva.hpp"
+#include "interfaces/interfaces.hpp"
 
 #include <iostream>
 #include <stdexcept>
@@ -12,8 +14,13 @@
 
 using namespace std;
 
-ServicoHotel::ServicoHotel(unique_ptr<IPersistenciaHotel> pHotel, unique_ptr<IPersistenciaQuarto> pQuarto) 
-    : persistenciaHotel(std::move(pHotel)), persistenciaQuarto(std::move(pQuarto)) {
+ServicoHotel::ServicoHotel(unique_ptr<IPersistenciaHotel> pHotel,
+                           IServicoQuarto* sQuarto,
+                           IServicoReservas* sReserva)
+    : persistenciaHotel(std::move(pHotel)),
+      servicoQuarto(sQuarto),
+      servicoReservas(sReserva)
+{
 }
 
 
@@ -47,14 +54,12 @@ bool ServicoHotel::editarHotel(Hotel hotel) {
 bool ServicoHotel::excluirHotel(Codigo codigo) {
 
     try {
-
-        vector<Quarto> quartosAtivos = persistenciaQuarto->listarQuartos(codigo);
+        vector<Quarto> quartosAtivos = servicoQuarto->listarQuartos(codigo);
 
         if (!quartosAtivos.empty()) {
-            cout << "LOG SERVICO: Falha. Hotel nao pode ser excluido, ha quartos ativos (Consistencia)." << endl;
-            return false; 
+            cout << "LOG SERVICO: Falha. Hotel nao pode ser excluido, ha quartos ativos (Consistencia - Quartos)." << endl;
+            return false;
         }
-
         return persistenciaHotel->excluir(codigo);
     } catch (const exception& e) {
         cout << "LOG SERVICO: Erro ao excluir hotel: " << e.what() << endl;

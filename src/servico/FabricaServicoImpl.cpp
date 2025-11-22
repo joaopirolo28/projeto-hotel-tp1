@@ -7,20 +7,21 @@
 #include "servico/ServicoQuarto.hpp"
 #include "servico/ServicoReservas.hpp"
 
-#include "servico/PersistenciaGerente.hpp"
-#include "servico/PersistenciaHospede.hpp"
-#include "servico/PersistenciaHotel.hpp"
-#include "servico/PersistenciaQuarto.hpp"
-#include "servico/PersistenciaReserva.hpp"
+#include "persistencias/PersistenciaGerente.hpp"
+#include "persistencias/PersistenciaHospede.hpp"
+#include "persistencias/PersistenciaHotel.hpp"
+#include "persistencias/PersistenciaQuarto.hpp"
+#include "persistencias/PersistenciaReserva.hpp"
 
-#include "interfaces/IPersistenciaGerente.hpp"
-#include "interfaces/IPersistenciaHospede.hpp"
-#include "interfaces/IPersistenciaHotel.hpp"
-#include "interfaces/IPersistenciaQuarto.hpp"
-#include "interfaces/IPersistenciaReserva.hpp"
+#include "persistencias/IPersistenciaGerente.hpp"
+#include "persistencias/IPersistenciaHospede.hpp"
+#include "persistencias/IPersistenciaHotel.hpp"
+#include "persistencias/IPersistenciaQuarto.hpp"
+#include "persistencias/IPersistenciaReserva.hpp"
 
 #include <memory>
 #include <utility>
+#include <stdexcept>
 
 using namespace std;
 
@@ -40,21 +41,30 @@ IServicoHospede* FabricaServicoImpl::criarServicoHospede() {
 
     unique_ptr<IPersistenciaHospede> persistenciaHospede = make_unique<PersistenciaHospede>();
 
-    unique_ptr<IPersistenciaReserva> persistenciaReserva = make_unique<PersistenciaReserva>();
+    //IPersistenciaReserva* pReservaRaw = new PersistenciaReserva();
+    IServicoReservas* servicoReservasRaw = criarServicoReservas();
 
-    //IServicoReservas* servicoReservas = new ServicoReservas(std::move(persistenciaReserva));
-
-    return new ServicoHospede(std::move(persistenciaHospede), servicoReservas);
+    return new ServicoHospede(std::move(persistenciaHospede), servicoReservasRaw);
+    //return new ServicoHospede(std::move(persistenciaHospede), static_cast<IServicoReservas*>(pReservaRaw));
 }
 
 IServicoHotel* FabricaServicoImpl::criarServicoHotel() {
-    unique_ptr<IPersistenciaHotel> persistencia = make_unique<PersistenciaHotel>();
-    return new ServicoHotel(std::move(persistencia));
+    unique_ptr<IPersistenciaHotel> persistenciaHotel = make_unique<PersistenciaHotel>();
+
+    IServicoQuarto* servicoQuarto = criarServicoQuarto();
+
+    IServicoReservas* servicoReserva = criarServicoReservas();
+
+    return new ServicoHotel(std::move(persistenciaHotel), servicoQuarto, servicoReserva);
 }
 
 IServicoQuarto* FabricaServicoImpl::criarServicoQuarto() {
-    unique_ptr<IPersistenciaQuarto> persistencia = make_unique<PersistenciaQuarto>();
-    return new ServicoQuarto(std::move(persistencia));
+    unique_ptr<IPersistenciaQuarto> persistenciaQuarto = make_unique<PersistenciaQuarto>();
+
+    IPersistenciaHotel* pHotelRaw = new PersistenciaHotel();
+    IPersistenciaReserva* pReservaRaw = new PersistenciaReserva();
+
+    return new ServicoQuarto(std::move(persistenciaQuarto), pHotelRaw, pReservaRaw);
 }
 
 IServicoReservas* FabricaServicoImpl::criarServicoReservas() {

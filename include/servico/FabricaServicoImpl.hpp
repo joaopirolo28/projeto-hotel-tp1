@@ -7,18 +7,18 @@
 
 #include "servico/FabricaServico.hpp"
 
-#include "servico/ServicoAutenticacao.hpp" 
+#include "servico/ServicoAutenticacao.hpp"
 #include "servico/ServicoGerente.hpp"
 #include "servico/ServicoHospede.hpp"
 #include "servico/ServicoHotel.hpp"
 #include "servico/ServicoQuarto.hpp"
 #include "servico/ServicoReservas.hpp"
 
-#include "servico/IPersistenciaGerente.hpp" 
-#include "servico/IPersistenciaHospede.hpp" 
-#include "servico/IPersistenciaHotel.hpp" 
-#include "servico/IPersistenciaQuarto.hpp" 
-#include "servico/IPersistenciaReserva.hpp" 
+#include "persistencias/IPersistenciaGerente.hpp"
+#include "persistencias/IPersistenciaHospede.hpp"
+#include "persistencias/IPersistenciaHotel.hpp"
+#include "persistencias/IPersistenciaQuarto.hpp"
+#include "persistencias/IPersistenciaReserva.hpp"
 #include <memory>
 #include <utility>
 
@@ -35,37 +35,37 @@ public:
      * @details Esta é a única classe que sabe como criar e injetar a dependência de Persistência.
      * @return Ponteiro para a interface IServiçoAutenticacao (Polimorfismo).
      */
-    IServiçoAutenticacao* criarServicoAutenticacao() override;
-    
+    IServicoAutenticacao* criarServicoAutenticacao() override;
+
     /**
      * @brief Cria e retorna uma instância do Serviço de Gerentes.
      * @return Ponteiro para a interface IServiçoGerente.
      */
-    IServiçoGerente* criarServicoGerente() override;
-    
+    IServicoGerente* criarServicoGerente() override;
+
     /**
      * @brief Cria e retorna uma instância do Serviço de Hóspedes.
      * @return Ponteiro para a interface IServiçoHospede.
      */
-    IServiçoHospede* criarServicoHospede() override;
+    IServicoHospede* criarServicoHospede() override;
 
     /**
      * @brief Cria e retorna uma instância do Serviço de Hotéis.
      * @return Ponteiro para a interface IServiçoHotel.
      */
-    IServiçoHotel* criarServicoHotel() override;
+    IServicoHotel* criarServicoHotel() override;
 
     /**
      * @brief Cria e retorna uma instância do Serviço de Quartos.
      * @return Ponteiro para a interface IServiçoQuarto.
      */
-    IServiçoQuarto* criarServicoQuarto() override;
+    IServicoQuarto* criarServicoQuarto() override;
 
     /**
      * @brief Cria e retorna uma instância do Serviço de Reservas.
      * @return Ponteiro para a interface IServiçoReservas.
      */
-    IServiçoReservas* criarServicoReservas() override;
+    IServicoReservas* criarServicoReservas() override;
 };
 
 #endif // FABRICASERVICOIMPL_HPP

@@ -8,9 +8,9 @@
 #ifndef SERVICOHOSPEDE_HPP
 #define SERVICOHOSPEDE_HPP
 
-#include "interfaces/IServicoHospede.hpp"
-#include "servico/IPersistenciaHospede.hpp"
-#include "interfaces/interfaces.hpp" 
+#include "interfaces/interfaces.hpp"
+#include "persistencias/IPersistenciaHospede.hpp"
+#include "interfaces/interfaces.hpp"
 #include "entidades/hospede.hpp"
 #include "dominios/email.hpp"
 #include <memory>
@@ -26,46 +26,18 @@ using namespace std;
 class ServicoHospede : public IServicoHospede {
 private:
     /**
-     * @brief Ponteiro inteligente (unique_ptr) para a persistencia de Hospede.
-     * (Propriedade)
+     * @brief Ponteiro para a interface de persistencia de Hospede.
      */
     unique_ptr<IPersistenciaHospede> persistencia;
-    
-    /**
-     * @brief Ponteiro para o servico de Reservas.
-     * (Necessario para a regra de negocio: verificar reservas ativas do Hospede).
-     */
+
     IServicoReservas* servicoReservas;
 
 public:
     /**
      * @brief Construtor da classe de servico.
-     * @details Recebe a persistencia (propriedade) e o servico de Reservas (referencia) 
-     * para injecao de dependencia.
-     * @param p Ponteiro inteligente (unique_ptr) para a implementacao de persistencia.
-     * @param s Ponteiro para o ServicoReservas (a ser injetado pela Fabrica).
-     */
-    ServicoHospede(unique_ptr<IPersistenciaHospede> p, IServicoReservas* s);
-};
-
-/**
- * @brief Implementacao concreta da interface IServicoHospede.
- * @details Responsavel por gerenciar as operacoes CRUD e listagem para a entidade Hospede,
- * delegando o acesso aos dados para a camada de persistencia.
- */
-class ServicoHospede : public IServicoHospede {
-private:
-    /**
-     * @brief Ponteiro para a interface de persistencia de Hospede.
-     */
-    unique_ptr<IPersistenciaHospede> persistencia;
-
-public:
-    /**
-     * @brief Construtor da classe de servico.
      * @param p Ponteiro inteligente (unique_ptr) para a implementacao de persistencia.
      */
-    ServicoHospede(unique_ptr<IPersistenciaHospede> p);
+    ServicoHospede(std::unique_ptr<IPersistenciaHospede> p, IServicoReservas* s);
 
     /**
      * @brief Cadastra um novo Hospede.

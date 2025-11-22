@@ -9,8 +9,9 @@
 #define SERVICOHOTEL_HPP
 
 #include "interfaces/interfaces.hpp"
-#include "servico/IPersistenciaHotel.hpp"
-#include "servico/IPersistenciaQuarto.hpp" 
+#include "persistencias/IPersistenciaHotel.hpp"
+#include "persistencias/IPersistenciaQuarto.hpp"
+#include "persistencias/IPersistenciaReserva.hpp"
 #include "entidades/hotel.hpp"
 #include "dominios/codigo.hpp"
 #include <memory>
@@ -37,13 +38,24 @@ private:
      */
     unique_ptr<IPersistenciaQuarto> persistenciaQuarto;
 
+    /**
+     * @brief Servico de Quarto (dependencia), usado para checar quartos ativos.
+     */
+    IServicoQuarto* servicoQuarto;
+    /**
+     * @brief Servico de Reserva (dependencia), usado para checar reservas ativas.
+     */
+    IServicoReservas* servicoReservas;
+
 public:
     /**
      * @brief Construtor da classe de servico.
      * @param pHotel Ponteiro para a implementacao de persistencia de Hotel.
      * @param pQuarto Ponteiro para a implementacao de persistencia de Quarto.
      */
-    ServicoHotel(unique_ptr<IPersistenciaHotel> pHotel, unique_ptr<IPersistenciaQuarto> pQuarto);
+    ServicoHotel(std::unique_ptr<IPersistenciaHotel> pHotel,
+                 IServicoQuarto* sQuarto,
+                 IServicoReservas* sReserva);
 
     /**
      * @brief Cadastra um novo Hotel no sistema.

@@ -1,15 +1,43 @@
-#include <iostream>
-#include <stdexcept>
 #include "dominios/dominios.hpp"
 #include "entidades/entidades.hpp"
-#include <iomanip>
 #include "servico/FabricaServicoImpl.hpp"
 #include "apresentacao/ControladoraSistema.hpp"
+#include "apresentacao/IControladoraSistema.hpp"
+
+#include <iostream>
+#include <stdexcept>
+#include <iomanip>
+#include <memory>
 
 using namespace std;
 
 int main()
 {
+
+    cout << "Inicializando Sistema de Gestao de Hoteis..." << endl;
+
+    unique_ptr<FabricaServico> fabrica = make_unique<FabricaServicoImpl>();
+
+    IControladoraSistema* controladoraGeral = nullptr;
+    try{
+        controladoraGeral = new ControladoraSistema(fabrica.get());
+
+        controladoraGeral->executar();
+    } catch(const runtime_error& e){
+        cerr << "\n[ERRO CRITICO DE INICIALIZACAO]: " << e.what() << endl;
+        return 1;
+    } catch(const invalid_argument& e){
+        cerr << "\n[ERRO CRITICO DE DOMINIO]: " << e.what() << endl;
+        return 1;
+    }
+
+    if(controladoraGeral){
+        delete controladoraGeral;
+    }
+
+    cout << "Sistema encerrado com sucesso." << endl;
+
+    /*
     Data data;
 
     try {
@@ -337,6 +365,7 @@ int main()
     sistema.executar();
 
     cout << "APLICACAO FINALIZADA.\n";
+    */
 
     return 0;
 }

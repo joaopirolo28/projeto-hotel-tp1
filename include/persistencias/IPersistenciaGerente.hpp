@@ -9,7 +9,10 @@
 #include "dominios/email.hpp"
 #include "dominios/senha.hpp"
 #include "entidades/gerente.hpp"
+
 #include <stdexcept>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 

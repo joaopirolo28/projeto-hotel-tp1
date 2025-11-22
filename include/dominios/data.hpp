@@ -90,6 +90,27 @@ class Data{
          * @return O valor inteiro do ano.
          */
         int getAno() const;
+        /**
+         * @brief Retorna a data.
+         * @return O valor em string da data.
+         */
+        string getData() const;
+
+        /**
+         * @brief Sobrecarga do operador menor ou igual (<=) para comparar duas datas.
+         * @param outra A outra data a ser comparada.
+         * @return true se a data atual for anterior ou igual a 'outra'.
+         */
+        bool operator<=(const Data& outra) const;
+
+        /**
+         * @brief Sobrecarga do operador maior ou igual (>=) para comparar duas datas.
+         * @param outra A outra data a ser comparada.
+         * @return true se a data atual for posterior ou igual a 'outra'.
+         */
+        bool operator>=(const Data& outra) const;
+
+        bool operator<(const Data& outra) const;
 };
 
 inline int Data::getDia() const{
@@ -100,6 +121,42 @@ inline string Data::getMes() const{
 }
 inline int Data::getAno() const{
     return ano;
+}
+inline string Data::getData() const{
+    return to_string(dia) + "-" + mes + "-" + to_string(ano);
+}
+
+inline int getMesNumerico(const std::string& mes) {
+    if (mes == "JAN") return 1;
+    if (mes == "FEV") return 2;
+    // ... e assim por diante para todos os 12 meses
+    if (mes == "DEZ") return 12;
+    return 0; // Erro ou placeholder
+}
+
+// Assinatura do operador < (útil para implementar <= e >=)
+inline bool Data::operator<(const Data& outra) const {
+    if (ano != outra.ano) {
+        return ano < outra.ano;
+    }
+    // Implementação ideal: usar getMesNumerico para evitar comparação de string alfabética.
+    int thisMes = getMesNumerico(mes);
+    int outraMes = getMesNumerico(outra.mes);
+
+    if (thisMes != outraMes) {
+        return thisMes < outraMes;
+    }
+    return dia < outra.dia;
+}
+
+// Implementação do operador <=
+inline bool Data::operator<=(const Data& outra) const {
+    return (*this < outra) || (this->ano == outra.ano && this->mes == outra.mes && this->dia == outra.dia);
+}
+
+// Implementação do operador >=
+inline bool Data::operator>=(const Data& outra) const {
+    return !(*this < outra); // Se não for menor, é maior ou igual
 }
 
 #endif // DATA_HPP_INCLUDED

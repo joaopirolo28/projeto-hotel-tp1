@@ -17,6 +17,26 @@ struct ReservaData {
     bool found = false;
 };
 
+static int listar_reservas_callback(void *data, int argc, char **argv, char **azColName) {
+    std::vector<Reserva> *lista = reinterpret_cast<std::vector<Reserva>*>(data);
+    Reserva r;
+
+    try {
+        r.setCodigo(Codigo(argv[0] ? argv[0] : ""));
+
+        r.setValor(Dinheiro(std::stod(argv[3] ? argv[3] : "0.0")));
+        r.setEmailHospede(Email(argv[4] ? argv[4] : ""));
+        r.setCodigoHotel(Codigo(argv[5] ? argv[5] : ""));
+        r.setNumeroQuarto(Numero(std::stoi(argv[6] ? argv[6] : "0")));
+
+    } catch (const std::exception&) {
+        return 1;
+    }
+
+    lista->push_back(r);
+    return 0;
+}
+
 
 static int retrieve_reserva_data(void *data, int argc, char **argv, char **azColName) {
     ReservaData *pData = (ReservaData*)data;
@@ -61,12 +81,12 @@ bool PersistenciaReserva::cadastrar(const Reserva& reserva) {
         "INSERT INTO RESERVAS (CODIGO, DATA_CHEGADA, DATA_PARTIDA, VALOR, EMAIL_HOSPEDE, CODIGO_HOTEL, NUMERO_QUARTO) "
         "VALUES ('%q', '%q', '%q', '%q', '%q', '%q', '%q');",
         reserva.getCodigo().getValor().c_str(),
-        reserva.getDataChegada().getValorCompleto().c_str(), // Assumindo getter getValorCompleto()
-        reserva.getDataPartida().getValorCompleto().c_str(), // Assumindo getter getValorCompleto()
-        reserva.getValor().getValorString().c_str(), // Assumindo getter getValorString()
-        reserva.getEmailHospede().getValor().c_str(), // Assumindo getter getEmailHospede()
-        reserva.getCodigoHotel().getValor().c_str(),   // Assumindo getter getCodigoHotel()
-        reserva.getNumeroQuarto().getValor().c_str()    // Assumindo getter getNumeroQuarto()
+        reserva.getChegada().getData().c_str(),
+        reserva.getPartida().getData().c_str(),
+        std::to_string(reserva.getValor().getValor()).c_str(),
+        reserva.getEmailHospede().getEmail().c_str(),
+        reserva.getCodigoHotel().getValor().c_str(),
+        std::to_string(reserva.getNumeroQuarto().getValor()).c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
@@ -92,12 +112,12 @@ Reserva PersistenciaReserva::consultar(const Codigo& codigo) {
 bool PersistenciaReserva::editar(const Reserva& reserva) {
     char *sql = sqlite3_mprintf(
         "UPDATE RESERVAS SET DATA_CHEGADA='%q', DATA_PARTIDA='%q', VALOR='%q', EMAIL_HOSPEDE='%q', CODIGO_HOTEL='%q', NUMERO_QUARTO='%q' WHERE CODIGO='%q';",
-        reserva.getDataChegada().getValorCompleto().c_str(),
-        reserva.getDataPartida().getValorCompleto().c_str(),
-        reserva.getValor().getValorString().c_str(),
-        reserva.getEmailHospede().getValor().c_str(),
+        reserva.getChegada().getData().c_str(),
+        reserva.getPartida().getData().c_str(),
+        std::to_string(reserva.getValor().getValor()).c_str(),
+        reserva.getEmailHospede().getEmail().c_str(),
         reserva.getCodigoHotel().getValor().c_str(),
-        reserva.getNumeroQuarto().getValor().c_str(),
+        std::to_string(reserva.getNumeroQuarto().getValor()).c_str(),
         reserva.getCodigo().getValor().c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
@@ -121,7 +141,7 @@ std::vector<Reserva> PersistenciaReserva::listarPorHospede(const Email& emailHos
     std::vector<Reserva> lista;
     char *sql = sqlite3_mprintf(
         "SELECT CODIGO, DATA_CHEGADA, DATA_PARTIDA, VALOR, EMAIL_HOSPEDE, CODIGO_HOTEL, NUMERO_QUARTO FROM RESERVAS WHERE EMAIL_HOSPEDE = '%q';",
-        emailHospede.getValor().c_str()
+        emailHospede.getEmail().c_str()
     );
 
     int rc = sqlite3_exec(this->db_connection, sql, listar_reservas_callback, &lista, nullptr);
@@ -138,7 +158,7 @@ std::vector<Reserva> PersistenciaReserva::listarReservasPorQuarto(const Codigo& 
     char *sql = sqlite3_mprintf(
         "SELECT CODIGO, DATA_CHEGADA, DATA_PARTIDA, VALOR, EMAIL_HOSPEDE, CODIGO_HOTEL, NUMERO_QUARTO FROM RESERVAS WHERE CODIGO_HOTEL = '%q' AND NUMERO_QUARTO = '%q';",
         codigoHotel.getValor().c_str(),
-        numeroQuarto.getValor().c_str()
+        std::to_string(numeroQuarto.getValor()).c_str()
     );
 
     int rc = sqlite3_exec(this->db_connection, sql, listar_reservas_callback, &lista, nullptr);
