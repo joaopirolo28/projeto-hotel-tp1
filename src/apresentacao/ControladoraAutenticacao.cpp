@@ -13,7 +13,7 @@ ControladoraAutenticacao::ControladoraAutenticacao(
     : servicoAutenticacao(std::move(servicoAuth)),
       servicoGerente(std::move(servicoGerente))
 {
-    // O construtor está vazio, mas inicializa os membros corretamente
+
 }
 
 void ControladoraAutenticacao::solicitarCadastro() {

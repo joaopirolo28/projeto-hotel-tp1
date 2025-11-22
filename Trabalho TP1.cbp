@@ -869,8 +869,14 @@
 		<Unit filename="html/telefone_8hpp_source.html" />
 		<Unit filename="html/testes_8hpp_source.html" />
 		<Unit filename="include/apresentacao/ControladoraAutenticacao.hpp" />
+		<Unit filename="include/apresentacao/ControladoraGerente.hpp" />
+		<Unit filename="include/apresentacao/ControladoraHotel.hpp" />
+		<Unit filename="include/apresentacao/ControladoraQuarto.hpp" />
 		<Unit filename="include/apresentacao/ControladoraSistema.hpp" />
 		<Unit filename="include/apresentacao/IControladoraAutenticacao.hpp" />
+		<Unit filename="include/apresentacao/IControladoraGerente.hpp" />
+		<Unit filename="include/apresentacao/IControladoraHotel.hpp" />
+		<Unit filename="include/apresentacao/IControladoraQuarto.hpp" />
 		<Unit filename="include/apresentacao/IControladoraSistema.hpp" />
 		<Unit filename="include/dominios/capacidade.hpp" />
 		<Unit filename="include/dominios/cartao.hpp" />
@@ -1027,6 +1033,10 @@
 		</Unit>
 		<Unit filename="sqlite_lib/sqlite3.h" />
 		<Unit filename="sqlite_lib/sqlite3ext.h" />
+		<Unit filename="src/apresentacao/ControladoraAutenticacao.cpp" />
+		<Unit filename="src/apresentacao/ControladoraGerente.cpp" />
+		<Unit filename="src/apresentacao/ControladoraHotel.cpp" />
+		<Unit filename="src/apresentacao/ControladoraQuarto.cpp" />
 		<Unit filename="src/apresentacao/ControladoraSistema.cpp" />
 		<Unit filename="src/dominios/capacidade.cpp" />
 		<Unit filename="src/dominios/cartao.cpp" />

@@ -436,10 +436,11 @@
 	<iostream>
 	<memory>
 
-1763830486 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladorasistema.hpp
+1763839525 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladorasistema.hpp
 	"apresentacao/IControladoraSistema.hpp"
 	"apresentacao/ControladoraAutenticacao.hpp"
 	"apresentacao/IControladoraAutenticacao.hpp"
+	"apresentacao/ControladoraGerente.hpp"
 	"servico/FabricaServico.hpp"
 
 1763596970 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladorasistema.hpp
@@ -456,9 +457,12 @@
 	<memory>
 	<iostream>
 
-1763834977 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorasistema.cpp
+1763839776 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorasistema.cpp
 	"apresentacao/ControladoraSistema.hpp"
 	"apresentacao/ControladoraAutenticacao.hpp"
+	"apresentacao/ControladoraHotel.hpp"
+	"apresentacao/ControladoraQuarto.hpp"
+	"apresentacao/ControladoraGerente.hpp"
 	"interfaces/interfaces.hpp"
 	"dominios/dominios.hpp"
 	"servico/FabricaServico.hpp"
@@ -779,10 +783,69 @@
 	<stdexcept>
 	<algorithm>
 
-1763835278 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladoraautenticacao.cpp
+1763835433 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladoraautenticacao.cpp
 	"apresentacao/ControladoraAutenticacao.hpp"
 	"dominios/dominios.hpp"
 	<iostream>
 	<stdexcept>
 	<limits>
+
+1763839083 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladoragerente.cpp
+	"apresentacao/ControladoraGerente.hpp"
+	"apresentacao/IControladoraHotel.hpp"
+	"interfaces/interfaces.hpp"
+	<iostream>
+	<limits>
+
+1763839252 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladoragerente.hpp
+	"apresentacao/IControladoraGerente.hpp"
+	"apresentacao/IControladoraHotel.hpp"
+	"apresentacao/IControladoraQuarto.hpp"
+	"interfaces/interfaces.hpp"
+	<memory>
+	<iostream>
+
+1763835805 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladoragerente.hpp
+	<string>
+
+1763836169 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladorahotel.hpp
+	<string>
+
+1763840782 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladorahotel.cpp
+	"apresentacao/ControladoraHotel.hpp"
+	"interfaces/interfaces.hpp"
+	"entidades/entidades.hpp"
+	"dominios/dominios.hpp"
+	<iostream>
+	<limits>
+	<stdexcept>
+	<iomanip>
+
+1763840753 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladorahotel.hpp
+	"apresentacao/IControladoraHotel.hpp"
+	"interfaces/interfaces.hpp"
+	"entidades/entidades.hpp"
+	<memory>
+	<iostream>
+
+1763840825 source:c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\src\apresentacao\controladoraquarto.cpp
+	"apresentacao/ControladoraQuarto.hpp"
+	"interfaces/interfaces.hpp"
+	"entidades/entidades.hpp"
+	"dominios/dominios.hpp"
+	<iostream>
+	<limits>
+	<stdexcept>
+	<string>
+	<iomanip>
+
+1763840808 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\controladoraquarto.hpp
+	"apresentacao/IControladoraQuarto.hpp"
+	"interfaces/interfaces.hpp"
+	"entidades/entidades.hpp"
+	<memory>
+	<iostream>
+
+1763836897 c:\users\jppoe\documents\programação\tp1\projeto-hotel-tp1\include\apresentacao\icontroladoraquarto.hpp
+	<string>
 
