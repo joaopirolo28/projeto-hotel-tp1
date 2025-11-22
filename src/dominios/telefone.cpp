@@ -1,7 +1,7 @@
 #include"dominios/telefone.hpp"
 #include<cctype>
 
-void Telefone::validar(string){
+void Telefone::validar(const string& valor){
     if(valor.front()!='+'){
         throw invalid_argument("Telefone deve comecar com '+'.");
     }

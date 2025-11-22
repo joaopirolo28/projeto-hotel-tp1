@@ -30,7 +30,7 @@ private:
      * @param valor String contendo o telefone a ser validado.
      * @throw invalid_argument se o telefone for inválido.
      */
-    void validar(string);
+    void validar(const string& );
 
 public:
     /**

@@ -17,7 +17,7 @@ Hotel ControladoraHotel::coletarDadosHotel() {
     string nomeStr, enderecoStr, telefoneStr, codigoStr;
 
 
-    cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     cout << "Nome do Hotel: ";
     getline(cin, nomeStr);
@@ -25,8 +25,10 @@ Hotel ControladoraHotel::coletarDadosHotel() {
     cout << "Endereco: ";
     getline(cin, enderecoStr);
 
-    cout << "Telefone (+DD DDDDDDDDD): ";
+    cout << "Telefone (+DD DDDDDDDDD -  SEM ESPACOS): ";
     cin >> telefoneStr;
+
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     cout << "Codigo (10 caracteres, letras/digitos): ";
     cin >> codigoStr;
