@@ -21,29 +21,23 @@ ControladoraReserva::ControladoraReserva(
       servicoHotel(sHotel),
       servicoHospede(sHospede)
 {
-    // Armazena as referências raw dos serviços. A posse é da ControladoraGerente.
 }
-
-// --- Método Auxiliar de Coleta ---
 
 Reserva ControladoraReserva::coletarDadosReserva() {
     string codigoStr, diaChegadaStr, mesChegadaStr, anoChegadaStr;
     string diaPartidaStr, mesPartidaStr, anoPartidaStr;
     string valorStr;
 
-    // Limpeza inicial do buffer
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     cout << "Codigo da Reserva (10 caracteres): ";
     cin >> codigoStr;
 
-    // Datas de Chegada
     cout << "\n--- Data de Chegada (Dia Mes Ano) ---" << endl;
     cout << "Dia (1-31): "; cin >> diaChegadaStr;
     cout << "Mes (JAN-DEZ): "; cin >> mesChegadaStr;
     cout << "Ano (2000-2999): "; cin >> anoChegadaStr;
 
-    // Datas de Partida
     cout << "\n--- Data de Partida (Dia Mes Ano) ---" << endl;
     cout << "Dia (1-31): "; cin >> diaPartidaStr;
     cout << "Mes (JAN-DEZ): "; cin >> mesPartidaStr;
@@ -52,9 +46,6 @@ Reserva ControladoraReserva::coletarDadosReserva() {
     cout << "\nValor da Reserva (ex: 1200.00): ";
     cin >> valorStr;
 
-    // --- VALIDAÇÃO DE DOMÍNIO ---
-
-    // Converte e valida Datas (assumindo que o Domínio Data lida com bissextos e validade)
     Data chegada(stoi(diaChegadaStr), mesChegadaStr, stoi(anoChegadaStr));
     Data partida(stoi(diaPartidaStr), mesPartidaStr, stoi(anoPartidaStr));
 
@@ -70,35 +61,25 @@ Reserva ControladoraReserva::coletarDadosReserva() {
     return novaReserva;
 }
 
-// --- Métodos Privados de CRUD ---
 
 void ControladoraReserva::realizarReserva() {
     cout << "\n--- REALIZAR RESERVA ---" << endl;
     string emailHospedeStr, codigoHotelStr, numeroQuartoStr;
 
     try {
-        // 1. Coleta e Validação dos dados básicos da Reserva
         Reserva novaReserva = coletarDadosReserva();
 
-        // 2. Coleta de dados de vínculo (Hóspede e Quarto)
         cout << "\n--- VINCULO DA RESERVA ---" << endl;
         cout << "Email do Hospede Responsavel: "; cin >> emailHospedeStr;
         cout << "Codigo do Hotel: "; cin >> codigoHotelStr;
         cout << "Numero do Quarto Desejado: "; cin >> numeroQuartoStr;
 
-        // 3. Validação de Vínculo e Existência (Camada de Apresentação e Serviço)
         Email emailHospede(emailHospedeStr);
         Codigo codigoHotel(codigoHotelStr);
         Numero numeroQuarto(stoi(numeroQuartoStr));
 
-        // Verifica se o Hóspede existe (Chamada ao IServicoHospede)
         servicoHospede->consultarHospede(emailHospede);
 
-        // 4. Chamada ao Serviço de Reserva
-        // O IServicoReservas deve internamente:
-        // a) Verificar se o quarto existe (usando IServicoHotel)
-        // b) Verificar conflito de datas para aquele quarto.
-        // c) Persistir o registro, vinculando Email e Quarto/Hotel.
 
         if (servicoReserva->cadastrarReserva(novaReserva, emailHospede, codigoHotel, numeroQuarto)) {
             cout << "\n Reserva cadastrada com sucesso! Codigo: " << novaReserva.getCodigo().getValor() << endl;
@@ -109,7 +90,7 @@ void ControladoraReserva::realizarReserva() {
     } catch (const invalid_argument& e) {
         cout << "\n ERRO DE FORMATO: " << e.what() << endl;
     } catch (const runtime_error& e) {
-        // Captura erro de Hóspede inexistente, Hotel inexistente, ou falha de negócio
+
         cout << "\n ERRO NA RESERVA: " << e.what() << endl;
     }
 }
@@ -128,7 +109,7 @@ void ControladoraReserva::consultarReserva() {
         cout << "   Chegada: " << reserva.getChegada().getDia() << "/" << reserva.getChegada().getMes() << "/" << reserva.getChegada().getAno() << endl;
         cout << "   Partida: " << reserva.getPartida().getDia() << "/" << reserva.getPartida().getMes() << "/" << reserva.getPartida().getAno() << endl;
         cout << "   Valor: R$ " << fixed << setprecision(2) << reserva.getValor().getValor() << endl;
-        // ... (Seria ideal mostrar o Hóspede e o Quarto vinculado)
+
 
     } catch (const invalid_argument& e) {
         cout << "\n ERRO DE FORMATO: Codigo invalido. " << e.what() << endl;
@@ -196,8 +177,8 @@ void ControladoraReserva::listarReservas() {
         for (const auto& reserva : reservas) {
             cout << "---------------------------------" << endl;
             cout << "Codigo: " << reserva.getCodigo().getValor() << endl;
-            cout << "Chegada: " << reserva.getChegada().getDia() << "/" << reserva.getChegada().getMes() << endl;
-            cout << "Partida: " << reserva.getPartida().getDia() << "/" << reserva.getPartida().getMes() << endl;
+            cout << "Chegada: " << reserva.getChegada().getDia() << "/" << reserva.getChegada().getMes() << "/" << reserva.getChegada().getAno() << endl;
+            cout << "Partida: " << reserva.getPartida().getDia() << "/" << reserva.getPartida().getMes() << "/" << reserva.getPartida().getAno() << endl;
         }
         cout << "---------------------------------" << endl;
 
@@ -207,8 +188,6 @@ void ControladoraReserva::listarReservas() {
         cout << "\n ERRO NA LISTAGEM: " << e.what() << endl;
     }
 }
-
-// --- Método Público de Execução ---
 
 void ControladoraReserva::executar() {
     int opcao;

@@ -280,31 +280,6 @@ public:
     virtual void menuGerente() = 0;
 };
 
-/**
- * @brief Interface para a gestão de Hotéis na Camada de Apresentação.
- */
-class IApresentacaoHotel {
-public:
-    virtual ~IApresentacaoHotel() = default;
-
-    /**
-     * @brief Exibe o menu de gestão e CRUD para hotéis.
-     */
-    virtual void menuHotel() = 0;
-};
-
-/**
- * @brief Interface para a gestão de Quartos na Camada de Apresentação.
- */
-class IApresentacaoQuarto {
-public:
-    virtual ~IApresentacaoQuarto() = default;
-
-    /**
-     * @brief Exibe o menu de gestão e CRUD para quartos.
-     */
-    virtual void menuQuarto() = 0;
-};
 
 /**
  * @brief Interface para a gestão de Reservas na Camada de Apresentação.

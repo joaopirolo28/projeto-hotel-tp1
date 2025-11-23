@@ -30,6 +30,10 @@ bool ServicoReserva::cadastrarReserva(const Reserva& reserva, const Email& email
         numeroQuarto
     );
 
+    novaReserva.setEmailHospede(emailHospede);
+    novaReserva.setCodigoHotel(codigoHotel);
+    novaReserva.setNumeroQuarto(numeroQuarto);
+
     for (const auto& existente : reservasExistentes) {
         if (verificaConflito(novaReserva, existente)) {
             throw runtime_error("Erro de Negocio: Conflito de datas com uma reserva existente para este quarto.");
@@ -52,8 +56,8 @@ Reserva ServicoReserva::consultarReserva(Codigo codigo) {
 bool ServicoReserva::editarReserva(Reserva reserva) {
 
     vector<Reserva> reservasExistentes = persistencia->listarReservasPorQuarto(
-        reserva.getCodigoHotel(), // Primeiro argumento
-        reserva.getNumeroQuarto() // Segundo argumento
+        reserva.getCodigoHotel(),
+        reserva.getNumeroQuarto()
     );
 
     for (const auto& existente : reservasExistentes) {

@@ -10,8 +10,6 @@
 
 using namespace std;
 
-// Funcao Auxiliar: Usada para ler uma linha de texto do console.
-// Necessaria para evitar conflitos de buffer do cin.
 string solicitarNovoValor(const string& prompt) {
     string valor;
     cout << prompt;
@@ -100,7 +98,6 @@ void ControladoraHotel::consultarHotel() {
     }
 }
 
-// --- MÉTODO EDITAR HOTEL (CORRIGIDO COM MENU) ---
 void ControladoraHotel::editarHotel() {
     cout << "\n--- EDICAO DE HOTEL ---" << endl;
     string codigoStr;
@@ -109,7 +106,6 @@ void ControladoraHotel::editarHotel() {
 
     try {
         Codigo codigo(codigoStr);
-        // 1. Consulta o hotel existente para obter os dados atuais
         Hotel hotelAtualizado = servicoHotel->consultarHotel(codigo);
 
         cout << "Hotel '" << hotelAtualizado.getNome().getNome() << "' encontrado." << endl;
@@ -125,25 +121,24 @@ void ControladoraHotel::editarHotel() {
 
         if (opcao == 0) return;
 
-        // 2. Coleta e valida o novo valor
         string novoValorStr;
         switch (opcao) {
             case 1: {
                 novoValorStr = solicitarNovoValor("Digite o NOVO Nome: ");
-                Nome novoNome(novoValorStr); // Valida o domínio
-                hotelAtualizado.setNome(novoNome); // Aplica a mudanca
+                Nome novoNome(novoValorStr);
+                hotelAtualizado.setNome(novoNome);
                 break;
             }
             case 2: {
                 novoValorStr = solicitarNovoValor("Digite o NOVO Endereco: ");
-                Endereco novoEndereco(novoValorStr); // Valida o domínio
-                hotelAtualizado.setEndereco(novoEndereco); // Aplica a mudanca
+                Endereco novoEndereco(novoValorStr);
+                hotelAtualizado.setEndereco(novoEndereco);
                 break;
             }
             case 3: {
                 novoValorStr = solicitarNovoValor("Digite o NOVO Telefone (+DD...): ");
-                Telefone novoTelefone(novoValorStr); // Valida o domínio
-                hotelAtualizado.setTelefone(novoTelefone); // Aplica a mudanca
+                Telefone novoTelefone(novoValorStr);
+                hotelAtualizado.setTelefone(novoTelefone);
                 break;
             }
             default: {
@@ -152,7 +147,6 @@ void ControladoraHotel::editarHotel() {
             }
         }
 
-        // 3. Chama o serviço com a entidade atualizada
         if (servicoHotel->editarHotel(hotelAtualizado)) {
             cout << "\n Hotel '" << hotelAtualizado.getNome().getNome() << "' editado com sucesso!" << endl;
         } else {

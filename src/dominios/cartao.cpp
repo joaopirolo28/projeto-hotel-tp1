@@ -41,7 +41,7 @@ void Cartao::validar(string valorCartao){
         }
 
         soma += digito;
-        dobra = !dobra; // Alterna para o próximo dígito
+        dobra = !dobra;
     }
 
     if(soma%10 != 0){

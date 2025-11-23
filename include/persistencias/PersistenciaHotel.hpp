@@ -7,7 +7,7 @@
 #ifndef PERSISTENCIAHOTEL_HPP
 #define PERSISTENCIAHOTEL_HPP
 
-#include "interfaces/IPersistenciaHotel.hpp"
+#include "persistencias/IPersistenciaHotel.hpp"
 #include "entidades/hotel.hpp"
 #include "dominios/codigo.hpp"
 #include <sqlite3.h>

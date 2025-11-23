@@ -1,9 +1,9 @@
 #include "persistencias/persistenciaHospede.hpp"
-#include "entidades/hospede.hpp" 
+#include "entidades/hospede.hpp"
 #include "dominios/email.hpp"
-#include "dominios/nome.hpp" 
-#include "dominios/endereco.hpp" 
-#include "dominios/cartao.hpp" 
+#include "dominios/nome.hpp"
+#include "dominios/endereco.hpp"
+#include "dominios/cartao.hpp"
 
 #include <stdexcept>
 #include <iostream>
@@ -33,7 +33,7 @@ static int retrieve_hospede_data(void *data, int argc, char **argv, char **azCol
         pData->found = true;
 
     } catch (const invalid_argument&) {
-        return 1;  
+        return 1;
     }
 
     return 0;
@@ -64,7 +64,6 @@ PersistenciaHospede::~PersistenciaHospede() {
     }
 }
 
-// Callback para listar todos os hospedes
 static int listar_hospedes_callback(void *data, int argc, char **argv, char **azColName) {
     vector<Hospede> *lista = reinterpret_cast<vector<Hospede>*>(data);
     Hospede h;
@@ -119,6 +118,8 @@ Hospede PersistenciaHospede::consultar(const Email& email) {
 
 
 bool PersistenciaHospede::editar(const Hospede& hospede) {
+    char *errorMessage = nullptr;
+
     char *sql = sqlite3_mprintf(
         "UPDATE HOSPEDES SET NOME='%q', ENDERECO='%q', CARTAO='%q' WHERE EMAIL='%q';",
         hospede.getNome().getNome().c_str(),
@@ -127,8 +128,23 @@ bool PersistenciaHospede::editar(const Hospede& hospede) {
         hospede.getEmail().getEmail().c_str()
     );
 
-    int rc = sqlite3_exec(db_connection, sql, nullptr, nullptr, nullptr);
+    int rc = sqlite3_exec(db_connection, sql, nullptr, nullptr, &errorMessage);
     sqlite3_free(sql);
+
+    if(rc != SQLITE_OK){
+        string errorMsg = "Erro SQL ao editar hospede: ";
+        if(errorMessage){
+            errorMsg += errorMessage;
+            sqlite3_free(errorMessage);
+        }
+        throw runtime_error(errorMsg);
+    }
+
+    int changes = sqlite3_changes(db_connection);
+
+    if(changes == 0){
+        throw runtime_error("Nao foi possivel encontrar e editar o hospede. O EMAIL nao existe no banco de dados.");
+    }
 
     return rc == SQLITE_OK && sqlite3_changes(db_connection) > 0;
 }
@@ -149,7 +165,7 @@ bool PersistenciaHospede::excluir(const Email& email) {
 
 vector<Hospede> PersistenciaHospede::listarTodos() {
     vector<Hospede> lista;
-    
+
     const char *sql = "SELECT EMAIL, NOME, ENDERECO, CARTAO FROM HOSPEDES;";
 
     int rc = sqlite3_exec(db_connection, sql, listar_hospedes_callback, &lista, nullptr);

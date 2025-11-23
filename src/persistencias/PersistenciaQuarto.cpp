@@ -1,7 +1,3 @@
-/**
- * @file PersistenciaQuarto.cpp
- * @brief Implementação da lógica de CRUD para a entidade Quarto usando SQLite.
- */
 #include "persistencias/PersistenciaQuarto.hpp"
 #include "entidades/entidades.hpp"
 #include "dominios/dominios.hpp"

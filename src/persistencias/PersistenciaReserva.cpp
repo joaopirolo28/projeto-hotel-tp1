@@ -1,7 +1,3 @@
-/**
- * @file PersistenciaReserva.cpp
- * @brief Implementação da lógica de CRUD para a entidade Reserva usando SQLite.
- */
 #include "persistencias/PersistenciaReserva.hpp"
 #include "entidades/entidades.hpp"
 #include "dominios/dominios.hpp"
@@ -18,18 +14,27 @@ struct ReservaData {
 };
 
 static int listar_reservas_callback(void *data, int argc, char **argv, char **azColName) {
-    std::vector<Reserva> *lista = reinterpret_cast<std::vector<Reserva>*>(data);
+    vector<Reserva> *lista = reinterpret_cast<vector<Reserva>*>(data);
     Reserva r;
 
     try {
         r.setCodigo(Codigo(argv[0] ? argv[0] : ""));
 
+        Data tempChegada;
+        tempChegada.setValorDB(argv[1] ? argv[1] : "01-JAN-2000");
+        r.setChegada(tempChegada);
+
+        Data tempPartida;
+        tempPartida.setValorDB(argv[2] ? argv[2] : "01-JAN-2000");
+        r.setPartida(tempPartida);
+
         r.setValor(Dinheiro(std::stod(argv[3] ? argv[3] : "0.0")));
+
         r.setEmailHospede(Email(argv[4] ? argv[4] : ""));
         r.setCodigoHotel(Codigo(argv[5] ? argv[5] : ""));
         r.setNumeroQuarto(Numero(std::stoi(argv[6] ? argv[6] : "0")));
 
-    } catch (const std::exception&) {
+    } catch (const exception&) {
         return 1;
     }
 
@@ -43,8 +48,22 @@ static int retrieve_reserva_data(void *data, int argc, char **argv, char **azCol
 
     try {
         pData->result.setCodigo(Codigo(argv[0] ? argv[0] : ""));
+
+        Data tempChegada;
+        tempChegada.setValorDB(argv[1] ? argv[1] : "01-JAN-2000");
+        pData->result.setChegada(tempChegada);
+
+        Data tempPartida;
+        tempPartida.setValorDB(argv[2] ? argv[2] : "01-JAN-2000");
+        pData->result.setPartida(tempPartida);
+
+        pData->result.setValor(Dinheiro(std::stod(argv[3] ? argv[3] : "0.0")));
+
+        pData->result.setEmailHospede(Email(argv[4] ? argv[4] : ""));
+        pData->result.setCodigoHotel(Codigo(argv[5] ? argv[5] : ""));
+        pData->result.setNumeroQuarto(Numero(std::stoi(argv[6] ? argv[6] : "0")));
         pData->found = true;
-    } catch (const invalid_argument&) {
+    } catch (const exception&) {
         return 1;
     }
     return 0;

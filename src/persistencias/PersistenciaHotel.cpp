@@ -1,4 +1,3 @@
-
 #include "persistencias/PersistenciaHotel.hpp"
 #include "entidades/entidades.hpp"
 #include "dominios/dominios.hpp"
@@ -47,12 +46,19 @@ static int listar_hoteis_callback(void *data, int argc, char **argv, char **azCo
     vector<Hotel> *lista = reinterpret_cast<vector<Hotel>*>(data);
     Hotel h;
 
+    if(argc != 4){
+        cerr << "ERRO CALLBACK: Numero incorreto de colunas." << endl;
+        return 1;
+    }
+
     try {
         h.setCodigo(Codigo(argv[0] ? argv[0] : ""));
         h.setNome(Nome(argv[1] ? argv[1] : ""));
         h.setEndereco(Endereco(argv[2] ? argv[2] : ""));
-        h.setTelefone(Telefone(argv[3] ? argv[3] : ""));
-    } catch (const invalid_argument&) {
+        h.setTelefone(Telefone(argv[3] ? argv[3] : "+0000000000000"));
+        //h.setTelefone(Telefone(argv[3] ? argv[3] : ""));
+    } catch (const invalid_argument& e) {
+        cerr << "ERRO DE VALIDACAO EM CALLBACK: " << e.what() << endl;
         return 1;
     }
 

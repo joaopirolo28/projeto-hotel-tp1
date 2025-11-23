@@ -10,6 +10,7 @@
 #include <map>
 #include <string>
 #include <stdexcept>
+#include <sstream>
 
 using namespace std;
 /**
@@ -57,6 +58,11 @@ class Data{
         * Necessário para a criação de entidades (como Reserva) que contêm este domínio.
         */
         Data();
+
+        Data(const std::string& dataCompleta);
+
+        void setValorDB(const std::string& dataCompleta);
+
         /**
         * @brief Construtor com valor da classe Data (por componentes).
         * @details Inicializa o objeto com dia, mês e ano, que são imediatamente validados.

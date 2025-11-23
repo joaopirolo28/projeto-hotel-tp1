@@ -1,5 +1,6 @@
 #include "dominios/data.hpp"
 
+
 using namespace std;
 
 Data::Data(){}
@@ -45,4 +46,37 @@ bool Data::bissexto(int ano){
         return true;
     }
     return false;
+}
+
+void Data::setValorDB(const std::string& dataCompleta) {
+    if (dataCompleta.empty()) {
+        return;
+    }
+
+    stringstream ss(dataCompleta);
+    string diaStr, mesStr, anoStr;
+
+
+    try {
+        if (!getline(ss, diaStr, '-')) {
+            throw invalid_argument("Erro de parsing: Dia nao encontrado.");
+        }
+
+        if (!getline(ss, mesStr, '-')) {
+            throw invalid_argument("Erro de parsing: Mes nao encontrado.");
+        }
+
+        if (!getline(ss, anoStr)) {
+            throw invalid_argument("Erro de parsing: Ano nao encontrado.");
+        }
+
+        int diaInt = std::stoi(diaStr);
+        int anoInt = std::stoi(anoStr);
+
+        setData(diaInt, mesStr, anoInt);
+
+    } catch (const invalid_argument& e) {
+
+        throw invalid_argument("Data com formato incorreto (DD-MMM-AAAA): " + std::string(e.what()));
+    }
 }
