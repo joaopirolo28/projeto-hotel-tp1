@@ -1,7 +1,7 @@
 /**
  * @file IControladoraHotel.hpp
- * @brief Definição da interface para a Controladora de Gerenciamento de Hotéis.
- * @author João Pedro
+ * @brief DefiniÃ§Ã£o da interface para a Controladora de Gerenciamento de HotÃ©is.
+ * @author JoÃ£o Pedro
  * @date 22/11/2025
  */
 
@@ -11,22 +11,21 @@
 #include <string>
 
 /**
- * @brief Interface que define o contrato para a Controladora de Hotéis.
- * @details Esta controladora é responsável por gerenciar o fluxo de interações
- * do usuário (através do console ou GUI) para as operações CRUD (Criar, Ler,
+ * @brief Interface que define o contrato para a Controladora de HotÃ©is.
+ * @details Esta controladora Ã© responsÃ¡vel por gerenciar o fluxo de interaÃ§Ãµes
+ * do usuÃ¡rio (atravÃ©s do console ou GUI) para as operaÃ§Ãµes CRUD (Criar, Ler,
  * Editar, Excluir) da entidade Hotel, conforme o Requisito Funcional 2.
  */
 class IControladoraHotel {
 public:
     /**
-     * @brief Destrutor virtual para garantir a desalocação correta de classes derivadas.
+     * @brief Destrutor virtual para garantir a desalocaÃ§Ã£o correta de classes derivadas.
      */
     virtual ~IControladoraHotel() {}
 
     /**
-     * @brief Inicia o fluxo de operações de CRUD de Hotéis.
-     * @details Exibe o menu de gerenciamento de hotéis e chama as funções
-     * de cadastro, consulta, edição, exclusão e listagem.
+     * @brief Inicia o fluxo de operaÃ§Ãµes de CRUD de HotÃ©is.
+     * @details Exibe o menu de gerenciamento de hotÃ©is e implementa o loop principal de navegaÃ§Ã£o.
      */
     virtual void executar() = 0;
 };

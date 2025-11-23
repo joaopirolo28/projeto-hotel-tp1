@@ -1,7 +1,7 @@
 /**
  * @file ControladoraReserva.hpp
- * @brief Definição da classe concreta para a Controladora de Gerenciamento de Reservas (CRUD).
- * @author João Pedro
+ * @brief DefiniÃ§Ã£o da classe concreta para a Controladora de Gerenciamento de Reservas (CRUD).
+ * @author JoÃ£o Pedro
  * @date 22/11/2025
  */
 
@@ -17,42 +17,40 @@
 #include <vector>
 
 /**
- * @brief Implementação concreta da interface IControladoraReserva.
- * @details Esta classe é responsável por interagir diretamente com o usuário (via console),
- * coletar dados da Reserva (Código, Datas, Quarto, Hóspede) e chamar os métodos
- * na Camada de Serviço (IServicoReservas) para realizar as operações de CRUD.
- * * Devido à complexidade da Reserva, esta controladora acessa diversos serviços para
- * verificar a disponibilidade de quartos e a existência de hóspedes.
+ * @brief ImplementaÃ§Ã£o concreta da interface IControladoraReserva.
+ * @details Esta classe Ã© responsÃ¡vel por interagir diretamente com o usuÃ¡rio (via console),
+ * coletar dados da Reserva (CÃ³digo, Datas, Quarto, HÃ³spede) e chamar os mÃ©todos
+ * na Camada de ServiÃ§o (IServicoReservas) para realizar as operaÃ§Ãµes de CRUD.
+ * Devido Ã  complexidade da Reserva, esta controladora acessa diversos serviÃ§os para
+ * verificar a disponibilidade de quartos e a existÃªncia de hÃ³spedes.
  */
 class ControladoraReserva : public IControladoraReserva {
 private:
     /**
-     * @brief Ponteiro raw para o Serviço de Gerenciamento de Reservas.
-     * @details Usado para chamar as operações de negócio (CRUD). A posse pertence a ControladoraGerente.
+     * @brief Ponteiro raw para o ServiÃ§o de Gerenciamento de Reservas.
+     * @details Usado para chamar as operaÃ§Ãµes de negÃ³cio (CRUD). A posse pertence a ControladoraGerente.
      */
     IServicoReserva* servicoReserva;
 
     /**
-     * @brief Ponteiro raw para o Serviço de Hotel.
-     * @details Usado para consultar informações de Hotéis e Quartos (necessário para a reserva).
+     * @brief Ponteiro raw para o ServiÃ§o de Hotel.
+     * @details Usado para consultar informaÃ§Ãµes de HotÃ©is e Quartos (necessÃ¡rio para a reserva).
      */
     IServicoHotel* servicoHotel;
 
     /**
-     * @brief Ponteiro raw para o Serviço de Hóspede.
-     * @details Usado para verificar a existência e consultar o Hóspede (necessário para a reserva).
+     * @brief Ponteiro raw para o ServiÃ§o de HÃ³spede.
+     * @details Usado para verificar a existÃªncia e consultar o HÃ³spede (necessÃ¡rio para a reserva).
      */
     IServicoHospede* servicoHospede;
-
-
 
 public:
     /**
      * @brief Construtor da ControladoraReserva.
-     * @details Implementa a Injeção de Dependência, recebendo as referências para os serviços necessários.
-     * @param sReserva Ponteiro raw para o Serviço de Reservas.
-     * @param sHotel Ponteiro raw para o Serviço de Hotel (para disponibilidade/preço).
-     * @param sHospede Ponteiro raw para o Serviço de Hóspede (para vincular o cliente).
+     * @details Implementa a InjeÃ§Ã£o de DependÃªncia, recebendo as referÃªncias para os serviÃ§os necessÃ¡rios.
+     * @param sReserva Ponteiro raw para o ServiÃ§o de Reservas.
+     * @param sHotel Ponteiro raw para o ServiÃ§o de Hotel (para disponibilidade/preÃ§o).
+     * @param sHospede Ponteiro raw para o ServiÃ§o de HÃ³spede (para vincular o cliente).
      */
     ControladoraReserva(
         IServicoReserva* sReserva,
@@ -61,53 +59,53 @@ public:
     );
 
     /**
-     * @brief Destrutor. Não precisa liberar memória, pois a posse dos ponteiros é da ControladoraGerente.
+     * @brief Destrutor. NÃ£o precisa liberar memÃ³ria, pois a posse dos ponteiros Ã© da ControladoraGerente.
      */
     virtual ~ControladoraReserva() {}
 
 
     /**
-     * @brief Inicia o fluxo de operações de CRUD de Reservas.
-     * @details Exibe o menu de opções (Cadastro, Consulta, Edição, Exclusão, Listagem).
+     * @brief Inicia o fluxo de operaÃ§Ãµes de CRUD de Reservas.
+     * @details Exibe o menu de opÃ§Ãµes (Cadastro, Consulta, EdiÃ§Ã£o, ExclusÃ£o, Listagem).
      */
     void executar() override;
 
 private:
     /**
-     * @brief Coleta dados (Código, Datas, Quarto, Hóspede) e chama o serviço para criar uma nova Reserva.
+     * @brief Coleta dados (CÃ³digo, Datas, Quarto, HÃ³spede) e chama o serviÃ§o para criar uma nova Reserva.
      */
     void realizarReserva();
 
     /**
-     * @brief Coleta o Código da Reserva e chama o serviço para consultar e exibir a Reserva.
+     * @brief Coleta o CÃ³digo da Reserva e chama o serviÃ§o para consultar e exibir a Reserva.
      */
     void consultarReserva();
 
     /**
-     * @brief Coleta dados atualizados e chama o serviço para editar uma Reserva existente.
-     * @details A edição pode incluir mudança de datas ou quarto, exigindo nova verificação de disponibilidade.
+     * @brief Coleta dados atualizados e chama o serviÃ§o para editar uma Reserva existente.
+     * @details A ediÃ§Ã£o pode incluir mudanÃ§a de datas ou quarto, exigindo nova verificaÃ§Ã£o de disponibilidade.
      */
     void editarReserva();
 
     /**
-     * @brief Coleta o Código da Reserva e chama o serviço para excluir a Reserva.
+     * @brief Coleta o CÃ³digo da Reserva e chama o serviÃ§o para excluir a Reserva.
      */
     void excluirReserva();
 
     /**
-     * @brief Chama o serviço para listar e exibir todas as Reservas.
+     * @brief Chama o serviÃ§o para listar e exibir todas as Reservas.
      */
     void listarReservas();
 
     /**
-     * @brief Função auxiliar para coletar os dados necessários de uma Reserva (código, datas).
-     * @return Um objeto Reserva preenchido com dados básicos.
+     * @brief FunÃ§Ã£o auxiliar para coletar os dados necessÃ¡rios de uma Reserva (cÃ³digo, datas).
+     * @return Um objeto Reserva preenchido com dados bÃ¡sicos.
      */
     Reserva coletarDadosReserva();
 
     /**
-     * @brief Função auxiliar para consultar disponibilidade de quartos para as datas especificadas.
-     * @details Interage com o servicoHotel para verificar se há quartos disponíveis.
+     * @brief FunÃ§Ã£o auxiliar para consultar disponibilidade de quartos para as datas especificadas.
+     * @details Interage com o servicoHotel para verificar se hÃ¡ quartos disponÃ­veis.
      */
     void consultarDisponibilidade();
 };

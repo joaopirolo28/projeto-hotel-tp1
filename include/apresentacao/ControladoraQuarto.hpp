@@ -1,7 +1,7 @@
 /**
  * @file ControladoraQuarto.hpp
- * @brief Definição da classe concreta para a Controladora de Gerenciamento de Quartos (CRUD).
- * @author João Pedro
+ * @brief DefiniÃ§Ã£o da classe concreta para a Controladora de Gerenciamento de Quartos (CRUD).
+ * @author JoÃ£o Pedro
  * @date 22/11/2025
  */
 
@@ -15,65 +15,66 @@
 #include <iostream>
 
 /**
- * @brief Implementação concreta da interface IControladoraQuarto.
- * @details Esta classe é responsável por interagir diretamente com o usuário
- * (via console), coletar dados de entrada, incluindo o Código do Hotel,
- * validar o formato usando Domínios, e chamar os métodos correspondentes
- * na Camada de Serviço (IServicoQuarto) para realizar as operações de CRUD.
+ * @brief ImplementaÃ§Ã£o concreta da interface IControladoraQuarto.
+ * @details Esta classe Ã© responsÃ¡vel por interagir diretamente com o usuÃ¡rio
+ * (via console), coletar dados de entrada, incluindo o CÃ³digo do Hotel,
+ * validar o formato usando DomÃ­nios, e chamar os mÃ©todos correspondentes
+ * na Camada de ServiÃ§o (IServicoQuarto) para realizar as operaÃ§Ãµes de CRUD.
  */
 class ControladoraQuarto : public IControladoraQuarto {
 private:
     /**
-     * @brief Ponteiro inteligente para o Serviço de Gerenciamento de Quartos.
-     * @details Usado para chamar as operações de negócio (CRUD).
+     * @brief Ponteiro para o ServiÃ§o de Gerenciamento de Quartos.
+     * @details Usado para chamar as operaÃ§Ãµes de negÃ³cio (CRUD).
      */
     IServicoQuarto* servicoQuarto;
 
 public:
     /**
      * @brief Construtor da ControladoraQuarto.
-     * @details Implementa a Injeção de Dependência, recebendo a posse do serviço
+     * @details Implementa a InjeÃ§Ã£o de DependÃªncia, recebendo o serviÃ§o
      * de Quartos.
-     * @param sQuarto Ponteiro inteligente para o Serviço de Quartos (posse é movida).
+     * @param sQuarto Ponteiro para o ServiÃ§o de Quartos.
      */
     ControladoraQuarto(IServicoQuarto* sQuarto);
 
     /**
-     * @brief Inicia o fluxo de operações de CRUD de Quartos.
-     * @details Exibe o menu de opções (Cadastro, Consulta, Edição, Exclusão, Listagem).
+     * @brief Inicia o fluxo de operaÃ§Ãµes de CRUD de Quartos.
+     * @details Exibe o menu de opÃ§Ãµes (Cadastro, Consulta, EdiÃ§Ã£o, ExclusÃ£o, Listagem).
      */
     void executar() override;
 
 private:
     /**
-     * @brief Coleta dados (incluindo o Código do Hotel) e chama o serviço para cadastrar um novo Quarto.
+     * @brief Coleta dados (incluindo o CÃ³digo do Hotel) e chama o serviÃ§o para cadastrar um novo Quarto.
      */
     void cadastrarQuarto();
 
     /**
-     * @brief Coleta o código do Hotel e o número do Quarto e chama o serviço para consultar e exibir o Quarto.
+     * @brief Coleta o cÃ³digo do Hotel e o nÃºmero do Quarto e chama o serviÃ§o para consultar e exibir o Quarto.
      */
     void consultarQuarto();
 
     /**
-     * @brief Coleta dados (incluindo o Código do Hotel) e chama o serviço para editar um Quarto existente.
+     * @brief Coleta dados (incluindo o CÃ³digo do Hotel) e chama o serviÃ§o para editar um Quarto existente.
      */
     void editarQuarto();
 
     /**
-     * @brief Coleta o código do Hotel e o número do Quarto e chama o serviço para excluir o Quarto.
+     * @brief Coleta o cÃ³digo do Hotel e o nÃºmero do Quarto e chama o serviÃ§o para excluir o Quarto.
      */
     void excluirQuarto();
 
     /**
-     * @brief Coleta o código do Hotel e chama o serviço para listar e exibir todos os Quartos do Hotel.
+     * @brief Coleta o cÃ³digo do Hotel e chama o serviÃ§o para listar e exibir todos os Quartos do Hotel.
      */
     void listarQuartos();
 
     /**
-     * @brief Função auxiliar para coletar os dados básicos de um Quarto (Número, Capacidade, Diária, Ramal).
+     * @brief FunÃ§Ã£o auxiliar para coletar os dados bÃ¡sicos de um Quarto 
+     * (NÃºmero, Capacidade, DiÃ¡ria, Ramal).
      * @return Um objeto Quarto preenchido.
-     * @throw std::invalid_argument Se o formato de algum Domínio for inválido.
+     * @throw invalid_argument Se o formato de algum DomÃ­nio for invÃ¡lido.
      */
     Quarto coletarDadosQuarto();
 };

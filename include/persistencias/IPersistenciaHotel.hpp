@@ -1,9 +1,10 @@
 /**
  * @file IPersistenciaHotel.hpp
- * @brief DefiniÁ„o da interface de persistÍncia (Contrato) para a entidade Hotel.
- * @author Jo„o Pedro
+ * @brief Defini√ß√£o da interface de persist√™ncia (Contrato) para a entidade Hotel.
+ * @author Jo√£o Pedro
  * @date 21 de novembro de 2025
  */
+
 #ifndef IPERSISTENCIAHOTEL_HPP
 #define IPERSISTENCIAHOTEL_HPP
 
@@ -12,55 +13,53 @@
 #include <stdexcept>
 #include <vector>
 
-using namespace std;
-
 /**
- * @brief Interface Abstrata para PersistÍncia de Dados do Hotel.
+ * @brief Interface Abstrata para Persist√™ncia de Dados do Hotel.
  * @details Define o contrato CRUD (Criar, Ler, Atualizar, Deletar) para a entidade Hotel.
- * Esta interface È usada pela Camada de ServiÁo (Controladora) para garantir a
- * Invers„o de DependÍncia, separando a lÛgica de negÛcio do mecanismo de armazenamento.
+ * Esta interface √© usada pela Camada de Servi√ßo, garantindo Invers√£o de Depend√™ncia
+ * e separa√ß√£o entre l√≥gica de neg√≥cio e mecanismo de armazenamento.
  */
 class IPersistenciaHotel {
-    public:
-        /**
-         * @brief Destrutor virtual.
-         */
-        virtual ~IPersistenciaHotel() {}
+public:
+    /**
+     * @brief Destrutor virtual.
+     */
+    virtual ~IPersistenciaHotel() = default;
 
-        /**
-         * @brief Armazena um novo Hotel no repositÛrio de dados.
-         * @param hotel O objeto Hotel a ser persistido.
-         * @return true se o cadastro for bem-sucedido, false caso contr·rio (chave duplicada).
-         */
-        virtual bool cadastrar(const Hotel& hotel) = 0;
+    /**
+     * @brief Armazena um novo Hotel no reposit√≥rio de dados.
+     * @param hotel O objeto Hotel a ser persistido.
+     * @return true se o cadastro for bem-sucedido, false caso contr√°rio (chave duplicada).
+     */
+    virtual bool cadastrar(const Hotel& hotel) = 0;
 
-        /**
-         * @brief Consulta um Hotel pelo seu cÛdigo.
-         * @param codigo O cÛdigo do Hotel (chave prim·ria).
-         * @return O objeto Hotel se encontrado.
-         * @throw std::runtime_error Se o Hotel n„o for encontrado no repositÛrio.
-         */
-        virtual Hotel consultar(const Codigo& codigo) = 0;
+    /**
+     * @brief Consulta um Hotel pelo seu c√≥digo.
+     * @param codigo O c√≥digo do Hotel (chave prim√°ria).
+     * @return O objeto Hotel se encontrado.
+     * @throws std::runtime_error Se o Hotel n√£o for encontrado.
+     */
+    virtual Hotel consultar(const Codigo& codigo) = 0;
 
-        /**
-         * @brief Edita um Hotel existente no repositÛrio de dados.
-         * @param hotel O objeto Hotel com os dados atualizados.
-         * @return true se a ediÁ„o for bem-sucedida, false caso contr·rio.
-         */
-        virtual bool editar(const Hotel& hotel) = 0;
+    /**
+     * @brief Edita um Hotel existente no reposit√≥rio.
+     * @param hotel O objeto Hotel com dados atualizados.
+     * @return true se a edi√ß√£o for bem-sucedida, false caso contr√°rio.
+     */
+    virtual bool editar(const Hotel& hotel) = 0;
 
-        /**
-         * @brief Exclui um Hotel pelo seu cÛdigo.
-         * @param codigo O cÛdigo do Hotel a ser excluÌdo.
-         * @return true se a exclus„o for bem-sucedida, false caso contr·rio.
-         */
-        virtual bool excluir(const Codigo& codigo) = 0;
+    /**
+     * @brief Exclui um Hotel pelo seu c√≥digo.
+     * @param codigo O c√≥digo do Hotel a ser exclu√≠do.
+     * @return true se a exclus√£o for bem-sucedida, false caso contr√°rio.
+     */
+    virtual bool excluir(const Codigo& codigo) = 0;
 
-        /**
-         * @brief Retorna uma lista de todos os HotÈis no repositÛrio.
-         * @return Um vetor (vector) de objetos Hotel.
-         */
-        virtual std::vector<Hotel> listarTodos() = 0;
+    /**
+     * @brief Retorna uma lista de todos os Hot√©is no reposit√≥rio.
+     * @return Um vetor contendo objetos Hotel.
+     */
+    virtual std::vector<Hotel> listarTodos() = 0;
 };
 
 #endif // IPERSISTENCIAHOTEL_HPP

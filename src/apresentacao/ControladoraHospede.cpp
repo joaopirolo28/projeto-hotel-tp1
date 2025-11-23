@@ -30,7 +30,7 @@ Hospede ControladoraHospede::coletarDadosHospede() {
 
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    cout << "Cartao (16 digitos, Luhn): ";
+    cout << "Cartao: ";
     cin >> cartaoStr;
 
     Nome nome(nomeStr);
@@ -48,14 +48,14 @@ Hospede ControladoraHospede::coletarDadosHospede() {
 }
 
 void ControladoraHospede::cadastrarHospede() {
-    cout << "\n--- CADASTRO DE HÓSPEDE ---" << endl;
+    cout << "\n--- CADASTRO DE HOSPEDE ---" << endl;
     try {
         Hospede novoHospede = coletarDadosHospede();
 
         if (servicoHospede->cadastrarHospede(novoHospede)) {
-            cout << "\n Hóspede '" << novoHospede.getNome().getNome() << "' cadastrado com sucesso!" << endl;
+            cout << "\n Hospede '" << novoHospede.getNome().getNome() << "' cadastrado com sucesso!" << endl;
         } else {
-            cout << "\n Falha ao cadastrar Hóspede. O email pode já existir." << endl;
+            cout << "\n Falha ao cadastrar Hospede. O email pode ja existir." << endl;
         }
 
     } catch (const invalid_argument& e) {
@@ -66,10 +66,10 @@ void ControladoraHospede::cadastrarHospede() {
 }
 
 void ControladoraHospede::consultarHospede() {
-    cout << "\n--- CONSULTA DE HÓSPEDE ---" << endl;
+    cout << "\n--- CONSULTA DE HOSPEDE ---" << endl;
     string emailStr;
 
-    cout << "Digite o Email do Hóspede para consulta: ";
+    cout << "Digite o Email do Hospede para consulta: ";
     cin >> emailStr;
 
     try {
@@ -84,64 +84,64 @@ void ControladoraHospede::consultarHospede() {
         cout << "   Cartao: " << hospede.getCartao().getValor() << endl;
 
     } catch (const invalid_argument& e) {
-        cout << "\n ERRO DE FORMATO: Email inválido. " << e.what() << endl;
+        cout << "\n ERRO DE FORMATO: Email invalido. " << e.what() << endl;
     } catch (const runtime_error& e) {
-        cout << "\n ERRO DE CONSULTA: Hóspede não encontrado. " << e.what() << endl;
+        cout << "\n ERRO DE CONSULTA: Hospede nao encontrado. " << e.what() << endl;
     }
 }
 
 void ControladoraHospede::editarHospede() {
-    cout << "\n--- EDIÇÃO DE HÓSPEDE ---" << endl;
+    cout << "\n--- EDICAO DE HOSPEDE ---" << endl;
 
     try {
         Hospede hospedeAtualizado = coletarDadosHospede();
 
         if (servicoHospede->editarHospede(hospedeAtualizado)) {
-            cout << "\n Hóspede com Email '" << hospedeAtualizado.getEmail().getEmail() << "' editado com sucesso!" << endl;
+            cout << "\n Hospede com Email '" << hospedeAtualizado.getEmail().getEmail() << "' editado com sucesso!" << endl;
         } else {
-            cout << "\n Falha ao editar Hóspede. Verifique se o Email existe." << endl;
+            cout << "\n Falha ao editar Hospede. Verifique se o email existe." << endl;
         }
 
     } catch (const invalid_argument& e) {
         cout << "\n ERRO DE FORMATO: " << e.what() << endl;
     } catch (const runtime_error& e) {
-        cout << "\n ERRO NA EDIÇÃO: " << e.what() << endl;
+        cout << "\n ERRO NA EDICAO: " << e.what() << endl;
     }
 }
 
 void ControladoraHospede::excluirHospede() {
-    cout << "\n--- EXCLUSÃO DE HÓSPEDE ---" << endl;
+    cout << "\n--- EXCLUSAO DE HOSPEDE ---" << endl;
     string emailStr;
-    cout << "Digite o Email do Hóspede a ser excluído: ";
+    cout << "Digite o Email do Hospede a ser excluido: ";
     cin >> emailStr;
 
     try {
         Email email(emailStr);
 
         if (servicoHospede->excluirHospede(email)) {
-            cout << "\n Hóspede com Email '" << email.getEmail() << "' excluído com sucesso." << endl;
+            cout << "\n Hospede com Email '" << email.getEmail() << "' excluido com sucesso." << endl;
         } else {
-            cout << "\n Falha ao excluir Hóspede. Pode haver Reservas ativas (Violacao de Multiplicidade)." << endl;
+            cout << "\n Falha ao excluir Hospede. Pode haver Reservas ativas." << endl;
         }
 
     } catch (const invalid_argument& e) {
-        cout << "\n ERRO DE FORMATO: Email inválido. " << e.what() << endl;
+        cout << "\n ERRO DE FORMATO: Email invalido. " << e.what() << endl;
     } catch (const runtime_error& e) {
-        cout << "\n ERRO NA EXCLUSÃO: " << e.what() << endl;
+        cout << "\n ERRO NA EXCLUSAO: " << e.what() << endl;
     }
 }
 
 void ControladoraHospede::listarHospedes() {
-    cout << "\n--- LISTAGEM DE HÓSPEDES ---" << endl;
+    cout << "\n--- LISTAGEM DE HOSPEDES ---" << endl;
     try {
         vector<Hospede> hospedes = servicoHospede->listarHospedes();
 
         if (hospedes.empty()) {
-            cout << "Nenhum hóspede cadastrado." << endl;
+            cout << "Nenhum hospede cadastrado." << endl;
             return;
         }
 
-        cout << "\nLISTA COMPLETA DE HÓSPEDES:" << endl;
+        cout << "\nLISTA COMPLETA DE HOSPEDES:" << endl;
         for (const auto& hospede : hospedes) {
             cout << "---------------------------------" << endl;
             cout << "Nome: " << hospede.getNome().getNome() << endl;
@@ -149,7 +149,7 @@ void ControladoraHospede::listarHospedes() {
             cout << "Cartao: " << hospede.getCartao().getValor() << endl;
         }
         cout << "---------------------------------" << endl;
-        cout << "Total de hóspedes: " << hospedes.size() << endl;
+        cout << "Total de hospedes: " << hospedes.size() << endl;
 
     } catch (const runtime_error& e) {
         cout << "\n ERRO NA LISTAGEM: " << e.what() << endl;
@@ -162,14 +162,14 @@ void ControladoraHospede::executar() {
     int opcao;
 
     do {
-        cout << "\n--- GERENCIAR HÓSPEDES (CRUD) ---" << endl;
-        cout << "1 - Cadastrar Novo Hóspede" << endl;
-        cout << "2 - Consultar Hóspede (por Email)" << endl;
-        cout << "3 - Editar Hóspede" << endl;
-        cout << "4 - Excluir Hóspede" << endl;
+        cout << "\n--- GERENCIAR HOSPEDES (CRUD) ---" << endl;
+        cout << "1 - Cadastrar Novo Hospede" << endl;
+        cout << "2 - Consultar Hospede (por Email)" << endl;
+        cout << "3 - Editar Hospede" << endl;
+        cout << "4 - Excluir Hospede" << endl;
         cout << "5 - Listar Todos" << endl;
         cout << "0 - Voltar ao Menu Gerente" << endl;
-        cout << "Selecione uma opção: ";
+        cout << "Selecione uma opcao: ";
 
         if (!(cin >> opcao)) {
             cin.clear();
@@ -184,7 +184,7 @@ void ControladoraHospede::executar() {
             case 4: excluirHospede(); break;
             case 5: listarHospedes(); break;
             case 0: cout << "Voltando..." << endl; break;
-            default: cout << "Opção inválida. Tente novamente." << endl;
+            default: cout << "Opcao invalida. Tente novamente." << endl;
         }
     } while (opcao != 0);
 }

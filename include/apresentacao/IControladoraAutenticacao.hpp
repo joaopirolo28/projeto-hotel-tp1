@@ -25,4 +25,4 @@ public:
     virtual string executar() = 0;
 };
 
-#endif // ICONTROLADORAAUTENTICACAO_HPP
+#endif // ICONTROLADORAAUTENTICACAO_HPP_INCLUDED

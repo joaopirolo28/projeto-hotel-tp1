@@ -1,7 +1,7 @@
 /**
  * @file IControladoraQuarto.hpp
- * @brief Definição da interface para a Controladora de Gerenciamento de Quartos.
- * @author João Pedro
+ * @brief DefiniÃ§Ã£o da interface para a Controladora de Gerenciamento de Quartos.
+ * @author JoÃ£o Pedro
  * @date 22/11/2025
  */
 
@@ -12,22 +12,22 @@
 
 /**
  * @brief Interface que define o contrato para a Controladora de Quartos.
- * @details Esta controladora é responsável por gerenciar o fluxo de interações
- * do usuário (via console) para as operações CRUD da entidade Quarto.
- * As operações de Quarto são dependentes da existência prévia de um Hotel.
+ * @details Esta controladora Ã© responsÃ¡vel por gerenciar o fluxo de interaÃ§Ã£o
+ * do usuÃ¡rio (via console) para as operaÃ§Ãµes CRUD da entidade Quarto.
+ * As operaÃ§Ãµes de Quarto dependem da existÃªncia prÃ©via de um Hotel.
  */
 class IControladoraQuarto {
 public:
     /**
-     * @brief Destrutor virtual para garantir a desalocação correta de classes derivadas.
+     * @brief Destrutor virtual para garantir a desalocaÃ§Ã£o correta de classes derivadas.
      */
-    virtual ~IControladoraQuarto() {}
+    virtual ~IControladoraQuarto() = default;
 
     /**
-     * @brief Inicia o fluxo de operações de CRUD de Quartos.
-     * @details Exibe o menu de gerenciamento de quartos e chama as funções
-     * de cadastro, consulta, edição, exclusão e listagem, sempre requerendo o
-     * código do Hotel para contextualizar a operação.
+     * @brief Inicia o fluxo de operaÃ§Ãµes CRUD de Quartos.
+     * @details Exibe o menu de gerenciamento de quartos e chama as funÃ§Ãµes
+     * de cadastro, consulta, ediÃ§Ã£o, exclusÃ£o e listagem, sempre solicitando o
+     * cÃ³digo do Hotel para contextualizar a operaÃ§Ã£o.
      */
     virtual void executar() = 0;
 };

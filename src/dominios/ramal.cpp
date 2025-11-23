@@ -8,7 +8,7 @@ void Ramal::setValor(int valor){
 
 void Ramal::validar(int valor){
     if(valor < 0 || valor > LIMITE){
-        throw invalid_argument("Valor invalido.");
+        throw invalid_argument("Valor invalido. EScolha um numero entre 1-50");
     }
 }
 Ramal::Ramal(){}

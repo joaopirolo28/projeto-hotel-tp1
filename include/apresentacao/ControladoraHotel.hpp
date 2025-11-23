@@ -1,7 +1,7 @@
 /**
  * @file ControladoraHotel.hpp
- * @brief Definição da classe concreta para a Controladora de Gerenciamento de Hotéis (CRUD).
- * @author João Pedro
+ * @brief DefiniÃ§Ã£o da classe concreta para a Controladora de Gerenciamento de HotÃ©is (CRUD).
+ * @author JoÃ£o Pedro
  * @date 22/11/2025
  */
 
@@ -15,65 +15,65 @@
 #include <iostream>
 
 /**
- * @brief Implementação concreta da interface IControladoraHotel.
- * @details Esta classe é responsável por interagir diretamente com o usuário
- * (via console), coletar dados de entrada, validar o formato usando Domínios,
- * e chamar os métodos correspondentes na Camada de Serviço (IServicoHotel)
- * para realizar as operações de CRUD.
+ * @brief ImplementaÃ§Ã£o concreta da interface IControladoraHotel.
+ * @details Esta classe Ã© responsÃ¡vel por interagir diretamente com o usuÃ¡rio
+ * (via console), coletar dados de entrada, validar o formato usando DomÃ­nios,
+ * e chamar os mÃ©todos correspondentes na Camada de ServiÃ§o (IServicoHotel)
+ * para realizar as operaÃ§Ãµes de CRUD.
  */
 class ControladoraHotel : public IControladoraHotel {
 private:
     /**
-     * @brief Ponteiro inteligente para o Serviço de Gerenciamento de Hotéis.
-     * @details Usado para chamar as operações de negócio (CRUD).
+     * @brief Ponteiro para o ServiÃ§o de Gerenciamento de HotÃ©is.
+     * @details Usado para chamar as operaÃ§Ãµes de negÃ³cio (CRUD).
      */
     IServicoHotel* servicoHotel;
 
 public:
     /**
      * @brief Construtor da ControladoraHotel.
-     * @details Implementa a Injeção de Dependência, recebendo a posse do serviço
-     * de Hotéis.
-     * @param sHotel Ponteiro inteligente para o Serviço de Hotéis (posse é movida).
+     * @details Implementa a InjeÃ§Ã£o de DependÃªncia, recebendo o serviÃ§o
+     * de HotÃ©is.
+     * @param sHotel Ponteiro para o ServiÃ§o de HotÃ©is.
      */
     ControladoraHotel(IServicoHotel* sHotel);
 
     /**
-     * @brief Inicia o fluxo de operações de CRUD de Hotéis.
-     * @details Exibe o menu de opções (Cadastro, Consulta, Edição, Exclusão, Listagem).
+     * @brief Inicia o fluxo de operaÃ§Ãµes de CRUD de HotÃ©is.
+     * @details Exibe o menu de opÃ§Ãµes (Cadastro, Consulta, EdiÃ§Ã£o, ExclusÃ£o, Listagem).
      */
     void executar() override;
 
 private:
     /**
-     * @brief Coleta dados e chama o serviço para cadastrar um novo Hotel.
+     * @brief Coleta dados e chama o serviÃ§o para cadastrar um novo Hotel.
      */
     void cadastrarHotel();
 
     /**
-     * @brief Coleta o código do hotel e chama o serviço para consultar e exibir o Hotel.
+     * @brief Coleta o cÃ³digo do hotel e chama o serviÃ§o para consultar e exibir o Hotel.
      */
     void consultarHotel();
 
     /**
-     * @brief Coleta dados e chama o serviço para editar um Hotel existente.
+     * @brief Coleta dados e chama o serviÃ§o para editar um Hotel existente.
      */
     void editarHotel();
 
     /**
-     * @brief Coleta o código do hotel e chama o serviço para excluir o Hotel.
+     * @brief Coleta o cÃ³digo do hotel e chama o serviÃ§o para excluir o Hotel.
      */
     void excluirHotel();
 
     /**
-     * @brief Chama o serviço para listar e exibir todos os Hotéis cadastrados.
+     * @brief Chama o serviÃ§o para listar e exibir todos os HotÃ©is cadastrados.
      */
     void listarHoteis();
 
     /**
-     * @brief Função auxiliar para coletar todos os dados de um Hotel (Nome, Endereço, Telefone, Código).
+     * @brief FunÃ§Ã£o auxiliar para coletar todos os dados de um Hotel (Nome, EndereÃ§o, Telefone, CÃ³digo).
      * @return Um objeto Hotel preenchido.
-     * @throw std::invalid_argument Se o formato de algum Domínio for inválido.
+     * @throw invalid_argument Se o formato de algum DomÃ­nio for invÃ¡lido.
      */
     Hotel coletarDadosHotel();
 };

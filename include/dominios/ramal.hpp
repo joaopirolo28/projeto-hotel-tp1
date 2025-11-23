@@ -19,7 +19,7 @@ using namespace std;
 class Ramal{
     private:
         /**
-         * @brief Limite m�ximo permitido para o ramal (50).
+         * @brief Limite máximo permitido para o ramal (50).
          */
         static const int LIMITE = 50;
         /**

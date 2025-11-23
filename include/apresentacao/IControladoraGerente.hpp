@@ -9,7 +9,7 @@
 
 /**
  * @brief Interface que define a controladora do menu principal do Gerente.
- * @details Respons·vel por gerenciar a navegaÁ„o entre as funcionalidades (CRUDs).
+ * @details Respons√°vel por gerenciar a navega√ß√£o entre as funcionalidades (CRUDs).
  */
 class IControladoraGerente {
 public:

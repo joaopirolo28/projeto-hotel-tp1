@@ -72,4 +72,4 @@ public:
     vector<Hospede> listarTodos() override;
 };
 
-#endif // PERSISTENCIAHOSPEDE_HPP
+#endif // PERSISTENCIAHOSPEDE_HPP_INCLUDED

@@ -1,9 +1,9 @@
 /**
  * @file IControladoraReserva.hpp
- * @brief Definição da interface para a Controladora de Gerenciamento de Reservas.
- * @details Este módulo é responsável por todas as operações de CRUD, incluindo a
- * validação de datas e a consulta de disponibilidade.
- * @author João Pedro
+ * @brief DefiniÃ§Ã£o da interface para a Controladora de Gerenciamento de Reservas.
+ * @details Este mÃ³dulo Ã© responsÃ¡vel por todas as operaÃ§Ãµes de CRUD, incluindo a
+ * validaÃ§Ã£o de datas e a consulta de disponibilidade.
+ * @author JoÃ£o Pedro
  * @date 22/11/2025
  */
 
@@ -14,22 +14,22 @@
 
 /**
  * @brief Interface que define o contrato para a Controladora de Reservas.
- * @details Esta controladora gerencia o fluxo de interações do usuário (via console)
- * para as operações CRUD (Criar, Ler, Editar, Excluir) da entidade Reserva,
- * conforme o Requisito Funcional 2. As operações exigem a interação com Hóspedes,
+ * @details Esta controladora gerencia o fluxo de interaÃ§Ãµes do usuÃ¡rio (via console)
+ * para as operaÃ§Ãµes CRUD (Criar, Ler, Editar, Excluir) da entidade Reserva,
+ * conforme o Requisito Funcional 2. As operaÃ§Ãµes exigem a interaÃ§Ã£o com HÃ³spedes,
  * Quartos e Datas.
  */
 class IControladoraReserva {
 public:
     /**
-     * @brief Destrutor virtual para garantir a desalocação correta de classes derivadas.
+     * @brief Destrutor virtual para garantir a desalocaÃ§Ã£o correta de classes derivadas.
      */
-    virtual ~IControladoraReserva() {}
+    virtual ~IControladoraReserva() = default;
 
     /**
-     * @brief Inicia o fluxo de operações de CRUD de Reservas.
-     * @details Exibe o menu de gerenciamento de reservas e chama as funções
-     * de cadastro, consulta, edição, exclusão e listagem.
+     * @brief Inicia o fluxo de operaÃ§Ãµes de CRUD de Reservas.
+     * @details Exibe o menu de gerenciamento de reservas e chama as funÃ§Ãµes
+     * de cadastro, consulta, ediÃ§Ã£o, exclusÃ£o e listagem.
      */
     virtual void executar() = 0;
 };

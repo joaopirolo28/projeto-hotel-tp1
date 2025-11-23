@@ -81,8 +81,8 @@ void ControladoraReserva::realizarReserva() {
         Reserva novaReserva = coletarDadosReserva();
 
         // 2. Coleta de dados de vínculo (Hóspede e Quarto)
-        cout << "\n--- VÍNCULO DA RESERVA ---" << endl;
-        cout << "Email do Hóspede Responsável: "; cin >> emailHospedeStr;
+        cout << "\n--- VINCULO DA RESERVA ---" << endl;
+        cout << "Email do Hospede Responsavel: "; cin >> emailHospedeStr;
         cout << "Codigo do Hotel: "; cin >> codigoHotelStr;
         cout << "Numero do Quarto Desejado: "; cin >> numeroQuartoStr;
 
@@ -101,16 +101,16 @@ void ControladoraReserva::realizarReserva() {
         // c) Persistir o registro, vinculando Email e Quarto/Hotel.
 
         if (servicoReserva->cadastrarReserva(novaReserva, emailHospede, codigoHotel, numeroQuarto)) {
-            cout << "\n Reserva cadastrada com sucesso! Código: " << novaReserva.getCodigo().getValor() << endl;
+            cout << "\n Reserva cadastrada com sucesso! Codigo: " << novaReserva.getCodigo().getValor() << endl;
         } else {
             cout << "\n Falha ao cadastrar Reserva. Quarto pode estar ocupado nas datas, ou conflito de PK." << endl;
         }
 
     } catch (const invalid_argument& e) {
-        cout << "\n⚠️ ERRO DE FORMATO: " << e.what() << endl;
+        cout << "\n ERRO DE FORMATO: " << e.what() << endl;
     } catch (const runtime_error& e) {
         // Captura erro de Hóspede inexistente, Hotel inexistente, ou falha de negócio
-        cout << "\n❌ ERRO NA RESERVA: " << e.what() << endl;
+        cout << "\n ERRO NA RESERVA: " << e.what() << endl;
     }
 }
 
@@ -123,7 +123,7 @@ void ControladoraReserva::consultarReserva() {
         Codigo codigo(codigoStr);
         Reserva reserva = servicoReserva->consultarReserva(codigo);
 
-        cout << "\n✅ RESERVA ENCONTRADA:" << endl;
+        cout << "\n RESERVA ENCONTRADA:" << endl;
         cout << "   Codigo: " << reserva.getCodigo().getValor() << endl;
         cout << "   Chegada: " << reserva.getChegada().getDia() << "/" << reserva.getChegada().getMes() << "/" << reserva.getChegada().getAno() << endl;
         cout << "   Partida: " << reserva.getPartida().getDia() << "/" << reserva.getPartida().getMes() << "/" << reserva.getPartida().getAno() << endl;
@@ -131,80 +131,80 @@ void ControladoraReserva::consultarReserva() {
         // ... (Seria ideal mostrar o Hóspede e o Quarto vinculado)
 
     } catch (const invalid_argument& e) {
-        cout << "\n⚠️ ERRO DE FORMATO: Código inválido. " << e.what() << endl;
+        cout << "\n ERRO DE FORMATO: Codigo invalido. " << e.what() << endl;
     } catch (const runtime_error& e) {
-        cout << "\n❌ ERRO DE CONSULTA: Reserva não encontrada. " << e.what() << endl;
+        cout << "\n ERRO DE CONSULTA: Reserva nao encontrada. " << e.what() << endl;
     }
 }
 
 void ControladoraReserva::editarReserva() {
-    cout << "\n--- EDIÇÃO DE RESERVA ---" << endl;
+    cout << "\n--- EDICAO DE RESERVA ---" << endl;
     // O ideal seria consultar primeiro.
     try {
         Reserva reservaAtualizada = coletarDadosReserva(); // Coleta dados (incluindo o Código de Reserva)
 
         // Chamada ao Serviço: O IServicoReservas deve verificar se a edição causa conflitos de data.
         if (servicoReserva->editarReserva(reservaAtualizada)) {
-            cout << "\n✅ Reserva com Código '" << reservaAtualizada.getCodigo().getValor() << "' editada com sucesso!" << endl;
+            cout << "\n Reserva com Codigo '" << reservaAtualizada.getCodigo().getValor() << "' editada com sucesso!" << endl;
         } else {
-            cout << "\n❌ Falha ao editar Reserva. Novo período pode estar indisponível." << endl;
+            cout << "\n Falha ao editar Reserva. Novo período pode estar indisponivel." << endl;
         }
 
     } catch (const invalid_argument& e) {
-        cout << "\n⚠️ ERRO DE FORMATO: " << e.what() << endl;
+        cout << "\n️ ERRO DE FORMATO: " << e.what() << endl;
     } catch (const runtime_error& e) {
-        cout << "\n❌ ERRO NA EDIÇÃO: " << e.what() << endl;
+        cout << "\n ERRO NA EDICAO: " << e.what() << endl;
     }
 }
 
 void ControladoraReserva::excluirReserva() {
     cout << "\n--- EXCLUSÃO DE RESERVA ---" << endl;
     string codigoStr;
-    cout << "Digite o Codigo da Reserva a ser excluída: "; cin >> codigoStr;
+    cout << "Digite o Codigo da Reserva a ser excluida: "; cin >> codigoStr;
 
     try {
         Codigo codigo(codigoStr);
 
         if (servicoReserva->excluirReserva(codigo)) {
-            cout << "\n✅ Reserva com Código '" << codigo.getValor() << "' excluída com sucesso." << endl;
+            cout << "\n Reserva com Codigo '" << codigo.getValor() << "' excluida com sucesso." << endl;
         } else {
-            cout << "\n❌ Falha ao excluir Reserva. O código pode ser inválido." << endl;
+            cout << "\n Falha ao excluir Reserva. O codigo pode ser invalido." << endl;
         }
 
     } catch (const invalid_argument& e) {
-        cout << "\n⚠️ ERRO DE FORMATO: Código inválido. " << e.what() << endl;
+        cout << "\n️ ERRO DE FORMATO: Código invalido. " << e.what() << endl;
     } catch (const runtime_error& e) {
-        cout << "\n❌ ERRO NA EXCLUSÃO: " << e.what() << endl;
+        cout << "\n ERRO NA EXCLUSAO: " << e.what() << endl;
     }
 }
 
 void ControladoraReserva::listarReservas() {
     cout << "\n--- LISTAGEM DE RESERVAS POR HÓSPEDE ---" << endl;
     string emailHospedeStr;
-    cout << "Digite o Email do Hóspede para listar as reservas: "; cin >> emailHospedeStr;
+    cout << "Digite o Email do Hospede para listar as reservas: "; cin >> emailHospedeStr;
 
     try {
         Email emailHospede(emailHospedeStr);
         vector<Reserva> reservas = servicoReserva->listarReservas(emailHospede);
 
         if (reservas.empty()) {
-            cout << "Nenhuma reserva encontrada para este hóspede." << endl;
+            cout << "Nenhuma reserva encontrada para este hospede." << endl;
             return;
         }
 
         cout << "\nRESERVAS ENCONTRADAS PARA " << emailHospede.getEmail() << ":" << endl;
         for (const auto& reserva : reservas) {
             cout << "---------------------------------" << endl;
-            cout << "Código: " << reserva.getCodigo().getValor() << endl;
+            cout << "Codigo: " << reserva.getCodigo().getValor() << endl;
             cout << "Chegada: " << reserva.getChegada().getDia() << "/" << reserva.getChegada().getMes() << endl;
             cout << "Partida: " << reserva.getPartida().getDia() << "/" << reserva.getPartida().getMes() << endl;
         }
         cout << "---------------------------------" << endl;
 
     } catch (const invalid_argument& e) {
-        cout << "\n⚠️ ERRO DE FORMATO: Email inválido. " << e.what() << endl;
+        cout << "\n ERRO DE FORMATO: Email invalido. " << e.what() << endl;
     } catch (const runtime_error& e) {
-        cout << "\n❌ ERRO NA LISTAGEM: " << e.what() << endl;
+        cout << "\n ERRO NA LISTAGEM: " << e.what() << endl;
     }
 }
 
@@ -219,9 +219,9 @@ void ControladoraReserva::executar() {
         cout << "2 - Consultar Reserva (por Codigo)" << endl;
         cout << "3 - Editar Reserva" << endl;
         cout << "4 - Excluir Reserva" << endl;
-        cout << "5 - Listar Reservas por Hóspede" << endl;
+        cout << "5 - Listar Reservas por Hospede" << endl;
         cout << "0 - Voltar ao Menu Gerente" << endl;
-        cout << "Selecione uma opção: ";
+        cout << "Selecione uma opcao: ";
 
         if (!(cin >> opcao)) {
             cin.clear();
@@ -236,7 +236,7 @@ void ControladoraReserva::executar() {
             case 4: excluirReserva(); break;
             case 5: listarReservas(); break;
             case 0: cout << "Voltando..." << endl; break;
-            default: cout << "Opção inválida. Tente novamente." << endl;
+            default: cout << "Opcao invalida. Tente novamente." << endl;
         }
     } while (opcao != 0);
 }

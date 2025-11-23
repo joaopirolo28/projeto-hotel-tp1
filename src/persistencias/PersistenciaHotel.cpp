@@ -1,10 +1,8 @@
-/**
- * @file PersistenciaHotel.cpp
- * @brief Implementação da lógica de CRUD para a entidade Hotel usando SQLite.
- */
+
 #include "persistencias/PersistenciaHotel.hpp"
 #include "entidades/entidades.hpp"
 #include "dominios/dominios.hpp"
+
 #include <stdexcept>
 #include <iostream>
 #include <sqlite3.h>
@@ -12,13 +10,24 @@
 
 using namespace std;
 
+// -----------------------------------------------------------------------------
+// DB COMPARTILHADO ENTRE TODAS AS PERSISTÊNCIAS
+// -----------------------------------------------------------------------------
+static sqlite3 *db_handle = nullptr;
+
+// -----------------------------------------------------------------------------
+// CALLBACKS AUXILIARES
+// -----------------------------------------------------------------------------
+
+/// Estrutura que armazena o hotel retornado pela consulta.
 struct HotelData {
     Hotel result;
     bool found = false;
 };
 
+/// Callback para SELECT individual.
 static int retrieve_hotel_data(void *data, int argc, char **argv, char **azColName) {
-    HotelData *pData = (HotelData*)data;
+    HotelData *pData = reinterpret_cast<HotelData*>(data);
 
     try {
         pData->result.setCodigo(Codigo(argv[0] ? argv[0] : ""));
@@ -29,9 +38,11 @@ static int retrieve_hotel_data(void *data, int argc, char **argv, char **azColNa
     } catch (const invalid_argument&) {
         return 1;
     }
+
     return 0;
 }
 
+/// Callback para SELECT listagem completa.
 static int listar_hoteis_callback(void *data, int argc, char **argv, char **azColName) {
     vector<Hotel> *lista = reinterpret_cast<vector<Hotel>*>(data);
     Hotel h;
@@ -49,26 +60,37 @@ static int listar_hoteis_callback(void *data, int argc, char **argv, char **azCo
     return 0;
 }
 
+// -----------------------------------------------------------------------------
+// PERSISTENCIAHOTEL
+// -----------------------------------------------------------------------------
+
 PersistenciaHotel::PersistenciaHotel() {
-    int rc = sqlite3_open("hotel_database.db", &this->db_connection);
-    if (rc != SQLITE_OK) {
-        throw runtime_error("Falha ao abrir banco SQLite para Hotel.");
+    // Abertura única do banco
+    if (db_handle == nullptr) {
+        int rc = sqlite3_open("hotel_database.db", &db_handle);
+        if (rc != SQLITE_OK) {
+            throw runtime_error("Falha ao abrir banco SQLite.");
+        }
+
+        // Criação da tabela
+        const char *sql =
+            "CREATE TABLE IF NOT EXISTS HOTEIS("
+            "CODIGO TEXT PRIMARY KEY NOT NULL,"
+            "NOME TEXT NOT NULL,"
+            "ENDERECO TEXT NOT NULL,"
+            "TELEFONE TEXT NOT NULL);";
+
+        sqlite3_exec(db_handle, sql, nullptr, nullptr, nullptr);
     }
-    const char *sql =
-        "CREATE TABLE IF NOT EXISTS HOTEIS("
-        "CODIGO TEXT PRIMARY KEY NOT NULL,"
-        "NOME TEXT NOT NULL,"
-        "ENDERECO TEXT NOT NULL,"
-        "TELEFONE TEXT NOT NULL);";
-    sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
 }
 
 PersistenciaHotel::~PersistenciaHotel() {
-    if (this->db_connection != nullptr) {
-        sqlite3_close(this->db_connection);
-        this->db_connection = nullptr;
-    }
+    // Não fecha o DB aqui para evitar conflitos com outras persistências.
 }
+
+// -----------------------------------------------------------------------------
+// CRUD
+// -----------------------------------------------------------------------------
 
 bool PersistenciaHotel::cadastrar(const Hotel& hotel) {
     char *sql = sqlite3_mprintf(
@@ -79,37 +101,49 @@ bool PersistenciaHotel::cadastrar(const Hotel& hotel) {
         hotel.getEndereco().getEndereco().c_str(),
         hotel.getTelefone().getValor().c_str()
     );
-    int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
+
+    int rc = sqlite3_exec(db_handle, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
-    if (rc == SQLITE_CONSTRAINT) return false;
+
+    if (rc == SQLITE_CONSTRAINT) {
+        return false; // Já existe
+    }
+
     return rc == SQLITE_OK;
 }
 
 Hotel PersistenciaHotel::consultar(const Codigo& codigo) {
     HotelData data;
+
     char *sql = sqlite3_mprintf(
-        "SELECT CODIGO, NOME, ENDERECO, TELEFONE FROM HOTEIS WHERE CODIGO = '%q';",
+        "SELECT CODIGO, NOME, ENDERECO, TELEFONE FROM HOTEIS WHERE CODIGO='%q';",
         codigo.getValor().c_str()
     );
-    int rc = sqlite3_exec(this->db_connection, sql, retrieve_hotel_data, &data, nullptr);
+
+    int rc = sqlite3_exec(db_handle, sql, retrieve_hotel_data, &data, nullptr);
     sqlite3_free(sql);
 
-    if (rc != SQLITE_OK || !data.found)
+    if (rc != SQLITE_OK || !data.found) {
         throw runtime_error("Hotel nao encontrado.");
+    }
+
     return data.result;
 }
 
 bool PersistenciaHotel::editar(const Hotel& hotel) {
     char *sql = sqlite3_mprintf(
-        "UPDATE HOTEIS SET NOME='%q', ENDERECO='%q', TELEFONE='%q' WHERE CODIGO='%q';",
+        "UPDATE HOTEIS SET NOME='%q', ENDERECO='%q', TELEFONE='%q' "
+        "WHERE CODIGO='%q';",
         hotel.getNome().getNome().c_str(),
         hotel.getEndereco().getEndereco().c_str(),
         hotel.getTelefone().getValor().c_str(),
         hotel.getCodigo().getValor().c_str()
     );
-    int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
+
+    int rc = sqlite3_exec(db_handle, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
-    return rc == SQLITE_OK && sqlite3_changes(this->db_connection) > 0;
+
+    return (rc == SQLITE_OK) && (sqlite3_changes(db_handle) > 0);
 }
 
 bool PersistenciaHotel::excluir(const Codigo& codigo) {
@@ -117,19 +151,24 @@ bool PersistenciaHotel::excluir(const Codigo& codigo) {
         "DELETE FROM HOTEIS WHERE CODIGO='%q';",
         codigo.getValor().c_str()
     );
-    int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
+
+    int rc = sqlite3_exec(db_handle, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
-    return rc == SQLITE_OK && sqlite3_changes(this->db_connection) > 0;
+
+    return (rc == SQLITE_OK) && (sqlite3_changes(db_handle) > 0);
 }
 
-std::vector<Hotel> PersistenciaHotel::listarTodos() {
+vector<Hotel> PersistenciaHotel::listarTodos() {
     vector<Hotel> lista;
-    const char *sql = "SELECT CODIGO, NOME, ENDERECO, TELEFONE FROM HOTEIS;";
 
-    int rc = sqlite3_exec(this->db_connection, sql, listar_hoteis_callback, &lista, nullptr);
+    const char *sql =
+        "SELECT CODIGO, NOME, ENDERECO, TELEFONE FROM HOTEIS;";
+
+    int rc = sqlite3_exec(db_handle, sql, listar_hoteis_callback, &lista, nullptr);
 
     if (rc != SQLITE_OK) {
-        throw runtime_error("Erro ao listar todos os hoteis.");
+        throw runtime_error("Erro ao listar hoteis.");
     }
+
     return lista;
 }

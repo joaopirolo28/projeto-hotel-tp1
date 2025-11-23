@@ -1,7 +1,7 @@
 /**
  * @file IControladoraHospede.hpp
- * @brief Definição da interface para a Controladora de Gerenciamento de Hóspedes.
- * @author João Pedro
+ * @brief DefiniÃ§Ã£o da interface para a Controladora de Gerenciamento de HÃ³spedes.
+ * @author JoÃ£o Pedro
  * @date 22/11/2025
  */
 
@@ -11,22 +11,21 @@
 #include <string>
 
 /**
- * @brief Interface que define o contrato para a Controladora de Hóspedes.
- * @details Esta controladora é responsável por gerenciar o fluxo de interações
- * do usuário (via console) para as operações CRUD (Criar, Ler, Editar, Excluir)
- * da entidade Hóspede, conforme o Requisito Funcional 2.
+ * @brief Interface que define o contrato para a Controladora de HÃ³spedes.
+ * @details Esta controladora Ã© responsÃ¡vel por gerenciar o fluxo de interaÃ§Ãµes
+ * do usuÃ¡rio (via console) para as operaÃ§Ãµes CRUD (Criar, Ler, Editar, Excluir)
+ * da entidade HÃ³spede, conforme o Requisito Funcional 2.
  */
 class IControladoraHospede {
 public:
     /**
-     * @brief Destrutor virtual para garantir a desalocação correta de classes derivadas.
+     * @brief Destrutor virtual para garantir a desalocaÃ§Ã£o correta de classes derivadas.
      */
     virtual ~IControladoraHospede() {}
 
     /**
-     * @brief Inicia o fluxo de operações de CRUD de Hóspedes.
-     * @details Exibe o menu de gerenciamento de hóspedes e chama as funções
-     * de cadastro, consulta, edição, exclusão e listagem.
+     * @brief Inicia o fluxo de operaÃ§Ãµes de CRUD de HÃ³spedes.
+     * @details Exibe o menu de gerenciamento de hÃ³spedes e implementa o loop principal de navegaÃ§Ã£o.
      */
     virtual void executar() = 0;
 };

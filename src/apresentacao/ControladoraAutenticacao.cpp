@@ -1,12 +1,16 @@
 #include "apresentacao/ControladoraAutenticacao.hpp"
 #include "dominios/dominios.hpp"
+#include "entidades/entidades.hpp"
 
 #include <iostream>
 #include <stdexcept>
 #include <limits>
+#include <string>
+#include <utility>
 
 using namespace std;
 
+// --- Construtor ---
 ControladoraAutenticacao::ControladoraAutenticacao(
     std::unique_ptr<IServicoAutenticacao> servicoAuth,
     std::unique_ptr<IServicoGerente> servicoGerente)
@@ -16,85 +20,105 @@ ControladoraAutenticacao::ControladoraAutenticacao(
 
 }
 
+// --- Logica de Cadastro  ---
 void ControladoraAutenticacao::solicitarCadastro() {
     std::cout << "\n--- CADASTRO DE GERENTE ---" << std::endl;
 
     string emailStr, nomeStr, ramalStr, senhaStr;
+    Gerente novoGerente;
+    bool cadastro_sucesso = false;
 
-    cout << "Nome: ";
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    getline(std::cin, nomeStr);
 
-    cout << "Email (Chave Primaria): ";
-    cin >> emailStr;
+    while (!cadastro_sucesso) {
+        try {
 
-    cout << "Ramal: ";
-    cin >> ramalStr;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    cout << "Senha (5 caracteres, maiuscula/minuscula/digito/especial): ";
-    cin >> senhaStr;
+            // 1. COLETAR ENTRADAS
+            cout << "Nome (Primeira letra maiuscula): ";
+            getline(std::cin, nomeStr);
 
-    try{
-        Email email(emailStr);
-        Nome nome(nomeStr);
-        Ramal ramal(stoi(ramalStr));
-        Senha senha(senhaStr);
+            cout << "Email (Chave Primaria): ";
+            std::cin >> emailStr;
 
-        Gerente novoGerente;
-        novoGerente.setEmail(email);
-        novoGerente.setNome(nome);
-        novoGerente.setRamal(ramal);
-        novoGerente.setSenha(senha);
+            cout << "Ramal: ";
+            std::cin >> ramalStr;
 
-        if(servicoGerente->cadastrarGerente(novoGerente)){
-            cout << "\n Gerente cadastrado com sucesso!" << endl;
-        }else{
-            cout << "\n Falha ao cadastrar. O email pode ja estar em uso." << endl;
+            cout << "Senha (5 caracteres. Pelo menos um caractere maiuscula, minuscula, digito e especial): ";
+            std::cin >> senhaStr;
+
+            
+            Email email(emailStr);
+            Nome nome(nomeStr);
+            Ramal ramal(stoi(ramalStr));
+            Senha senha(senhaStr);
+
+           
+            novoGerente.setEmail(email);
+            novoGerente.setNome(nome);
+            novoGerente.setRamal(ramal);
+            novoGerente.setSenha(senha);
+
+            
+            if(servicoGerente->cadastrarGerente(novoGerente)){
+                cout << "\n Gerente cadastrado com sucesso!" << endl;
+                cadastro_sucesso = true;
+            }else{
+                cout << "\n Falha ao cadastrar. O email pode ja estar em uso." << endl;
+                cadastro_sucesso = true;
+            }
+
+        } catch (const invalid_argument& e) {
+            
+            cout << "\n ERRO DE FORMATO: " << e.what() << std::endl;
+            cout << "Por favor, tente novamente com os dados corrigidos." << endl;
+        } catch (const std::runtime_error& e) {
+            
+            cout << "\n ERRO NO CADASTRO: " << e.what() << std::endl;
+            cadastro_sucesso = true;
         }
-
-    } catch (const invalid_argument& e) {
-        cout << "\n ERRO DE FORMATO: " << e.what() << std::endl;
-    } catch (const std::runtime_error& e) {
-        cout << "\n ERRO NO CADASTRO: " << e.what() << std::endl;
     }
-    // Para simplificar, por enquanto, apenas simule o processo.
-    // A logica completa de coleta de dados de Nome, Ramal, Email, Senha e chamada ao
-    // IServicoGerente precisa ser implementada aqui.
-    std::cout << "Funcionalidade de Cadastro pendente de implementacao completa." << std::endl;
 }
 
+// --- Logica de Login e Execucao Principal ---
 std::string ControladoraAutenticacao::solicitarLogin() {
     std::string emailStr, senhaStr;
 
-    std::cout << "\n--- LOGIN ---" << std::endl;
+    std::cout << "\n--- LOGIN ---\n";
     std::cout << "Email: ";
     std::cin >> emailStr;
     std::cout << "Senha: ";
     std::cin >> senhaStr;
 
     try {
-        // Validação de Domínio (Requisito 4.6): Tenta criar o objeto Domínio.
-        // Se o formato for inválido, o construtor lança std::invalid_argument.
         Email email(emailStr);
         Senha senha(senhaStr);
 
-        // Chamada ao Serviço (Camada de Negócio):
+        
         if (servicoAutenticacao->autenticar(email, senha)) {
-            std::cout << "\n Login realizado com sucesso! " << std::endl;
-            return email.getEmail(); // Retorna o email em caso de sucesso
+
+            // 2. BUSCA O OBJETO GERENTE COMPLETO PARA PEGAR O NOME
+
+            Gerente gerenteLogado = servicoGerente->consultarGerente(email);
+
+            // 3. EXIBE A MENSAGEM PERSONALIZADA (NOME)
+            std::cout << "\n Login realizado com sucesso! Bem-vindo(a), Gerente "
+                      << gerenteLogado.getNome().getNome() << "." << std::endl;
+
+            // 4. RETORNA O EMAIL para o fluxo principal
+            return email.getEmail();
         } else {
             std::cout << "\n Credenciais invalidas ou Gerente nao encontrado." << std::endl;
         }
 
-    } catch (const std::invalid_argument& e) {
-        // Captura e exibe erro de formato
+    } catch (const invalid_argument& e) {
         std::cout << "\n ERRO DE FORMATO: " << e.what() << std::endl;
     } catch (const std::runtime_error& e) {
-        // Captura e exibe erro de sistema/persistência
-        std::cout << "\n ERRO NO SISTEMA: " << e.what() << std::endl;
+        
+        std::cout << "\n ERRO NO SISTEMA: Gerente nao encontrado na base de dados. " << std::endl;
     }
 
-    return ""; // Login falhou
+    return "";
 }
 
 std::string ControladoraAutenticacao::executar() {
@@ -102,23 +126,22 @@ std::string ControladoraAutenticacao::executar() {
     std::string emailLogado = "";
 
     do {
-        std::cout << "\n--- MENU INICIAL ---" << std::endl;
-        std::cout << "1 - Login Gerente" << std::endl;
-        std::cout << "2 - Cadastrar Gerente" << std::endl;
-        std::cout << "0 - Sair do Sistema" << std::endl;
+        std::cout << "\n--- MENU INICIAL ---\n";
+        std::cout << "1 - Login Gerente\n";
+        std::cout << "2 - Cadastrar Gerente\n";
+        std::cout << "0 - Sair do Sistema\n";
         std::cout << "Selecione uma opcao: ";
 
-        // Tratamento simples de erro de entrada (ignorado por simplicidade de console)
         if (!(std::cin >> opcao)) {
             std::cin.clear();
-            std::cin.ignore(10000, '\n');
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             opcao = -1;
         }
 
         switch (opcao) {
             case 1:
                 emailLogado = solicitarLogin();
-                if (!emailLogado.empty()) return emailLogado; // Login bem-sucedido, retorna o email
+                if (!emailLogado.empty()) return emailLogado;
                 break;
             case 2:
                 solicitarCadastro();
@@ -131,5 +154,5 @@ std::string ControladoraAutenticacao::executar() {
         }
     } while (opcao != 0);
 
-    return ""; // Retorna string vazia se o usuário sair
+    return "";
 }

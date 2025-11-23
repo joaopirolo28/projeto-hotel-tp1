@@ -1,34 +1,55 @@
 #include "dominios/nome.hpp"
+#include <iostream>
+#include <stdexcept>
+#include <string>
+#include <cctype>
 
-void Nome::validar(string nome){
-    bool maiuscula = 0;
+using namespace std;
 
-    if(nome.size() < 5 || nome.size() > 20){
-        throw invalid_argument("Tamanho do nome, pequeno ou grande demais");
+void Nome::validar(string nome) {
+
+    if (nome.size() < 5 || nome.size() > 20) {
+        throw invalid_argument("Tamanho do nome, pequeno ou grande demais.");
     }
 
-    for(int i = 0; i < nome.size(); i++){
+    if (nome[0] == ' ') {
+        throw invalid_argument("O nome nao pode comecar com espaco.");
+    }
+
+    for (int i = 0; i < nome.size(); i++) {
         char c = nome[i];
 
-        if(isupper(c)){
-            int j = i+1;
-            while(nome[j] != ' ' && j < nome.size()){
-                if(isupper(nome[j])){
-                    throw invalid_argument("Cada palavra deve haver apenas uma letra maiuscula");
-                }
-                j++;
-            }
+        if (!isalpha(c) && c != ' ') {
+            throw invalid_argument("Caracter(s) Invalido. Apenas letras e espacos.");
         }
 
-        if(!isalpha(c) && c != ' '){
-            throw invalid_argument("Caracter(s) Invalido");
-        }
-        if(c == ' '){
-            if(i == nome.size()-1){
-                throw invalid_argument("Caracter no final nao pode ser espaco");
+
+
+        if (c == ' ') {
+
+            if (i == nome.size() - 1) {
+                throw invalid_argument("O nome nao pode terminar com espaco.");
             }
-            if(nome[i+1] == ' '){
-                throw invalid_argument("Nao pode ter 2 espacos seguidos");
+
+            if (nome[i+1] == ' ') {
+                throw invalid_argument("Nao pode ter 2 espacos seguidos.");
+            }
+
+            continue;
+        }
+
+
+        bool inicioDaPalavra = (i == 0 || nome[i - 1] == ' ');
+
+        if (inicioDaPalavra) {
+
+            if (!isupper(c)) {
+                throw invalid_argument("Cada palavra deve comecar com letra maiuscula.");
+            }
+        } else {
+
+            if (isupper(c)) {
+                throw invalid_argument("Apenas a primeira letra da palavra deve ser maiuscula.");
             }
         }
     }

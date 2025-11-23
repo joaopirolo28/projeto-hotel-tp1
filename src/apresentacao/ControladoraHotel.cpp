@@ -10,12 +10,23 @@
 
 using namespace std;
 
+// Funcao Auxiliar: Usada para ler uma linha de texto do console.
+// Necessaria para evitar conflitos de buffer do cin.
+string solicitarNovoValor(const string& prompt) {
+    string valor;
+    cout << prompt;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    getline(cin, valor);
+    return valor;
+}
+
 ControladoraHotel::ControladoraHotel(IServicoHotel* sHotel)
-    : servicoHotel(sHotel){}
+    : servicoHotel(sHotel) {
+}
+
 
 Hotel ControladoraHotel::coletarDadosHotel() {
     string nomeStr, enderecoStr, telefoneStr, codigoStr;
-
 
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
@@ -25,7 +36,7 @@ Hotel ControladoraHotel::coletarDadosHotel() {
     cout << "Endereco: ";
     getline(cin, enderecoStr);
 
-    cout << "Telefone (+DD DDDDDDDDD -  SEM ESPACOS): ";
+    cout << "Telefone (+DD DDDDDDDDD - SEM ESPACOS): ";
     cin >> telefoneStr;
 
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -77,10 +88,10 @@ void ControladoraHotel::consultarHotel() {
         Hotel hotel = servicoHotel->consultarHotel(codigo);
 
         cout << "\n HOTEL ENCONTRADO:" << endl;
-        cout << "   Nome: " << hotel.getNome().getNome() << endl;
-        cout << "   Codigo: " << hotel.getCodigo().getValor() << endl;
-        cout << "   Endereco: " << hotel.getEndereco().getEndereco() << endl;
-        cout << "   Telefone: " << hotel.getTelefone().getValor() << endl;
+        cout << "    Nome: " << hotel.getNome().getNome() << endl;
+        cout << "    Codigo: " << hotel.getCodigo().getValor() << endl;
+        cout << "    Endereco: " << hotel.getEndereco().getEndereco() << endl;
+        cout << "    Telefone: " << hotel.getTelefone().getValor() << endl;
 
     } catch (const invalid_argument& e) {
         cout << "\n ERRO DE FORMATO: Codigo invalido. " << e.what() << endl;
@@ -89,22 +100,69 @@ void ControladoraHotel::consultarHotel() {
     }
 }
 
+// --- MÉTODO EDITAR HOTEL (CORRIGIDO COM MENU) ---
 void ControladoraHotel::editarHotel() {
     cout << "\n--- EDICAO DE HOTEL ---" << endl;
+    string codigoStr;
+    cout << "Digite o Codigo do Hotel para edicao: ";
+    cin >> codigoStr;
 
     try {
-        Hotel hotelAtualizado = coletarDadosHotel();
+        Codigo codigo(codigoStr);
+        // 1. Consulta o hotel existente para obter os dados atuais
+        Hotel hotelAtualizado = servicoHotel->consultarHotel(codigo);
 
+        cout << "Hotel '" << hotelAtualizado.getNome().getNome() << "' encontrado." << endl;
+
+        int opcao;
+        cout << "\n Selecione o campo para alterar:" << endl;
+        cout << "1 - Nome: (" << hotelAtualizado.getNome().getNome() << ")" << endl;
+        cout << "2 - Endereco: (" << hotelAtualizado.getEndereco().getEndereco() << ")" << endl;
+        cout << "3 - Telefone: (" << hotelAtualizado.getTelefone().getValor() << ")" << endl;
+        cout << "0 - Cancelar" << endl;
+        cout << "Opcao: ";
+        cin >> opcao;
+
+        if (opcao == 0) return;
+
+        // 2. Coleta e valida o novo valor
+        string novoValorStr;
+        switch (opcao) {
+            case 1: {
+                novoValorStr = solicitarNovoValor("Digite o NOVO Nome: ");
+                Nome novoNome(novoValorStr); // Valida o domínio
+                hotelAtualizado.setNome(novoNome); // Aplica a mudanca
+                break;
+            }
+            case 2: {
+                novoValorStr = solicitarNovoValor("Digite o NOVO Endereco: ");
+                Endereco novoEndereco(novoValorStr); // Valida o domínio
+                hotelAtualizado.setEndereco(novoEndereco); // Aplica a mudanca
+                break;
+            }
+            case 3: {
+                novoValorStr = solicitarNovoValor("Digite o NOVO Telefone (+DD...): ");
+                Telefone novoTelefone(novoValorStr); // Valida o domínio
+                hotelAtualizado.setTelefone(novoTelefone); // Aplica a mudanca
+                break;
+            }
+            default: {
+                cout << "Opcao invalida." << endl;
+                return;
+            }
+        }
+
+        // 3. Chama o serviço com a entidade atualizada
         if (servicoHotel->editarHotel(hotelAtualizado)) {
-            cout << "\n Hotel com Codigo '" << hotelAtualizado.getCodigo().getValor() << "' editado com sucesso!" << endl;
+            cout << "\n Hotel '" << hotelAtualizado.getNome().getNome() << "' editado com sucesso!" << endl;
         } else {
-            cout << "\n Falha ao editar Hotel. Verifique se o código existe." << endl;
+            cout << "\n Falha ao editar Hotel. O serviço não conseguiu atualizar." << endl;
         }
 
     } catch (const invalid_argument& e) {
-        cout << "\n ERRO DE FORMATO: " << e.what() << endl;
+        cout << "\n ERRO DE FORMATO: Valor invalido para o novo campo. " << e.what() << endl;
     } catch (const runtime_error& e) {
-        cout << "\n ERRO NA EDICAO: " << e.what() << endl;
+        cout << "\n ERRO NA EDICAO: Hotel nao encontrado ou erro de sistema. " << e.what() << endl;
     }
 }
 
@@ -145,6 +203,7 @@ void ControladoraHotel::listarHoteis() {
             cout << "Codigo: " << hotel.getCodigo().getValor() << endl;
             cout << "Nome: " << hotel.getNome().getNome() << endl;
             cout << "Endereco: " << hotel.getEndereco().getEndereco() << endl;
+            cout << "Telefone: " << hotel.getTelefone().getValor() << endl;
         }
         cout << "---------------------------------" << endl;
         cout << "Total de hoteis: " << hoteis.size() << endl;

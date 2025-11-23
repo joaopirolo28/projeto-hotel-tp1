@@ -7,12 +7,19 @@
 #include <sqlite3.h>
 #include <cstdlib>
 #include <string>
+#include <vector>
 
 using namespace std;
+
+static sqlite3 *db_connection = nullptr;
 
 struct GerenteData {
     Gerente result;
     bool found = false;
+};
+
+struct ListaGerentesData {
+    std::vector<Gerente> lista;
 };
 
 static int retrieve_gerente_data(void *data, int argc, char **argv, char **azColName) {
@@ -27,6 +34,25 @@ static int retrieve_gerente_data(void *data, int argc, char **argv, char **azCol
     } catch (const invalid_argument&) {
         return 1;
     }
+    return 0;
+}
+
+static int retrieve_all_gerentes(void *data, int argc, char **argv, char **azColName) {
+    ListaGerentesData *pData = (ListaGerentesData*)data;
+
+    try {
+        Gerente g;
+        g.setEmail(Email(argv[0] ? argv[0] : ""));
+        g.setNome(Nome(argv[1] ? argv[1] : ""));
+        g.setRamal(Ramal(std::stoi(argv[2] ? argv[2] : "0")));
+        g.setSenha(Senha(argv[3] ? argv[3] : ""));
+
+        pData->lista.push_back(g);
+
+    } catch (...) {
+        return 1;
+    }
+
     return 0;
 }
 
@@ -63,7 +89,6 @@ bool PersistenciaGerente::cadastrar(const Gerente& gerente) {
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
 
-    // Retorna false se houver violação de chave primária ou outro erro
     if (rc == SQLITE_CONSTRAINT) return false;
     return rc == SQLITE_OK;
 }
@@ -81,12 +106,20 @@ Gerente PersistenciaGerente::consultar(const Email& email) {
         throw runtime_error("Gerente nao encontrado.");
     return data.result;
 }
-/*
+
 bool PersistenciaGerente::autenticar(const Email& email, const Senha& senha) {
-    // Logica para buscar a senha no SQLite e comparar com a senha fornecida
-    return true;
+    try {
+        Gerente gerenteNoBanco = consultar(email);
+
+        if (gerenteNoBanco.getSenha().getSenha() == senha.getSenha()) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (const runtime_error& e) {
+        return false;
+    }
 }
-*/
 
 bool PersistenciaGerente::editar(const Gerente& gerente) {
     char *sql = sqlite3_mprintf(
@@ -99,23 +132,28 @@ bool PersistenciaGerente::editar(const Gerente& gerente) {
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
 
-    // Verifica se houve linhas afetadas (registro editado)
     return rc == SQLITE_OK && sqlite3_changes(this->db_connection) > 0;
 }
 
 bool PersistenciaGerente::excluir(const Email& email) {
-   char *sql = sqlite3_mprintf(
+    char *sql = sqlite3_mprintf(
         "DELETE FROM GERENTES WHERE EMAIL='%q';",
         email.getEmail().c_str()
     );
     int rc = sqlite3_exec(this->db_connection, sql, nullptr, nullptr, nullptr);
     sqlite3_free(sql);
 
-    // Verifica se houve linhas afetadas (registro excluído)
     return rc == SQLITE_OK && sqlite3_changes(this->db_connection) > 0;
 }
 
 std::vector<Gerente> PersistenciaGerente::listarTodos() {
-    // Implementação pendente: Requer callback para lista.
-    throw runtime_error("Listar todos os Gerentes nao implementado.");
+    ListaGerentesData data;
+    const char *sql = "SELECT EMAIL, NOME, RAMAL, SENHA FROM GERENTES;";
+
+    int rc = sqlite3_exec(this->db_connection, sql, retrieve_all_gerentes, &data, nullptr);
+
+    if (rc != SQLITE_OK) {
+        throw runtime_error("Erro ao listar todos os Gerentes.");
+    }
+    return data.lista;
 }

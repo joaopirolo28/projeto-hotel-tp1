@@ -1,53 +1,70 @@
 #include "dominios/senha.hpp"
+#include <iostream>
+#include <stdexcept>
+#include <string>
+#include <algorithm>
+#include <cctype>
 
-void Senha::validar(string senha){
-    if(senha.size() != 5){
-        throw invalid_argument("Tamanho incorreto");
+using namespace std;
+
+
+void Senha::validar(string valor) {
+    if (valor.length() != 5) {
+        throw invalid_argument("Tamanho incorreto. A senha deve ter 5 caracteres.");
     }
 
-    int qntm = 0;
-    int qntM = 0;
-    int qntd = 0;
-
-    for(int i = 0; i < senha.size(); i++){
-        char c = senha[i];
+    bool hasUpper = false;
+    bool hasLower = false;
+    bool hasDigit = false;
+    bool hasSpecial = false;
 
 
-        if(!isalnum(c) && !especiais[c]){
-            throw invalid_argument("Senha invalida");
-        }
+    const string especiais = "!\"#$%&?";
 
-        if(isdigit(c)){
-            qntd++;
-        }else if(isalpha(c)){
-            if(isupper(c)){
-                qntM++;
-            }else{
-                qntm++;
+
+    int seqTracker = 0;
+
+    for (size_t i = 0; i < valor.length(); ++i) {
+        char c = valor[i];
+
+        if (isalpha(c)) {
+            if (seqTracker == 1) {
+                throw invalid_argument("Letra nao pode ser seguida por outra letra.");
             }
+            if (isupper(c)) hasUpper = true;
+            else hasLower = true;
+            seqTracker = 1;
         }
-
-        if(isdigit(c) && isdigit(senha[i+1]) && (i+1) < senha.size()){
-            throw invalid_argument("Nao pode ter digito seguido");
+        else if (isdigit(c)) {
+            if (seqTracker == 2) {
+                throw invalid_argument("Digito nao pode ser seguido por outro digito.");
+            }
+            hasDigit = true;
+            seqTracker = 2;
         }
-
-        if(isalpha(c) && isalpha(senha[i+1]) && (i+1) < senha.size()){
-            throw invalid_argument("Nao pode ter letra seguido");
+        else if (especiais.find(c) != string::npos) {
+            hasSpecial = true;
+            seqTracker = 0;
         }
-
+        else {
+            throw invalid_argument("Caracter invalido ou nao permitido na sequencia.");
+        }
     }
-    if(qntd == 0 || qntM == 0 || qntm == 0){
-        throw invalid_argument("Deve ter pelo menos uma letra minuscula, uma minuscula e um digito");
-    }
+
+
+    if (!hasUpper) throw invalid_argument("A senha deve ter pelo menos uma maiuscula.");
+    if (!hasLower) throw invalid_argument("A senha deve ter pelo menos uma minuscula.");
+    if (!hasDigit) throw invalid_argument("A senha deve ter pelo menos um digito.");
+    if (!hasSpecial) throw invalid_argument("A senha deve ter pelo menos um caractere especial.");
 }
 
-void Senha::setSenha(string senha){
-    validar(senha);
-    this->senha = senha;
+void Senha::setSenha(string valor) {
+    validar(valor);
+    this->senha = valor;
 }
 
-Senha::Senha(){}
+Senha::Senha() {}
 
-Senha::Senha(string senha){
-    this->setSenha(senha);
+Senha::Senha(string valor) {
+    this->setSenha(valor);
 }

@@ -1,7 +1,7 @@
 /**
  * @file ControladoraHospede.hpp
- * @brief Definição da classe concreta para a Controladora de Gerenciamento de Hóspedes (CRUD).
- * @author João Pedro
+ * @brief DefiniÃ§Ã£o da classe concreta para a Controladora de Gerenciamento de HÃ³spedes (CRUD).
+ * @author JoÃ£o Pedro
  * @date 22/11/2025
  */
 
@@ -16,66 +16,66 @@
 #include <vector>
 
 /**
- * @brief Implementação concreta da interface IControladoraHospede.
- * @details Esta classe é responsável por interagir diretamente com o usuário
- * (via console), coletar dados do Hóspede (Nome, Endereço, Cartão, Email),
- * validar o formato usando Domínios e chamar os métodos correspondentes
- * na Camada de Serviço (IServicoHospede) para realizar as operações de CRUD.
+ * @brief ImplementaÃ§Ã£o concreta da interface IControladoraHospede.
+ * @details Esta classe Ã© responsÃ¡vel por interagir diretamente com o usuÃ¡rio
+ * (via console), coletar dados do HÃ³spede (Nome, EndereÃ§o, CartÃ£o, Email),
+ * validar o formato usando DomÃ­nios e chamar os mÃ©todos correspondentes
+ * na Camada de ServiÃ§o (IServicoHospede) para realizar as operaÃ§Ãµes de CRUD.
  */
 class ControladoraHospede : public IControladoraHospede {
 private:
     /**
-     * @brief Ponteiro inteligente para o Serviço de Gerenciamento de Hóspedes.
-     * @details Usado para chamar as operações de negócio (CRUD).
+     * @brief Ponteiro para o ServiÃ§o de Gerenciamento de HÃ³spedes.
+     * @details Usado para chamar as operaÃ§Ãµes de negÃ³cio (CRUD).
      */
     IServicoHospede* servicoHospede;
 
 public:
     /**
      * @brief Construtor da ControladoraHospede.
-     * @details Implementa a Injeção de Dependência, recebendo a posse do serviço
-     * de Hóspedes.
-     * @param sHospede Ponteiro inteligente para o Serviço de Hóspedes (posse é movida).
+     * @details Implementa a InjeÃ§Ã£o de DependÃªncia, recebendo o serviÃ§o
+     * de HÃ³spedes.
+     * @param sHospede Ponteiro para o ServiÃ§o de HÃ³spedes.
      */
     ControladoraHospede(IServicoHospede* sHospede);
 
     /**
-     * @brief Inicia o fluxo de operações de CRUD de Hóspedes.
-     * @details Exibe o menu de opções (Cadastro, Consulta, Edição, Exclusão, Listagem).
+     * @brief Inicia o fluxo de operaÃ§Ãµes de CRUD de HÃ³spedes.
+     * @details Exibe o menu de opÃ§Ãµes (Cadastro, Consulta, EdiÃ§Ã£o, ExclusÃ£o, Listagem).
      */
     void executar() override;
 
 private:
     /**
-     * @brief Coleta dados (Nome, Endereço, Cartão, Email) e chama o serviço para cadastrar um novo Hóspede.
+     * @brief Coleta dados (Nome, EndereÃ§o, CartÃ£o, Email) e chama o serviÃ§o para cadastrar um novo HÃ³spede.
      */
     void cadastrarHospede();
 
     /**
-     * @brief Coleta o Email do Hóspede e chama o serviço para consultar e exibir o Hóspede.
+     * @brief Coleta o Email do HÃ³spede e chama o serviÃ§o para consultar e exibir o HÃ³spede.
      */
     void consultarHospede();
 
     /**
-     * @brief Coleta dados atualizados e chama o serviço para editar um Hóspede existente.
+     * @brief Coleta dados atualizados e chama o serviÃ§o para editar um HÃ³spede existente.
      */
     void editarHospede();
 
     /**
-     * @brief Coleta o Email do Hóspede e chama o serviço para excluir o Hóspede.
-     * @details A exclusão deve ser verificada pelo serviço para garantir que não existam Reservas ativas.
+     * @brief Coleta o Email do HÃ³spede e chama o serviÃ§o para excluir o HÃ³spede.
+     * @details A exclusÃ£o deve ser verificada pelo serviÃ§o para garantir que nÃ£o existam Reservas ativas.
      */
     void excluirHospede();
 
     /**
-     * @brief Chama o serviço para listar e exibir todos os Hóspedes cadastrados.
+     * @brief Chama o serviÃ§o para listar e exibir todos os HÃ³spedes cadastrados.
      */
     void listarHospedes();
 
     /**
-     * @brief Função auxiliar para coletar todos os dados necessários de um Hóspede.
+     * @brief FunÃ§Ã£o auxiliar para coletar todos os dados necessÃ¡rios de um HÃ³spede.
      * @return Um objeto Hospede preenchido.
-     * @throw std::invalid_argument Se o formato de algum Domínio (Email, Nome, Cartão, Endereço) for inválido.
+     * @throw std::invalid_argument Se o formato de algum DomÃ­nio (Email, Nome, CartÃ£o, EndereÃ§o) for invÃ¡lido.
      */
     Hospede coletarDadosHospede();
 };

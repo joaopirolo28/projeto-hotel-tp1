@@ -53,7 +53,7 @@ class Senha{
          * @brief Retorna o valor atual da senha.
          * @return Uma string contendo a senha.
          */
-        string getSenha();
+        string getSenha() const;
         /**
          * @brief Define o valor da senha após validação.
          * @param senha A string contendo a senha a ser definida.
@@ -62,7 +62,7 @@ class Senha{
         void setSenha(string);
 };
 
-inline string Senha::getSenha(){
+inline string Senha::getSenha()const {
     return senha;
 }
 

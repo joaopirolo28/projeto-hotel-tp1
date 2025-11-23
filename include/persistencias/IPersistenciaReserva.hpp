@@ -1,24 +1,24 @@
 /**
  * @file IPersistenciaReserva.hpp
- * @brief DefiniÁ„o da interface de persistÍncia (Contrato) para a entidade Reserva.
- * @author Jo„o Pedro
+ * @brief Defini√ß√£o da interface de persist√™ncia (Contrato) para a entidade Reserva.
+ * @author Jo√£o Pedro
  * @date 21 de novembro de 2025
  */
 #ifndef IPERSISTENCIARESERVA_HPP
 #define IPERSISTENCIARESERVA_HPP
 
-#include "dominios/dominios.hpp"
-#include "entidades/entidades.hpp"
+#include "dominios/dominios.hpp" // Cont√©m Codigo, Email, Numero
+#include "entidades/entidades.hpp" // Cont√©m Reserva
 #include <stdexcept>
 #include <vector>
 
 using namespace std;
 
 /**
- * @brief Interface Abstrata para PersistÍncia de Dados da Reserva.
- * @details Define o contrato CRUD para a entidade Reserva. Esta interface È usada
- * pelas Controladoras (ServiÁos) para acessar dados, suportando a lÛgica de negÛcio
- * de verificaÁ„o de conflito de datas e consistÍncia de exclus„o.
+ * @brief Interface Abstrata para Persist√™ncia de Dados da Reserva.
+ * @details Define o contrato CRUD para a entidade Reserva. Esta interface √© usada
+ * pelos Servi√ßos para acessar dados, suportando a l√≥gica de neg√≥cio
+ * de verifica√ß√£o de conflito de datas e consist√™ncia de exclus√£o.
  */
 class IPersistenciaReserva {
     public:
@@ -28,46 +28,46 @@ class IPersistenciaReserva {
         virtual ~IPersistenciaReserva() {}
 
         /**
-         * @brief Armazena uma nova Reserva no repositÛrio de dados.
+         * @brief Armazena uma nova Reserva no reposit√≥rio de dados.
          * @param reserva O objeto Reserva a ser persistido.
-         * @return true se o cadastro for bem-sucedido, false caso contr·rio (chave duplicada).
+         * @return true se o cadastro for bem-sucedido, false caso contr√°rio (chave duplicada).
          */
         virtual bool cadastrar(const Reserva& reserva) = 0;
 
         /**
-         * @brief Consulta uma Reserva pelo seu cÛdigo.
-         * @param codigo O cÛdigo da Reserva (chave prim·ria).
+         * @brief Consulta uma Reserva pelo seu c√≥digo.
+         * @param codigo O c√≥digo da Reserva (chave prim√°ria).
          * @return O objeto Reserva se encontrado.
-         * @throw std::runtime_error Se a Reserva n„o for encontrada.
+         * @throw std::runtime_error Se a Reserva n√£o for encontrada.
          */
         virtual Reserva consultar(const Codigo& codigo) = 0;
 
         /**
-         * @brief Edita uma Reserva existente no repositÛrio de dados.
+         * @brief Edita uma Reserva existente no reposit√≥rio de dados.
          * @param reserva O objeto Reserva com os dados atualizados.
-         * @return true se a ediÁ„o for bem-sucedida, false caso contr·rio.
+         * @return true se a edi√ß√£o for bem-sucedida, false caso contr√°rio.
          */
         virtual bool editar(const Reserva& reserva) = 0;
 
         /**
-         * @brief Exclui uma Reserva pelo seu cÛdigo.
-         * @param codigo O cÛdigo da Reserva a ser excluÌdo.
-         * @return true se a exclus„o for bem-sucedida, false caso contr·rio.
+         * @brief Exclui uma Reserva pelo seu c√≥digo.
+         * @param codigo O c√≥digo da Reserva a ser exclu√≠do.
+         * @return true se a exclus√£o for bem-sucedida, false caso contr√°rio.
          */
         virtual bool excluir(const Codigo& codigo) = 0;
 
         /**
-         * @brief Retorna a lista de Reservas de um hÛspede especÌfico.
-         * @param emailHospede O Email do HÛspede para filtro.
+         * @brief Retorna a lista de Reservas de um h√≥spede espec√≠fico.
+         * @param emailHospede O Email do H√≥spede para filtro.
          * @return Um vetor (vector) de objetos Reserva.
          */
         virtual std::vector<Reserva> listarPorHospede(const Email& emailHospede) = 0;
 
         /**
-         * @brief Lista todas as reservas associadas a um Quarto especÌfico.
-         * @details Usado para verificar conflito de datas e consistÍncia na exclus„o de Quarto.
-         * @param codigoHotel O cÛdigo do Hotel onde o quarto est·.
-         * @param numeroQuarto O n˙mero do Quarto.
+         * @brief Lista todas as reservas associadas a um Quarto espec√≠fico.
+         * @details Usado para verificar conflito de datas (l√≥gica de neg√≥cio) e consist√™ncia na exclus√£o de Quarto.
+         * @param codigoHotel O c√≥digo do Hotel onde o quarto est√°.
+         * @param numeroQuarto O n√∫mero do Quarto.
          * @return Um vetor (vector) de objetos Reserva.
          */
         virtual std::vector<Reserva> listarReservasPorQuarto(const Codigo& codigoHotel, const Numero& numeroQuarto) = 0;
