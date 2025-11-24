@@ -139,7 +139,7 @@ void ControladoraReserva::editarReserva() {
 }
 
 void ControladoraReserva::excluirReserva() {
-    cout << "\n--- EXCLUSÃO DE RESERVA ---" << endl;
+    cout << "\n--- EXCLUSAO DE RESERVA ---" << endl;
     string codigoStr;
     cout << "Digite o Codigo da Reserva a ser excluida: "; cin >> codigoStr;
 
@@ -160,7 +160,7 @@ void ControladoraReserva::excluirReserva() {
 }
 
 void ControladoraReserva::listarReservas() {
-    cout << "\n--- LISTAGEM DE RESERVAS POR HÓSPEDE ---" << endl;
+    cout << "\n--- LISTAGEM DE RESERVAS POR HOSPEDE ---" << endl;
     string emailHospedeStr;
     cout << "Digite o Email do Hospede para listar as reservas: "; cin >> emailHospedeStr;
 
